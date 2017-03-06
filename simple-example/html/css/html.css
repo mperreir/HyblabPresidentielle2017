@@ -1,0 +1,26 @@
+/* Lets style some of the HTML elements
+They are already styled by bootstrap, but we can add our own customizations */
+
+body {
+    background-color: #F0F0F0;
+}
+
+#PlaceDisponibles{
+    max-width : 720px;
+    height: 500px;
+}
+
+del{
+  color: #900000;
+}
+
+header, footer{
+  text-align: center;
+  padding : 5px 0px
+}
+
+.bartooltip {
+  background-color : #F0F0F0;
+  border-radius : 8px;
+  padding : 4px;
+}

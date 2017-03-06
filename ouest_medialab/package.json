@@ -1,0 +1,11 @@
+{
+  "name": "auran",
+  "version": "1.0.0",
+  "description": "Projet hyblab DDJ 2017",
+  "main": "server.js",
+  "repository": "",
+  "author": "",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}

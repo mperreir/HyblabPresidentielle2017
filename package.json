@@ -1,0 +1,14 @@
+{
+  "name": "HyblabRouting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.10.2"
+  },
+  "author": "",
+  "license": "MIT"
+}
