@@ -7,8 +7,56 @@ var path = require('path');
 
 var app = express();
 
+var fs = require('fs');
+
+app.get("/", (req, res) => {
+	console.log("Page principale");
+	res.send("Hello world this is the home page");
+});
+
+// GET bureaux
+app.get("/bureaux", (req, res) => {
+	console.log("Chargement des bureaux...");
+	fs.readFile('data.json', 'utf8', function (err, data) {
+	    if (err) throw err; // à voir 
+	    var obj = JSON.parse(data);
+	    res.write(obj.bureaux[0].id);
+	    res.send();
+	});
+});
+
+// Ajout assesseurs
+app.post("/assesseurs/:id", (req, res) => {
+	console.log("Ajout d'un assesseurs...");
+	fs.readFile('data.json', 'utf8', function (err, data) {
+	    if (err) throw err; // à voir 
+	    var obj = JSON.parse(data);
+	    var nbAssesseurs = obj.assesseurs.length;
+	    obj.assesseurs[nbAssesseurs+1].id = req.params.id;
+	    // ajout des autres caractéristiques de l'objet bureau
+
+	    // Écriture du nouveau fichier
+	    fs.writeFile('data.json', JSON.stringify(obj));
+	});
+});
+
+// La page des assesseurs validé sur un bureau
+app.get("/bureaux/assesseurs", (req, res) => {
+ // TODO
+});
+
+// La page des stats globales sur les assesseurs
+app.get("/assesseurs", (req, res) => {
+ // TODO
+});
+
+// a changer
+app.listen(8080);
+
+
+
 // Minimum routing: serve static content from the html directory
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 
 // You can then add whatever routing code you need
 
