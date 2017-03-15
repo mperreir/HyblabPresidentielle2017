@@ -17,6 +17,7 @@ Patricipants :
 
 
 EDNA : Camille, Kevin et Margaux
+
 Polytech : Aurélien, Jimmy, Tom et Quentin 
 
 # Installation
