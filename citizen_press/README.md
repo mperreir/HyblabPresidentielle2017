@@ -1,12 +1,20 @@
 # Descriptif du projet
 
-Média :
+Média : CitizenPress
 
-Sujet :
+Sujet : Les assesseurs et scrutateurs
 
-Equipe :
+Equipe : Les Dépouilleurs
 
-Patricipants :
+Patricipants : 
+- Quentin Billaud
+- Jimmy Doré
+- Aurélien Gauvrit
+- Margaux Leroy
+- Camille Masset
+- Tom Marrucci
+- Kevin Monteau
+
 
 - EDNA :
 - Polytech :  
