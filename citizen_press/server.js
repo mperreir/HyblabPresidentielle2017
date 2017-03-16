@@ -30,6 +30,11 @@ app.get("/bureaux/:id", (req, res) => {
 
 });
 
+// La page du formulaire
+app.get("/bureaux/:id/inscription" , (req, res) => {
+	
+});
+
 // Ajout assesseurs
 app.post("/assesseurs/:id", (req, res) => {
 	console.log("Ajout d'un assesseurs...");
