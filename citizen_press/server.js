@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 	res.send("Hello world this is the home page");
 });
 
-// GET bureaux
+// GET bureaux (pour la map)
 app.get("/bureaux", (req, res) => {
 	console.log("Chargement des bureaux...");
 	fs.readFile('data.json', 'utf8', function (err, data) {
@@ -36,8 +36,13 @@ app.get("/bureaux", (req, res) => {
 	});
 });
 
-// GET informations bureaux (pour récupérer les informations lors de l'inscription)
+// GET informations sur un bureau (pour récupérer les informations lors de l'inscription)
 app.get("/bureaux/:id", (req, res) => {
+
+});
+
+// La page du formulaire d'inscription
+app.get("/bureaux/:id/inscription" , (req, res) => {
 
 });
 
@@ -56,7 +61,7 @@ app.post("/assesseurs/:id", (req, res) => {
 	});
 });
 
-// La page des assesseurs validé sur un bureau
+// La page de connexion  d'un président
 app.get("/connexion", (req, res) => {
  // TODO
 });
@@ -66,7 +71,7 @@ app.get("/bureaux/:id/assesseurs", (req, res) => {
  // TODO
 });
 
-// La page des stats globales sur les assesseurs
+// La page des statistique globales sur les assesseurs
 app.get("/assesseurs", (req, res) => {
  // TODO
 });
