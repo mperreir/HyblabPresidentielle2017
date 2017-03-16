@@ -9,7 +9,7 @@ $(document).ready(function(){
 	var longitudes_POI = new Array();
 
 
-		var is_internetExplorer11= navigator.userAgent.toLowerCase().indexOf('trident') > -1;
+	var is_internetExplorer11= navigator.userAgent.toLowerCase().indexOf('trident') > -1;
 	
     
     var $marker_url = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
@@ -89,7 +89,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	    	var numBureau = 1;
 		    data.forEach(function(bureau) {
 		    	// TODO CHANGE ADRESSE PAR COORDONNÉES
-				placerMarqueur(bureau.latitude, bureau.longitude, numBureau);
+				placerMarqueur(bureau.latitude, bureau.longitude, numBureau, data.length);
 				numBureau++;
 			});
 	      	console.log("process sucess");
@@ -123,7 +123,7 @@ function CustomZoomControl(controlDiv, map) {
 	map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
    
 
-	function placerMarqueur(latitude_POI, longitude_POI, numBureau) {
+	function placerMarqueur(latitude_POI, longitude_POI, numBureau, nbBureau) {
 		var marker = new google.maps.Marker({
 		  	position: new google.maps.LatLng(latitude_POI, longitude_POI),
 		    map: map,
@@ -138,11 +138,12 @@ function CustomZoomControl(controlDiv, map) {
 		    $("#google-container").css("width", "55%");
 		    $("#google-container").css("height", "90vh");
 		    $("#google-container").css("transition-delay", "1s");
-		    // TODO à changer
-		    $(".POI01").css("display", "none");
-		    $(".POI03").css("display", "none");
-		    $(".POI04").css("display", "none");
-		    $(".POI05").css("display", "none");
+		    for (var i = 1; i <= nbBureau; i++) {
+		    	if (i != numBureau) {
+		    		$(".POI0"+i).css("display", "none");
+		    	}
+		    }
+		    
 		    
 		    navigator.geolocation.getCurrentPosition(function(position) {
 		    
