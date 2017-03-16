@@ -9,17 +9,6 @@ var app = express();
 
 var fs = require('fs');
 
-app.use('/', express.static('public'));
-// Création du serveur web pour notre application sur le port 8080
-var server = app.listen(8080, function () {
-
-  var host = server.address().address;
-  var port = server.address().port;
-
-  console.log('Application lancée à l\'adresse suivante http://%s:%s', host, port);
-
-});
-
 app.get("/", (req, res) => {
 	console.log("Page principale");
 	res.send();

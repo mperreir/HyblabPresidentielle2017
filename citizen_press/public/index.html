@@ -1,40 +1,95 @@
 <!DOCTYPE html>
-<html lang="fr"> <!-- Notre page est en français -->
-  <head>
-    <!-- Il est obligatoire de préciser un encodage de caractères et un titre pour la page -->
-    <meta charset="utf-8">
-    <title>Hyblab 2017</title>
-		<!-- Basic viewport setting for mobile friendly page -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Déclaration de la feuille de style du document-->
-    <link rel="stylesheet" href="css/style.css">
-		<!-- Those polyfills are required so that old browsers support fetch mecanism -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.0.5/es6-promise.min.js" defer ></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.1/fetch.min.js" defer></script>
-		<!-- Simple sample script that loads data from a dummy json file -->
-		<script src="js/example.js" defer></script>
-  </head>
-  <body>
-    <!-- Ce conteneur est la seule balise div que l'on s'autorise pour effectuer la mise en page du site -->
-    <!-- On pourrait bien sûr en ajouter d'autres pour se faciliter la mise en page -->
-    <!-- Mais on va s'efforce de respecter et brouiller le moins possible la structure logique du contenu -->
-    <div id="container">
-
-    <!-- l'entête de la page: titre, barre de recherche -->
-    <header>
-			<img src="img/logo_hyblab.png" alt="logo hyblab"/>
-      <h1>Hyblab Datajournalism 2017</h1>
-    </header>
-
-    <!-- Le contenu du site -->
-    <p>Replace this content by your web app !</p>
-
-		<p>Here is some data from a json file : <span id="data"></span><p>
-
-    <!-- Notre pied de page -->
-    <footer>
-      <p>Copyright Hyblab team 2017</p>
+<html>
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name=”author” content="">
+    <meta name="keyword" content="">
+    <meta name="description" content= "">
+    <title>| HybLab |</title>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0othcEZUsFnDRiRQM2rZlNH1jBliT--o&callback=initialisation"></script>
+    <link href="https://fonts.googleapis.com/css?family=Anaheim" rel="stylesheet">
+</head>
+<body>
+<!--------------POI01------------>
+    <section class="POI01">
+        <div class="fermer"></div>
+        <div class="header">
+            <div class="adress">
+                <h5>5E CANTON (9)</h5>
+                <h6>Ecole primaire</h6>
+                <h6>12 Rue des Réformes</h6>
+                <h6>44000 Nantes</h6>
+            </div>
+            <div class="office">
+                <h3>BUREAU DE VOTE</h3>
+                <button>N°601<img src=""></button>
+            </div>
+        </div>
+        <div class="data-container">
+            
+        </div>
+        
+        <div class="other">
+            <h1>CE BUREAU A BESOIN DE VOUS !</h1>
+            <button>Je m'inscris</button>
+        </div>
+    </section>
+    
+<!--------------POI02------------>
+    <section class="POI02">
+        <div class="fermer"></div>
+        <div class="header">
+            <div class="adress">
+                <h5>4E CANTON (8)</h5>
+                <h6>Salle des fêtes</h6>
+                <h6>04 Rue Fédeau</h6>
+                <h6>44000 Nantes</h6>
+            </div>
+            <div class="office">
+                <h3>BUREAU DE VOTE</h3>
+                <button>N°520<img src=""></button>
+            </div>
+        </div>
+        <div class="data-container">
+            
+        </div>
+        
+        <div class="other">
+            <h1>CE BUREAU A BESOIN DE VOUS !</h1>
+            <button>Je m'inscris</button>
+        </div>
+    </section>
+    
+    <footer class="POI01-F">
+        <div class="done"></div>
+        <div class="done"></div>
+        <div class="done"></div>
+        <div></div>
+        <div></div>
     </footer>
-    </div>
-  </body>
+
+	       <div id="google-container"></div>
+	       <div id="cd-zoom-in"></div>
+	       <div id="cd-zoom-out"></div>
+      
+    
+    
+    
+        
+ <!------------------MAPS-----------------   
+    <section id="cd-google-map">
+        <div id="google-container"></div>
+        <div id="cd-zoom-in"></div>
+        <div id="cd-zoom-out"></div>
+    </section>
+
+-->
+    
+<script src="main.js"></script>
+
+        
+    </body>
 </html>

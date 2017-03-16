@@ -1,0 +1,51 @@
+{
+"bureaux": [
+	{
+		"id": "idBureau1",
+		"adresse": "45 rue Polytech",
+		"president": "idPresident1",
+		"assesseurs": [
+		{
+			"id": "idAsse1",
+			"creneauDebut": 8,
+			"creneauFin": 12,
+			"valide": true
+		},
+		{
+			"id": "idAsse2",
+			"creneauDebut": 14,
+			"creneauFin": 17,
+			"valide": false
+		}
+		]
+	}
+	],
+		"assesseurs": [
+		{
+			"id": "idAsse1",
+			"nom": "Berger",
+			"prenom": "Michel",
+			"age": 50,
+			"mail": "michel.berger@hotmail.fr",
+			"sexe": 0
+			},
+			{
+			"id": "idAsse2",
+			"nom": "Dore",
+			"prenom": "Louise",
+			"age": 45,
+			"mail": "louise.dore@hotmail.fr",
+			"sexe": 1
+		}
+		],
+		"presidents": [
+		{
+			"id": "idPresident1",
+			"mdp": "mdpPres1"
+			},
+			{
+			"id": "idPresident2",
+			"mdp": "mdpPres2"
+		}
+	]
+}

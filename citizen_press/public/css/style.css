@@ -1,15 +1,373 @@
-/* just a sample css rule to show that everything works */
-footer p
-{
-  font-size: small;
-  text-align: center;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
 
-header{
-  text-align: center;
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
 }
 
-header img{
-  max-width: 100%;
-	height: auto;
+body {
+	line-height: 1;
 }
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html {
+	box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+a {
+	text-decoration: none;
+    color: inherit;
+    
+}
+/*****************************MAPS*********************************/
+
+html, body {
+    height: 100vh;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+}
+
+.screen {
+    width: 100%;
+    height: 100vh;
+}
+
+
+
+/**************************************MAPS***********************************************/
+
+
+@import "bourbon";
+
+// variables - colors
+
+$main-text: #2d313f; // main text
+$link: #d36868; // anchor tags
+$background: #e7eaf0; // body background color
+
+$color-1: #2d313f; // blue
+$color-2: #d36868; // red
+$color-3: #ffffff; // white
+
+// variables - fonts 
+
+$primary-font: 'Lora', serif;
+
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+// layout - breakpoints
+  
+$S:     320px;   
+$M:     768px;     
+$L:     1170px;         
+
+// layout - media queries
+
+@mixin MQ($canvas) {
+  @if $canvas == S {
+   @media only screen and (min-width: $S) { @content; } 
+  }
+  @else if $canvas == M {
+   @media only screen and (min-width: $M) { @content; } 
+  }
+  @else if $canvas == L {
+   @media only screen and (min-width: $L) { @content; } 
+  }
+}
+
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+
+html * {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+*, *:after, *:before {
+	@include box-sizing(border-box);
+}
+
+body {
+	font: {
+		size: 100%;
+		family: $primary-font; // variables inside partials > _variables.scss
+	}
+	color: $main-text;
+	background-color: $background;
+}
+
+/* -------------------------------- 
+
+Main components 
+
+-------------------------------- */
+
+#google-container {
+    position: relative;
+    margin-top: 0px;
+    width: 100%;
+    height: 100vh;
+    background-color: $background;
+
+    @include MQ(M) {
+    	height: 300px;
+    }
+
+    @include MQ(L) {
+    	height: 600px;
+    }
+}
+
+#cd-google-map {
+	position: relative;
+
+	address {
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		left: 0;
+		padding: 1em 1em;
+		background-color: rgba($color-2, .9);
+		color: $color-3;
+		@include font-size(13px);
+
+		@include MQ(M) {
+			@include font-size(15px);
+			text-align: center;
+		}
+	}
+}
+
+#cd-zoom-in, #cd-zoom-out {
+    display: none;
+	height: 32px;
+	width: 32px;
+	cursor: pointer;
+	margin-left: 10px;
+	background-color: rgba($color-2, .9);
+	background-repeat: no-repeat;
+	background-size: 32px 64px;
+	background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-controller.svg');
+
+	.no-touch &:hover {
+		background-color: rgba($color-2, 1);
+	}
+
+	@include MQ(M) {
+		margin-left: 50px;
+	}
+}
+
+#cd-zoom-in {
+	background-position: 50% 0;
+	margin-top: 10px;
+	margin-bottom: 1px;
+
+	@include MQ(M) {
+		margin-top: 50px;
+	}
+}
+
+#cd-zoom-out {
+	background-position: 50% -32px;
+}
+
+/****************************STYLE*******************************/
+
+section {
+    position: fixed;
+    z-index: 2;
+    height: 100vh;
+    background-color: #FFF;
+    width: 45%;
+    right: 0;
+    font-family: lato;
+}
+
+.fermer {
+    width: 50px;
+    position: absolute;
+    left: -25px;
+    top : 300px;
+    height: 50px;
+    background-color: #478CF4; 
+}
+
+#google-container {
+    transition-delay: 1s;
+}
+
+.POI01 {
+    display: none;
+    animation: key01 0.5s ease-in-out 0.4s both;
+}
+
+.POI02 {
+    display: none;
+    animation: key01 0.5s ease-in-out 0.4s both;
+}
+
+
+.POI01-F {
+    display: none;
+    animation: key02 0.5s ease-in-out 0.4s both;
+}
+
+@keyframes key01 {
+    0%{transform: translateX(45%); opacity: 0;}
+    100%{transform: translateX(0); opacity: 1;}
+}
+
+@keyframes key02 {
+    0%{transform: translateY(45%); opacity: 0;}
+    100%{transform: translateY(0); opacity: 1;}
+}
+
+.header {
+    border-bottom: 1px #787878 solid;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.adress {
+    display: inline-block;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.adress h5 {
+    color: #787878;
+    font-weight: 600;
+}
+
+.adress h6 {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #787878;
+}
+
+.office {
+    float: right;
+    margin-top: 20px;
+    margin-right: 20px;
+    color: #787878;
+}
+
+.office h3 {
+    font-weight: 600;
+}
+
+.office button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    color: #FFF;
+    border: none;
+    background-color: #478CF4;
+    cursor: pointer;
+}
+
+.data-container {
+    height: 55vh;
+}
+
+.other {
+    text-align: center;
+}
+
+.other h1{
+    font-weight: 600;
+    color: #787878;
+}
+
+.other button {
+    padding: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 10px;
+    margin-top: 70px;
+    color: #FFF;
+    border: none;
+    font-size: 15px;
+    background-color: #478CF4;
+}
+
+footer {
+    position: fixed;
+    width: 100%;
+    height: 10vh;
+    bottom: 0;
+    z-index: 3;
+    background-color: #FFF;
+    text-align: center;
+}
+
+footer div {
+    display: inline-block;
+    margin: 5px;
+    margin-top: 25px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px #787878 solid;
+}
+
+.done {
+    background-color: #478CF4;
+}
+
