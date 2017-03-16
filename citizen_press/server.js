@@ -25,6 +25,11 @@ app.get("/bureaux", (req, res) => {
 	});
 });
 
+// GET informations bureaux (pour récupérer les informations lors de l'inscription)
+app.get("/bureaux/:id", (req, res) => {
+
+});
+
 // Ajout assesseurs
 app.post("/assesseurs/:id", (req, res) => {
 	console.log("Ajout d'un assesseurs...");
