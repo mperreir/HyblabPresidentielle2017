@@ -22,7 +22,7 @@ var server = app.listen(8080, function () {
 
 app.get("/", (req, res) => {
 	console.log("Page principale");
-	res.send("Hello world this is the home page");
+	res.send();
 });
 
 // GET bureaux (pour la map)
