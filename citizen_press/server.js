@@ -9,13 +9,13 @@ var app = express();
 
 var fs = require('fs');
 
-app.get("/citizen-press", (req, res) => {
+app.get("/", (req, res) => {
 	console.log("Page principale");
 	res.send("Hello world this is the home page");
 });
 
 // GET bureaux (pour la map)
-app.get("/citizen-press/bureaux", (req, res) => {
+app.get("/bureaux", (req, res) => {
 	console.log("Chargement des bureaux...");
 	fs.readFile('data.json', 'utf8', function (err, data) {
 	    if (err) throw err; // à voir 
@@ -26,17 +26,17 @@ app.get("/citizen-press/bureaux", (req, res) => {
 });
 
 // GET informations sur un bureau (pour récupérer les informations lors de l'inscription)
-app.get("/citizen-press/bureaux/:id", (req, res) => {
+app.get("/bureaux/:id", (req, res) => {
 
 });
 
 // La page du formulaire d'inscription
-app.get("/citizen-press/bureaux/:id/inscription" , (req, res) => {
+app.get("/bureaux/:id/inscription" , (req, res) => {
 
 });
 
 // Ajout assesseurs
-app.post("/citizen-press/assesseurs/:id", (req, res) => {
+app.post("/assesseurs/:id", (req, res) => {
 	console.log("Ajout d'un assesseurs...");
 	fs.readFile('data.json', 'utf8', function (err, data) {
 	    if (err) throw err; // à voir 
@@ -51,17 +51,17 @@ app.post("/citizen-press/assesseurs/:id", (req, res) => {
 });
 
 // La page de connexion  d'un président
-app.get("/citizen-press/connexion", (req, res) => {
+app.get("/connexion", (req, res) => {
  // TODO
 });
 
 // La page des assesseurs validé sur un bureau
-app.get("/citizen-press/bureaux/:id/assesseurs", (req, res) => {
+app.get("/bureaux/:id/assesseurs", (req, res) => {
  // TODO
 });
 
 // La page des statistique globales sur les assesseurs
-app.get("/citizen-press/assesseurs", (req, res) => {
+app.get("/assesseurs", (req, res) => {
  // TODO
 });
 
