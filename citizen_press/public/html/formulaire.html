@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+		<title>Formulaire</title>
+	</head>
+
+	<body>
+        <h1>Inscription</h1>
+        <p>Rentrez les informations nécessaires à votre participation. Les astériques * sont obligatoires.</p>
+		<form>
+			<label>*Civilité</label>
+			<select name="pays" id="pays">
+				<option value="monsieur">Monsieur</option>
+				<option value="madame" selected>Madame</option>
+       		</select>
+			<label>*Nom</label>
+			<input type="text" name="nom" id="nom" autofocus required="required"/>
+			<label>*Prénon</label>
+			<input type="text" name="prénon" id="prénom" required="required"/>
+			<label>*Date de naissance</label>
+			<input type="date" name="naissance" id="naissance"required="required"/>
+			<label>*E-mail</label>
+			<input type="email" name="email" id="email" required="required"/>
+			<label>Mobile</label>
+			<input type="tel" name="mobile" id="mobile"/>
+            <input type="checkbox" name="autorisation" id="autorisation" /> 
+            <label for="autorisation">J'autorise lejourduvote.com à conserver mes informations de manière à me recontacter ou m'envoyer des rappels lors de prochaines élections</label>
+            <button>Je valide</button>
+		</form>
+	</body>
+
+</html>
