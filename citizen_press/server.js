@@ -61,7 +61,7 @@ app.get("/bureaux/:id/assesseurs", (req, res) => {
 });
 
 // La page des statistique globales sur les assesseurs
-app.get("/assesseurs", (req, res) => {
+app.get("/	assesseurs", (req, res) => {
  // TODO
 });
 
