@@ -41,7 +41,12 @@ app.post("/assesseurs/:id", (req, res) => {
 });
 
 // La page des assesseurs validé sur un bureau
-app.get("/bureaux/assesseurs", (req, res) => {
+app.get("/connexion", (req, res) => {
+ // TODO
+});
+
+// La page des assesseurs validé sur un bureau
+app.get("/bureaux/:id/assesseurs", (req, res) => {
  // TODO
 });
 
