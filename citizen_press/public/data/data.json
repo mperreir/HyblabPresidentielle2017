@@ -4,6 +4,7 @@
       "id": "111",
       "adresse": "2 Rue du Cheval Blanc",
       "president": "idPresident0",
+      "nom_lieu": "Ecole Maternelle Molière",
       "assesseurs": [
         {
           "id": "idAsse0",
@@ -61,6 +62,7 @@
       "id": "112",
       "adresse": "2 Rue du Cheval Blanc",
       "president": "idPresident1",
+      "nom_lieu": "Ecole Maternelle Molière",
       "assesseurs": [
         {
           "id": "idAsse10",
@@ -118,6 +120,7 @@
       "id": "idBureau121",
       "adresse": "12 Boulevard Stalingrad",
       "president": "idPresident2",
+      "nom_lieu":"Groupe Scolaire Stalingrad",
       "assesseurs": [
         {
           "id": "idAsse20",
