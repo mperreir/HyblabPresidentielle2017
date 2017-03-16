@@ -1,51 +1,518 @@
 {
-"bureaux": [
-	{
-		"id": "idBureau1",
-		"adresse": "45 rue Polytech",
-		"president": "idPresident1",
-		"assesseurs": [
-		{
-			"id": "idAsse1",
-			"creneauDebut": 8,
-			"creneauFin": 12,
-			"valide": true
-		},
-		{
-			"id": "idAsse2",
-			"creneauDebut": 14,
-			"creneauFin": 17,
-			"valide": false
-		}
-		]
-	}
-	],
-		"assesseurs": [
-		{
-			"id": "idAsse1",
-			"nom": "Berger",
-			"prenom": "Michel",
-			"age": 50,
-			"mail": "michel.berger@hotmail.fr",
-			"sexe": 0
-			},
-			{
-			"id": "idAsse2",
-			"nom": "Dore",
-			"prenom": "Louise",
-			"age": 45,
-			"mail": "louise.dore@hotmail.fr",
-			"sexe": 1
-		}
-		],
-		"presidents": [
-		{
-			"id": "idPresident1",
-			"mdp": "mdpPres1"
-			},
-			{
-			"id": "idPresident2",
-			"mdp": "mdpPres2"
-		}
-	]
+  "bureaux": [
+    {
+      "id": "111",
+      "adresse": "2 Rue du Cheval Blanc",
+      "president": "idPresident0",
+      "assesseurs": [
+        {
+          "id": "idAsse0",
+          "valide_assesseur": false,
+          "valide_scrutateur": true
+        },
+        {
+          "id": "idAsse1",
+          "valide_assesseur": true,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse2",
+          "valide_assesseur": true,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse3",
+          "valide_assesseur": false,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse4",
+          "valide_assesseur": false,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse5",
+          "valide_assesseur": false,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse6",
+          "valide_assesseur": false,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse7",
+          "valide_assesseur": false,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse8",
+          "valide_assesseur": false,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse9",
+          "valide_assesseur": false,
+          "valide_scrutateur": false
+        }
+      ]
+    },
+    {
+      "id": "112",
+      "adresse": "2 Rue du Cheval Blanc",
+      "president": "idPresident1",
+      "assesseurs": [
+        {
+          "id": "idAsse10",
+          "valide_assesseur": false,
+          "valide_scrutateur": true
+        },
+        {
+          "id": "idAsse11",
+          "valide_assesseur": true,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse12",
+          "valide_assesseur": false,
+          "valide_scrutateur": true
+        },
+        {
+          "id": "idAsse13",
+          "valide_assesseur": true,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse14",
+          "valide_assesseur": false,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse15",
+          "valide_assesseur": false,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse16",
+          "valide_assesseur": false,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse17",
+          "valide_assesseur": false,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse18",
+          "valide_assesseur": false,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse19",
+          "valide_assesseur": false,
+          "valide_scrutateur": false
+        }
+      ]
+    },
+    {
+      "id": "idBureau121",
+      "adresse": "12 Boulevard Stalingrad",
+      "president": "idPresident2",
+      "assesseurs": [
+        {
+          "id": "idAsse20",
+          "valide_assesseur": true,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse21",
+          "valide_assesseur": true,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse22",
+          "valide_assesseur": true,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse23",
+          "valide_assesseur": false,
+          "valide_scrutateur": true
+        },
+        {
+          "id": "idAsse24",
+          "valide_assesseur": false,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse25",
+          "valide_assesseur": false,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse26",
+          "valide_assesseur": false,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse27",
+          "valide_assesseur": false,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse28",
+          "valide_assesseur": false,
+          "valide_scrutateur": false
+        },
+        {
+          "id": "idAsse29",
+          "valide_assesseur": false,
+          "valide_scrutateur": false
+        }
+      ]
+    }
+  ],
+  "assesseurs": [
+    {
+      "id": "idAsse0",
+      "nom": "Lilian",
+      "prenom": "Holmes",
+      "age": 45,
+      "mail": "lilianholmes@extro.com",
+      "tel": "06 14 91 54 5",
+      "sexe": "female",
+      "potentiel_assesseur": false,
+      "potentiel_scrutateur": true
+    },
+    {
+      "id": "idAsse1",
+      "nom": "Vanessa",
+      "prenom": "Stone",
+      "age": 61,
+      "mail": "vanessastone@extro.com",
+      "tel": "06 37 18 22 87",
+      "sexe": "female",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": true
+    },
+    {
+      "id": "idAsse2",
+      "nom": "Roxanne",
+      "prenom": "Gilmore",
+      "age": 26,
+      "mail": "roxannegilmore@extro.com",
+      "tel": "06 11 10 14 24",
+      "sexe": "female",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": false
+    },
+    {
+      "id": "idAsse3",
+      "nom": "Simon",
+      "prenom": "Jensen",
+      "age": 78,
+      "mail": "simonjensen@extro.com",
+      "tel": "06 26 42 65 41",
+      "sexe": "male",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": false
+    },
+    {
+      "id": "idAsse4",
+      "nom": "Mattie",
+      "prenom": "Goodman",
+      "age": 35,
+      "mail": "mattiegoodman@extro.com",
+      "tel": "06 58 66 6 40",
+      "sexe": "female",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": false
+    },
+    {
+      "id": "idAsse5",
+      "nom": "Case",
+      "prenom": "Stephenson",
+      "age": 33,
+      "mail": "casestephenson@extro.com",
+      "tel": "06 78 46 53 27",
+      "sexe": "male",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": false
+    },
+    {
+      "id": "idAsse6",
+      "nom": "Palmer",
+      "prenom": "Conway",
+      "age": 73,
+      "mail": "palmerconway@extro.com",
+      "tel": "06 45 27 76 4",
+      "sexe": "male",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": false
+    },
+    {
+      "id": "idAsse7",
+      "nom": "Rhodes",
+      "prenom": "Mccullough",
+      "age": 59,
+      "mail": "rhodesmccullough@extro.com",
+      "tel": "06 11 16 46 37",
+      "sexe": "male",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": false
+    },
+    {
+      "id": "idAsse8",
+      "nom": "Vargas",
+      "prenom": "Roach",
+      "age": 89,
+      "mail": "vargasroach@extro.com",
+      "tel": "06 99 13 61 21",
+      "sexe": "male",
+      "potentiel_assesseur": false,
+      "potentiel_scrutateur": true
+    },
+    {
+      "id": "idAsse9",
+      "nom": "Dionne",
+      "prenom": "Kline",
+      "age": 50,
+      "mail": "dionnekline@extro.com",
+      "tel": "06 65 70 29 19",
+      "sexe": "female",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": false
+    },
+    {
+      "id": "idAsse10",
+      "nom": "Eliza",
+      "prenom": "Yang",
+      "age": 36,
+      "mail": "elizayang@extro.com",
+      "tel": "06 44 91 62 4",
+      "sexe": "female",
+      "potentiel_assesseur": false,
+      "potentiel_scrutateur": true
+    },
+    {
+      "id": "idAsse11",
+      "nom": "Reyna",
+      "prenom": "Fields",
+      "age": 65,
+      "mail": "reynafields@extro.com",
+      "tel": "06 80 0 81 7",
+      "sexe": "female",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": false
+    },
+    {
+      "id": "idAsse12",
+      "nom": "Gentry",
+      "prenom": "Morales",
+      "age": 78,
+      "mail": "gentrymorales@extro.com",
+      "tel": "06 6 9 86 57",
+      "sexe": "male",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": true
+    },
+    {
+      "id": "idAsse13",
+      "nom": "Laura",
+      "prenom": "Riggs",
+      "age": 67,
+      "mail": "laurariggs@extro.com",
+      "tel": "06 60 79 38 96",
+      "sexe": "female",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": false
+    },
+    {
+      "id": "idAsse14",
+      "nom": "Mcleod",
+      "prenom": "George",
+      "age": 38,
+      "mail": "mcleodgeorge@extro.com",
+      "tel": "06 27 26 29 29",
+      "sexe": "male",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": false
+    },
+    {
+      "id": "idAsse15",
+      "nom": "Richard",
+      "prenom": "Russo",
+      "age": 38,
+      "mail": "richardrusso@extro.com",
+      "tel": "06 34 93 31 59",
+      "sexe": "male",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": false
+    },
+    {
+      "id": "idAsse16",
+      "nom": "Moran",
+      "prenom": "Barker",
+      "age": 50,
+      "mail": "moranbarker@extro.com",
+      "tel": "06 52 38 29 96",
+      "sexe": "male",
+      "potentiel_assesseur": false,
+      "potentiel_scrutateur": true
+    },
+    {
+      "id": "idAsse17",
+      "nom": "Gloria",
+      "prenom": "Sharp",
+      "age": 78,
+      "mail": "gloriasharp@extro.com",
+      "tel": "06 38 26 63 93",
+      "sexe": "female",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": false
+    },
+    {
+      "id": "idAsse18",
+      "nom": "Karina",
+      "prenom": "Hall",
+      "age": 42,
+      "mail": "karinahall@extro.com",
+      "tel": "06 47 88 24 14",
+      "sexe": "female",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": true
+    },
+    {
+      "id": "idAsse19",
+      "nom": "Sheila",
+      "prenom": "Turner",
+      "age": 87,
+      "mail": "sheilaturner@extro.com",
+      "tel": "06 68 38 16 37",
+      "sexe": "female",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": true
+    },
+    {
+      "id": "idAsse20",
+      "nom": "Camacho",
+      "prenom": "Atkins",
+      "age": 25,
+      "mail": "camachoatkins@extro.com",
+      "tel": "06 79 67 7 95",
+      "sexe": "male",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": false
+    },
+    {
+      "id": "idAsse21",
+      "nom": "Sadie",
+      "prenom": "Williamson",
+      "age": 39,
+      "mail": "sadiewilliamson@extro.com",
+      "tel": "06 71 56 51 79",
+      "sexe": "female",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": false
+    },
+    {
+      "id": "idAsse22",
+      "nom": "Mcintyre",
+      "prenom": "Lowery",
+      "age": 36,
+      "mail": "mcintyrelowery@extro.com",
+      "tel": "06 69 16 7 16",
+      "sexe": "male",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": false
+    },
+    {
+      "id": "idAsse23",
+      "nom": "Eunice",
+      "prenom": "Jenkins",
+      "age": 72,
+      "mail": "eunicejenkins@extro.com",
+      "tel": "06 77 57 9 12",
+      "sexe": "female",
+      "potentiel_assesseur": false,
+      "potentiel_scrutateur": true
+    },
+    {
+      "id": "idAsse24",
+      "nom": "Lucile",
+      "prenom": "Drake",
+      "age": 29,
+      "mail": "luciledrake@extro.com",
+      "tel": "06 48 6 21 22",
+      "sexe": "female",
+      "potentiel_assesseur": false,
+      "potentiel_scrutateur": true
+    },
+    {
+      "id": "idAsse25",
+      "nom": "Dickerson",
+      "prenom": "Hayden",
+      "age": 52,
+      "mail": "dickersonhayden@extro.com",
+      "tel": "06 79 70 70 66",
+      "sexe": "male",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": false
+    },
+    {
+      "id": "idAsse26",
+      "nom": "Russo",
+      "prenom": "Wallace",
+      "age": 84,
+      "mail": "russowallace@extro.com",
+      "tel": "06 66 44 53 43",
+      "sexe": "male",
+      "potentiel_assesseur": false,
+      "potentiel_scrutateur": true
+    },
+    {
+      "id": "idAsse27",
+      "nom": "James",
+      "prenom": "Mills",
+      "age": 78,
+      "mail": "jamesmills@extro.com",
+      "tel": "06 69 40 44 17",
+      "sexe": "female",
+      "potentiel_assesseur": false,
+      "potentiel_scrutateur": true
+    },
+    {
+      "id": "idAsse28",
+      "nom": "Patrica",
+      "prenom": "Rice",
+      "age": 66,
+      "mail": "patricarice@extro.com",
+      "tel": "06 79 84 89 52",
+      "sexe": "female",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": false
+    },
+    {
+      "id": "idAsse29",
+      "nom": "Olga",
+      "prenom": "Acosta",
+      "age": 29,
+      "mail": "olgaacosta@extro.com",
+      "tel": "06 17 99 32 23",
+      "sexe": "female",
+      "potentiel_assesseur": true,
+      "potentiel_scrutateur": false
+    }
+  ],
+  "presidents": [
+    {
+      "id": "idPresident0"
+    },
+    {
+      "id": "idPresident1"
+    },
+    {
+      "id": "idPresident2"
+    }
+  ]
 }
