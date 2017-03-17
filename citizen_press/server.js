@@ -40,11 +40,8 @@ app.get("/", (req, res) => {
 	    	if (tab.indexOf(obj.bureaux[i].adresse) == -1){
 		    	body += '<section class="POI'+calc+'">\
 		    				<div class="bureaux"></div>\
-	    					<div class="fermer"></div> \
-        					<div class="header"> \
-        						<div class="adress"></div>\
-        						<div class="data-container"></div> \
-        					</div>\
+        					<img class="fermer" src="arrow.png"> \
+        					<div class="data-container"></div> \
         					<div class="other"></div> \
             			</section> \n';
             	calc++;
