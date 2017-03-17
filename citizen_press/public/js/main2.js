@@ -107,7 +107,8 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 
 
 /*****************************PLACEMENT DES MARQUEURS*******************************/
-
+	var bureaux = new Map();
+	
 	// Récuperation de tous les points d'intérêts et ajout dans la map
 	$.ajax({
 	    url: "/citizen_press/bureaux",
@@ -140,7 +141,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 					'</div>'+
 					'<h1 id="firstHeading">'+bureau.nom_lieu+'</h1>'+
 					'<div id="bodyContent">'+
-					'<p class="adress">'+bureau.adresse+'</p>'+'<p>'+bureau.code_postal+' '+bureau.ville+'</p>'+'<h1>BUREAU DE VOTE (3)</h1>'+'<form>'+'<select>'+'<option>N°602'+'<option>N°603'+'<option>N°604'+'</select>'+'</form>'+
+					'<p class="adress">'+bureau.adresse+'</p>'+'<p>'+bureau.code_postal+' '+bureau.ville+'</p>'+'<h1>BUREAU DE VOTE</h1>'+'<form>'+'<select id="bureauxPOI'+numBureauPOI+'">'+'<option id="bureau'+bureau.id+'">'+bureau.id+'</option></select></form>'+
 					'</div>'+
 					'</div>';
 		    		tabAdresse.push(bureau.adresse);
@@ -149,7 +150,12 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		    	}
 		    	// Le POI est déjà ajouté, donc on ajoute le bureau au POI
 		    	else {
-		    		ajoutBureauMarqueur(bureau, numBureauPOI);
+		    		if (bureaux.has(numBureauPOI)) {
+		    			bureaux.set(numBureauPOI, bureaux.get(numBureauPOI)+','+bureau.id);
+		    		}
+		    		else {
+		    			bureaux.set(numBureauPOI, bureau.id);
+		    		}
 		    	}
 
 			});
@@ -157,11 +163,13 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	   	},
 
 	   	complete: function() {
-	   		console.log(nbPOI);
 	   		for (var i = 1; i <= nbPOI; i++) {
 	    		$(".POI"+i).css("display", "none");
 		    }
-		    addListenerClick(nbPOI)
+		    addListenerClick(nbPOI);
+		    // UNDEFINED MEME ICI :(((
+			console.log($("#bureauxPOI8").html());
+		    addBureaux(bureaux);
 	   	},
 
 		error: function(xhr, status, error) {
@@ -233,20 +241,13 @@ var infoWindow = new google.maps.InfoWindow({map: map});
     		$(".other").css("display", "block");    
     		console.log("click on PO"+numBureauPOI);
        
-		    // Pour ouvrir la bonne bulle d'informations
-		    console.log(infoWindows[numBureauPOI-1].content);
-		    console.log(marker);
-
-		    console.log(numBureauPOI);
-		    
-		    console.log(infoWindows[47]);
-
-		    // Ferme les autres bulles et cache les autres
 		    for (var i = 0; i < nbPOI; i++) {
+		    	// Ferme les autres bulles 
 		    	if (i != numBureauPOI-1) {
 		    		$(".POI"+i+1).css("display", "none");
 		    		infoWindows[i].close(map, marker);
 		    	}
+		    	// Ouvre la bonne bulle 
 		    	else {
 		    		infoWindows[i].open(map, marker);
 		    	}
@@ -266,8 +267,25 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		});
 	}
 
+	function addBureaux(bureaux) {
+		var ids;
+		bureaux.forEach(function(element, key) {
+			ids = element.toString().split(",");
+			ids.forEach(function(id) {
+				console.log(key);
+				console.log(id);
+				console.log($("#bureauxPOI"+key).html());
+				$("#bureauxPOI"+key).append('<option id="bureau'+id+'">'+id+'</option>');
+			});
+
+		});
+	}
+
 	function ajoutBureauMarqueur(bureau, numBureauPOI) {
-		
+		console.log($("#bureauxPOI"+numBureauPOI).html());
+		console.log("#bureauxPOI"+numBureauPOI);
+		console.log('<option id="bureau'+bureau.id+'">'+bureau.id+'</option>');
+		$("#bureauxPOI"+numBureauPOI).append('<option id="bureau'+bureau.id+'">'+bureau.id+'</option>');
 	}
 
 
