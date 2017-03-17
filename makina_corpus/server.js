@@ -1,19 +1,64 @@
-// Use strict mode
-'use strict';
+'use strict'
 
-// Load usefull expressjs and nodejs objects / modules
+
 var express = require('express');
-var path = require('path');
-
 var app = express();
+var http = require('http');
 
-// Minimum routing: serve static content from the html directory
-app.use(express.static(path.join(__dirname, 'public')));
 
-// You can then add whatever routing code you need
+var morgan = require('morgan');
 
-// This module is exported and served by the main server.js located
-// at the root of this set of projects. You can access it by lanching the main
-// server and visiting http(s)://127.0.0.1:8080/name_of_you_project/ (if on a local server)
-// or more generally: http(s)://server_name:port/name_of_you_project/
+var port = process.env.PORT || 9865;
+
+//don't show the log when it is test
+if(process.env.NODE_ENV !== 'test') {
+    //use morgan to log at command line
+    app.use(morgan('combined')); //'combined' outputs the Apache style LOGs
+}
+
+// Authentication
+var auth = function(req, res, next) {
+  if (req.session)
+    return next();
+  else
+    return res.render('index.ejs');
+};
+
+// Authentication - login
+var auth_login = function(req, res, next) {
+  if (req.session && req.session.user) {
+    // Quand on reaccède à l'auth mais qu'on est déjà authentification
+    // console.log(req.session);
+    // res.send("Login success!");
+    res.redirect('/index');
+  } else
+    return next();
+};
+
+var need_login = function(req, res, next) {
+  /*
+   * Fonction de demande authentification
+   * A ajouter avant chaque requete vers une page protégée.
+   */
+  if (req.session && req.session.user) {
+    return next();
+  } else
+    res.redirect('/');
+}; 
+
+
+// --- Routes
+require('./routes.js')(app, express);
+
+
+// http://stackoverflow.com/questions/20210522/nodejs-mysql-error-connection-lost-the-server-closed-the-connection
+
+
+var server = http.createServer(app);
+server.listen(port, function() {
+  console.log("Node server running on http://localhost:"+port);
+  });
+
 module.exports = app;
+
+

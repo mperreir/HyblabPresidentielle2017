@@ -1,0 +1,36 @@
+<div style="margin: 10px;">
+	<canvas id="myChart" width="800" height="400"></canvas>
+</div>
+
+<script src="./js/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script src="http://www.chartjs.org/assets/Chart.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	var ctx = $("#myChart").get(0).getContext("2d");
+
+	var gradientred = ctx.createLinearGradient(0, 0, 0, 400);
+	gradientred.addColorStop(0, 'rgba(242, 68, 114, 0.4)');
+	gradientred.addColorStop(1, 'rgba(245, 105, 142, 0.2)');
+
+	var gradientpurple = ctx.createLinearGradient(0, 0, 0, 400);
+	gradientpurple.addColorStop(0, 'rgba(82, 55, 140, 0.4)');
+	gradientpurple.addColorStop(1, 'rgba(117, 95, 163, 0.2)');
+
+	var gradientgreen = ctx.createLinearGradient(0, 0, 0, 400);
+	gradientgreen.addColorStop(0, 'rgba(21, 191, 191, 0.4)');
+	gradientgreen.addColorStop(1, 'rgba(68, 204, 204, 0.2)');
+
+	var gradientyellow = ctx.createLinearGradient(0, 0, 0, 400);
+	gradientyellow.addColorStop(0, 'rgba(242, 230, 53, 0.4)');
+	gradientyellow.addColorStop(1, 'rgba(245, 235, 93, 0.2)');
+
+	var gradientorange = ctx.createLinearGradient(0, 0, 0, 400);
+	gradientorange.addColorStop(0, 'rgba(242, 129, 29, 0.4)');
+	gradientorange.addColorStop(1, 'rgba(245, 154, 74, 0.2)');
+
+var data = <%- datain %>;
+var options = <%- optionin %>;
+	new Chart(ctx).Line(data,options);
+});
+</script>

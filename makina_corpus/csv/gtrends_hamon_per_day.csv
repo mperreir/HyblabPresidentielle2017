@@ -1,0 +1,612 @@
+DATE,GEONAME,SCORE
+2017-02-01,Alsace,62
+2017-02-01,Aquitaine,81
+2017-02-01,Auvergne,76
+2017-02-01,Brittany,84
+2017-02-01,Burgundy,69
+2017-02-01,Centre-Val de Loire,65
+2017-02-01,Champagne-Ardenne,50
+2017-02-01,Corsica,76
+2017-02-01,Franche-Comté,100
+2017-02-01,Languedoc-Roussillon,73
+2017-02-01,Limousin,47
+2017-02-01,Lorraine,74
+2017-02-01,Lower Normandy,78
+2017-02-01,Midi-Pyrénées,81
+2017-02-01,Nord-Pas-de-Calais,79
+2017-02-01,Pays de la Loire,100
+2017-02-01,Picardy,61
+2017-02-01,Poitou-Charentes,76
+2017-02-01,Provence-Alpes-Côte d'Azur,56
+2017-02-01,Rhone-Alpes,70
+2017-02-01,Upper Normandy,65
+2017-02-01,Île-de-France,83
+2017-02-02,Alsace,61
+2017-02-02,Aquitaine,80
+2017-02-02,Auvergne,64
+2017-02-02,Brittany,100
+2017-02-02,Burgundy,96
+2017-02-02,Centre-Val de Loire,63
+2017-02-02,Champagne-Ardenne,71
+2017-02-02,Corsica,33
+2017-02-02,Franche-Comté,52
+2017-02-02,Languedoc-Roussillon,74
+2017-02-02,Limousin,88
+2017-02-02,Lorraine,61
+2017-02-02,Lower Normandy,64
+2017-02-02,Midi-Pyrénées,87
+2017-02-02,Nord-Pas-de-Calais,66
+2017-02-02,Pays de la Loire,95
+2017-02-02,Picardy,60
+2017-02-02,Poitou-Charentes,71
+2017-02-02,Provence-Alpes-Côte d'Azur,70
+2017-02-02,Rhone-Alpes,71
+2017-02-02,Upper Normandy,79
+2017-02-02,Île-de-France,77
+2017-02-03,Alsace,52
+2017-02-03,Aquitaine,55
+2017-02-03,Auvergne,86
+2017-02-03,Brittany,100
+2017-02-03,Burgundy,84
+2017-02-03,Centre-Val de Loire,67
+2017-02-03,Champagne-Ardenne,59
+2017-02-03,Corsica,57
+2017-02-03,Franche-Comté,69
+2017-02-03,Languedoc-Roussillon,52
+2017-02-03,Limousin,75
+2017-02-03,Lorraine,49
+2017-02-03,Lower Normandy,100
+2017-02-03,Midi-Pyrénées,73
+2017-02-03,Nord-Pas-de-Calais,63
+2017-02-03,Pays de la Loire,82
+2017-02-03,Picardy,41
+2017-02-03,Poitou-Charentes,71
+2017-02-03,Provence-Alpes-Côte d'Azur,52
+2017-02-03,Rhone-Alpes,74
+2017-02-03,Upper Normandy,55
+2017-02-03,Île-de-France,77
+2017-02-04,Alsace,53
+2017-02-04,Aquitaine,70
+2017-02-04,Auvergne,82
+2017-02-04,Brittany,100
+2017-02-04,Burgundy,67
+2017-02-04,Centre-Val de Loire,76
+2017-02-04,Champagne-Ardenne,72
+2017-02-04,Corsica,49
+2017-02-04,Franche-Comté,63
+2017-02-04,Languedoc-Roussillon,62
+2017-02-04,Limousin,22
+2017-02-04,Lorraine,61
+2017-02-04,Lower Normandy,84
+2017-02-04,Midi-Pyrénées,84
+2017-02-04,Nord-Pas-de-Calais,47
+2017-02-04,Pays de la Loire,88
+2017-02-04,Picardy,51
+2017-02-04,Poitou-Charentes,72
+2017-02-04,Provence-Alpes-Côte d'Azur,71
+2017-02-04,Rhone-Alpes,72
+2017-02-04,Upper Normandy,84
+2017-02-04,Île-de-France,80
+2017-02-05,Alsace,72
+2017-02-05,Aquitaine,76
+2017-02-05,Auvergne,78
+2017-02-05,Brittany,96
+2017-02-05,Burgundy,78
+2017-02-05,Centre-Val de Loire,72
+2017-02-05,Champagne-Ardenne,50
+2017-02-05,Corsica,51
+2017-02-05,Franche-Comté,65
+2017-02-05,Languedoc-Roussillon,89
+2017-02-05,Limousin,97
+2017-02-05,Lorraine,82
+2017-02-05,Lower Normandy,79
+2017-02-05,Midi-Pyrénées,100
+2017-02-05,Nord-Pas-de-Calais,54
+2017-02-05,Pays de la Loire,81
+2017-02-05,Picardy,63
+2017-02-05,Poitou-Charentes,88
+2017-02-05,Provence-Alpes-Côte d'Azur,68
+2017-02-05,Rhone-Alpes,82
+2017-02-05,Upper Normandy,93
+2017-02-05,Île-de-France,80
+2017-02-06,Alsace,39
+2017-02-06,Aquitaine,48
+2017-02-06,Auvergne,60
+2017-02-06,Brittany,51
+2017-02-06,Burgundy,48
+2017-02-06,Centre-Val de Loire,51
+2017-02-06,Champagne-Ardenne,28
+2017-02-06,Corsica,100
+2017-02-06,Franche-Comté,37
+2017-02-06,Languedoc-Roussillon,56
+2017-02-06,Limousin,39
+2017-02-06,Lorraine,40
+2017-02-06,Lower Normandy,40
+2017-02-06,Midi-Pyrénées,42
+2017-02-06,Nord-Pas-de-Calais,33
+2017-02-06,Pays de la Loire,39
+2017-02-06,Picardy,22
+2017-02-06,Poitou-Charentes,42
+2017-02-06,Provence-Alpes-Côte d'Azur,37
+2017-02-06,Rhone-Alpes,41
+2017-02-06,Upper Normandy,41
+2017-02-06,Île-de-France,39
+2017-02-07,Alsace,81
+2017-02-07,Aquitaine,56
+2017-02-07,Auvergne,46
+2017-02-07,Brittany,95
+2017-02-07,Burgundy,50
+2017-02-07,Centre-Val de Loire,95
+2017-02-07,Champagne-Ardenne,57
+2017-02-07,Corsica,75
+2017-02-07,Franche-Comté,41
+2017-02-07,Languedoc-Roussillon,100
+2017-02-07,Limousin,81
+2017-02-07,Lorraine,66
+2017-02-07,Lower Normandy,77
+2017-02-07,Midi-Pyrénées,62
+2017-02-07,Nord-Pas-de-Calais,55
+2017-02-07,Pays de la Loire,82
+2017-02-07,Picardy,59
+2017-02-07,Poitou-Charentes,83
+2017-02-07,Provence-Alpes-Côte d'Azur,68
+2017-02-07,Rhone-Alpes,71
+2017-02-07,Upper Normandy,63
+2017-02-07,Île-de-France,74
+2017-02-08,Alsace,40
+2017-02-08,Aquitaine,55
+2017-02-08,Auvergne,27
+2017-02-08,Brittany,77
+2017-02-08,Burgundy,20
+2017-02-08,Centre-Val de Loire,47
+2017-02-08,Champagne-Ardenne,48
+2017-02-08,Corsica,67
+2017-02-08,Franche-Comté,66
+2017-02-08,Languedoc-Roussillon,54
+2017-02-08,Limousin,100
+2017-02-08,Lorraine,27
+2017-02-08,Lower Normandy,28
+2017-02-08,Midi-Pyrénées,57
+2017-02-08,Nord-Pas-de-Calais,44
+2017-02-08,Pays de la Loire,48
+2017-02-08,Picardy,18
+2017-02-08,Poitou-Charentes,48
+2017-02-08,Provence-Alpes-Côte d'Azur,38
+2017-02-08,Rhone-Alpes,55
+2017-02-08,Upper Normandy,42
+2017-02-08,Île-de-France,49
+2017-02-09,Alsace,18
+2017-02-09,Aquitaine,28
+2017-02-09,Auvergne,11
+2017-02-09,Brittany,32
+2017-02-09,Burgundy,23
+2017-02-09,Centre-Val de Loire,23
+2017-02-09,Champagne-Ardenne,9
+2017-02-09,Corsica,27
+2017-02-09,Franche-Comté,15
+2017-02-09,Languedoc-Roussillon,15
+2017-02-09,Limousin,100
+2017-02-09,Lorraine,22
+2017-02-09,Lower Normandy,21
+2017-02-09,Midi-Pyrénées,32
+2017-02-09,Nord-Pas-de-Calais,18
+2017-02-09,Pays de la Loire,29
+2017-02-09,Picardy,13
+2017-02-09,Poitou-Charentes,33
+2017-02-09,Provence-Alpes-Côte d'Azur,17
+2017-02-09,Rhone-Alpes,26
+2017-02-09,Upper Normandy,20
+2017-02-09,Île-de-France,23
+2017-02-10,Alsace,46
+2017-02-10,Aquitaine,44
+2017-02-10,Auvergne,39
+2017-02-10,Brittany,66
+2017-02-10,Burgundy,40
+2017-02-10,Centre-Val de Loire,45
+2017-02-10,Champagne-Ardenne,26
+2017-02-10,Franche-Comté,39
+2017-02-10,Languedoc-Roussillon,48
+2017-02-10,Limousin,100
+2017-02-10,Lorraine,23
+2017-02-10,Lower Normandy,54
+2017-02-10,Midi-Pyrénées,38
+2017-02-10,Nord-Pas-de-Calais,22
+2017-02-10,Pays de la Loire,37
+2017-02-10,Picardy,25
+2017-02-10,Poitou-Charentes,53
+2017-02-10,Provence-Alpes-Côte d'Azur,32
+2017-02-10,Rhone-Alpes,43
+2017-02-10,Upper Normandy,39
+2017-02-10,Île-de-France,43
+2017-02-11,Alsace,36
+2017-02-11,Aquitaine,54
+2017-02-11,Auvergne,47
+2017-02-11,Brittany,78
+2017-02-11,Burgundy,48
+2017-02-11,Centre-Val de Loire,43
+2017-02-11,Champagne-Ardenne,32
+2017-02-11,Corsica,100
+2017-02-11,Franche-Comté,51
+2017-02-11,Languedoc-Roussillon,59
+2017-02-11,Limousin,56
+2017-02-11,Lorraine,32
+2017-02-11,Lower Normandy,46
+2017-02-11,Midi-Pyrénées,49
+2017-02-11,Nord-Pas-de-Calais,36
+2017-02-11,Pays de la Loire,36
+2017-02-11,Picardy,24
+2017-02-11,Poitou-Charentes,66
+2017-02-11,Provence-Alpes-Côte d'Azur,43
+2017-02-11,Rhone-Alpes,46
+2017-02-11,Upper Normandy,47
+2017-02-11,Île-de-France,49
+2017-02-12,Alsace,61
+2017-02-12,Aquitaine,60
+2017-02-12,Auvergne,66
+2017-02-12,Brittany,100
+2017-02-12,Burgundy,71
+2017-02-12,Centre-Val de Loire,67
+2017-02-12,Champagne-Ardenne,40
+2017-02-12,Corsica,53
+2017-02-12,Franche-Comté,58
+2017-02-12,Languedoc-Roussillon,79
+2017-02-12,Limousin,56
+2017-02-12,Lorraine,58
+2017-02-12,Lower Normandy,43
+2017-02-12,Midi-Pyrénées,68
+2017-02-12,Nord-Pas-de-Calais,64
+2017-02-12,Pays de la Loire,84
+2017-02-12,Picardy,80
+2017-02-12,Poitou-Charentes,51
+2017-02-12,Provence-Alpes-Côte d'Azur,69
+2017-02-12,Rhone-Alpes,72
+2017-02-12,Upper Normandy,65
+2017-02-12,Île-de-France,86
+2017-02-13,Alsace,23
+2017-02-13,Aquitaine,42
+2017-02-13,Auvergne,13
+2017-02-13,Brittany,50
+2017-02-13,Burgundy,43
+2017-02-13,Centre-Val de Loire,38
+2017-02-13,Champagne-Ardenne,33
+2017-02-13,Corsica,100
+2017-02-13,Franche-Comté,25
+2017-02-13,Languedoc-Roussillon,47
+2017-02-13,Limousin,53
+2017-02-13,Lorraine,45
+2017-02-13,Lower Normandy,52
+2017-02-13,Midi-Pyrénées,55
+2017-02-13,Nord-Pas-de-Calais,28
+2017-02-13,Pays de la Loire,39
+2017-02-13,Picardy,30
+2017-02-13,Poitou-Charentes,61
+2017-02-13,Provence-Alpes-Côte d'Azur,31
+2017-02-13,Rhone-Alpes,37
+2017-02-13,Upper Normandy,40
+2017-02-13,Île-de-France,39
+2017-02-14,Alsace,46
+2017-02-14,Aquitaine,50
+2017-02-14,Auvergne,54
+2017-02-14,Brittany,85
+2017-02-14,Burgundy,47
+2017-02-14,Centre-Val de Loire,53
+2017-02-14,Champagne-Ardenne,28
+2017-02-14,Corsica,78
+2017-02-14,Franche-Comté,9
+2017-02-14,Languedoc-Roussillon,80
+2017-02-14,Limousin,100
+2017-02-14,Lorraine,38
+2017-02-14,Lower Normandy,54
+2017-02-14,Midi-Pyrénées,65
+2017-02-14,Nord-Pas-de-Calais,44
+2017-02-14,Pays de la Loire,62
+2017-02-14,Picardy,43
+2017-02-14,Poitou-Charentes,67
+2017-02-14,Provence-Alpes-Côte d'Azur,54
+2017-02-14,Rhone-Alpes,48
+2017-02-14,Upper Normandy,56
+2017-02-14,Île-de-France,46
+2017-02-15,Alsace,32
+2017-02-15,Aquitaine,80
+2017-02-15,Auvergne,51
+2017-02-15,Brittany,100
+2017-02-15,Burgundy,51
+2017-02-15,Centre-Val de Loire,42
+2017-02-15,Champagne-Ardenne,22
+2017-02-15,Franche-Comté,72
+2017-02-15,Languedoc-Roussillon,98
+2017-02-15,Limousin,93
+2017-02-15,Lorraine,45
+2017-02-15,Lower Normandy,66
+2017-02-15,Midi-Pyrénées,88
+2017-02-15,Nord-Pas-de-Calais,65
+2017-02-15,Pays de la Loire,96
+2017-02-15,Picardy,37
+2017-02-15,Poitou-Charentes,95
+2017-02-15,Provence-Alpes-Côte d'Azur,59
+2017-02-15,Rhone-Alpes,70
+2017-02-15,Upper Normandy,42
+2017-02-15,Île-de-France,77
+2017-02-16,Alsace,52
+2017-02-16,Aquitaine,52
+2017-02-16,Auvergne,68
+2017-02-16,Brittany,100
+2017-02-16,Burgundy,24
+2017-02-16,Centre-Val de Loire,62
+2017-02-16,Champagne-Ardenne,31
+2017-02-16,Franche-Comté,79
+2017-02-16,Languedoc-Roussillon,45
+2017-02-16,Limousin,45
+2017-02-16,Lorraine,47
+2017-02-16,Lower Normandy,44
+2017-02-16,Midi-Pyrénées,57
+2017-02-16,Nord-Pas-de-Calais,39
+2017-02-16,Pays de la Loire,68
+2017-02-16,Picardy,19
+2017-02-16,Poitou-Charentes,52
+2017-02-16,Provence-Alpes-Côte d'Azur,40
+2017-02-16,Rhone-Alpes,53
+2017-02-16,Upper Normandy,56
+2017-02-16,Île-de-France,63
+2017-02-17,Alsace,53
+2017-02-17,Aquitaine,64
+2017-02-17,Auvergne,76
+2017-02-17,Brittany,100
+2017-02-17,Burgundy,48
+2017-02-17,Centre-Val de Loire,44
+2017-02-17,Champagne-Ardenne,43
+2017-02-17,Corsica,57
+2017-02-17,Franche-Comté,67
+2017-02-17,Languedoc-Roussillon,67
+2017-02-17,Limousin,54
+2017-02-17,Lorraine,58
+2017-02-17,Lower Normandy,63
+2017-02-17,Midi-Pyrénées,86
+2017-02-17,Nord-Pas-de-Calais,40
+2017-02-17,Pays de la Loire,71
+2017-02-17,Picardy,43
+2017-02-17,Poitou-Charentes,54
+2017-02-17,Provence-Alpes-Côte d'Azur,60
+2017-02-17,Rhone-Alpes,53
+2017-02-17,Upper Normandy,78
+2017-02-17,Île-de-France,60
+2017-02-18,Alsace,33
+2017-02-18,Aquitaine,60
+2017-02-18,Auvergne,99
+2017-02-18,Brittany,99
+2017-02-18,Burgundy,37
+2017-02-18,Centre-Val de Loire,77
+2017-02-18,Champagne-Ardenne,64
+2017-02-18,Corsica,100
+2017-02-18,Franche-Comté,79
+2017-02-18,Languedoc-Roussillon,70
+2017-02-18,Limousin,46
+2017-02-18,Lorraine,39
+2017-02-18,Lower Normandy,54
+2017-02-18,Midi-Pyrénées,76
+2017-02-18,Nord-Pas-de-Calais,42
+2017-02-18,Pays de la Loire,84
+2017-02-18,Picardy,62
+2017-02-18,Poitou-Charentes,49
+2017-02-18,Provence-Alpes-Côte d'Azur,49
+2017-02-18,Rhone-Alpes,70
+2017-02-18,Upper Normandy,64
+2017-02-18,Île-de-France,68
+2017-02-19,Alsace,29
+2017-02-19,Aquitaine,47
+2017-02-19,Auvergne,65
+2017-02-19,Brittany,100
+2017-02-19,Burgundy,44
+2017-02-19,Centre-Val de Loire,54
+2017-02-19,Champagne-Ardenne,21
+2017-02-19,Corsica,63
+2017-02-19,Franche-Comté,43
+2017-02-19,Languedoc-Roussillon,46
+2017-02-19,Limousin,48
+2017-02-19,Lorraine,31
+2017-02-19,Lower Normandy,45
+2017-02-19,Midi-Pyrénées,52
+2017-02-19,Nord-Pas-de-Calais,41
+2017-02-19,Pays de la Loire,38
+2017-02-19,Picardy,39
+2017-02-19,Poitou-Charentes,40
+2017-02-19,Provence-Alpes-Côte d'Azur,53
+2017-02-19,Rhone-Alpes,44
+2017-02-19,Upper Normandy,35
+2017-02-19,Île-de-France,46
+2017-02-20,Alsace,40
+2017-02-20,Aquitaine,49
+2017-02-20,Auvergne,65
+2017-02-20,Brittany,100
+2017-02-20,Burgundy,54
+2017-02-20,Centre-Val de Loire,60
+2017-02-20,Champagne-Ardenne,46
+2017-02-20,Corsica,86
+2017-02-20,Franche-Comté,49
+2017-02-20,Languedoc-Roussillon,54
+2017-02-20,Limousin,22
+2017-02-20,Lorraine,53
+2017-02-20,Lower Normandy,23
+2017-02-20,Midi-Pyrénées,55
+2017-02-20,Nord-Pas-de-Calais,32
+2017-02-20,Pays de la Loire,38
+2017-02-20,Picardy,28
+2017-02-20,Poitou-Charentes,29
+2017-02-20,Provence-Alpes-Côte d'Azur,42
+2017-02-20,Rhone-Alpes,49
+2017-02-20,Upper Normandy,50
+2017-02-20,Île-de-France,48
+2017-02-21,Alsace,49
+2017-02-21,Aquitaine,52
+2017-02-21,Auvergne,56
+2017-02-21,Brittany,100
+2017-02-21,Burgundy,59
+2017-02-21,Centre-Val de Loire,59
+2017-02-21,Champagne-Ardenne,45
+2017-02-21,Corsica,56
+2017-02-21,Franche-Comté,61
+2017-02-21,Languedoc-Roussillon,74
+2017-02-21,Limousin,42
+2017-02-21,Lorraine,66
+2017-02-21,Lower Normandy,70
+2017-02-21,Midi-Pyrénées,64
+2017-02-21,Nord-Pas-de-Calais,57
+2017-02-21,Pays de la Loire,71
+2017-02-21,Picardy,44
+2017-02-21,Poitou-Charentes,41
+2017-02-21,Provence-Alpes-Côte d'Azur,60
+2017-02-21,Rhone-Alpes,64
+2017-02-21,Upper Normandy,36
+2017-02-21,Île-de-France,53
+2017-02-22,Alsace,51
+2017-02-22,Aquitaine,66
+2017-02-22,Auvergne,48
+2017-02-22,Brittany,87
+2017-02-22,Burgundy,63
+2017-02-22,Centre-Val de Loire,100
+2017-02-22,Champagne-Ardenne,21
+2017-02-22,Corsica,48
+2017-02-22,Franche-Comté,45
+2017-02-22,Languedoc-Roussillon,70
+2017-02-22,Limousin,80
+2017-02-22,Lorraine,29
+2017-02-22,Lower Normandy,38
+2017-02-22,Midi-Pyrénées,55
+2017-02-22,Nord-Pas-de-Calais,50
+2017-02-22,Pays de la Loire,50
+2017-02-22,Picardy,44
+2017-02-22,Poitou-Charentes,64
+2017-02-22,Provence-Alpes-Côte d'Azur,42
+2017-02-22,Rhone-Alpes,58
+2017-02-22,Upper Normandy,41
+2017-02-22,Île-de-France,56
+2017-02-23,Alsace,51
+2017-02-23,Aquitaine,86
+2017-02-23,Auvergne,66
+2017-02-23,Brittany,80
+2017-02-23,Burgundy,43
+2017-02-23,Centre-Val de Loire,64
+2017-02-23,Champagne-Ardenne,54
+2017-02-23,Franche-Comté,89
+2017-02-23,Languedoc-Roussillon,61
+2017-02-23,Limousin,52
+2017-02-23,Lorraine,73
+2017-02-23,Lower Normandy,55
+2017-02-23,Midi-Pyrénées,100
+2017-02-23,Nord-Pas-de-Calais,72
+2017-02-23,Pays de la Loire,77
+2017-02-23,Picardy,46
+2017-02-23,Poitou-Charentes,86
+2017-02-23,Provence-Alpes-Côte d'Azur,78
+2017-02-23,Rhone-Alpes,80
+2017-02-23,Upper Normandy,64
+2017-02-23,Île-de-France,89
+2017-02-24,Alsace,32
+2017-02-24,Aquitaine,69
+2017-02-24,Auvergne,72
+2017-02-24,Brittany,100
+2017-02-24,Burgundy,69
+2017-02-24,Centre-Val de Loire,64
+2017-02-24,Champagne-Ardenne,34
+2017-02-24,Corsica,60
+2017-02-24,Franche-Comté,31
+2017-02-24,Languedoc-Roussillon,51
+2017-02-24,Limousin,89
+2017-02-24,Lorraine,39
+2017-02-24,Lower Normandy,52
+2017-02-24,Midi-Pyrénées,64
+2017-02-24,Nord-Pas-de-Calais,59
+2017-02-24,Pays de la Loire,47
+2017-02-24,Picardy,46
+2017-02-24,Poitou-Charentes,56
+2017-02-24,Provence-Alpes-Côte d'Azur,46
+2017-02-24,Rhone-Alpes,52
+2017-02-24,Upper Normandy,36
+2017-02-24,Île-de-France,61
+2017-02-25,Alsace,49
+2017-02-25,Aquitaine,82
+2017-02-25,Auvergne,100
+2017-02-25,Brittany,97
+2017-02-25,Burgundy,52
+2017-02-25,Centre-Val de Loire,83
+2017-02-25,Champagne-Ardenne,37
+2017-02-25,Corsica,47
+2017-02-25,Franche-Comté,57
+2017-02-25,Languedoc-Roussillon,65
+2017-02-25,Limousin,49
+2017-02-25,Lorraine,36
+2017-02-25,Lower Normandy,70
+2017-02-25,Midi-Pyrénées,81
+2017-02-25,Nord-Pas-de-Calais,61
+2017-02-25,Pays de la Loire,75
+2017-02-25,Picardy,24
+2017-02-25,Poitou-Charentes,48
+2017-02-25,Provence-Alpes-Côte d'Azur,32
+2017-02-25,Rhone-Alpes,52
+2017-02-25,Upper Normandy,46
+2017-02-25,Île-de-France,66
+2017-02-26,Alsace,68
+2017-02-26,Aquitaine,71
+2017-02-26,Auvergne,95
+2017-02-26,Brittany,88
+2017-02-26,Burgundy,55
+2017-02-26,Centre-Val de Loire,100
+2017-02-26,Champagne-Ardenne,54
+2017-02-26,Corsica,100
+2017-02-26,Franche-Comté,78
+2017-02-26,Languedoc-Roussillon,62
+2017-02-26,Limousin,74
+2017-02-26,Lorraine,53
+2017-02-26,Lower Normandy,79
+2017-02-26,Midi-Pyrénées,65
+2017-02-26,Nord-Pas-de-Calais,75
+2017-02-26,Pays de la Loire,94
+2017-02-26,Picardy,66
+2017-02-26,Poitou-Charentes,73
+2017-02-26,Provence-Alpes-Côte d'Azur,62
+2017-02-26,Rhone-Alpes,59
+2017-02-26,Upper Normandy,74
+2017-02-26,Île-de-France,73
+2017-02-27,Alsace,43
+2017-02-27,Aquitaine,37
+2017-02-27,Auvergne,35
+2017-02-27,Brittany,100
+2017-02-27,Burgundy,48
+2017-02-27,Centre-Val de Loire,41
+2017-02-27,Champagne-Ardenne,30
+2017-02-27,Corsica,64
+2017-02-27,Franche-Comté,70
+2017-02-27,Languedoc-Roussillon,49
+2017-02-27,Limousin,87
+2017-02-27,Lorraine,37
+2017-02-27,Lower Normandy,55
+2017-02-27,Midi-Pyrénées,59
+2017-02-27,Nord-Pas-de-Calais,41
+2017-02-27,Pays de la Loire,56
+2017-02-27,Picardy,39
+2017-02-27,Poitou-Charentes,66
+2017-02-27,Provence-Alpes-Côte d'Azur,42
+2017-02-27,Rhone-Alpes,44
+2017-02-27,Upper Normandy,63
+2017-02-27,Île-de-France,55
+2017-02-28,Alsace,31
+2017-02-28,Aquitaine,39
+2017-02-28,Auvergne,36
+2017-02-28,Brittany,100
+2017-02-28,Burgundy,43
+2017-02-28,Centre-Val de Loire,33
+2017-02-28,Champagne-Ardenne,44
+2017-02-28,Corsica,48
+2017-02-28,Franche-Comté,31
+2017-02-28,Languedoc-Roussillon,35
+2017-02-28,Limousin,23
+2017-02-28,Lorraine,29
+2017-02-28,Lower Normandy,49
+2017-02-28,Midi-Pyrénées,56
+2017-02-28,Nord-Pas-de-Calais,44
+2017-02-28,Pays de la Loire,35
+2017-02-28,Picardy,26
+2017-02-28,Poitou-Charentes,45
+2017-02-28,Provence-Alpes-Côte d'Azur,36
+2017-02-28,Rhone-Alpes,39
+2017-02-28,Upper Normandy,53
