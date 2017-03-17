@@ -11,53 +11,53 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-	display: block;
+    display: block;
 }
 
 body {
-	line-height: 1;
+    line-height: 1;
 }
 
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 
 blockquote, q {
-	quotes: none;
+    quotes: none;
 }
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+    content: '';
+    content: none;
 }
 
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 html {
-	box-sizing: border-box;
+    box-sizing: border-box;
     overflow-x: hidden;
 }
 
 *, *:before, *:after {
-	box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 a {
-	text-decoration: none;
+    text-decoration: none;
     color: inherit;
     
 }
@@ -134,21 +134,21 @@ Primary style
 -------------------------------- */
 
 html * {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 *, *:after, *:before {
-	@include box-sizing(border-box);
+    @include box-sizing(border-box);
 }
 
 body {
-	font: {
-		size: 100%;
-		family: $primary-font; // variables inside partials > _variables.scss
-	}
-	color: $main-text;
-	background-color: $background;
+    font: {
+        size: 100%;
+        family: $primary-font; // variables inside partials > _variables.scss
+    }
+    color: $main-text;
+    background-color: $background;
 }
 
 /* -------------------------------- 
@@ -165,66 +165,66 @@ Main components
     background-color: $background;
 
     @include MQ(M) {
-    	height: 300px;
+        height: 300px;
     }
 
     @include MQ(L) {
-    	height: 600px;
+        height: 600px;
     }
 }
 
 #cd-google-map {
-	position: relative;
+    position: relative;
 
-	address {
-		position: absolute;
-		width: 100%;
-		bottom: 0;
-		left: 0;
-		padding: 1em 1em;
-		background-color: rgba($color-2, .9);
-		color: $color-3;
-		@include font-size(13px);
+    address {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        padding: 1em 1em;
+        background-color: rgba($color-2, .9);
+        color: $color-3;
+        @include font-size(13px);
 
-		@include MQ(M) {
-			@include font-size(15px);
-			text-align: center;
-		}
-	}
+        @include MQ(M) {
+            @include font-size(15px);
+            text-align: center;
+        }
+    }
 }
 
 #cd-zoom-in, #cd-zoom-out {
     display: none;
-	height: 32px;
-	width: 32px;
-	cursor: pointer;
-	margin-left: 10px;
-	background-color: rgba($color-2, .9);
-	background-repeat: no-repeat;
-	background-size: 32px 64px;
-	background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-controller.svg');
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    margin-left: 10px;
+    background-color: rgba($color-2, .9);
+    background-repeat: no-repeat;
+    background-size: 32px 64px;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-controller.svg');
 
-	.no-touch &:hover {
-		background-color: rgba($color-2, 1);
-	}
+    .no-touch &:hover {
+        background-color: rgba($color-2, 1);
+    }
 
-	@include MQ(M) {
-		margin-left: 50px;
-	}
+    @include MQ(M) {
+        margin-left: 50px;
+    }
 }
 
 #cd-zoom-in {
-	background-position: 50% 0;
-	margin-top: 10px;
-	margin-bottom: 1px;
+    background-position: 50% 0;
+    margin-top: 10px;
+    margin-bottom: 1px;
 
-	@include MQ(M) {
-		margin-top: 50px;
-	}
+    @include MQ(M) {
+        margin-top: 50px;
+    }
 }
 
 #cd-zoom-out {
-	background-position: 50% -32px;
+    background-position: 50% -32px;
 }
 
 /****************************STYLE*******************************/
@@ -244,8 +244,7 @@ section {
     position: absolute;
     left: -25px;
     top : 300px;
-    height: 50px;
-    background-color: #478CF4; 
+    height: 50px; 
 }
 
 #google-container {
@@ -258,6 +257,16 @@ section {
 }
 
 .POI02 {
+    display: none;
+    animation: key01 0.5s ease-in-out 0.4s both;
+}
+
+.POI03 {
+    display: none;
+    animation: key01 0.5s ease-in-out 0.4s both;
+}
+
+.POI04 {
     display: none;
     animation: key01 0.5s ease-in-out 0.4s both;
 }
@@ -300,6 +309,7 @@ section {
     margin-top: 5px;
     color: #787878;
 }
+
 
 .office {
     float: right;
@@ -369,5 +379,42 @@ footer div {
 
 .done {
     background-color: #478CF4;
+    border: none;
 }
+
+#content {
+   width: 200px;
+}
+
+#content h1 {
+    color: #787878;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+
+#content form select {
+    width: 120px;
+    background-color: #478CF4;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #FFF;
+    border-radius: 10px;
+    margin-top: 10px;
+    border: none;
+}
+
+#firstHeading {
+    color: #787878;
+    font-weight: 600;
+}
+
+#bodyContent {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #787878;
+}
+
 
