@@ -9,12 +9,9 @@ var app = express();
 
 var fs = require('fs');
 
-app.get("/", (req, res) => {
-	
-	res.send();
-});
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.get("/test", (req,res) => {
+app.get("/", (req, res) => {
 
 	res.set({"Content-Type" : "text/html"});
 	
@@ -53,22 +50,35 @@ app.get("/test", (req,res) => {
 		res.write(body);
 		res.end();
 	});
+
 });
 
 // GET bureaux (pour la map)
 app.get("/bureaux", (req, res) => {
 	console.log("Chargement des bureaux...");
-	fs.readFile('data.json', 'utf8', function (err, data) {
+	fs.readFile('citizen_press/public/data/data.json', 'utf8', function (err, data) {
 	    if (err) throw err; // à voir 
 	    var obj = JSON.parse(data);
-	    res.write(obj.bureaux[0].id);
-	    res.send();
+	    res.contentType('json');
+	    res.send(JSON.stringify(obj.bureaux))
 	});
 });
 
 // GET informations sur un bureau (pour récupérer les informations lors de l'inscription)
 app.get("/bureaux/:id", (req, res) => {
-
+	var idBureau = req.params.id;
+	fs.readFile('citizen_press/public/data/data.json', 'utf8', function (err, data) {
+	    if (err) throw err; // à voir 
+	    var obj = JSON.parse(data);
+	    res.contentType('json');
+	    for (var bureau in obj.bureaux) {
+	    	// le bon bureau
+	    	if (idBureau == obj.bureaux[bureau].id) {
+	    		res.write(obj.bureaux[bureau]);
+	    	}
+	    }
+	    res.send();
+	});
 });
 
 // La page du formulaire d'inscription
