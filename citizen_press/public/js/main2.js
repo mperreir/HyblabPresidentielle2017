@@ -9,6 +9,7 @@ $(document).ready(function(){
 	var longitudes_POI = new Array();
 	var infoWindows = new Array();
 
+	var nbPOI = 0;
 
 	var is_internetExplorer11= navigator.userAgent.toLowerCase().indexOf('trident') > -1;
 	
@@ -17,17 +18,20 @@ $(document).ready(function(){
 
     
 /******************************************************************/    
-    
+ 
+	var map_options;
+	var map;
+
+	console.log("init map");
 	var	$main_color = '#000',
-		$saturation= -20,
-		$brightness= 5;
+	$saturation= -20,
+	$brightness= 5;
 
 	var style= [ 
-
-        {"featureType":"landscape","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"stylers":[{"hue":"#00aaff"},{"saturation":-100},{"gamma":2.15},{"lightness":12}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"lightness":24}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":57}]}
+    	{"featureType":"landscape","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"stylers":[{"hue":"#00aaff"},{"saturation":-100},{"gamma":2.15},{"lightness":12}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"lightness":24}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":57}]}
 	];
 		
-	var map_options = {
+	map_options = {
       	center: new google.maps.LatLng($latitude, $longitude),
       	zoom: $map_zoom,
       	panControl: true,
@@ -37,8 +41,35 @@ $(document).ready(function(){
       	mapTypeId: google.maps.MapTypeId.ROADMAP,
       	scrollwheel: true,
       	styles: style,
-    }
-	var map = new google.maps.Map(document.getElementById('google-container'), map_options);
+	}
+	map = new google.maps.Map(document.getElementById('google-container'), map_options);      
+    
+	console.log(map);
+
+
+ /******************************LEGENDE*******************************/   
+    
+$("#open").click(function() {
+    
+    $(".legende").css("padding-bottom", "450px");
+    $(".legende").css("padding-right", "250px");
+    $(".legende h5").css("display", "block");
+    $(".leg-block").css("display", "inline-block");
+    $("#open").css("display", "none");
+    $("#close").css("display", "block");
+
+});
+    
+$("#close").click(function() {
+    
+    $(".legende").css("padding-bottom", "0px");
+    $(".legende").css("padding-right", "0px");
+    $(".legende h5").css("display", "none");
+    $(".leg-block").css("display", "none");
+    $("#open").css("display", "block");
+    $("#close").css("display", "none");
+
+});
     
     
 /*****************************GEOLOC*******************************/
@@ -55,12 +86,12 @@ var infoWindow = new google.maps.InfoWindow({map: map});
             infoWindow.setPosition(pos);
             infoWindow.setContent('Votre position');
             
-              var marker = new google.maps.Marker({
-	  	position: new google.maps.LatLng(pos),
-	    map: map,
-	    visible: true,
-	 	icon: $marker_url,
-	});
+            var marker = new google.maps.Marker({
+			  	position: new google.maps.LatLng(pos),
+			    map: map,
+			    visible: true,
+			 	icon: $marker_url,
+			});
            map.setCenter(pos);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -70,11 +101,16 @@ var infoWindow = new google.maps.InfoWindow({map: map});
             
           handleLocationError(false, infoWindow, map.getCenter());
         }
+
+
+		var zoomControlDiv = document.createElement('div');
+		var zoomControl = new CustomZoomControl(zoomControlDiv, map);
+
+		map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
       
 
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-      }
+
+/*****************************PLACEMENT DES MARQUEURS*******************************/
 
 	// Récuperation de tous les points d'intérêts et ajout dans la map
 	$.ajax({
@@ -90,7 +126,6 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	    	var tabAdresseTaille = new Array(); 
 	    	var tabAdresse = new Array(); 
 	    	var numBureauPOI = 1;
-	    	var nbPOI = 0;
 	    	var contentString;
 	    	// Pour avoir le nombre de POI à placer
 	    	data.forEach(function(bureau) {
@@ -124,33 +159,43 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	      	console.log("process sucess");
 	   	},
 
-	     error: function(xhr, status, error) {
-	     	console.log(error);
-		 },
+	   	complete: function() {
+	   		console.log(nbPOI);
+	   		for (var i = 1; i <= nbPOI; i++) {
+	   			console.log(".POI"+i);
+	    		$(".POI"+i).css("display", "none");
+		    }
+		    addListenerClick(nbPOI)
+	   	},
+
+		error: function(xhr, status, error) {
+			console.log(error);
+		},
 	});
 
-	// Pour fermer la page du côté lors du clique sur la fleche
-	$(".fermer").click(function() {
-	    $(".POI01").css("display", "none");
-	    $(".POI01-F").css("display", "none");
-	    $("#google-container").css("width", "100%");
-	    $("#google-container").css("height", "100vh");
-	    $("#google-container").css("transition-delay", "0s");
-	    $(".POI02").css("display", "none");
-	    $(".POI03").css("display", "none");
-	    $(".POI04").css("display", "none");
-	    $(".POI05").css("display", "none");
-	        infowindow01.close(map, marker01);
-	        infowindow02.close(map, marker02);
-	        infowindow03.close(map, marker03);
-	        infowindow04.close(map, marker04);    
-	});
+	function addListenerClick(nbPOI) {
+		// Pour fermer la page du côté lors du clique sur la fleche
+		$(".fermer").click(function() {
+			// TODO adapter au dynamisme
+			for (var i = 1; i <= nbPOI; i++) {
+	   			console.log(".POI"+i);
+	    		$(".POI"+i).css("display", "none");
+		    }
+		    $("#google-container").css("width", "100%");
+		    $("#google-container").css("height", "100vh");
+		    $("#google-container").css("transition-delay", "0s");
+			$(".other").css("display", "none");
+			// TODO ajouter par rapport au tableau
+	       // infowindow01.close(map, marker01);
+
+		});
+	}
+	
 
 
-	var zoomControlDiv = document.createElement('div');
-	var zoomControl = new CustomZoomControl(zoomControlDiv, map);
-
-	map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    	infoWindow.setPosition(pos);
+    }
 
 	function CustomZoomControl(controlDiv, map) {
 	    
@@ -180,24 +225,23 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		 	icon: $marker_url,
 		});
 
-		infoWindows.push(new google.maps.InfoWindow({content: contentString});)
+		infoWindows.push(new google.maps.InfoWindow({content: contentString}));
 
 		marker.addListener('click', function() {
 	    	// Affiche la page du PI
-		    $(".POI0"+numBureauPOI).css("display", "block");
-		    $(".POI01-F").css("display", "block");
+		    $(".POI"+numBureauPOI).css("display", "block");
 		    $("#google-container").css("width", "55%");
 		    $("#google-container").css("height", "90vh");
 		    $("#google-container").css("transition-delay", "1s");
-		   
-
+    		$(".other").css("display", "block");    
+       
 		    // Pour ouvrir la bonne bulle d'informations
 		    infoWindows[numBureauPOI-1].open(map, marker);
 
 		    // Ferme les autres bulles et cache les autres
 		    for (var i = 1; i <= nbPOI; i++) {
 		    	if (i != numBureauPOI) {
-		    		$(".POI0"+i).css("display", "none");
+		    		$(".POI"+i).css("display", "none");
 		    		infoWindows[numBureauPOI-1].close(map, marker);
 		    	}
 		    }

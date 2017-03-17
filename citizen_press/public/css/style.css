@@ -68,6 +68,7 @@ html, body {
     margin: 0 auto;
     padding: 0;
     overflow: hidden;
+    font-family: lato;
 }
 
 .screen {
@@ -161,7 +162,7 @@ Main components
     position: relative;
     margin-top: 0px;
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     background-color: $background;
 
     @include MQ(M) {
@@ -229,6 +230,116 @@ Main components
 
 /****************************STYLE*******************************/
 
+.legende {
+    position: fixed;
+    left: 0;
+    width: 200px;
+    height: 50px;
+    z-index: 2;
+    background-color: #FFF;
+    transition: all 1s ease;
+}
+
+
+@keyframes key03 {
+    0%{transform:  translateX(-500px); opacity: 0;}
+    100%{transform: translateX(0); opacity: 1;}
+}
+
+@keyframes key04 {
+    0%{transform:  translateX(35px); opacity: 0;}
+    100%{transform: translateX(35px); opacity: 1;}
+}
+
+@keyframes key05 {
+    0%{transform:  translateX(35px); opacity: 0;}
+    100%{transform: translateX(85px); opacity: 1;}
+}
+
+.legende h2 {
+    float: left;
+    padding: 15px;
+    margin-left: 10px;
+    color: #478CF4;
+    font-size: 20px;
+}
+
+#open {
+    display: block;
+    width: 30px;
+    margin-top: 10px;
+    animation: key04 0.5s ease-in-out 0.4s both;
+}
+
+#close {
+    display: none;
+    width: 30px;
+    margin-top: 10px;
+    animation: key05 0.5s ease-in-out 0.4s both;
+}
+
+.legende h5 {
+    display: none;
+    float: left;
+    margin-left: 20px;
+    margin-top: 25px;
+    width: 200px;
+    color: #787878;
+    animation: key03 0.7s ease-in-out 0.4s both;
+}
+
+.leg-block {
+    display: none;
+    float: left;
+    width: 250px;
+    margin-top: 20px;
+    font-size: 14px;
+    margin-left: 20px;
+    animation: key03 0.7s ease-in-out 0.4s both;
+}
+
+.leg-col01, .leg-col02, .leg-col03, .leg-col04, .leg-col05 {
+    display: inline-block;
+    float: left;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.leg-col01 {
+    background-color: #e23a51;
+}
+
+.leg-col02 {
+    background-color: #fed532;
+}
+
+.leg-col03 {
+    background-color: #fb9d2e;
+}
+
+.leg-col04 {
+    background-color: #abdd63;
+}
+
+.legende h6 {
+    display: inline-block;
+    float: left;
+    margin-top: 12px;
+    margin-left: 15px;
+    color: #787878;
+}
+
+.leg-block img {
+    width: 40px;
+    float: left;
+    margin-top: 5px;
+}
+
+.txt-office {
+    width: 150px;
+}
+
 section {
     position: fixed;
     z-index: 2;
@@ -236,7 +347,6 @@ section {
     background-color: #FFF;
     width: 45%;
     right: 0;
-    font-family: lato;
 }
 
 .fermer {
@@ -244,38 +354,19 @@ section {
     position: absolute;
     left: -25px;
     top : 300px;
-    height: 50px; 
+    height: 50px;
 }
 
 #google-container {
     transition-delay: 1s;
 }
 
-.POI01 {
-    display: none;
-    animation: key01 0.5s ease-in-out 0.4s both;
-}
-
-.POI02 {
-    display: none;
-    animation: key01 0.5s ease-in-out 0.4s both;
-}
-
-.POI03 {
-    display: none;
-    animation: key01 0.5s ease-in-out 0.4s both;
-}
-
-.POI04 {
+.POI {
     display: none;
     animation: key01 0.5s ease-in-out 0.4s both;
 }
 
 
-.POI01-F {
-    display: none;
-    animation: key02 0.5s ease-in-out 0.4s both;
-}
 
 @keyframes key01 {
     0%{transform: translateX(45%); opacity: 0;}
@@ -287,70 +378,115 @@ section {
     100%{transform: translateY(0); opacity: 1;}
 }
 
-.header {
-    border-bottom: 1px #787878 solid;
-    margin-right: 50px;
-    margin-left: 50px;
-}
-
-.adress {
-    display: inline-block;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.adress h5 {
-    color: #787878;
-    font-weight: 600;
-}
-
-.adress h6 {
-    font-size: 14px;
-    margin-top: 5px;
-    color: #787878;
-}
-
-
-.office {
-    float: right;
-    margin-top: 20px;
-    margin-right: 20px;
-    color: #787878;
-}
-
-.office h3 {
-    font-weight: 600;
-}
-
-.office button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    color: #FFF;
-    border: none;
-    background-color: #478CF4;
-    cursor: pointer;
-}
-
 .data-container {
-    height: 55vh;
+    height: 60vh;
 }
 
 .other {
+    display: none;
     text-align: center;
+    position: fixed;
+    right: 0;
+    z-index: 5;
+    width: 45%;
+    bottom: 100px;
+    animation: key01 0.5s ease-in-out 0.4s both;
 }
 
 .other h1{
     font-weight: 600;
     color: #787878;
+    text-align: left;
+    margin-left: 50px;
 }
 
+.other p {
+    float: left;
+    width: 300px;
+    margin-top: 50px;
+    text-align: left;
+    margin-left: 50px;
+}
+
+.other p input {
+    float: right;
+    margin: 0;
+    cursor: pointer;
+}
+
+
+/************************************************************************/
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  display: none;
+}
+
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 1.95em;
+  cursor: pointer;
+}
+
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 250px; top: 0;
+  width: 1.25em; height: 1.25em;
+  border: 2px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '✔';
+  position: absolute;
+  top: .1em; left: 255px;
+  font-size: 1.3em;
+  line-height: 0.8;
+  color: #478CF4;
+  transition: all .2s;
+}
+
+
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd;
+}
+[type="checkbox"]:disabled:checked + label:after {
+  color: #999;
+}
+
+[type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+
+/************************************************************************/
+
+
 .other button {
+    float: right;
+    margin-right: 100px;
     padding: 15px;
     padding-left: 25px;
     padding-right: 25px;
     border-radius: 10px;
-    margin-top: 70px;
     color: #FFF;
     border: none;
     font-size: 15px;

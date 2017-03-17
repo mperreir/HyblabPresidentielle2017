@@ -18,12 +18,9 @@ app.get("/", (req, res) => {
 
 	res.set({"Content-Type" : "text/html"});
 	
-	// Initialisation de la page renvoyé
-	var body = "";
-
 	// Récupération du header de la page
 	fs.readFile('citizen_press/public/html/header.html','utf8', function(err,data){	// Lecture d'un fichier
-		body += data;	// Ecriture dans la réponse
+		res.write(data);	// Ecriture dans la réponse
 	});	 
 
 	// Préparation du parsage JSON pour la création des éléments
@@ -33,30 +30,28 @@ app.get("/", (req, res) => {
 	   
 	   	// Initialisation des variables
 	    var tab = [];
-	    var calc = 0;
+	    var calc = 1;
 	      
 	    // Parcours des bureaux pour création de points d'intêrets
 	    for(var i=0; i<=obj.bureaux.length-1; i++){
 	    	if (tab.indexOf(obj.bureaux[i].adresse) == -1){
-		    	body += '<section class="POI'+calc+'">\
+		    	res.write ('<section class="POI POI'+calc+'">\
 		    				<div class="bureaux"></div>\
-        					<img class="fermer" src="arrow.png"> \
+        					<img class="fermer" src="./img/arrow.png"> \
         					<div class="data-container"></div> \
-        					<div class="other"></div> \
-            			</section> \n';
+            			</section> \n');
             	calc++;
             	tab.push(obj.bureaux[i].adresse);
 	    	};
 		};
 
 		// Récupération du footer
-		fs.readFile('citizen_press/html/footer.html','utf8', function(err,data){	// Lecture d'un fichier
-			body += data;	// Ecriture dans la réponse
-		});
+		fs.readFile('citizen_press/public/html/footer.html','utf8', function(err,data){	// Lecture d'un fichier
+			console.log(data);
+			res.write(data);	// Ecriture dans la réponse
+			res.end();
 
-		// Ecriture et envoi de la réponse
-		res.write(body);
-		res.end();
+		});
 	});
 });
 
