@@ -112,8 +112,6 @@ app.post("/", function (req, res) {
    			if (civilite=='monsieur'){civilite = 'male'};
    			if (civilite=='madame'){civilite='female'};
 
-   			console.log(civilite);
-
     		var obj = JSON.parse(data); //now it an object
     		obj.assesseurs.push({"id": "idAsse1995","nom": nom,"prenom": prenom,"age": naissance,"mail": email,"tel": mobile,"sexe": "male","potentiel_assesseur": false,"potentiel_scrutateur": true});//add some data
    			var json = JSON.stringify(obj); //convert it back to json
