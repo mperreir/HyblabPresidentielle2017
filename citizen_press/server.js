@@ -9,11 +9,18 @@ var app = express();
 
 var fs = require('fs');
 
+var d3 = require('d3');
+var bodyParser = require('body-parser')
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get("/", (req, res) => {
 	console.log("Page principale");
-	res.sendFile(__dirname + '/public/index.html');
+	res.set({"Content-Type" : "text/html"});	// Typage du texte
+	fs.readFile('citizen_press/public/html/formulaire.html','utf8', function(err,data){	// Lecture d'un fichier
+		res.write(data);
+		res.end();
+	});	// Ecriture dans la réponse
 });
 
 // GET bureaux (pour la map)
@@ -79,6 +86,52 @@ app.get("/assesseurs", (req, res) => {
  // TODO
 });
 
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+/**bodyParser.json(options)
+ * Parses the text as JSON and exposes the resulting object on req.body.
+ */
+app.use(bodyParser.json());
+
+app.post("/", function (req, res) {
+	fs.readFile('citizen_press/public/data/data.json', 'utf8', function readFileCallback(err, data){
+    	if (err){
+       		console.log(err);
+   		} else {
+   			//On récupère chaque variables
+   			var nom = req.body.nom;
+   			var prenom = req.body.prenom;
+   			var email = req.body.email;
+   			var mobile = req.body.mobile;
+   			var naissance = req.body.naissance;
+   			var civilite = req.body.civilite;
+
+   			if (civilite=='monsieur'){civilite = 'male'};
+   			if (civilite=='madame'){civilite='female'};
+
+   			console.log(civilite);
+
+    		var obj = JSON.parse(data); //now it an object
+    		obj.assesseurs.push({"id": "idAsse1995","nom": nom,"prenom": prenom,"age": naissance,"mail": email,"tel": mobile,"sexe": "male","potentiel_assesseur": false,"potentiel_scrutateur": true});//add some data
+   			var json = JSON.stringify(obj); //convert it back to json
+   			fs.writeFile('citizen_press/public/data/data.json', json, 'utf8', -1); // write it back 
+	}});
+    res.send('<h1>Hello</h1> '+ req.body.nom);
+});
+
+function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
 
 // Minimum routing: serve static content from the html directory
 //app.use(express.static(path.join(__dirname, 'public')));

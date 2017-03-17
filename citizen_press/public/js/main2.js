@@ -1,164 +1,26 @@
+/*var fs = require('fs');
 $(document).ready(function(){
 
-	// Coordonnées de départ pour la map
-	var $latitude = 47.28328309531121,
-	$longitude = -1.518387794494629,
-	$map_zoom = 13;
+	$("#bouton").click(function (){
 
-	var latitudes_POI = new Array();
-	var longitudes_POI = new Array();
+		var civilte = $('select[name=civilite]').text();
+		var nom = $("#nom").val();
+		var prenom = $("#prenom").val();
+		var naissance = $("#naissance").val();
+		var email = $("#email").val();
+		var mobile = $("#mobile").val();
 
-
-	var is_internetExplorer11= navigator.userAgent.toLowerCase().indexOf('trident') > -1;
-	
-    
-    var $marker_url = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
-
-    
-/******************************************************************/    
-    
-	var	$main_color = '#000',
-		$saturation= -20,
-		$brightness= 5;
-
-	var style= [ 
-
-        {"featureType":"landscape","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"stylers":[{"hue":"#00aaff"},{"saturation":-100},{"gamma":2.15},{"lightness":12}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"lightness":24}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":57}]}
-	];
-		
-	var map_options = {
-      	center: new google.maps.LatLng($latitude, $longitude),
-      	zoom: $map_zoom,
-      	panControl: true,
-      	zoomControl: true,
-      	mapTypeControl: false,
-      	streetViewControl: true,
-      	mapTypeId: google.maps.MapTypeId.ROADMAP,
-      	scrollwheel: true,
-      	styles: style,
-    }
-	var map = new google.maps.Map(document.getElementById('google-container'), map_options);
-    
-    
-/*****************************GEOLOC*******************************/
-    
-var infoWindow = new google.maps.InfoWindow({map: map});
-    
-    if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Votre position');
-            
-              var marker = new google.maps.Marker({
-	  	position: new google.maps.LatLng(pos),
-	    map: map,
-	    visible: true,
-	 	icon: $marker_url,
+		fs.readFile('./data/data.json', 'utf8', function readFileCallback(err, data){
+    		if (err){
+        		console.log(err);
+    		} else {
+    			obj = JSON.parse(data); //now it an object
+    			obj.assesseurs.push({"id": "idAsse1995","nom": "Billaud","prenom": "Quentin","age": 21,"mail": "jg44@gmail.com","tel": "02 51 40 70 25","sexe": "male","potentiel_assesseur": false,"potentiel_scrutateur": true});//add some data
+    			json = JSON.stringify(obj); //convert it back to json
+    			fs.writeFile('./data/data.json', json, 'utf8', callback); // write it back 
+		}});
 	});
-           map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        
-        } else {
-            
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-      
-
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-      }
-
-	// Récuperation de tous les points d'intérêts
-	$.ajax({
-	    url: "/citizen_press/bureaux",
-	    type: "GET",
-	    dataType: "json",
-	    contentType: "application/json",
-	    cache: false,
-	    timeout: 5000,
-
-	    success: function(data) {
-	    	console.log("success");
-	    	var numBureau = 1;
-		    data.forEach(function(bureau) {
-		    	// TODO CHANGE ADRESSE PAR COORDONNÉES
-				placerMarqueur(bureau.latitude, bureau.longitude, numBureau, data.length);
-				numBureau++;
-			});
-	      	console.log("process sucess");
-	   	},
-
-	     error: function(xhr, status, error) {
-	     	console.log(error);
-		 },
-	});
-
-
-function CustomZoomControl(controlDiv, map) {
-    
-  	var controlUIzoomIn= document.getElementById('cd-zoom-in'),
-  		controlUIzoomOut= document.getElementById('cd-zoom-out');
-  	controlDiv.appendChild(controlUIzoomIn);
-  	controlDiv.appendChild(controlUIzoomOut);
-
-    
-	google.maps.event.addDomListener(controlUIzoomIn, 'click', function() {
-	    map.setZoom(map.getZoom()+1)
-	});
-	google.maps.event.addDomListener(controlUIzoomOut, 'click', function() {
-	    map.setZoom(map.getZoom()-1)
-	});
-	}
-
-	var zoomControlDiv = document.createElement('div');
-	var zoomControl = new CustomZoomControl(zoomControlDiv, map);
-
-	map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
-   
-
-	function placerMarqueur(latitude_POI, longitude_POI, numBureau, nbBureau) {
-		var marker = new google.maps.Marker({
-		  	position: new google.maps.LatLng(latitude_POI, longitude_POI),
-		    map: map,
-		    visible: true,
-		 	icon: $marker_url,
-		});
-    
-		marker.addListener('click', function() {
-	    
-		    $(".POI0"+numBureau).css("display", "block");
-		    $(".POI01-F").css("display", "block");
-		    $("#google-container").css("width", "55%");
-		    $("#google-container").css("height", "90vh");
-		    $("#google-container").css("transition-delay", "1s");
-		    for (var i = 1; i <= nbBureau; i++) {
-		    	if (i != numBureau) {
-		    		$(".POI0"+i).css("display", "none");
-		    	}
-		    }
-		    
-		    
-		    navigator.geolocation.getCurrentPosition(function(position) {
-		    
-		    var pos = {
-	              lat: position.coords.latitude_POI,
-	              lng: position.coords.longitude_POI
-	            };
-		    
-		    map.setCenter(pos);
-		        
-		    });
-		});
-	}
-});
-
+});*/
 
 
 
