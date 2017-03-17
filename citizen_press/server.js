@@ -7,27 +7,85 @@ var path = require('path');
 
 var app = express();
 
+// Module d'ouverture de fichier et de lecture
 var fs = require('fs');
 
+// Recuperation des chemins relatifs
+app.use(express.static(path.join(__dirname, 'public')));  
+
+// Route d'accès client
 app.get("/", (req, res) => {
-	console.log("Page principale");
-	res.send("Hello world this is the home page");
+
+	res.set({"Content-Type" : "text/html"});
+	
+	// Initialisation de la page renvoyé
+	var body = "";
+
+	// Récupération du header de la page
+	fs.readFile('citizen_press/public/html/header.html','utf8', function(err,data){	// Lecture d'un fichier
+		body += data;	// Ecriture dans la réponse
+	});	 
+
+	// Préparation du parsage JSON pour la création des éléments
+	fs.readFile('citizen_press/public/data/data.json', 'utf8', function (err, data) {
+	    if (err) throw err; // à voir 
+	    var obj = JSON.parse(data);
+	   
+	   	// Initialisation des variables
+	    var tab = [];
+	    var calc = 0;
+	      
+	    // Parcours des bureaux pour création de points d'intêrets
+	    for(var i=0; i<=obj.bureaux.length-1; i++){
+	    	if (tab.indexOf(obj.bureaux[i].adresse) == -1){
+		    	body += '<section class="POI'+calc+'">\
+		    				<div class="bureaux"></div>\
+        					<img class="fermer" src="arrow.png"> \
+        					<div class="data-container"></div> \
+        					<div class="other"></div> \
+            			</section> \n';
+            	calc++;
+            	tab.push(obj.bureaux[i].adresse);
+	    	};
+		};
+
+		// Récupération du footer
+		fs.readFile('citizen_press/html/footer.html','utf8', function(err,data){	// Lecture d'un fichier
+			body += data;	// Ecriture dans la réponse
+		});
+
+		// Ecriture et envoi de la réponse
+		res.write(body);
+		res.end();
+	});
 });
 
 // GET bureaux (pour la map)
 app.get("/bureaux", (req, res) => {
 	console.log("Chargement des bureaux...");
-	fs.readFile('data.json', 'utf8', function (err, data) {
+	fs.readFile('citizen_press/public/data/data.json', 'utf8', function (err, data) {
 	    if (err) throw err; // à voir 
 	    var obj = JSON.parse(data);
-	    res.write(obj.bureaux[0].id);
-	    res.send();
+	    res.contentType('json');
+	    res.send(JSON.stringify(obj.bureaux))
 	});
 });
 
 // GET informations sur un bureau (pour récupérer les informations lors de l'inscription)
 app.get("/bureaux/:id", (req, res) => {
-
+	var idBureau = req.params.id;
+	fs.readFile('citizen_press/public/data/data.json', 'utf8', function (err, data) {
+	    if (err) throw err; // à voir 
+	    var obj = JSON.parse(data);
+	    res.contentType('json');
+	    for (var bureau in obj.bureaux) {
+	    	// le bon bureau
+	    	if (idBureau == obj.bureaux[bureau].id) {
+	    		res.write(obj.bureaux[bureau]);
+	    	}
+	    }
+	    res.send();
+	});
 });
 
 // La page du formulaire d'inscription
@@ -61,7 +119,7 @@ app.get("/bureaux/:id/assesseurs", (req, res) => {
 });
 
 // La page des statistique globales sur les assesseurs
-app.get("/assesseurs", (req, res) => {
+app.get("/	assesseurs", (req, res) => {
  // TODO
 });
 
@@ -76,3 +134,22 @@ app.get("/assesseurs", (req, res) => {
 // server and visiting http(s)://127.0.0.1:8080/name_of_you_project/ (if on a local server)
 // or more generally: http(s)://server_name:port/name_of_you_project/
 module.exports = app;
+
+
+
+// Définition des variables à donner au template
+	    //var taille_liste_bureaux = obj.bureaux.length;
+	    //res.render('test.ejs', {objPrincipal: obj});
+	    /*for (var bureau in obj.bureaux) {
+	    	res.write(JSON.stringify(obj.bureaux[bureau]));
+	    }
+	    res.send();
+	});
+	//res.send();
+
+	/*var l_s = "Ecole primaire";
+	var l_a = "18 rue des blabla";
+	var le_num_b = 1;
+	var tab = [1,2,3,4];
+	res.render('test.ejs', {lieu_site: l_s, lieu_adresse: l_a, taille_liste: tab.length, liste_bureau: tab,
+	le_num_bureau: le_num_b});*/
