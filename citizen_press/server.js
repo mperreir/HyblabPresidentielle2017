@@ -60,6 +60,20 @@ app.get("/", (req, res) => {
 	});
 });
 
+app.get("/test", (req,res) => {
+
+	res.set({"Content-Type" : "text/html"});
+	
+	fs.readFile('citizen_press/public/html/test.html','utf8', function(err,data){	// Lecture d'un fichier
+		if (err) throw err;
+		res.write(data);
+		res.end();
+	});
+
+	
+
+});
+
 // GET bureaux (pour la map)
 app.get("/bureaux", (req, res) => {
 	console.log("Chargement des bureaux...");
