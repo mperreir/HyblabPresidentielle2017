@@ -10,6 +10,8 @@ var app = express();
 // Module d'ouverture de fichier et de lecture
 var fs = require('fs');
 
+var URL_DATA = 'citizen_press/public/data/data2.json';
+
 // Recuperation des chemins relatifs
 app.use(express.static(path.join(__dirname, 'public')));  
 
@@ -18,45 +20,39 @@ app.get("/", (req, res) => {
 
 	res.set({"Content-Type" : "text/html"});
 	
-	// Initialisation de la page renvoyé
-	var body = "";
-
 	// Récupération du header de la page
 	fs.readFile('citizen_press/public/html/header.html','utf8', function(err,data){	// Lecture d'un fichier
-		body += data;	// Ecriture dans la réponse
+		res.write(data);	// Ecriture dans la réponse
 	});	 
 
 	// Préparation du parsage JSON pour la création des éléments
-	fs.readFile('citizen_press/public/data/data.json', 'utf8', function (err, data) {
+	fs.readFile(URL_DATA, 'utf8', function (err, data) {
 	    if (err) throw err; // à voir 
 	    var obj = JSON.parse(data);
 	   
 	   	// Initialisation des variables
 	    var tab = [];
-	    var calc = 0;
+	    var calc = 1;
 	      
 	    // Parcours des bureaux pour création de points d'intêrets
 	    for(var i=0; i<=obj.bureaux.length-1; i++){
 	    	if (tab.indexOf(obj.bureaux[i].adresse) == -1){
-		    	body += '<section class="POI'+calc+'">\
+		    	res.write ('<section class="POI POI'+calc+'">\
 		    				<div class="bureaux"></div>\
-        					<img class="fermer" src="arrow.png"> \
+        					<img class="fermer" src="./img/arrow.png"> \
         					<div class="data-container"></div> \
-        					<div class="other"></div> \
-            			</section> \n';
+            			</section> \n');
             	calc++;
             	tab.push(obj.bureaux[i].adresse);
 	    	};
 		};
 
 		// Récupération du footer
-		fs.readFile('citizen_press/html/footer.html','utf8', function(err,data){	// Lecture d'un fichier
-			body += data;	// Ecriture dans la réponse
-		});
+		fs.readFile('citizen_press/public/html/footer.html','utf8', function(err,data){	// Lecture d'un fichier
+			res.write(data);	// Ecriture dans la réponse
+			res.end();
 
-		// Ecriture et envoi de la réponse
-		res.write(body);
-		res.end();
+		});
 	});
 });
 
@@ -77,7 +73,7 @@ app.get("/test", (req,res) => {
 // GET bureaux (pour la map)
 app.get("/bureaux", (req, res) => {
 	console.log("Chargement des bureaux...");
-	fs.readFile('citizen_press/public/data/data.json', 'utf8', function (err, data) {
+	fs.readFile(URL_DATA, 'utf8', function (err, data) {
 	    if (err) throw err; // à voir 
 	    var obj = JSON.parse(data);
 	    res.contentType('json');
@@ -88,7 +84,7 @@ app.get("/bureaux", (req, res) => {
 // GET informations sur un bureau (pour récupérer les informations lors de l'inscription)
 app.get("/bureaux/:id", (req, res) => {
 	var idBureau = req.params.id;
-	fs.readFile('citizen_press/public/data/data.json', 'utf8', function (err, data) {
+	fs.readFile(URL_DATA, 'utf8', function (err, data) {
 	    if (err) throw err; // à voir 
 	    var obj = JSON.parse(data);
 	    res.contentType('json');

@@ -5,6 +5,8 @@
       "adresse": "2 Rue du Cheval Blanc",
       "president": "idPresident0",
       "nom_lieu": "Ecole Maternelle Molière",
+      "latitude" : 47.2828309326,
+      "longitude" : -1.514765498,
       "assesseurs": [
         {
           "id": "idAsse0",
@@ -63,6 +65,8 @@
       "adresse": "2 Rue du Cheval Blanc",
       "president": "idPresident1",
       "nom_lieu": "Ecole Maternelle Molière",
+      "latitude" : 47.28927352,
+      "longitude" : -1.514235498,
       "assesseurs": [
         {
           "id": "idAsse10",
@@ -121,6 +125,8 @@
       "adresse": "12 Boulevard Stalingrad",
       "president": "idPresident2",
       "nom_lieu":"Groupe Scolaire Stalingrad",
+      "latitude" : 47.2728236,
+      "longitude" : -1.512833298,
       "assesseurs": [
         {
           "id": "idAsse20",
