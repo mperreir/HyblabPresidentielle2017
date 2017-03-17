@@ -236,7 +236,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		    $("#google-container").css("width", "55%");
 		    $("#google-container").css("height", "90vh");
 		    $("#google-container").css("transition-delay", "1s");
-    		$(".other").css("display", "block");    
+    		$(".other").css("display", "block");   
        
 		    // Pour ouvrir la bonne bulle d'informations
 		    infoWindows[numBureauPOI-1].open(map, marker);
