@@ -10,6 +10,8 @@ var app = express();
 // Module d'ouverture de fichier et de lecture
 var fs = require('fs');
 
+var URL_DATA = 'citizen_press/public/data/data2.json';
+
 // Recuperation des chemins relatifs
 app.use(express.static(path.join(__dirname, 'public')));  
 
@@ -24,7 +26,7 @@ app.get("/", (req, res) => {
 	});	 
 
 	// Préparation du parsage JSON pour la création des éléments
-	fs.readFile('citizen_press/public/data/data.json', 'utf8', function (err, data) {
+	fs.readFile(URL_DATA, 'utf8', function (err, data) {
 	    if (err) throw err; // à voir 
 	    var obj = JSON.parse(data);
 	   
@@ -47,7 +49,6 @@ app.get("/", (req, res) => {
 
 		// Récupération du footer
 		fs.readFile('citizen_press/public/html/footer.html','utf8', function(err,data){	// Lecture d'un fichier
-			console.log(data);
 			res.write(data);	// Ecriture dans la réponse
 			res.end();
 
@@ -58,7 +59,7 @@ app.get("/", (req, res) => {
 // GET bureaux (pour la map)
 app.get("/bureaux", (req, res) => {
 	console.log("Chargement des bureaux...");
-	fs.readFile('citizen_press/public/data/data.json', 'utf8', function (err, data) {
+	fs.readFile(URL_DATA, 'utf8', function (err, data) {
 	    if (err) throw err; // à voir 
 	    var obj = JSON.parse(data);
 	    res.contentType('json');
@@ -69,7 +70,7 @@ app.get("/bureaux", (req, res) => {
 // GET informations sur un bureau (pour récupérer les informations lors de l'inscription)
 app.get("/bureaux/:id", (req, res) => {
 	var idBureau = req.params.id;
-	fs.readFile('citizen_press/public/data/data.json', 'utf8', function (err, data) {
+	fs.readFile(URL_DATA, 'utf8', function (err, data) {
 	    if (err) throw err; // à voir 
 	    var obj = JSON.parse(data);
 	    res.contentType('json');

@@ -148,7 +148,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 					'</div>'+
 					'</div>';
 		    		tabAdresse.push(bureau.adresse);
-					placerMarqueur(bureau.latitude, bureau.longitude, contentString, numBureauPOI, nbPOI);
+					placerMarqueur(bureau.lat, bureau.long, contentString, numBureauPOI, nbPOI);
 					numBureauPOI++;
 		    	}
 		    	// Le POI est déjà ajouté, donc on ajoute le bureau au POI
@@ -218,6 +218,9 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	// numBureauPOI : le numéro du POI à ajouter
 	// nbBureau : Le nombre de bureau
 	function placerMarqueur(latitude_POI, longitude_POI, contentString, numBureauPOI, nbPOI) {
+		console.log(latitude_POI);
+		console.log(longitude_POI);
+
 		var marker = new google.maps.Marker({
 		  	position: new google.maps.LatLng(latitude_POI, longitude_POI),
 		    map: map,
