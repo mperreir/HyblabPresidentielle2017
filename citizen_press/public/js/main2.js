@@ -5,16 +5,15 @@ $(document).ready(function(){
 	$longitude = -1.518387794494629,
 	$map_zoom = 13;
 
-	var latitudes_POI = new Array();
-	var longitudes_POI = new Array();
 	var infoWindows = new Array();
 
 	var nbPOI = 0;
 
 	var is_internetExplorer11= navigator.userAgent.toLowerCase().indexOf('trident') > -1;
 	
+    var $marker_me = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
     
-    var $marker_url = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
+    var $marker_POI = './img/map_icon.svg';
 
     
 /******************************************************************/    
@@ -22,7 +21,6 @@ $(document).ready(function(){
 	var map_options;
 	var map;
 
-	console.log("init map");
 	var	$main_color = '#000',
 	$saturation= -20,
 	$brightness= 5;
@@ -43,8 +41,6 @@ $(document).ready(function(){
       	styles: style,
 	}
 	map = new google.maps.Map(document.getElementById('google-container'), map_options);      
-    
-	console.log(map);
 
 
  /******************************LEGENDE*******************************/   
@@ -90,7 +86,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 			  	position: new google.maps.LatLng(pos),
 			    map: map,
 			    visible: true,
-			 	icon: $marker_url,
+			 	icon: $marker_me,
 			});
            map.setCenter(pos);
           }, function() {
@@ -155,6 +151,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		    	else {
 		    		ajoutBureauMarqueur(bureau, numBureauPOI);
 		    	}
+
 			});
 	      	console.log("process sucess");
 	   	},
@@ -162,7 +159,6 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	   	complete: function() {
 	   		console.log(nbPOI);
 	   		for (var i = 1; i <= nbPOI; i++) {
-	   			console.log(".POI"+i);
 	    		$(".POI"+i).css("display", "none");
 		    }
 		    addListenerClick(nbPOI)
@@ -186,7 +182,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		    $("#google-container").css("transition-delay", "0s");
 			$(".other").css("display", "none");
 			// TODO ajouter par rapport au tableau
-	       // infowindow01.close(map, marker01);
+	        infowindow01.close(map, marker01);
 
 		});
 	}
@@ -218,14 +214,12 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	// numBureauPOI : le numéro du POI à ajouter
 	// nbBureau : Le nombre de bureau
 	function placerMarqueur(latitude_POI, longitude_POI, contentString, numBureauPOI, nbPOI) {
-		console.log(latitude_POI);
-		console.log(longitude_POI);
 
 		var marker = new google.maps.Marker({
 		  	position: new google.maps.LatLng(latitude_POI, longitude_POI),
 		    map: map,
 		    visible: true,
-		 	icon: $marker_url,
+		 	icon: $marker_POI
 		});
 
 		infoWindows.push(new google.maps.InfoWindow({content: contentString}));
@@ -236,21 +230,31 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		    $("#google-container").css("width", "55%");
 		    $("#google-container").css("height", "90vh");
 		    $("#google-container").css("transition-delay", "1s");
-    		$(".other").css("display", "block");   
+    		$(".other").css("display", "block");    
+    		console.log("click on PO"+numBureauPOI);
+
        
 		    // Pour ouvrir la bonne bulle d'informations
-		    infoWindows[numBureauPOI-1].open(map, marker);
+		    console.log(infoWindows[numBureauPOI-1].content);
+		    console.log(marker);
+
+		    console.log(numBureauPOI);
+		    
+		    console.log(infoWindows[47]);
 
 		    // Ferme les autres bulles et cache les autres
-		    for (var i = 1; i <= nbPOI; i++) {
-		    	if (i != numBureauPOI) {
-		    		$(".POI"+i).css("display", "none");
-		    		infoWindows[numBureauPOI-1].close(map, marker);
+		    for (var i = 0; i < nbPOI; i++) {
+		    	if (i != numBureauPOI-1) {
+		    		$(".POI"+i+1).css("display", "none");
+		    		infoWindows[i].close(map, marker);
+		    	}
+		    	else {
+		    		infoWindows[i].open(map, marker);
 		    	}
 		    }
 
 		    // TODO à changer
-		    navigator.geolocation.getCurrentPosition(function(position) {
+		  /* navigator.geolocation.getCurrentPosition(function(position) {
 		    
 		    var pos = {
 	              lat: position.coords.latitude_POI,
@@ -259,7 +263,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		    
 		    map.setCenter(pos);
 		        
-		    });
+		    });*/
 		});
 	}
 
