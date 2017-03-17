@@ -1,14 +1,25 @@
 {
-  "name": "HyblabRouting",
+  "name": "hyblabrouting",
   "version": "1.0.0",
-  "description": "",
+  "description": "![Hyblab présidentielle 2017][1] ==========",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.10.2"
+    "ejs": "^2.5.6",
+    "express": "^4.10.2",
+    "morgan": "^1.8.1"
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RacaillesCosmopolites/HyblabPresidentielle2017.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RacaillesCosmopolites/HyblabPresidentielle2017/issues"
+  },
+  "homepage": "https://github.com/RacaillesCosmopolites/HyblabPresidentielle2017#readme"
 }
