@@ -16,7 +16,7 @@ var URL_DATA = 'citizen_press/public/data/data2.json';
 app.use(express.static(path.join(__dirname, 'public')));  
 
 // Route d'accès client
-app.get("/", (req, res) => {
+app.get("/select", (req, res) => {
 
 	res.set({"Content-Type" : "text/html"});
 	
@@ -53,6 +53,36 @@ app.get("/", (req, res) => {
 			res.end();
 
 		});
+	});
+});
+
+
+app.get("/", (req,res) => {
+
+	fs.readFile('citizen_press/public/html/accueil/accueil.html','utf8', function(err,data){	// Lecture d'un fichier
+		if (err) throw err;
+		res.write(data);	// Ecriture dans la réponse
+		res.end();
+	});
+});
+
+app.get("/formulaire/:idBureau", (req,res) => {
+
+	// Penser a faire : var idBureau = req.params.idBureau;
+	fs.readFile('citizen_press/public/html/formulaire/formulaire.html','utf8', function(err,data){	// Lecture d'un fichier
+		if (err) throw err;
+		res.write(data);	// Ecriture dans la réponse
+		res.end();
+	});
+});
+
+
+app.get("/merci", (req,res) => {
+
+	fs.readFile('citizen_press/public/html/merci/merci.html','utf8', function(err,data){	// Lecture d'un fichier
+		if (err) throw err;
+		res.write(data);	// Ecriture dans la réponse
+		res.end();
 	});
 });
 
