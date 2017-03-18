@@ -13,7 +13,13 @@ $(document).ready(function(){
 	
     var $marker_me = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
     
-    var $marker_POI = './img/map_icon.svg';
+    var $marker_POI = {
+        url: "./img/map_icon.svg",
+        size: new google.maps.Size(31, 32)
+        //anchor: new google.maps.Point(25,50),
+        //scaledSize: new google.maps.Size(50,50)
+    }
+    //var marker_POI = './img/map_icon.svg';
 
     
 /******************************************************************/    
@@ -182,7 +188,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		    $("#google-container").css("transition-delay", "0s");
 			$(".other").css("display", "none");
 			// TODO ajouter par rapport au tableau
-	        infowindow01.close(map, marker01);
+	        //infowindow01.close(map, marker01);
 
 		});
 	}
@@ -225,6 +231,10 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		infoWindows.push(new google.maps.InfoWindow({content: contentString}));
 
 		marker.addListener('click', function() {
+			for (var i = 1; i <= nbPOI; i++) {
+	   			console.log(".POI"+i);
+	    		$(".POI"+i).css("display", "none");
+		    }
 	    	// Affiche la page du PI
 		    $(".POI"+numBureauPOI).css("display", "block");
 		    $("#google-container").css("width", "55%");
