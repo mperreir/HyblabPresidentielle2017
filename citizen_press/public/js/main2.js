@@ -239,7 +239,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		    $("#google-container").css("transition-delay", "1s");
     		$(".other").css("display", "block");    
        
-       		// Affichage de la bonne bubulle
+       		// Affichage de la bonne bubulles
     		infoWindows.forEach(function(element, key) {
 		    	$(".POI"+key).css("display", "none");
     			element.close(map, markers.get(key));
