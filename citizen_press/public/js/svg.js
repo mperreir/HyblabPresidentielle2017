@@ -6,11 +6,6 @@
  	* La modification du chiffre
 */
 
-
-
-// Le chemin du fichier
-var URL_FICHIER_SVG = "./img/map_icon.svg";
-
 // L'objet qui vas nous permettre de modifier le SVG
 // TOOD changer avec AJAX
 var svg = SVG('drawing').size(600, 600);
