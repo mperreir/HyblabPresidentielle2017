@@ -32,10 +32,10 @@ function initialise() {
 	contentSVG_init = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\
 		viewBox="0 0 1350 1360" style="enable-background:new 0 0 0 0;" xml:space="preserve">\
 		<style type="text/css">\
-			.red{fill:#E41E2F;}\
-		    .orange {fill:#FE9A2E;}\
-		    .green{fill:#71BF62;}\
-			.yellow{fill:#FFDE00;}\
+			.red{fill:#EE5A58;}\
+		    .orange {fill:#F1A72E;}\
+		    .green{fill:#AED17C;}\
+			.yellow{fill:#F4D05D;}\
 			.st2{fill:#FFFFFF;}\
 			.st3{font-family:Lato-Bold, Lato;font-weight:700;}\
 			.st4{font-size:46.3393px;}\
