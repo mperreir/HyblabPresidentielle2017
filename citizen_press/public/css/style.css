@@ -557,9 +557,7 @@ footer div {
 }
 
 
-
-
-/*
+/* Concerne le champs de recherche */
 .controls {
   margin-top: 10px;
   border: 1px solid transparent;
@@ -572,12 +570,14 @@ footer div {
 }
 
 #pac-input {
+  position:fixed;
+  z-index: 2;
   background-color: #fff;
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
-  margin-left: 1190px;
-  margin-top: 50px;
+  margin-left: 75%;
+  margin-top: 10px;
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
   width: 300px;
@@ -601,4 +601,4 @@ footer div {
   font-family: Roboto;
   font-size: 13px;
   font-weight: 300;
-}*/
+}

@@ -2,22 +2,18 @@
 <html>
 <head>
   <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     <meta name=”author” content="">
     <meta name="keyword" content="">
     <meta name="description" content= "">
     <title>| HybLab |</title>
   <link rel="stylesheet" type="text/css" href="./css/style.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0othcEZUsFnDRiRQM2rZlNH1jBliT--o"></script>
-    <link href="https://fonts.googleapis.com/css?family=Anaheim" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-  <script src="https://maps.googleapis.com/maps/api/jsvv=3.exp&sensor=false&libraries=places"></script>
-  
-     <!-- Datatables -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.css"/>
-  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
+    <!-- Récupération de la map ainsi que des locations -->
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0othcEZUsFnDRiRQM2rZlNH1jBliT--o&libraries=places"></script>
+    <link href="https://fonts.googleapis.com/css?family=Anaheim" rel="stylesheet">
 
 </head>
 
@@ -72,3 +68,5 @@
         <button>Je m'inscris</button>
     </div> 
 
+<!-- Champs de recherche -->
+    <input id="pac-input" class="controls" type="text" placeholder="Trouver votre adresse">
