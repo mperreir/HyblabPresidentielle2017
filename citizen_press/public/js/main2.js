@@ -5,7 +5,8 @@ $(document).ready(function(){
 	$longitude = -1.518387794494629,
 	$map_zoom = 13;
 
-	var infoWindows = new Array();
+	var infoWindows = new Map();
+	var markers = new Map();
 
 	var nbPOI = 0;
 
@@ -122,7 +123,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	    	console.log("success");
 	    	var tabAdresseTaille = new Array(); 
 	    	var tabAdresse = new Array(); 
-	    	var numBureauPOI = 1;
+	    	var numBureauPOI = 0;
 	    	var contentString;
 	    	// Pour avoir le nombre de POI à placer
 	    	data.forEach(function(bureau) {
@@ -136,6 +137,8 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		    data.forEach(function(bureau) {
 		    	// Si le POI n'est pas encore placé, on le place
 		    	if (tabAdresse.indexOf(bureau.adresse) == -1) {
+		    		// Contenu HTML de la bubulle
+					numBureauPOI++;
 		    		contentString = '<div id="content">'+
 					'<div id="siteNotice">'+
 					'</div>'+
@@ -146,16 +149,10 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 					'</div>';
 		    		tabAdresse.push(bureau.adresse);
 					placerMarqueur(bureau.lat, bureau.long, contentString, numBureauPOI, nbPOI);
-					numBureauPOI++;
 		    	}
 		    	// Le POI est déjà ajouté, donc on ajoute le bureau au POI
 		    	else {
-		    		if (bureaux.has(numBureauPOI)) {
-		    			bureaux.set(numBureauPOI, bureaux.get(numBureauPOI)+','+bureau.id);
-		    		}
-		    		else {
-		    			bureaux.set(numBureauPOI, bureau.id);
-		    		}
+		    		addBureauxPOI(bureau.id, numBureauPOI);
 		    	}
 
 			});
@@ -168,8 +165,8 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		    }
 		    addListenerClick(nbPOI);
 		    // UNDEFINED MEME ICI :(((
-			console.log($("#bureauxPOI8").html());
-		    addBureaux(bureaux);
+			//console.log($("#bureauxPOI8").html());
+		    //addBureaux(bureaux);
 	   	},
 
 		error: function(xhr, status, error) {
@@ -190,7 +187,9 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		    $("#google-container").css("transition-delay", "0s");
 			$(".other").css("display", "none");
 			// TODO ajouter par rapport au tableau
-	        infowindow01.close(map, marker01);
+	        infoWindows.forEach(function(element, key) {
+				element.close(map, markers.get(key));
+			});
 
 		});
 	}
@@ -223,35 +222,32 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	// nbBureau : Le nombre de bureau
 	function placerMarqueur(latitude_POI, longitude_POI, contentString, numBureauPOI, nbPOI) {
 
-		var marker = new google.maps.Marker({
+		markers.set(numBureauPOI, new google.maps.Marker({
 		  	position: new google.maps.LatLng(latitude_POI, longitude_POI),
 		    map: map,
 		    visible: true,
 		 	icon: $marker_POI
-		});
+		}));
 
-		infoWindows.push(new google.maps.InfoWindow({content: contentString}));
+		infoWindows.set(numBureauPOI, new google.maps.InfoWindow({content: contentString}));
 
-		marker.addListener('click', function() {
+		markers.get(numBureauPOI).addListener('click', function() {
 	    	// Affiche la page du PI
 		    $(".POI"+numBureauPOI).css("display", "block");
 		    $("#google-container").css("width", "55%");
 		    $("#google-container").css("height", "90vh");
 		    $("#google-container").css("transition-delay", "1s");
     		$(".other").css("display", "block");    
-    		console.log("click on PO"+numBureauPOI);
        
-		    for (var i = 0; i < nbPOI; i++) {
-		    	// Ferme les autres bulles 
-		    	if (i != numBureauPOI-1) {
-		    		$(".POI"+i+1).css("display", "none");
-		    		infoWindows[i].close(map, marker);
-		    	}
-		    	// Ouvre la bonne bulle 
-		    	else {
-		    		infoWindows[i].open(map, marker);
-		    	}
-		    }
+       		// Affichage de la bonne bubulle
+    		infoWindows.forEach(function(element, key) {
+		    	$(".POI"+key).css("display", "none");
+    			element.close(map, markers.get(key));
+    		});
+
+    		// Ouverture de la bubulle
+    		infoWindows.get(numBureauPOI).open(map, markers.get(numBureauPOI));
+
 
 		    // TODO à changer
 		  /* navigator.geolocation.getCurrentPosition(function(position) {
@@ -267,30 +263,11 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		});
 	}
 
-	function addBureaux(bureaux) {
-		var ids;
-		bureaux.forEach(function(element, key) {
-			ids = element.toString().split(",");
-			ids.forEach(function(id) {
-				console.log(key);
-				console.log(id);
-				console.log($("#bureauxPOI"+key).html());
-				$("#bureauxPOI"+key).append('<option id="bureau'+id+'">'+id+'</option>');
-			});
-
-		});
+	function addBureauxPOI(id, numBureauPOI) {
+		// Ouverture de la fenêtre pour l'ajout
+		infoWindows.get(numBureauPOI).open(map, markers.get(numBureauPOI));
+		$("#bureauxPOI"+numBureauPOI).append('<option id="bureau'+id+'">'+id+'</option>');
+		// On la referme
+		infoWindows.get(numBureauPOI).close(map, markers.get(numBureauPOI));
 	}
-
-	function ajoutBureauMarqueur(bureau, numBureauPOI) {
-		console.log($("#bureauxPOI"+numBureauPOI).html());
-		console.log("#bureauxPOI"+numBureauPOI);
-		console.log('<option id="bureau'+bureau.id+'">'+bureau.id+'</option>');
-		$("#bureauxPOI"+numBureauPOI).append('<option id="bureau'+bureau.id+'">'+bureau.id+'</option>');
-	}
-
-
 });
-
-
-
-
