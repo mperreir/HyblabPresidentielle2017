@@ -248,7 +248,8 @@ var infoWindow = new google.maps.InfoWindow({map: map});
     		// Ouverture de la bubulle
     		infoWindows.get(numBureauPOI).open(map, markers.get(numBureauPOI));
 
-
+    		// Récuperation des données sur la fenêtre de droite;
+    		getDataBureau();
 		    // TODO à changer
 		  /* navigator.geolocation.getCurrentPosition(function(position) {
 		    
