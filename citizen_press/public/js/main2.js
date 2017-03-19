@@ -149,8 +149,10 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 					'</div>'+
 					'</div>';
 		    		tabAdresse.push(bureau.adresse);
-		    		url_marker = getUrlMarker(bureau.adresse, numBureauPOI);
-					placerMarqueur(bureau.lat, bureau.long, contentString, numBureauPOI, nbPOI);
+		    		createSVG(bureau.adresse, numBureauPOI);
+		    		url_marker = "./img/svg"+numBureauPOI+".svg";
+		    		console.log(url_marker);
+					placerMarqueur(bureau.lat, bureau.long, contentString, numBureauPOI, nbPOI, url_marker);
 		    	}
 		    	// Le POI est déjà ajouté, donc on ajoute le bureau au POI
 		    	else {
@@ -222,15 +224,14 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	// Ajoute un marqueur à la carte à la latitdue_POI et à la longitude_POI
 	// numBureauPOI : le numéro du POI à ajouter
 	// nbBureau : Le nombre de bureau
-	function placerMarqueur(latitude_POI, longitude_POI, contentString, numBureauPOI, nbPOI) {
+	function placerMarqueur(latitude_POI, longitude_POI, contentString, numBureauPOI, nbPOI, url_marker) {
 		// on recupère le bon marqueurs
-		url_marker = getUrlMarker(numBureauPOI);
 
 		markers.set(numBureauPOI, new google.maps.Marker({
 		  	position: new google.maps.LatLng(latitude_POI, longitude_POI),
 		    map: map,
 		    visible: true,
-		 	icon: $marker_POI
+		 	icon: url_marker
 		}));
 
 		infoWindows.set(numBureauPOI, new google.maps.InfoWindow({content: contentString}));
@@ -268,25 +269,23 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		});
 	}
 
-	function getUrlMarker(adresse, numPOI) {
+	function createSVG(adresse, numPOI) {
 		$.ajax({
-			url:"citizen_press/bureaux/"+adresse+"/"+numPOI,
+			url:"bureaux/"+adresse+"/"+numPOI,
 			type: "GET",
-		    dataType: "json",
-		    contentType: "application/json",
+		    dataType: "text",
 		    cache: false,
 		    async: false,
 		    timeout: 5000,
 
 		    success: function(data) {
-	    		console.log("URL beginning");
-
 		   	},
 
 		   	complete: function() {
 		   	},
 
 			error: function(xhr, status, error) {
+				console.log(error);
 			},
 		});
 	}

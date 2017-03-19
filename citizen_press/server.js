@@ -25,9 +25,6 @@ function writeSvg(bureaux, numPOI) {
 	var tauxRemplissage;	
 	var nbAssesseursMin = NB_MAX_ASSESSEURS;
 	var svg = new SVG(numPOI);
-	console.log(svg.url);
-	console.log(bureaux);
-
 	// Petits cercles
 	bureaux.forEach(function(element, key) {
 		if (nbAssesseursMin > element){
@@ -65,11 +62,11 @@ function writeSvg(bureaux, numPOI) {
 	else {
 		svg.setBigCircle("green");
 	}
-
 	// Nombre à l'intérieur
 	svg.setNumber(nbAssesseursMin);
 
-	fs.writeFile("./citizen_press/public/img/"/svg.url, svg.getContent());
+	fs.writeFile("./citizen_press/public/img/"+svg.url, svg.getContent());
+	return "./img/"+svg.url;
 }
 
 // Route d'accès client
@@ -155,12 +152,11 @@ app.get("/bureaux/:adresse/:numPOI", (req, res) => {
 	fs.readFile(URL_DATA, 'utf8', function(err, data) {
 	    if (err) throw err; // à voir 
 	    var obj = JSON.parse(data);
-	   // console.log(obj.bureaux);
+
 	    // Parcours des bureaux
 	    for (var bureauIndex in obj.bureaux) {
 	    	// Selection des bons bureaux à la même adresse
 	    	bureau = obj.bureaux[bureauIndex];
-	    	//console.log(adresse);
 	    	if (bureau.adresse == adresse) {
 	    		// Parcours des assesseurs
 	    		for (var assesseur in bureau.assesseurs) {
@@ -176,8 +172,8 @@ app.get("/bureaux/:adresse/:numPOI", (req, res) => {
 	    	}
 	    }
 	    // On envoie l'URL du fichier créé
-	   // console.log(bureaux);
 	    res.send(writeSvg(bureaux, numPOI));
+	   // res.send(writeSvg(bureaux, numPOI));
 	});
 });
 
