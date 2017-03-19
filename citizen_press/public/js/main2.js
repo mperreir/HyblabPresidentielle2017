@@ -150,7 +150,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 					'</div>'+
 					'<h1 id="firstHeading">'+bureau.nom_lieu+'</h1>'+
 					'<div id="bodyContent">'+
-					'<p class="adress">'+bureau.adresse+'</p>'+'<p>'+bureau.code_postal+' '+bureau.ville+'</p>'+'<h1>BUREAU DE VOTE</h1>'+'<form>'+'<select id="bureauxPOI'+numBureauPOI+'">'+'<option id="bureau'+bureau.id+'">'+bureau.id+'</option></select></form>'+
+					'<p id="p'+numBureauPOI+'" class="adress" >'+bureau.adresse+'</p>'+'<p>'+bureau.code_postal+' '+bureau.ville+'</p>'+'<h1>BUREAU DE VOTE</h1>'+'<form>'+'<select id="bureauxPOI'+numBureauPOI+'" class="listePOI">'+'<option SELECTED id="bureau'+bureau.id+'">'+bureau.id+'</option></select></form>'+
 					'</div>'+
 					'</div>';
 		    		tabAdresse.push(bureau.adresse);
@@ -170,6 +170,11 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	    		$(".POI"+i).css("display", "none");
 		    }
 		    addListenerClick(nbPOI);
+		    addListenerChange(nbPOI);
+
+		    if(document.getElementById("#bureauxPOI3")){
+				console.log('izi');
+			}
 		    // UNDEFINED MEME ICI :(((
 			//console.log($("#bureauxPOI8").html());
 		    //addBureaux(bureaux);
@@ -200,8 +205,23 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 
 		});
 	}
-	
 
+
+	function addListenerChange(nbPOI) {
+		// Pour fermer la page du côté lors du clique sur la fleche
+		var adresse = "";
+		var cp = "";
+		var ville = "";
+		//console.log("OKLM");
+		for (var i = 1; i <= nbPOI; i++) {
+			$('#bureauxPOI'+i).change(function() {
+	    		$('#bureauxPOI'+i+' option:selected').each(function() {
+	    			console.log("OKLM2");
+	    			$("#p"+i).text("OKLM");
+		    	});
+		    }).change();
+	    };
+	}
 
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     	infoWindow.setPosition(pos);

@@ -39,6 +39,18 @@ app.get("/", (req, res) => {
 	    	if (tab.indexOf(obj.bureaux[i].adresse) == -1){
 		    	res.write ('<section class="POI POI'+calc+'">\
 		    				<div class="bureaux"></div>\
+		    				<div class="contenu">\
+		    					<h2 id="TitrRemplissage"> Remplissage </h2>\
+		    					<div id="txts">\
+		    						<div class="txtRemplissage" id="txtAssesseurs">\
+			    						<h3> Assesseurs inscrits </h3>\
+			    					</div>\
+			    					<div class="txtRemplissage" id="txtScrutateurs">\
+			    						<h3> Scrutateurs inscrits </h3>\
+			    					</div>\
+			    				</div>\
+		    					<div class="graphsContenu"></div> \
+		    				</div>\
         					<img class="fermer" src="./img/arrow.png"> \
         					<div class="data-container"></div> \
             			</section> \n');

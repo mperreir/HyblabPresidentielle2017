@@ -556,3 +556,26 @@ footer div {
 }
 
 
+/* Pour les données a droite de la carte */
+#TitrRemplissage {
+  font-size: 26px;
+  margin-top: 25px;
+  text-align: center;
+  color: #6FAAF6;
+}
+
+#txts {
+    margin-top: 40px;
+    display : block;
+}
+
+.txtRemplissage {
+    width: 137px;
+    margin-left: 20%;
+    display : inline-block;
+}
+
+.txtRemplissage h3 {
+    text-decoration: underline;
+    text-align: center;
+}
