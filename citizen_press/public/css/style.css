@@ -502,7 +502,7 @@ footer {
     height: 10vh;
     bottom: 0;
     z-index: 3;
-    background-color: #FFF;
+    background-color: #478CF4;
     text-align: center;
 }
 
@@ -513,12 +513,14 @@ footer div {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    border: 1px #787878 solid;
+    border: 1px #FFF solid;
 }
 
 .done {
-    background-color: #478CF4;
+    background-color: #FFF;
     border: none;
+    width: 14px;
+    height: 14px;
 }
 
 #content {
