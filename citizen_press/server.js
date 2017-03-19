@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 	    var obj = JSON.parse(data);
 	   
 	    //var id = req.params.id;
-	    var idBureau = 513;
+	    var idBureau = 133;
 
 	   	// Initialisation des variables
 	    var assesseurs = [];
@@ -52,24 +52,36 @@ app.get("/", (req, res) => {
 	    	}
 		};
 
-		fs.readFile('citizen_press/public/html/liste_president/filtrage.html','utf8', function(err,data){	// Lecture d'un fichier
-			res.write(data);
-		// Ecriture dans la réponse
-		});
-
+		res.write('<div class="Filtrage">');
+        res.write('FILTRAGE : ');
+        res.write('<form action="">');
+  		res.write('<input type="radio" name="type_benevole" value="Assesseurs" checked> Assesseurs<br>');
+  		res.write('<input type="radio" name="type_benevole" value="Scrutateurs"> Scrutateurs<br>');
+		res.write('</form>');
+		res.write('<br>');
+		res.write('<form action="">');
+		res.write('<input type="radio" name="type_demande" value="en_cours" checked> Demandes en cours : <br>');
+		res.write('<input type="radio" name="type_demande" value="valides"> Demandes validées : <br>');
+		res.write('</form>');
+		res.write('</div>');
+		res.write('<br><br><br><br>');
+		res.write('<table id="table_benevoles" class="display" cellspacing="0" width="100%">');
+		res.write('<thead>');
+	    res.write('<tr>');
+	    res.write('<th>NOM Prénom</th>');
+	    res.write('<th>Age</th>');
+	    res.write('<th>Email</th>');
+      	res.write('<th>Téléphone</th>');
+      	res.write('<th>Décision</th>');
+    	res.write('</tr>');
+  		res.write('</thead>');
+ 		res.write(' <tbody>');
 
 		for(var index3 in assesseurs){
 			for (var index4 in obj.assesseurs){
 				if (obj.assesseurs[index4].id == assesseurs[index3][0]){
 					//Assesseur en cours
 					asseseurTemp = obj.assesseurs[index4];
-					/*if (asseseurTemp.potentiel_assesseur == true && asseseurTemp.potentiel_scrutateur == true ){
-						res.write("<td class=\"assesseurs\" class=\"scrutateur\"");
-					}else if (asseseurTemp.potentiel_assesseur == true)
-						res.write("<td class=\"assesseurs\" ");
-					}else if (asseseurTemp.potentiel_scrutateur == true)
-						res.write("<td class=\"scrutateur\" ");
-					}*/
 					res.write("<tr ");
 					if (asseseurTemp.potentiel_assesseur == true ){
 						if (assesseurs[index3][0].valide_assesseur == true){
@@ -90,13 +102,12 @@ app.get("/", (req, res) => {
 					res.write("<td>"+asseseurTemp.age+"</td>");
 					res.write("<td>"+asseseurTemp.mail+"</td>");
 					res.write("<td>"+asseseurTemp.tel+"</td>");
+					res.write('<td><input type="button" value="Valider"><input type="button" value="Refuser"></td></tr>');
 					res.write("</tr>");
 				}
 			}
 		}
 		res.write("</tbody></table>");
-
-
 
 		// Récupération du footer
 		fs.readFile('citizen_press/public/html/liste_president/footer.html','utf8', function(err,data){	// Lecture d'un fichier
