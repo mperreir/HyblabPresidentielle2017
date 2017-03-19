@@ -49,7 +49,10 @@ app.get("/", (req, res) => {
 			    						<h3> Scrutateurs inscrits </h3>\
 			    					</div>\
 			    				</div>\
-		    					<div class="graphsContenu"></div> \
+		    					<div class="graphsContenu"> \
+		    						<div id="graphContenuAssesseur" class="graphContenu"></div>\
+		    						<div id="graphContenuScrutateur" class="graphContenu"></div>\
+		    					</div> \
 		    				</div>\
         					<img class="fermer" src="./img/arrow.png"> \
         					<div class="data-container"></div> \
@@ -89,7 +92,7 @@ app.get("/bureaux/:id", (req, res) => {
 	    for (var bureau in obj.bureaux) {
 	    	// le bon bureau
 	    	if (idBureau == obj.bureaux[bureau].id) {
-	    		res.write(obj.bureaux[bureau]);
+	    		res.write(JSON.stringify(obj.bureaux[bureau]));
 	    	}
 	    }
 	    res.send();

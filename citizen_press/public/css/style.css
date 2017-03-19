@@ -579,3 +579,11 @@ footer div {
     text-decoration: underline;
     text-align: center;
 }
+
+.graphsContenu {
+    display:block;
+}
+
+.graphContenu {
+    display:inline-block;
+}
