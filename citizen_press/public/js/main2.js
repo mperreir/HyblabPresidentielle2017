@@ -125,6 +125,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	    	var tabAdresse = new Array(); 
 	    	var numBureauPOI = 0;
 	    	var contentString;
+	    	var url_marker;
 	    	// Pour avoir le nombre de POI à placer
 	    	data.forEach(function(bureau) {
 		    	// Si le POI n'est pas encore placé, on le place
@@ -148,6 +149,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 					'</div>'+
 					'</div>';
 		    		tabAdresse.push(bureau.adresse);
+		    		url_marker = getUrlMarker(bureau.adresse, numBureauPOI);
 					placerMarqueur(bureau.lat, bureau.long, contentString, numBureauPOI, nbPOI);
 		    	}
 		    	// Le POI est déjà ajouté, donc on ajoute le bureau au POI
@@ -221,6 +223,8 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	// numBureauPOI : le numéro du POI à ajouter
 	// nbBureau : Le nombre de bureau
 	function placerMarqueur(latitude_POI, longitude_POI, contentString, numBureauPOI, nbPOI) {
+		// on recupère le bon marqueurs
+		url_marker = getUrlMarker(numBureauPOI);
 
 		markers.set(numBureauPOI, new google.maps.Marker({
 		  	position: new google.maps.LatLng(latitude_POI, longitude_POI),
@@ -249,7 +253,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
     		infoWindows.get(numBureauPOI).open(map, markers.get(numBureauPOI));
 
     		// Récuperation des données sur la fenêtre de droite;
-    		getDataBureau();
+    		//getDataBureau();
 		    // TODO à changer
 		  /* navigator.geolocation.getCurrentPosition(function(position) {
 		    
@@ -261,6 +265,29 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		    map.setCenter(pos);
 		        
 		    });*/
+		});
+	}
+
+	function getUrlMarker(adresse, numPOI) {
+		$.ajax({
+			url:"citizen_press/bureaux/"+adresse+"/"+numPOI,
+			type: "GET",
+		    dataType: "json",
+		    contentType: "application/json",
+		    cache: false,
+		    async: false,
+		    timeout: 5000,
+
+		    success: function(data) {
+	    		console.log("URL beginning");
+
+		   	},
+
+		   	complete: function() {
+		   	},
+
+			error: function(xhr, status, error) {
+			},
 		});
 	}
 
