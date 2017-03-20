@@ -11,7 +11,7 @@ var app = express();
 var fs = require('fs');
 
 var URL_DATA = 'citizen_press/public/data/data2.json';
-var NB_MAX_ASSESSEURS = 8;
+var NB_MAX_ASSESSEURS_SCRUTATEUR = 8;
 
 // Recuperation des chemins relatifs
 app.use(express.static(path.join(__dirname, 'public')));  
@@ -23,14 +23,14 @@ function writeSvg(bureaux, numPOI) {
 	var color;
 	var colors = new Array();
 	var tauxRemplissage;	
-	var nbAssesseursMin = NB_MAX_ASSESSEURS;
+	var nbAssesseursScrutMin = NB_MAX_ASSESSEURS_SCRUTATEUR;
 	var svg = new SVG(numPOI);
 	// Petits cercles
 	bureaux.forEach(function(element, key) {
-		if (nbAssesseursMin > element){
-			nbAssesseursMin = element;
+		if (nbAssesseursScrutMin > element){
+			nbAssesseursScrutMin = element;
 		}
-		tauxRemplissage = element/NB_MAX_ASSESSEURS;
+		tauxRemplissage = element/NB_MAX_ASSESSEURS_SCRUTATEUR;
 		if (tauxRemplissage < 0.4) {
 			color = "red";
 			colors.push("red");
@@ -43,10 +43,41 @@ function writeSvg(bureaux, numPOI) {
 			color = "yellow";
 			colors.push("yellow");
 		}
-		else if (tauxRemplissage == 1) {
+		else {
 			color = "green";
 			colors.push("green");
 		}
+		//console.log(element + " " + color);
+		colors.sort(function(a, b) {
+			if (a == b) {
+				return 0;
+			}
+			if (a == "red") {
+				return -1;
+			}
+			else if (a == "orange") {
+				if ((b == "yellow")||(b == "green")) {
+					return -1;
+				}
+				// Red
+				else {
+					return 1;
+				}
+			}
+			else if (a == "yellow") {
+				if (b == "green") {
+					return -1;
+				}
+				else {
+					return 1;
+				}
+			}
+			else if (a == "green") {
+				return 1;
+			}
+		});
+	});
+	colors.forEach(function(color){
 		svg.addPoint(color);
 	});
 	// Gros cercle
@@ -63,7 +94,7 @@ function writeSvg(bureaux, numPOI) {
 		svg.setBigCircle("green");
 	}
 	// Nombre à l'intérieur
-	svg.setNumber(nbAssesseursMin);
+	svg.setNumber(nbAssesseursScrutMin);
 
 	fs.writeFile("./citizen_press/public/img/"+svg.url, svg.getContent());
 	return "./img/"+svg.url;
@@ -145,6 +176,7 @@ app.get("/bureaux/:id", (req, res) => {
 // Récupère les données des bureaux à l'adresse :adresse pour poouvoir renvoyer le bon SVG
 app.get("/bureaux/:adresse/:numPOI", (req, res) => {
 	var nbAssesseursInscrit = 0;
+	//var nbScrutateursInscrit = 0;
 	var bureaux = new Map();
 	var bureau;
 	var adresse = req.params.adresse;
@@ -164,11 +196,16 @@ app.get("/bureaux/:adresse/:numPOI", (req, res) => {
 	    			if (bureau.assesseurs[assesseur].valide_assesseur) {
 	    				nbAssesseursInscrit++;
 	    			}
+	    			// Compter les scrutateurs aussi
+	    			/*if (bureau.assesseurs[assesseur].valide_scrutateur) {
+						nbScrutateursInscrit++;
+	    			}*/
 	    		}
-	    		// Ajout du nombre d'assesseur inscrit par rapport au bureaum=
+	    		// Ajout du nombre d'assesseur inscrit par rapport au bureau
 	    		bureaux.set(bureau.id, nbAssesseursInscrit);
 	    		// Resmise à 0 du nombre d'inscrit
 	    		nbAssesseursInscrit = 0;
+	    		//nbScrutateursInscrit = 0;
 	    	}
 	    }
 	    // On envoie l'URL du fichier créé
@@ -258,6 +295,12 @@ function SVG(numPOI) {
 		}
 		else if (this.nbBureau == 4) {
 			this.contentSVG_littleCircles += '<circle class="'+classColor+'" cx="150.4" cy="78.1" r="12.4"/>';
+		}
+		else if (this.nbBureau == 5) {
+			this.contentSVG_littleCircles += '<circle class="'+classColor+'" cx="150.4" cy="118.2" r="12.4"/>';
+		}
+		else if (this.nbBureau == 6) {
+			this.contentSVG_littleCircles += '<circle class="'+classColor+'" cx="132.4" cy="152.1" r="12.4"/>';
 		}
 	}
 
