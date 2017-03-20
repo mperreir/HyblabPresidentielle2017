@@ -8,6 +8,8 @@ $(document).ready(function(){
 	var infoWindows = new Map();
 	var markers = new Map();
 
+	var NB_ASSESSEURS_MAX = 8;
+	var NB_SCRUTATEURS_MAX = 25;
 
 	var widht =window.screen.width;
 	var height = window.screen.height;
@@ -259,8 +261,61 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 			    },
 			   	complete: function() {
 			   		// Ecriture des résultats --> Vers des graphiques
-			   		$('.POI'+numBureauPOI+' #graphContenuAssesseur').html("<p> Nombre d'assesseur validés : "+nbAssesseurValide+" </p>");
-			   		$('.POI'+numBureauPOI+' #graphContenuScrutateur').html("<p> Nombre de scrutateurs validés : "+nbScrutateurValide+" </p>");
+
+			   		// Reinit de la partie des graphiques (évite le doubelement de taille)
+			   	//	$(".graphContenuAssesseur").html('<canvas id="graphContenuAssesseur'+numBureauPOI+'" width="200" height="200"></canvas>');
+			   		//$(".graphContenuScrutateur").html('<canvas id="graphContenuScrutateur'+numBureauPOI+'" width="200" height="200"></canvas>');
+
+			   		// On récupère le bon ID pour insérer le graphique
+			   		var ctxAss = document.getElementById("graphContenuAssesseur"+numBureauPOI);
+			   		var ctxScrut = document.getElementById("graphContenuScrutateur"+numBureauPOI);
+					
+					var myDoughnutAss;
+					var myDoughnutScrut;
+
+					// La construction des graphiques
+			   		myDoughnutAss = new Chart(ctxAss, {
+					    type: 'doughnut',
+					    data: {
+						    labels: [
+						        "Inscrits",
+						        "Places restantes"
+						    ],
+						    datasets: [
+						        {
+						            data: [nbAssesseurValide, NB_ASSESSEURS_MAX-nbAssesseurValide],
+						            backgroundColor: [
+						                "#FF6384",
+						                "#F2F2F2"
+						            ]
+						        }]
+						}
+					});
+
+					myDoughnutScrut = new Chart(ctxScrut, {
+					    type: 'doughnut',
+					    data: {
+						    labels: [
+						        "Inscrits",
+						        "Places restantes"
+						    ],
+						    datasets: [
+						        {
+						            data: [nbScrutateurValide, NB_SCRUTATEURS_MAX-nbScrutateurValide],
+						            backgroundColor: [
+						                "#FF6384",
+						                "#F2F2F2"
+						            ]
+						        }]
+						}
+					});
+
+					ctxAss.style.width = 100;
+					ctxAss.style.height = 100;
+
+			   		ctxScrut.style.width = 100;
+			   		ctxScrut.style.height = 100;
+
 					nbAssesseurValide = 0;
 					nbScrutateurValide = 0;
 			   		

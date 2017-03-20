@@ -123,19 +123,22 @@ app.get("/", (req, res) => {
 		    					<h2 id="TitrRemplissage"> Remplissage </h2>\
 		    					<div id="txts">\
 		    						<div class="txtRemplissage" id="txtAssesseurs">\
-			    						<h3> Assesseurs inscrits </h3>\
+			    						<h3>Assesseurs inscrits</h3>\
 			    					</div>\
 			    					<div class="txtRemplissage" id="txtScrutateurs">\
-			    						<h3> Scrutateurs inscrits </h3>\
+			    						<h3> Scrutateurs inscrits</h3>\
 			    					</div>\
 			    				</div>\
 		    					<div class="graphsContenu"> \
-		    						<div id="graphContenuAssesseur" class="graphContenu"></div>\
-		    						<div id="graphContenuScrutateur" class="graphContenu"></div>\
+		    						<div class="graphContenuAssesseur" width="100" height="100">\
+		    							<canvas id="graphContenuAssesseur'+calc+'" width="100" height="100"></canvas>\
+		    						</div>\
+		    						<div class="graphContenuScrutateur" width="100" height="100">\
+		    							<canvas id="graphContenuScrutateur'+calc+'" width="100" height="100"></canvas>\
+									</div>\
 		    					</div> \
 		    				</div>\
         					<img class="fermer" src="./img/arrow.png"> \
-        					<div class="data-container"></div> \
             			</section> \n');
             	calc++;
             	tab.push(obj.bureaux[i].adresse);
