@@ -32,12 +32,12 @@
   [
     {
     "id": "idAsse1",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
     "id": "idAsse2",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
@@ -47,12 +47,12 @@
     },
     {
     "id": "idAsse4",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
     "id": "idAsse5",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
@@ -67,7 +67,7 @@
     },
     {
     "id": "idAsse8",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
@@ -95,7 +95,7 @@
   [
     {
     "id": "idAsse11",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
@@ -7927,91 +7927,53 @@
   "code_postal" : "44000" ,
   "lat" : 47.2048 ,
   "long" : -1.5894 ,
-  "president" : "idPresident193",
-  "nom_lieu" : " Ecole élémentaire Mutualité" ,
-  "assesseurs" : 
-  [
-    {
-    "id": "idAsse1082",
-    "valide_assesseur": false,
-    "valide_scrutateur": false
-    },
-    {
-    "id": "idAsse1083",
-    "valide_assesseur": false,
-    "valide_scrutateur": false
-    },
-    {
-    "id": "idAsse1084",
-    "valide_assesseur": false,
-    "valide_scrutateur": false
-    },
-    {
-    "id": "idAsse1085",
-    "valide_assesseur": false,
-    "valide_scrutateur": false
-    },
-    {
-    "id": "idAsse1086",
-    "valide_assesseur": false,
-    "valide_scrutateur": false
-    }
-  ]
-},
-{
-  "id" : 431,
-  "adresse" : "rue des Droits de l'homme" ,
-  "ville" : "Nantes" ,
-  "code_postal" : "44000" ,
-  "lat" : 47.2048 ,
-  "long" : -1.5894 ,
   "president" : "idPresident194",
   "nom_lieu" : " Ecole élémentaire Mutualité", 
   "assesseurs" : 
   [
     {
     "id": "idAsse1087",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
     "id": "idAsse1088",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
     "id": "idAsse1089",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
     "id": "idAsse1090",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
     "id": "idAsse1091",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
     "id": "idAsse1092",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
     "id": "idAsse1093",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
     "id": "idAsse1094",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
     "id": "idAsse1095",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
@@ -8039,23 +8001,23 @@
   [
     {
     "id": "idAsse1098",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
     "id": "idAsse1099",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
     "id": "idAsse1100",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
     "id": "idAsse1101",
-    "valide_assesseur": false,
-    "valide_scrutateur": false
+    "valide_assesseur": true,
+    "valide_scrutateur": true
     },
     {
     "id": "idAsse1102",
@@ -8064,12 +8026,12 @@
     },
     {
     "id": "idAsse1103",
-    "valide_assesseur": false,
-    "valide_scrutateur": false
+    "valide_assesseur": true,
+    "valide_scrutateur": true
     },
     {
     "id": "idAsse1104",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
@@ -8097,22 +8059,22 @@
   [
     {
     "id": "idAsse1107",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
     "id": "idAsse1108",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
     "id": "idAsse1109",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
     "id": "idAsse1110",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
@@ -8155,7 +8117,22 @@
   [
     {
     "id": "idAsse1116",
+    "valide_assesseur": true,
+    "valide_scrutateur": false
+    },
+    {
+    "id": "idAsse1118",
     "valide_assesseur": false,
+    "valide_scrutateur": false
+    },
+    {
+    "id": "idAsse1119",
+    "valide_assesseur": false,
+    "valide_scrutateur": false
+    },
+    {
+    "id": "idAsse1120",
+    "valide_assesseur": true,
     "valide_scrutateur": false
     }
   ]
@@ -8190,21 +8167,6 @@
   "assesseurs" : 
   [
     {
-    "id": "idAsse1118",
-    "valide_assesseur": false,
-    "valide_scrutateur": false
-    },
-    {
-    "id": "idAsse1119",
-    "valide_assesseur": false,
-    "valide_scrutateur": false
-    },
-    {
-    "id": "idAsse1120",
-    "valide_assesseur": false,
-    "valide_scrutateur": false
-    },
-    {
     "id": "idAsse1121",
     "valide_assesseur": false,
     "valide_scrutateur": false
@@ -8226,8 +8188,8 @@
     },
     {
     "id": "idAsse1125",
-    "valide_assesseur": false,
-    "valide_scrutateur": false
+    "valide_assesseur": true,
+    "valide_scrutateur": true
     }
   ]
 },
@@ -8254,7 +8216,7 @@
     },
     {
     "id": "idAsse1128",
-    "valide_assesseur": false,
+    "valide_assesseur": true,
     "valide_scrutateur": false
     },
     {
@@ -8338,7 +8300,7 @@
       "mail": "elvashaw@techtrix.com",
       "tel": "06 39 43 44 63",
       "sexe": "female",
-      "potentiel_assesseur": false,
+      "potentiel_assesseur": true,
       "potentiel_scrutateur": true
     },
     {
@@ -8360,7 +8322,7 @@
       "mail": "imogenebates@techtrix.com",
       "tel": "06 18 81 1 47",
       "sexe": "female",
-      "potentiel_assesseur": false,
+      "potentiel_assesseur": true,
       "potentiel_scrutateur": true
     },
     {
@@ -8371,7 +8333,7 @@
       "mail": "leannewalsh@techtrix.com",
       "tel": "06 95 35 23 66",
       "sexe": "female",
-      "potentiel_assesseur": false,
+      "potentiel_assesseur": true,
       "potentiel_scrutateur": true
     },
     {
@@ -8393,7 +8355,7 @@
       "mail": "eunicefrazier@techtrix.com",
       "tel": "06 60 11 46 22",
       "sexe": "female",
-      "potentiel_assesseur": false,
+      "potentiel_assesseur": true,
       "potentiel_scrutateur": true
     },
     {
@@ -20229,7 +20191,7 @@
       "mail": "hodgewhite@techtrix.com",
       "tel": "06 35 95 58 64",
       "sexe": "male",
-      "potentiel_assesseur": false,
+      "potentiel_assesseur": true,
       "potentiel_scrutateur": true
     },
     {
@@ -20251,7 +20213,7 @@
       "mail": "karenferrell@techtrix.com",
       "tel": "06 21 44 82 98",
       "sexe": "female",
-      "potentiel_assesseur": false,
+      "potentiel_assesseur": true,
       "potentiel_scrutateur": true
     },
     {
@@ -20262,7 +20224,7 @@
       "mail": "matildacherry@techtrix.com",
       "tel": "06 37 15 81 12",
       "sexe": "female",
-      "potentiel_assesseur": false,
+      "potentiel_assesseur": true,
       "potentiel_scrutateur": true
     },
     {
@@ -20284,7 +20246,7 @@
       "mail": "reedbarton@techtrix.com",
       "tel": "06 99 19 0 33",
       "sexe": "male",
-      "potentiel_assesseur": false,
+      "potentiel_assesseur": true,
       "potentiel_scrutateur": true
     },
     {
@@ -20295,7 +20257,7 @@
       "mail": "rosieflowers@techtrix.com",
       "tel": "06 93 10 73 17",
       "sexe": "female",
-      "potentiel_assesseur": false,
+      "potentiel_assesseur": true,
       "potentiel_scrutateur": true
     },
     {
@@ -20317,7 +20279,7 @@
       "mail": "lynettepuckett@techtrix.com",
       "tel": "06 38 44 58 6",
       "sexe": "female",
-      "potentiel_assesseur": false,
+      "potentiel_assesseur": true,
       "potentiel_scrutateur": true
     },
     {
@@ -20339,7 +20301,7 @@
       "mail": "wilcoxmcbride@techtrix.com",
       "tel": "06 7 35 59 74",
       "sexe": "male",
-      "potentiel_assesseur": false,
+      "potentiel_assesseur": true,
       "potentiel_scrutateur": true
     },
     {
@@ -20394,7 +20356,7 @@
       "mail": "deirdretillman@techtrix.com",
       "tel": "06 40 48 97 25",
       "sexe": "female",
-      "potentiel_assesseur": false,
+      "potentiel_assesseur": true,
       "potentiel_scrutateur": true
     },
     {
@@ -20416,7 +20378,7 @@
       "mail": "alysonwilkerson@techtrix.com",
       "tel": "06 96 21 12 88",
       "sexe": "female",
-      "potentiel_assesseur": false,
+      "potentiel_assesseur": true,
       "potentiel_scrutateur": true
     },
     {
@@ -20428,7 +20390,7 @@
       "tel": "06 68 81 82 89",
       "sexe": "female",
       "potentiel_assesseur": true,
-      "potentiel_scrutateur": false
+      "potentiel_scrutateur": true
     },
     {
       "id": "idAsse1104",
@@ -20471,7 +20433,7 @@
       "mail": "bakeradkins@techtrix.com",
       "tel": "06 70 34 27 17",
       "sexe": "male",
-      "potentiel_assesseur": false,
+      "potentiel_assesseur": true,
       "potentiel_scrutateur": true
     },
     {
@@ -20482,7 +20444,7 @@
       "mail": "janisschneider@techtrix.com",
       "tel": "06 75 22 22 91",
       "sexe": "female",
-      "potentiel_assesseur": false,
+      "potentiel_assesseur": true,
       "potentiel_scrutateur": true
     },
     {
@@ -20493,7 +20455,7 @@
       "mail": "crossflynn@techtrix.com",
       "tel": "06 72 27 99 84",
       "sexe": "male",
-      "potentiel_assesseur": false,
+      "potentiel_assesseur": true,
       "potentiel_scrutateur": true
     },
     {
@@ -20570,7 +20532,7 @@
       "mail": "carmenkidd@techtrix.com",
       "tel": "06 83 16 83 53",
       "sexe": "female",
-      "potentiel_assesseur": false,
+      "potentiel_assesseur": true,
       "potentiel_scrutateur": true
     },
     {
@@ -20592,7 +20554,7 @@
       "mail": "margohoffman@techtrix.com",
       "tel": "06 28 63 9 60",
       "sexe": "female",
-      "potentiel_assesseur": false,
+      "potentiel_assesseur": true,
       "potentiel_scrutateur": true
     },
     {
@@ -20614,7 +20576,7 @@
       "mail": "mcmahonguerra@techtrix.com",
       "tel": "06 20 56 53 76",
       "sexe": "male",
-      "potentiel_assesseur": false,
+      "potentiel_assesseur": true,
       "potentiel_scrutateur": true
     },
     {
@@ -20670,7 +20632,7 @@
       "tel": "06 28 0 12 76",
       "sexe": "male",
       "potentiel_assesseur": true,
-      "potentiel_scrutateur": false
+      "potentiel_scrutateur": true
     },
     {
       "id": "idAsse1126",
