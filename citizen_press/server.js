@@ -315,11 +315,11 @@ function SVG(numPOI) {
 	}
 
 	this.setNumber = function(number) {
-		if (number > 9) {
-			this.contentSVG_text = '<text transform="matrix(1 0 0 1 37.9507 113.4561)" class="st2 st3 st4">'+number+'</text>';
+		if (number < 10) {
+			this.contentSVG_text = '<text transform="matrix(1 0 0 1 53.9507 113.4561)" class="st2 st3 st4">'+number+'</text>';
 		}
 		else {
-			this.contentSVG_text = '<text transform="matrix(1 0 0 1 37.9507 113.4561)" class="st2 st3 st4">0'+number+'</text>';
+			this.contentSVG_text = '<text transform="matrix(1 0 0 1 37.9507 113.4561)" class="st2 st3 st4">'+number+'</text>';
 		}
 	}
 
