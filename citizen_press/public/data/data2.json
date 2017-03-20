@@ -26,28 +26,28 @@
       "nom_lieu": " Ecole élémentaire Dervallières Chézine",
       "assesseurs": [{
         "id": "idAsse1",
-        "valide_assesseur": false,
+        "valide_assesseur": true,
         "valide_scrutateur": false
       }, {
         "id": "idAsse2",
-        "valide_assesseur": false,
+        "valide_assesseur": true,
         "valide_scrutateur": false
       }, {
         "id": "idAsse3",
-        "valide_assesseur": false,
+        "valide_assesseur": true,
         "valide_scrutateur": false
       }, {
         "id": "idAsse4",
         "valide_assesseur": false,
-        "valide_scrutateur": false
+        "valide_scrutateur": true
       }, {
         "id": "idAsse5",
         "valide_assesseur": false,
-        "valide_scrutateur": false
+        "valide_scrutateur": true
       }, {
         "id": "idAsse6",
         "valide_assesseur": false,
-        "valide_scrutateur": false
+        "valide_scrutateur": true
       }, {
         "id": "idAsse7",
         "valide_assesseur": false,
@@ -6259,37 +6259,7 @@
         "valide_assesseur": false,
         "valide_scrutateur": false
       }]
-    }, {
-      "id": 431,
-      "adresse": "rue des Droits de l'homme",
-      "ville": "Nantes",
-      "code_postal": "44000",
-      "lat": 47.2048,
-      "long": -1.5894,
-      "president": "idPresident193",
-      "nom_lieu": " Ecole élémentaire Mutualité",
-      "assesseurs": [{
-        "id": "idAsse1082",
-        "valide_assesseur": false,
-        "valide_scrutateur": false
-      }, {
-        "id": "idAsse1083",
-        "valide_assesseur": false,
-        "valide_scrutateur": false
-      }, {
-        "id": "idAsse1084",
-        "valide_assesseur": false,
-        "valide_scrutateur": false
-      }, {
-        "id": "idAsse1085",
-        "valide_assesseur": false,
-        "valide_scrutateur": false
-      }, {
-        "id": "idAsse1086",
-        "valide_assesseur": false,
-        "valide_scrutateur": false
-      }]
-    }, {
+    },{
       "id": 431,
       "adresse": "rue des Droits de l'homme",
       "ville": "Nantes",
