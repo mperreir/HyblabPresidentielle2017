@@ -8,12 +8,6 @@ $(document).ready(function(){
 	var infoWindows = new Map();
 	var markers = new Map();
 
-	var NB_ASSESSEURS_MAX = 8;
-	var NB_SCRUTATEURS_MAX = 25;
-
-	var widht =window.screen.width;
-	var height = window.screen.height;
-
 	var nbPOI = 0;
 
 	var is_internetExplorer11= navigator.userAgent.toLowerCase().indexOf('trident') > -1;
@@ -261,45 +255,8 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 			    },
 			   	complete: function() {
 			   		// Ecriture des résultats --> Vers des graphiques
-			   		var ctxAss = document.getElementById("graphContenuAssesseur"+numBureauPOI);
-			   		var ctxScrut = document.getElementById("graphContenuScrutateur"+numBureauPOI);
-
-			   		var myDoughnutAss = new Chart(ctxAss, {
-					    type: 'doughnut',
-					    data: {
-						    labels: [
-						        "Inscrits",
-						        "Places restantes"
-						    ],
-						    datasets: [
-						        {
-						            data: [nbAssesseurValide, NB_ASSESSEURS_MAX-nbAssesseurValide],
-						            backgroundColor: [
-						                "#FF6384",
-						                "#F2F2F2"
-						            ]
-						        }]
-						}
-					});
-
-					var myDoughnutScrut = new Chart(ctxScrut, {
-					    type: 'doughnut',
-					    data: {
-						    labels: [
-						        "Inscrits",
-						        "Places restantes"
-						    ],
-						    datasets: [
-						        {
-						            data: [nbScrutateurValide, NB_SCRUTATEURS_MAX-nbScrutateurValide],
-						            backgroundColor: [
-						                "#FF6384",
-						                "#F2F2F2"
-						            ]
-						        }]
-						}
-					});
-
+			   		$('.POI'+numBureauPOI+' #graphContenuAssesseur').html("<p> Nombre d'assesseur validés : "+nbAssesseurValide+" </p>");
+			   		$('.POI'+numBureauPOI+' #graphContenuScrutateur').html("<p> Nombre de scrutateurs validés : "+nbScrutateurValide+" </p>");
 					nbAssesseurValide = 0;
 					nbScrutateurValide = 0;
 			   		
@@ -340,16 +297,16 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		var nbAssesseurValide = 0;
 		var nbScrutateurValide = 0;
 
-		var $marker_POI = {
+		var marker_POI = {
 	        url: url_marker,
-	     	size: new google.maps.Size(60, 60)
+	      	 //size: new google.maps.Size(31, 32)
     	}
 
 		markers.set(numBureauPOI, new google.maps.Marker({
 		  	position: new google.maps.LatLng(latitude_POI, longitude_POI),
 		    map: map,
 		    visible: true,
-		 	icon: $marker_POI,
+		 	icon: marker_POI,
 
 		}));
 
@@ -451,7 +408,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 
 	function createSVG(adresse, numPOI) {
 		$.ajax({
-			url:"bureaux/"+adresse+"/"+numPOI+"/"+window.screen.width+"/"+window.screen.height,
+			url:"bureaux/"+adresse+"/"+numPOI,
 			type: "GET",
 		    dataType: "text",
 		    cache: false,
