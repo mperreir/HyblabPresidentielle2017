@@ -8,6 +8,10 @@ $(document).ready(function(){
 	var infoWindows = new Map();
 	var markers = new Map();
 
+
+	var widht =window.screen.width;
+	var height = window.screen.height;
+
 	var nbPOI = 0;
 
 	var is_internetExplorer11= navigator.userAgent.toLowerCase().indexOf('trident') > -1;
@@ -299,7 +303,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 
 		var $marker_POI = {
 	        url: url_marker,
-	     	size: new google.maps.Size(31, 32)
+	     	size: new google.maps.Size(60, 60)
     	}
 
 		markers.set(numBureauPOI, new google.maps.Marker({
