@@ -428,6 +428,52 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 			   		// Toujours l'affichage des infos --> Vers des graphes
 			    	$('.POI'+numBureauPOI+' #graphContenuAssesseur').html("<p> Nombre d'assesseur validés : "+nbAssesseurValide+" </p>");
 			   		$('.POI'+numBureauPOI+' #graphContenuScrutateur').html("<p> Nombre de scrutateurs validés : "+nbScrutateurValide+" </p>");
+
+			   		var ctxAss = document.getElementById("graphContenuAssesseur"+numBureauPOI);
+			   		var ctxScrut = document.getElementById("graphContenuScrutateur"+numBureauPOI);
+					
+					var myDoughnutAss;
+					var myDoughnutScrut;
+
+					// La construction des graphiques
+			   		myDoughnutAss = new Chart(ctxAss, {
+					    type: 'doughnut',
+					    data: {
+						    labels: [
+						        "Inscrits",
+						        "Places restantes"
+						    ],
+						    datasets: [
+						        {
+						            data: [nbAssesseurValide, NB_ASSESSEURS_MAX-nbAssesseurValide],
+						            backgroundColor: [
+						                "#FF6384",
+						                "#F2F2F2"
+						            ]
+						        }]
+						}
+					});
+
+					myDoughnutScrut = new Chart(ctxScrut, {
+					    type: 'doughnut',
+					    data: {
+						    labels: [
+						        "Inscrits",
+						        "Places restantes"
+						    ],
+						    datasets: [
+						        {
+						            data: [nbScrutateurValide, NB_SCRUTATEURS_MAX-nbScrutateurValide],
+						            backgroundColor: [
+						                "#FF6384",
+						                "#F2F2F2"
+						            ]
+						        }]
+						}
+					});
+
+					nbAssesseurValide = 0;
+					nbScrutateurValide = 0;
 			   		
 			   		// Ajout de l'evenement du click sur la fenetre
 			   		markers.get(numBureauPOI).addListener('click', function() {
