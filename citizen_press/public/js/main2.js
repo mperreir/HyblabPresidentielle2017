@@ -261,10 +261,20 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 			    },
 			   	complete: function() {
 			   		// Ecriture des résultats --> Vers des graphiques
+
+			   		// Reinit de la partie des graphiques (évite le doubelement de taille)
+			   	//	$(".graphContenuAssesseur").html('<canvas id="graphContenuAssesseur'+numBureauPOI+'" width="200" height="200"></canvas>');
+			   		//$(".graphContenuScrutateur").html('<canvas id="graphContenuScrutateur'+numBureauPOI+'" width="200" height="200"></canvas>');
+
+			   		// On récupère le bon ID pour insérer le graphique
 			   		var ctxAss = document.getElementById("graphContenuAssesseur"+numBureauPOI);
 			   		var ctxScrut = document.getElementById("graphContenuScrutateur"+numBureauPOI);
+					
+					var myDoughnutAss;
+					var myDoughnutScrut;
 
-			   		var myDoughnutAss = new Chart(ctxAss, {
+					// La construction des graphiques
+			   		myDoughnutAss = new Chart(ctxAss, {
 					    type: 'doughnut',
 					    data: {
 						    labels: [
@@ -282,7 +292,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 						}
 					});
 
-					var myDoughnutScrut = new Chart(ctxScrut, {
+					myDoughnutScrut = new Chart(ctxScrut, {
 					    type: 'doughnut',
 					    data: {
 						    labels: [
@@ -299,6 +309,12 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 						        }]
 						}
 					});
+
+					ctxAss.style.width = 100;
+					ctxAss.style.height = 100;
+
+			   		ctxScrut.style.width = 100;
+			   		ctxScrut.style.height = 100;
 
 					nbAssesseurValide = 0;
 					nbScrutateurValide = 0;

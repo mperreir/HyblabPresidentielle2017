@@ -130,11 +130,11 @@ app.get("/", (req, res) => {
 			    					</div>\
 			    				</div>\
 		    					<div class="graphsContenu"> \
-		    						<div class="graphContenu" width="200" height="200">\
-		    							<canvas id="graphContenuAssesseur'+calc+'" width="200" height="200"></canvas>\
+		    						<div class="graphContenuAssesseur" width="100" height="100">\
+		    							<canvas id="graphContenuAssesseur'+calc+'" width="100" height="100"></canvas>\
 		    						</div>\
-		    						<div class="graphContenu" width="200" height="200">\
-		    							<canvas id="graphContenuScrutateur'+calc+'" width="200" height="200"></canvas>\
+		    						<div class="graphContenuScrutateur" width="100" height="100">\
+		    							<canvas id="graphContenuScrutateur'+calc+'" width="100" height="100"></canvas>\
 									</div>\
 		    					</div> \
 		    				</div>\
