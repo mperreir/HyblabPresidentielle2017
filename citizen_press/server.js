@@ -106,13 +106,27 @@ app.post("/", function (req, res) {
    			var prenom = req.body.prenom;
    			var email = req.body.email;
    			var mobile = req.body.mobile;
-   			var naissance = req.body.naissance;
+   			var jour = req.body.jour;
+   			var mois = req.body.mois;
+   			var annee = req.body.annee;
+   			var naissance = annee + "-" + mois + "-" + jour;
    			var civilite = req.body.civilite;
 
-   			if (civilite=='monsieur'){civilite = 'male'};
-   			if (civilite=='madame'){civilite='female'};
-
     		var obj = JSON.parse(data); //now it an object
+
+    		//on récupère l'id dernière assesseur
+    		/*var lastAss = obj.assesseurs[obj.assesseurs.length-1].id;
+    		lastAss.toString();
+    		parseInt(lastAss,10);
+    		console.log(lastAss);
+    		lastAss += 1;
+    		console.log(lastAss);
+    		var idAsse = "idAsse" + lastAss.toString();
+    		console.log(idAsse);*/
+
+    		console.log(naissance);
+    		console.log(getAge(naissance));
+
     		obj.assesseurs.push({"id": "idAsse1995","nom": nom,"prenom": prenom,"age": naissance,"mail": email,"tel": mobile,"sexe": "male","potentiel_assesseur": false,"potentiel_scrutateur": true});//add some data
    			var json = JSON.stringify(obj); //convert it back to json
    			fs.writeFile('citizen_press/public/data/data.json', json, 'utf8', -1); // write it back 
@@ -131,6 +145,10 @@ function getAge(dateString) {
     return age;
 }
 
+function cleanInt(x) {
+    x = Number(x);
+    return x >= 0 ? Math.floor(x) : Math.ceil(x);
+}
 // Minimum routing: serve static content from the html directory
 //app.use(express.static(path.join(__dirname, 'public')));
 
