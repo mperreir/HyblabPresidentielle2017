@@ -412,7 +412,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 
 	function createSVG(adresse, numPOI) {
 		$.ajax({
-			url:"bureaux/"+adresse+"/"+numPOI,
+			url:"bureaux/"+adresse+"/"+numPOI+"/"+window.screen.width+"/"+window.screen.height,
 			type: "GET",
 		    dataType: "text",
 		    cache: false,
