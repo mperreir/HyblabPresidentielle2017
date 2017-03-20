@@ -8,14 +8,28 @@ $(document).ready(function(){
 	var infoWindows = new Map();
 	var markers = new Map();
 
+	var NB_ASSESSEURS_MAX = 8;
+	var NB_SCRUTATEURS_MAX = 25;
+
+	var widht =window.screen.width;
+	var height = window.screen.height;
+
 	var nbPOI = 0;
 
 	var is_internetExplorer11= navigator.userAgent.toLowerCase().indexOf('trident') > -1;
 	
     var $marker_me = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
     
-    var $marker_POI = './img/map_icon.svg';
 
+    // Déclaration du marker
+   /* var $marker_POI = {
+        url: "./img/map_icon.svg",
+        size: new google.maps.Size(31, 32)
+        //anchor: new google.maps.Point(25,50),
+        //scaledSize: new google.maps.Size(50,50)
+    }
+    //var marker_POI = './img/map_icon.svg';
+*/
     
 /******************************************************************/    
  
@@ -41,11 +55,13 @@ $(document).ready(function(){
       	scrollwheel: true,
       	styles: style,
 	}
+	// Déclaration de la map
 	map = new google.maps.Map(document.getElementById('google-container'), map_options);      
 
 
  /******************************LEGENDE*******************************/   
     
+ // Ouverture de la légende
 $("#open").click(function() {
     
     $(".legende").css("padding-bottom", "450px");
@@ -56,7 +72,8 @@ $("#open").click(function() {
     $("#close").css("display", "block");
 
 });
-    
+  
+// Fermeture de la légende  
 $("#close").click(function() {
     
     $(".legende").css("padding-bottom", "0px");
@@ -116,6 +133,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	    type: "GET",
 	    dataType: "json",
 	    contentType: "application/json",
+	    //async: false, // Mode synchrone
 	    cache: false,
 	    timeout: 5000,
 
@@ -125,6 +143,8 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	    	var tabAdresse = new Array(); 
 	    	var numBureauPOI = 0;
 	    	var contentString;
+	    	var url_marker;
+	    	var cptSpe = 0;
 	    	// Pour avoir le nombre de POI à placer
 	    	data.forEach(function(bureau) {
 		    	// Si le POI n'est pas encore placé, on le place
@@ -142,31 +162,33 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		    		contentString = '<div id="content">'+
 					'<div id="siteNotice">'+
 					'</div>'+
-					'<h1 id="firstHeading">'+bureau.nom_lieu+'</h1>'+
+					'<h1 id="firstHeading'+numBureauPOI+'">'+bureau.nom_lieu+'</h1>'+
 					'<div id="bodyContent">'+
-					'<p class="adress">'+bureau.adresse+'</p>'+'<p>'+bureau.code_postal+' '+bureau.ville+'</p>'+'<h1>BUREAU DE VOTE</h1>'+'<form>'+'<select id="bureauxPOI'+numBureauPOI+'">'+'<option id="bureau'+bureau.id+'">'+bureau.id+'</option></select></form>'+
+					'<p id="p1'+numBureauPOI+'" class="adress" >'+bureau.adresse+'</p>'+'<p id="p2'+numBureauPOI+'">'+bureau.code_postal+' '+bureau.ville+'</p>'+'<h1>BUREAU DE VOTE</h1>'+'<form>'+'<select id="bureauxPOI'+numBureauPOI+'" class="listePOI">'+'<option selected id="bureau'+bureau.id+'">'+bureau.id+'</option></select></form>'+
 					'</div>'+
 					'</div>';
 		    		tabAdresse.push(bureau.adresse);
-					placerMarqueur(bureau.lat, bureau.long, contentString, numBureauPOI, nbPOI);
+		    		createSVG(bureau.adresse, numBureauPOI);
+		    		url_marker = "./img/svg"+numBureauPOI+".svg";
+		    		//console.log(url_marker);
+					placerMarqueur(bureau.lat, bureau.long, contentString, numBureauPOI, nbPOI, bureau.id, url_marker);
 		    	}
 		    	// Le POI est déjà ajouté, donc on ajoute le bureau au POI
 		    	else {
-		    		addBureauxPOI(bureau.id, numBureauPOI);
+			    	addBureauxPOI(bureau.id, numBureauPOI);
 		    	}
-
 			});
+
 	      	console.log("process sucess");
 	   	},
 
 	   	complete: function() {
+	   		// Hidden all pages
 	   		for (var i = 1; i <= nbPOI; i++) {
 	    		$(".POI"+i).css("display", "none");
 		    }
+		    // Ajout de la fermeture des pages à toutes les images
 		    addListenerClick(nbPOI);
-		    // UNDEFINED MEME ICI :(((
-			//console.log($("#bureauxPOI8").html());
-		    //addBureaux(bureaux);
 	   	},
 
 		error: function(xhr, status, error) {
@@ -174,12 +196,14 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		},
 	});
 
+
+
 	function addListenerClick(nbPOI) {
 		// Pour fermer la page du côté lors du clique sur la fleche
 		$(".fermer").click(function() {
 			// TODO adapter au dynamisme
 			for (var i = 1; i <= nbPOI; i++) {
-	   			console.log(".POI"+i);
+	   			//console.log(".POI"+i);
 	    		$(".POI"+i).css("display", "none");
 		    }
 		    $("#google-container").css("width", "100%");
@@ -187,14 +211,99 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		    $("#google-container").css("transition-delay", "0s");
 			$(".other").css("display", "none");
 			// TODO ajouter par rapport au tableau
+
 	        infoWindows.forEach(function(element, key) {
 				element.close(map, markers.get(key));
 			});
 
 		});
 	}
-	
 
+	
+	
+	function addListenerChange(numBureauPOI) {
+		// Affichage des bonnes données selon le bureau choisi
+		var newBureauPOI;
+		var nbAssesseurValide = 0;
+		var nbScrutateurValide = 0;
+
+		// Retrait des affectation de l'evenement change
+		$('#bureauxPOI'+numBureauPOI).off("change");
+
+		// Ajout de l'affectation de l'evenement change
+		$('#bureauxPOI'+numBureauPOI).change(function(){
+		
+			// Récupération de la valeur de la liste
+			newBureauPOI = $( this ).val();
+
+			// Récupération des informations sur le bureau
+			$.ajax({
+			    url: '/citizen_press/bureaux/'+newBureauPOI,
+			    type: "GET",
+			    dataType: "text",
+			    contentType: "application/json",
+			    //async: false, // Mode synchrone
+			    cache: false,
+			    timeout: 5000,
+
+			    success: function(data) {
+			    	// Parsage du JSON pour connaitre le nombre d'assesseurs et scrutateurs validés
+			    	var obj = JSON.parse(data);
+			    	obj.assesseurs.forEach(function(assesseur){
+			    		if(assesseur.valide_assesseur==true){
+			    			nbAssesseurValide++;
+			    		}
+			    		if(assesseur.valide_scrutateur==true){
+			    			nbScrutateurValide++;
+			    		}
+			    	});
+
+			    },
+			   	complete: function() {
+			   		// Ecriture des résultats --> Vers des graphiques
+			   		var ctxAss = document.getElementsByClassName('POI'+numBureauPOI).getElementById("graphContenuAssesseur");
+			   		var ctxScrut = document.getElementsByClassName('POI'+numBureauPOI).getElementById("graphContenuScrutateur");
+
+			   		var myDoughnutAss = new Chart(ctxAss, {
+					    type: 'doughnut',
+					    data: {
+						    labels: [
+						        "Red",
+						        "Blue"
+						    ],
+						    datasets: [
+						        {
+						            data: [300, 50, 100],
+						            backgroundColor: [
+						                "#FF6384",
+						                "#36A2EB"
+						            ],
+						            hoverBackgroundColor: [
+						                "#FF6384",
+						                "#36A2EB"
+						            ]
+						        }]
+						}
+					});
+
+					/*var myDoughnutScrut = new Chart(ctxScrut, {
+					    type: 'doughnut',
+					    data: data,
+					    options: options
+					});*/
+
+			   		$('.POI'+numBureauPOI+' #graphContenuAssesseur').html("<p> Nombre d'assesseur validés : "+nbAssesseurValide+" </p>");
+			   		$('.POI'+numBureauPOI+' #graphContenuScrutateur').html("<p> Nombre de scrutateurs validés : "+nbScrutateurValide+" </p>");
+					nbAssesseurValide = 0;
+					nbScrutateurValide = 0;
+			   		
+			   	},
+				error: function(xhr, status, error) {
+					console.log(error);
+				},
+			});	
+		});		
+	}
 
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     	infoWindow.setPosition(pos);
@@ -220,18 +329,32 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	// Ajoute un marqueur à la carte à la latitdue_POI et à la longitude_POI
 	// numBureauPOI : le numéro du POI à ajouter
 	// nbBureau : Le nombre de bureau
-	function placerMarqueur(latitude_POI, longitude_POI, contentString, numBureauPOI, nbPOI) {
+	function placerMarqueur(latitude_POI, longitude_POI, contentString, numBureauPOI, nbPOI, bureauId, url_marker) {
+
+		var nbAssesseurValide = 0;
+		var nbScrutateurValide = 0;
+
+		var $marker_POI = {
+	        url: url_marker,
+	     	size: new google.maps.Size(60, 60)
+    	}
 
 		markers.set(numBureauPOI, new google.maps.Marker({
 		  	position: new google.maps.LatLng(latitude_POI, longitude_POI),
 		    map: map,
 		    visible: true,
-		 	icon: $marker_POI
+		 	icon: $marker_POI,
+
 		}));
 
+		// Definition de la fenetre
 		infoWindows.set(numBureauPOI, new google.maps.InfoWindow({content: contentString}));
 
 		markers.get(numBureauPOI).addListener('click', function() {
+			for (var i = 1; i <= nbPOI; i++) {
+	   			console.log(".POI"+i);
+	    		$(".POI"+i).css("display", "none");
+		    }
 	    	// Affiche la page du PI
 		    $(".POI"+numBureauPOI).css("display", "block");
 		    $("#google-container").css("width", "55%");
@@ -239,9 +362,9 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		    $("#google-container").css("transition-delay", "1s");
     		$(".other").css("display", "block");    
        
-       		// Affichage de la bonne bubulle
+       		// Affichage de la bonne bubulles
     		infoWindows.forEach(function(element, key) {
-		    	$(".POI"+key).css("display", "none");
+		    	//$(".POI"+key).css("display", "none");
     			element.close(map, markers.get(key));
     		});
 
@@ -249,7 +372,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
     		infoWindows.get(numBureauPOI).open(map, markers.get(numBureauPOI));
 
     		// Récuperation des données sur la fenêtre de droite;
-    		getDataBureau();
+    		//getDataBureau();
 		    // TODO à changer
 		  /* navigator.geolocation.getCurrentPosition(function(position) {
 		    
@@ -262,12 +385,89 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		        
 		    });*/
 		});
+		// Recherche des informations du premier bureau
+		$.ajax({
+			    url: '/citizen_press/bureaux/'+bureauId,
+			    type: "GET",
+			    dataType: "json",
+			    contentType: "application/json",
+			    async: false, // Mode synchrone
+			    cache: false,
+			    timeout: 5000,
+
+			    success: function(obj) {
+			    	obj.assesseurs.forEach(function(assesseur){
+			    		if(assesseur.valide_assesseur==true){
+			    			nbAssesseurValide++;
+			    		}
+			    		if(assesseur.valide_scrutateur==true){
+			    			nbScrutateurValide++;
+			    		}
+			    	});
+			    },
+
+			   	complete: function() {
+			   		// Toujours l'affichage des infos --> Vers des graphes
+			    	$('.POI'+numBureauPOI+' #graphContenuAssesseur').html("<p> Nombre d'assesseur validés : "+nbAssesseurValide+" </p>");
+			   		$('.POI'+numBureauPOI+' #graphContenuScrutateur').html("<p> Nombre de scrutateurs validés : "+nbScrutateurValide+" </p>");
+			   		
+			   		// Ajout de l'evenement du click sur la fenetre
+			   		markers.get(numBureauPOI).addListener('click', function() {
+
+						for (var i = 1; i <= nbPOI; i++) {
+				   			//console.log(".POI"+i);
+				    		$(".POI"+i).css("display", "none");
+					    }
+				    	// Affiche la page du PI
+					    $(".POI"+numBureauPOI).css("display", "block");
+					    $("#google-container").css("width", "65%");
+					    $("#google-container").css("height", "90vh");
+					    $("#google-container").css("transition-delay", "1s");
+			    		$(".other").css("display", "block");    
+			       
+			       		// Affichage de la bonne bubulle
+			    		infoWindows.forEach(function(element, key) {
+					    	//$(".POI"+key).css("display", "none");
+			    			element.close(map, markers.get(key));
+			    		});
+
+				    	// Ouverture de la bubulle
+			    		infoWindows.get(numBureauPOI).open(map, markers.get(numBureauPOI));
+					});
+				},
+				error: function(xhr, status, error) {
+					//console.log("ça a bien bugé");
+					console.log(error);
+				},
+			});
+	}
+
+	function createSVG(adresse, numPOI) {
+		$.ajax({
+			url:"bureaux/"+adresse+"/"+numPOI+"/"+window.screen.width+"/"+window.screen.height,
+			type: "GET",
+		    dataType: "text",
+		    cache: false,
+		    async: false,
+		    timeout: 5000,
+
+		    success: function(data) {
+		   	},
+
+		   	complete: function() {
+		   	},
+
+			error: function(xhr, status, error) {
+				console.log(error);
+			},
+		});
 	}
 
 	function addBureauxPOI(id, numBureauPOI) {
 		// Ouverture de la fenêtre pour l'ajout
 		infoWindows.get(numBureauPOI).open(map, markers.get(numBureauPOI));
 		$("#bureauxPOI"+numBureauPOI).append('<option id="bureau'+id+'">'+id+'</option>');
+			addListenerChange(numBureauPOI);
 		// On la referme
 		infoWindows.get(numBureauPOI).close(map, markers.get(numBureauPOI));
 	}
