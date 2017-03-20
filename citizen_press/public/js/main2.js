@@ -299,7 +299,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 
 		var $marker_POI = {
 	        url: url_marker,
-	     	size: new google.maps.Size(31, 32)
+	     	size: new google.maps.Size(60, 60)
     	}
 
 		markers.set(numBureauPOI, new google.maps.Marker({
@@ -407,8 +407,15 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	}
 
 	function createSVG(adresse, numPOI) {
+
+		var width = screen.width;
+		var height = screen.height;
+
+		console.log("Il y a width : "+width);
+		console.log("Il y a height : "+height);
+
 		$.ajax({
-			url:"bureaux/"+adresse+"/"+numPOI,
+			url:"bureaux/"+adresse+"/"+numPOI+"/"+width+"/"+height,
 			type: "GET",
 		    dataType: "text",
 		    cache: false,

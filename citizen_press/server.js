@@ -18,11 +18,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Écrit un SVG à partir des bureaux entré en entrée
 // Les bureaux sont à la même adresse (un seul POI)
-function writeSvg(bureaux, numPOI) {	
+function writeSvg(bureaux, numPOI,width,height) {	
 	var colors = new Array();
 	var tauxRemplissage;	
 	var nbAssesseursScrutMin = NB_MAX_ASSESSEURS_SCRUTATEUR;
-	var svg = new SVG(numPOI);
+	var svg = new SVG(numPOI,width,height);
 	// Détermination de la couleur de chaque petit cercle
 	bureaux.forEach(function(element, key) {
 		if (nbAssesseursScrutMin > element){
@@ -184,7 +184,7 @@ app.get("/bureaux/:id", (req, res) => {
 });
 
 // Récupère les données des bureaux à l'adresse :adresse pour poouvoir renvoyer le bon SVG
-app.get("/bureaux/:adresse/:numPOI", (req, res) => {
+app.get("/bureaux/:adresse/:numPOI/:width/:height", (req, res) => {
 	var nbAssesseursInscrit = 0;
 	//var nbScrutateursInscrit = 0;
 	var bureaux = new Map();
@@ -219,7 +219,7 @@ app.get("/bureaux/:adresse/:numPOI", (req, res) => {
 	    	}
 	    }
 	    // On envoie l'URL du fichier créé
-	    res.send(writeSvg(bureaux, numPOI));
+	    res.send(writeSvg(bureaux, numPOI, req.params.width, req.params.height));
 	   // res.send(writeSvg(bureaux, numPOI));
 	});
 });
@@ -267,14 +267,16 @@ app.get("/assesseurs", (req, res) => {
  	* La modification du chiffre
 */
 
-function SVG(numPOI) {
+function SVG(numPOI,width,height) {
 	this.url = "svg"+numPOI+".svg";
 	this.contentSVG_littleCircles = "";
 	this.nbBureau = 0;
 
+	
+
 	// Init du SVG
 	this.contentSVG_init = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\
-		viewBox="0 0 1350 1360" style="enable-background:new 0 0 0 0;" xml:space="preserve">\
+		viewBox="0 0 '+width+' '+height+' " style="enable-background:new 0 0 0 0;" xml:space="preserve">\
 		<style type="text/css">\
 			.red{fill:#EE5A58;}\
 		    .orange {fill:#F1A72E;}\
