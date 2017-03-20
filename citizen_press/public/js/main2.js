@@ -14,12 +14,6 @@ $(document).ready(function(){
 	
     var $marker_me = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
     
-    var $marker_POI = {
-        url: "./img/map_icon.svg",
-        size: new google.maps.Size(31, 32)
-        //anchor: new google.maps.Point(25,50),
-        //scaledSize: new google.maps.Size(50,50)
-    }
     //var marker_POI = './img/map_icon.svg';
 
     
@@ -157,7 +151,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		    		tabAdresse.push(bureau.adresse);
 		    		createSVG(bureau.adresse, numBureauPOI);
 		    		url_marker = "./img/svg"+numBureauPOI+".svg";
-		    		console.log(url_marker);
+		    		//console.log(url_marker);
 					placerMarqueur(bureau.lat, bureau.long, contentString, numBureauPOI, nbPOI, url_marker);
 		    	}
 		    	// Le POI est déjà ajouté, donc on ajoute le bureau au POI
@@ -234,11 +228,17 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	function placerMarqueur(latitude_POI, longitude_POI, contentString, numBureauPOI, nbPOI, url_marker) {
 		// on recupère le bon marqueurs
 
+		var marker_POI = {
+	        url: url_marker,
+	      	 //size: new google.maps.Size(31, 32)
+    	}
+
 		markers.set(numBureauPOI, new google.maps.Marker({
 		  	position: new google.maps.LatLng(latitude_POI, longitude_POI),
 		    map: map,
 		    visible: true,
-		 	icon: url_marker
+		 	icon: marker_POI,
+
 		}));
 
 		infoWindows.set(numBureauPOI, new google.maps.InfoWindow({content: contentString}));

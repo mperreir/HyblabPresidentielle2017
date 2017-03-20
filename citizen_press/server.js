@@ -18,36 +18,30 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Écrit un SVG à partir des bureaux entré en entrée
 // Les bureaux sont à la même adresse (un seul POI)
-// Retourne l'URL du fichier créé
 function writeSvg(bureaux, numPOI) {	
-	var color;
 	var colors = new Array();
 	var tauxRemplissage;	
 	var nbAssesseursScrutMin = NB_MAX_ASSESSEURS_SCRUTATEUR;
 	var svg = new SVG(numPOI);
-	// Petits cercles
+	// Détermination de la couleur de chaque petit cercle
 	bureaux.forEach(function(element, key) {
 		if (nbAssesseursScrutMin > element){
 			nbAssesseursScrutMin = element;
 		}
 		tauxRemplissage = element/NB_MAX_ASSESSEURS_SCRUTATEUR;
 		if (tauxRemplissage < 0.4) {
-			color = "red";
 			colors.push("red");
 		}
 		else if ((tauxRemplissage >= 0.4)&&(tauxRemplissage < 0.7)) {
-			color = "orange";
 			colors.push("orange");
 		}
 		else if ((tauxRemplissage >= 0.7)&&(tauxRemplissage < 1)) {
-			color = "yellow";
 			colors.push("yellow");
 		}
 		else {
-			color = "green";
 			colors.push("green");
 		}
-		//console.log(element + " " + color);
+		//Trie des couleurs pour avoir un effet "bar de progression"
 		colors.sort(function(a, b) {
 			if (a == b) {
 				return 0;
@@ -77,6 +71,7 @@ function writeSvg(bureaux, numPOI) {
 			}
 		});
 	});
+	// Ajout des petites cercles à l'image
 	colors.forEach(function(color){
 		svg.addPoint(color);
 	});
@@ -96,8 +91,8 @@ function writeSvg(bureaux, numPOI) {
 	// Nombre à l'intérieur
 	svg.setNumber(nbAssesseursScrutMin);
 
+	// Ecriture des fichiers
 	fs.writeFile("./citizen_press/public/img/"+svg.url, svg.getContent());
-	return "./img/"+svg.url;
 }
 
 // Route d'accès client
