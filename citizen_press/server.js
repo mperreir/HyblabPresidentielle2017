@@ -139,6 +139,10 @@ app.get("/", (req, res) => {
 		    							<canvas id="graphContenuScrutateur'+calc+'" width="'+taille+'" height="'+taille+'"></canvas>\
 									</div>\
 		    					</div> \
+		    					<div txtsBasiquesNombres>\
+		    						<h4 id="8P"> 8 PERSONNES </h4> \
+		    						<h4 id="25P"> 25 PERSONNES </h4> \
+		    					</div>\
 		    				</div>\
         					<img class="fermer" src="./img/arrow.png"> \
             			</section> \n');

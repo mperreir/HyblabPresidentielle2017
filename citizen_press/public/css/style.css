@@ -585,16 +585,17 @@ footer div {
 }
 
 .graphContenuAssesseur {
-    margin-left: 2%;
+    margin-top: 3%;
+    margin-left: 5%;
     display:inline-block;
     height: 40%;
     width: 45%;
 }
 
 .graphContenuScrutateur {
-    margin-left: 4%;
+    margin-top: 3%;
+    margin-left: 2%;
     display:inline-block;
     height: 40%;
     width: 45%;
-}
 }
