@@ -55,13 +55,13 @@ app.get("/", (req, res) => {
 		res.write('<div class="Filtrage">');
         res.write('FILTRAGE : ');
         res.write('<form action="">');
-  		res.write('<input type="radio" name="type_benevole" value="Assesseurs" checked> Assesseurs<br>');
-  		res.write('<input type="radio" name="type_benevole" value="Scrutateurs"> Scrutateurs<br>');
+  		res.write('<input type="radio" class="type_benevole" name="type_benevole" id="assesseurs_filtre" checked> Assesseurs<br>');
+  		res.write('<input type="radio" class="type_benevole" name="type_benevole" id="scrutateurs_filtre"> Scrutateurs<br>');
 		res.write('</form>');
 		res.write('<br>');
 		res.write('<form action="">');
-		res.write('<input type="radio" name="type_demande" value="en_cours" checked> Demandes en cours : <br>');
-		res.write('<input type="radio" name="type_demande" value="valides"> Demandes validées : <br>');
+		res.write('<input type="radio" class="type_demande" name="type_demande" id="en_cours_filtre" checked> Demandes en cours : <br>');
+		res.write('<input type="radio" class="type_demande "name="type_demande" id="valide_filtre"> Demandes validées : <br>');
 		res.write('</form>');
 		res.write('</div>');
 		res.write('<br><br><br><br>');
