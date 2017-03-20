@@ -7,26 +7,101 @@ var path = require('path');
 
 var app = express();
 
+// Module d'ouverture de fichier et de lecture
 var fs = require('fs');
 
 var d3 = require('d3');
+
 var bodyParser = require('body-parser')
 
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.get("/", (req, res) => {
+/*app.get("/", (req, res) => {
 	console.log("Page principale");
 	res.set({"Content-Type" : "text/html"});	// Typage du texte
 	fs.readFile('citizen_press/public/html/formulaire.html','utf8', function(err,data){	// Lecture d'un fichier
 		res.write(data);
 		res.end();
-	});	// Ecriture dans la réponse
+	});	// Ecriture dans la réponse*/
+var URL_DATA = 'citizen_press/public/data/data2.json';
+
+// Recuperation des chemins relatifs
+app.use(express.static(path.join(__dirname, 'public')));  
+
+// Route d'accès client
+app.get("/select", (req, res) => {
+
+	res.set({"Content-Type" : "text/html"});
+	
+	// Récupération du header de la page
+	fs.readFile('citizen_press/public/html/header.html','utf8', function(err,data){	// Lecture d'un fichier
+		res.write(data);	// Ecriture dans la réponse
+	});	 
+
+	// Préparation du parsage JSON pour la création des éléments
+	fs.readFile(URL_DATA, 'utf8', function (err, data) {
+	    if (err) throw err; // à voir 
+	    var obj = JSON.parse(data);
+	   
+	   	// Initialisation des variables
+	    var tab = [];
+	    var calc = 1;
+	      
+	    // Parcours des bureaux pour création de points d'intêrets
+	    for(var i=0; i<=obj.bureaux.length-1; i++){
+	    	if (tab.indexOf(obj.bureaux[i].adresse) == -1){
+		    	res.write ('<section class="POI POI'+calc+'">\
+		    				<div class="bureaux"></div>\
+        					<img class="fermer" src="./img/arrow.png"> \
+        					<div class="data-container"></div> \
+            			</section> \n');
+            	calc++;
+            	tab.push(obj.bureaux[i].adresse);
+	    	};
+		};
+
+		// Récupération du footer
+		fs.readFile('citizen_press/public/html/footer.html','utf8', function(err,data){	// Lecture d'un fichier
+			res.write(data);	// Ecriture dans la réponse
+			res.end();
+
+		});
+	});
 });
+
+
+app.get("/", (req,res) => {
+
+	fs.readFile('citizen_press/public/html/accueil/accueil.html','utf8', function(err,data){	// Lecture d'un fichier
+		if (err) throw err;
+		res.write(data);	// Ecriture dans la réponse
+		res.end();
+	});	
+});
+
+app.get("/formulaire/:idBureau", (req,res) => {
+
+	// Penser a faire : var idBureau = req.params.idBureau;
+	fs.readFile('citizen_press/public/html/formulaire/formulaire.html','utf8', function(err,data){	// Lecture d'un fichier
+		if (err) throw err;
+		res.write(data);	// Ecriture dans la réponse
+		res.end();
+	});
+});
+
+
+app.get("/merci", (req,res) => {
+
+	fs.readFile('citizen_press/public/html/merci/merci.html','utf8', function(err,data){	// Lecture d'un fichier
+		if (err) throw err;
+		res.write(data);	// Ecriture dans la réponse
+		res.end();
+	});
+});
+
 
 // GET bureaux (pour la map)
 app.get("/bureaux", (req, res) => {
 	console.log("Chargement des bureaux...");
-	fs.readFile('citizen_press/public/data/data.json', 'utf8', function (err, data) {
+	fs.readFile(URL_DATA, 'utf8', function (err, data) {
 	    if (err) throw err; // à voir 
 	    var obj = JSON.parse(data);
 	    res.contentType('json');
@@ -37,7 +112,7 @@ app.get("/bureaux", (req, res) => {
 // GET informations sur un bureau (pour récupérer les informations lors de l'inscription)
 app.get("/bureaux/:id", (req, res) => {
 	var idBureau = req.params.id;
-	fs.readFile('citizen_press/public/data/data.json', 'utf8', function (err, data) {
+	fs.readFile(URL_DATA, 'utf8', function (err, data) {
 	    if (err) throw err; // à voir 
 	    var obj = JSON.parse(data);
 	    res.contentType('json');
@@ -82,7 +157,7 @@ app.get("/bureaux/:id/assesseurs", (req, res) => {
 });
 
 // La page des statistique globales sur les assesseurs
-app.get("/assesseurs", (req, res) => {
+app.get("/	assesseurs", (req, res) => {
  // TODO
 });
 
@@ -96,7 +171,11 @@ app.use(bodyParser.urlencoded({
  */
 app.use(bodyParser.json());
 
-app.post("/", function (req, res) {
+app.post("/citizen_press/form", function (req, res) {
+	/*var id = req.params.id;
+	var assesseur = req.params.assesseur;
+	var scrutateur = req.params.scrutateur;*/
+	
 	fs.readFile('citizen_press/public/data/data.json', 'utf8', function readFileCallback(err, data){
     	if (err){
        		console.log(err);
@@ -115,23 +194,27 @@ app.post("/", function (req, res) {
     		var obj = JSON.parse(data); //now it an object
 
     		//on récupère l'id dernière assesseur
-    		/*var lastAss = obj.assesseurs[obj.assesseurs.length-1].id;
+    		var numberPattern = /\d+/g;
+
+    		var lastAss = obj.assesseurs[obj.assesseurs.length-1].id;
     		lastAss.toString();
-    		parseInt(lastAss,10);
-    		console.log(lastAss);
-    		lastAss += 1;
-    		console.log(lastAss);
-    		var idAsse = "idAsse" + lastAss.toString();
-    		console.log(idAsse);*/
+    		var num = new Number();
+    		num = lastAss.match(numberPattern);
+    		num = parseInt(num,10);
+    		num += 1;
+    		console.log(num);
+    		var idAsse = "idAsse" + num.toString();
+    		console.log(idAsse);
 
-    		console.log(naissance);
-    		console.log(getAge(naissance));
-
-    		obj.assesseurs.push({"id": "idAsse1995","nom": nom,"prenom": prenom,"age": naissance,"mail": email,"tel": mobile,"sexe": "male","potentiel_assesseur": false,"potentiel_scrutateur": true});//add some data
+    		obj.assesseurs.push({"id": idAsse,"nom": nom,"prenom": prenom,"age": getAge(naissance),"mail": email,"tel": mobile,"sexe": "male","potentiel_assesseur": false,"potentiel_scrutateur": true});//add some data
    			var json = JSON.stringify(obj); //convert it back to json
    			fs.writeFile('citizen_press/public/data/data.json', json, 'utf8', -1); // write it back 
 	}});
-    res.send('<h1>Hello</h1> '+ req.body.nom);
+	fs.readFile('citizen_press/public/html/merci/merci.html','utf8', function(err,data){	// Lecture d'un fichier
+		if (err) throw err;
+		res.write(data);	// Ecriture dans la réponse
+		res.end();
+	});
 });
 
 function getAge(dateString) {
@@ -159,3 +242,22 @@ function cleanInt(x) {
 // server and visiting http(s)://127.0.0.1:8080/name_of_you_project/ (if on a local server)
 // or more generally: http(s)://server_name:port/name_of_you_project/
 module.exports = app;
+
+
+
+// Définition des variables à donner au template
+	    //var taille_liste_bureaux = obj.bureaux.length;
+	    //res.render('test.ejs', {objPrincipal: obj});
+	    /*for (var bureau in obj.bureaux) {
+	    	res.write(JSON.stringify(obj.bureaux[bureau]));
+	    }
+	    res.send();
+	});
+	//res.send();
+
+	/*var l_s = "Ecole primaire";
+	var l_a = "18 rue des blabla";
+	var le_num_b = 1;
+	var tab = [1,2,3,4];
+	res.render('test.ejs', {lieu_site: l_s, lieu_adresse: l_a, taille_liste: tab.length, liste_bureau: tab,
+	le_num_bureau: le_num_b});*/
