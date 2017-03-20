@@ -209,6 +209,53 @@ app.get("/bureaux/:id/assesseurs", (req, res) => {
 	});
 });
 
+app.post("/bureaux/valider", function (req, res) {
+	/*var id = req.params.id;
+	var assesseur = req.params.assesseur;
+	var scrutateur = req.params.scrutateur;*/
+	
+	fs.readFile('citizen_press/public/data/data.json', 'utf8', function readFileCallback(err, data){
+    	if (err){
+       		console.log(err);
+   		} else {
+   			//On récupère chaque variables
+   			var nom = req.body.nom;
+   			var prenom = req.body.prenom;
+   			var email = req.body.email;
+   			var mobile = req.body.mobile;
+   			var jour = req.body.jour;
+   			var mois = req.body.mois;
+   			var annee = req.body.annee;
+   			var naissance = annee + "-" + mois + "-" + jour;
+   			var civilite = req.body.civilite;
+
+    		var obj = JSON.parse(data); //now it an object
+
+    		//on récupère l'id dernière assesseur
+    		var numberPattern = /\d+/g;
+
+    		var lastAss = obj.assesseurs[obj.assesseurs.length-1].id;
+    		lastAss.toString();
+    		var num = new Number();
+    		num = lastAss.match(numberPattern);
+    		num = parseInt(num,10);
+    		num += 1;
+    		console.log(num);
+    		var idAsse = "idAsse" + num.toString();
+    		console.log(idAsse);
+
+    		obj.assesseurs.push({"id": idAsse,"nom": nom,"prenom": prenom,"age": getAge(naissance),"mail": email,"tel": mobile,"sexe": "male","potentiel_assesseur": false,"potentiel_scrutateur": true});//add some data
+   			var json = JSON.stringify(obj); //convert it back to json
+   			fs.writeFile('citizen_press/public/data/data.json', json, 'utf8', -1); // write it back 
+	}});
+	fs.readFile('citizen_press/public/html/merci/merci.html','utf8', function(err,data){	// Lecture d'un fichier
+		if (err) throw err;
+		res.write(data);	// Ecriture dans la réponse
+		res.end();
+	});
+});
+
+
 // La page des statistique globales sur les assesseurs
 app.get("/	assesseurs", (req, res) => {
  // TODO
