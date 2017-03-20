@@ -297,16 +297,16 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		var nbAssesseurValide = 0;
 		var nbScrutateurValide = 0;
 
-		var marker_POI = {
-	        url: url_marker,
-	      	 //size: new google.maps.Size(31, 32)
+		var $marker_POI = {
+	        url: "./img/map_icon.svg",
+	     	size: new google.maps.Size(31, 32)
     	}
 
 		markers.set(numBureauPOI, new google.maps.Marker({
 		  	position: new google.maps.LatLng(latitude_POI, longitude_POI),
 		    map: map,
 		    visible: true,
-		 	icon: marker_POI,
+		 	icon: $marker_POI,
 
 		}));
 
