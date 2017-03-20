@@ -347,7 +347,7 @@ section {
     z-index: 2;
     height: 100vh;
     background-color: #FFF;
-    width: 45%;
+    width: 35%;
     right: 0;
 }
 
@@ -355,7 +355,7 @@ section {
     width: 50px;
     position: absolute;
     left: -25px;
-    top : 300px;
+    top : 380px;
     height: 50px;
 }
 
@@ -390,7 +390,7 @@ section {
     position: fixed;
     right: 0;
     z-index: 5;
-    width: 45%;
+    width: 35%;
     bottom: 100px;
     animation: key01 0.5s ease-in-out 0.4s both;
 }
@@ -556,3 +556,34 @@ footer div {
 }
 
 
+/* Pour les données a droite de la carte */
+#TitrRemplissage {
+  font-size: 26px;
+  margin-top: 25px;
+  text-align: center;
+  color: #6FAAF6;
+}
+
+#txts {
+    margin-top: 40px;
+    display : block;
+}
+
+.txtRemplissage {
+    width: 137px;
+    margin-left: 20%;
+    display : inline-block;
+}
+
+.txtRemplissage h3 {
+    text-decoration: underline;
+    text-align: center;
+}
+
+.graphsContenu {
+    display:block;
+}
+
+.graphContenu {
+    display:inline-block;
+}
