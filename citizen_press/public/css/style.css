@@ -571,7 +571,7 @@ footer div {
 
 .txtRemplissage {
     width: 137px;
-    margin-left: 20%;
+    margin-left: 15%;
     display : inline-block;
 }
 
@@ -585,12 +585,16 @@ footer div {
 }
 
 .graphContenuAssesseur {
+    margin-left: 2%;
+    display:inline-block;
     height: 40%;
-    width: 40%;
+    width: 45%;
 }
 
 .graphContenuScrutateur {
+    margin-left: 4%;
+    display:inline-block;
     height: 40%;
-    width: 40%;
+    width: 45%;
 }
 }
