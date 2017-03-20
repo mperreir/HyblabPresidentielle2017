@@ -9,6 +9,7 @@
     <title>| HybLab |</title>
   <link rel="stylesheet" type="text/css" href="./style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0othcEZUsFnDRiRQM2rZlNH1jBliT--o&callback=initialisation"></script>
     <link href="https://fonts.googleapis.com/css?family=Anaheim" rel="stylesheet">
 </head>
@@ -112,20 +113,65 @@
             <button>Je m'inscris</button>
         </div>
     </section>
-    
-    <footer class="POI01-F">
-        <div class="done"></div>
-        <div class="done"></div>
-        <div class="done"></div>
-        <div></div>
-        <div></div>
-    </footer>
 
-	       <div id="google-container"></div>
-	       <div id="cd-zoom-in"></div>
-	       <div id="cd-zoom-out"></div>
+   <div id="google-container"></div>
+   <div id="cd-zoom-in"></div>
+   <div id="cd-zoom-out"></div>
     
-<script src="main.js"></script>
+
+<script src="./js/Chart.bundle.min.js">
+    var ctxAss = document.getElementById("graphContenuAssesseur");
+    var ctxScrut = document.getElementById("graphContenuScrutateur");
+    
+    var myDoughnutAss;
+    var myDoughnutScrut;
+
+    var taille = 130;
+
+    // La construction des graphiques
+    myDoughnutAss = new Chart(ctxAss, {
+        type: 'doughnut',
+        data: {
+            labels: [
+                "Inscrits",
+                "Places restantes"
+            ],
+            datasets: [
+                {
+                    data: [nbAssesseurValide, NB_ASSESSEURS_MAX-nbAssesseurValide],
+                    backgroundColor: [
+                        "#FF6384",
+                        "#F2F2F2"
+                    ]
+                }]
+        }
+    });
+
+    myDoughnutScrut = new Chart(ctxScrut, {
+        type: 'doughnut',
+        data: {
+            labels: [
+                "Inscrits",
+                "Places restantes"
+            ],
+            datasets: [
+                {
+                    data: [nbScrutateurValide, NB_SCRUTATEURS_MAX-nbScrutateurValide],
+                    backgroundColor: [
+                        "#FF6384",
+                        "#F2F2F2"
+                    ]
+                }]
+        }
+    });
+
+    ctxAss.style.width = taille;
+    ctxAss.style.height = taille;
+
+    ctxScrut.style.width = taille;
+    ctxScrut.style.height = taille;
+</script>
+
 
         
     </body>

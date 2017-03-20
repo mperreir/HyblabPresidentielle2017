@@ -581,9 +581,16 @@ footer div {
 }
 
 .graphsContenu {
-    display:block;
+    display:inline;
 }
 
-.graphContenu {
-    display:inline-block;
+.graphContenuAssesseur {
+    height: 40%;
+    width: 40%;
+}
+
+.graphContenuScrutateur {
+    height: 40%;
+    width: 40%;
+}
 }

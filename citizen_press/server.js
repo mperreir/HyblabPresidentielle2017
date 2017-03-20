@@ -113,7 +113,9 @@ app.get("/", (req, res) => {
 	   	// Initialisation des variables
 	    var tab = [];
 	    var calc = 1;
-	      
+
+		var taille = 130;
+
 	    // Parcours des bureaux pour création de points d'intêrets
 	    for(var i=0; i<=obj.bureaux.length-1; i++){
 	    	if (tab.indexOf(obj.bureaux[i].adresse) == -1){
@@ -130,11 +132,11 @@ app.get("/", (req, res) => {
 			    					</div>\
 			    				</div>\
 		    					<div class="graphsContenu"> \
-		    						<div class="graphContenuAssesseur" width="100" height="100">\
-		    							<canvas id="graphContenuAssesseur'+calc+'" width="100" height="100"></canvas>\
+		    						<div class="graphContenuAssesseur" width="'+taille+'" height="'+taille+'">\
+		    							<canvas id="graphContenuAssesseur'+calc+'" width="'+taille+'" height="'+taille+'"></canvas>\
 		    						</div>\
-		    						<div class="graphContenuScrutateur" width="100" height="100">\
-		    							<canvas id="graphContenuScrutateur'+calc+'" width="100" height="100"></canvas>\
+		    						<div class="graphContenuScrutateur" width="'+taille+'" height="'+taille+'">\
+		    							<canvas id="graphContenuScrutateur'+calc+'" width="'+taille+'" height="'+taille+'"></canvas>\
 									</div>\
 		    					</div> \
 		    				</div>\
