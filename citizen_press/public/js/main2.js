@@ -298,7 +298,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		var nbScrutateurValide = 0;
 
 		var $marker_POI = {
-	        url: "./img/map_icon.svg",
+	        url: url_marker,
 	     	size: new google.maps.Size(31, 32)
     	}
 
