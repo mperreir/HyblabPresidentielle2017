@@ -10,6 +10,9 @@ var app = express();
 // Module d'ouverture de fichier et de lecture
 var fs = require('fs');
 
+
+var bodyParser = require('body-parser')
+
 // Recuperation des chemins relatifs
 app.use(express.static(path.join(__dirname, 'public')));  
 
@@ -194,7 +197,8 @@ app.get("/bureaux/:id/assesseurs", (req, res) => {
 					res.write("<td>"+asseseurTemp.mail+"</td>");
 					res.write("<td>"+asseseurTemp.tel+"</td>");
 					//Choix par défaut, au démarrage de la page : Assesseurs en cours
-					res.write('<td class="decision"><input type="button" id="ValiderAss" value="Valider"><input type="button" id="RefuserAss" value="Refuser"></td></tr>');
+					res.write('<td class="decision"><input type="button" class="boutonValider" id="'+ assesseurs[index3][0] +'" name="ValiderAss" value="Valider"><input type="button" value="Refuser"></td></tr>');
+					res.write('<input type="hidden" class="idBureau" id="'+idBureau+'">');
 					res.write("</tr>");
 				}
 			}
@@ -209,50 +213,47 @@ app.get("/bureaux/:id/assesseurs", (req, res) => {
 	});
 });
 
-app.post("/bureaux/valider", function (req, res) {
-	/*var id = req.params.id;
-	var assesseur = req.params.assesseur;
-	var scrutateur = req.params.scrutateur;*/
-	
-	fs.readFile('citizen_press/public/data/data.json', 'utf8', function readFileCallback(err, data){
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+/**bodyParser.json(options)
+ * Parses the text as JSON and exposes the resulting object on req.body.
+ */
+app.use(bodyParser.json());
+
+app.get("/valider/:idBureau/:idAssesseur/:type_benevole", function (req, res) {
+	fs.readFile('citizen_press/public/data/data2.json', 'utf8', function readFileCallback(err, data){
     	if (err){
        		console.log(err);
    		} else {
    			//On récupère chaque variables
-   			var nom = req.body.nom;
-   			var prenom = req.body.prenom;
-   			var email = req.body.email;
-   			var mobile = req.body.mobile;
-   			var jour = req.body.jour;
-   			var mois = req.body.mois;
-   			var annee = req.body.annee;
-   			var naissance = annee + "-" + mois + "-" + jour;
-   			var civilite = req.body.civilite;
 
+   			var idBureau = req.params.idBureau;
+   			var idAssesseur = req.params.idAssesseur;
+   			var benevole = req.params.type_benevole;
+			
     		var obj = JSON.parse(data); //now it an object
+	    
+	    	for(var index in obj.bureaux){
+	    		if (obj.bureaux[index].id == idBureau){
+	    			for(var index2 in obj.bureaux[index].assesseurs){
+		    			if(benevole =  "ValiderAss"){
+		        			obj.bureaux[index].assesseurs[index2].valide_assesseur = true;
+		        		}else if(benevole =  "ValiderScrut"){
+		        			obj.bureaux[index].assesseurs[index2].valide_scrutateur = true;
+		        		}
+		        	}
+        		}
+	    	}
 
-    		//on récupère l'id dernière assesseur
-    		var numberPattern = /\d+/g;
-
-    		var lastAss = obj.assesseurs[obj.assesseurs.length-1].id;
-    		lastAss.toString();
-    		var num = new Number();
-    		num = lastAss.match(numberPattern);
-    		num = parseInt(num,10);
-    		num += 1;
-    		console.log(num);
-    		var idAsse = "idAsse" + num.toString();
-    		console.log(idAsse);
-
-    		obj.assesseurs.push({"id": idAsse,"nom": nom,"prenom": prenom,"age": getAge(naissance),"mail": email,"tel": mobile,"sexe": "male","potentiel_assesseur": false,"potentiel_scrutateur": true});//add some data
    			var json = JSON.stringify(obj); //convert it back to json
-   			fs.writeFile('citizen_press/public/data/data.json', json, 'utf8', -1); // write it back 
-	}});
-	fs.readFile('citizen_press/public/html/merci/merci.html','utf8', function(err,data){	// Lecture d'un fichier
-		if (err) throw err;
-		res.write(data);	// Ecriture dans la réponse
-		res.end();
+   			
+   			//fs.writeFile('citizen_press/public/data/data2.json', json, 'utf8', -1); // write it back 
+		}
 	});
+	//Rediriger vers la page, avec les bons checkbox de cochés dans les radio
+
 });
 
 
