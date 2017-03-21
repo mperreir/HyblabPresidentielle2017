@@ -27,6 +27,10 @@ var NB_MAX_ASSESSEURS_SCRUTATEUR = 8;
 // Recuperation des chemins relatifs
 app.use(express.static(path.join(__dirname, 'public')));  
 
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
 // Écrit un SVG à partir des bureaux entré en entrée
 // Les bureaux sont à la même adresse (un seul POI)
 function writeSvg(bureaux, numPOI,width,height) {	
@@ -190,27 +194,32 @@ app.get("/select", (req, res) => {
 
 app.post("/inscription", (req,res) => {
 
+	res.set({"Content-Type" : "text/html"});
+
 	var idBureau = req.body.idBureau;
+
 	var checkAss = req.body.checkAss;
 	var checkScrut = req.body.checkScrut;
 
-	fs.readFile('citizen_press/public/html/formulaire/header_formulaire.html','utf8', function(err,data){	// Lecture d'un fichier
-		if (err) throw err;
-		res.write(data);	// Ecriture dans la réponse
-	});
+	var content_header = fs.readFileSync('citizen_press/public/html/formulaire/header_formulaire.html','utf8');
+	res.write(content_header);
 
-	res.write('<input type="hidden" name="idBureau"/> value='+idBureau +'/>');
-	res.write('<input type="hidden" name="checkAss"/> value='+checkAss +'/>');
-	res.write('<input type="hidden" name="checkScrut" value='+checkScrut +'/>');
+	res.write('<input type="hidden" name="idBureau" value="'+idBureau+'"/>');
+	res.write('<input type="hidden" name="checkAss" value="'+checkAss +'"/>');
+	res.write('<input type="hidden" name="checkScrut" value="'+checkScrut +'"/>');
 
-	fs.readFile('citizen_press/public/html/formulaire/footer_formulaire.html','utf8', function(err,data){	// Lecture d'un fichier
-		if (err) throw err;
-		res.write(data);	// Ecriture dans la réponse
-	});
+
+	var content_footer = fs.readFileSync('citizen_press/public/html/formulaire/footer_formulaire.html','utf8');
+	res.write(content_footer);
+
+	res.end();
+
 });
 
 
 app.get("/merci", (req,res) => {
+
+	res.set({"Content-Type" : "text/html"});
 
 	fs.readFile('citizen_press/public/html/merci/merci.html','utf8', function(err,data){	// Lecture d'un fichier
 		if (err) throw err;
@@ -291,10 +300,6 @@ app.get("/bureaux/:adresse/:numPOI/:width/:height", (req, res) => {
 	});
 });
 
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-
 /**bodyParser.json(options)
  * Parses the text as JSON and exposes the resulting object on req.body.
  */
@@ -322,9 +327,18 @@ app.post("/citizen_press/form", function (req, res) {
    			var civilite = req.body.civilite;
    		
    			// TODO A CHANGER AVEC REQ.BODY
-   			var idBureau = 113;
-   			var assesseurDemande = true;
+   			var idBureau = req.body.idBureau;
+   			var assesseurDemande = false;
    			var scrutateurDemande = false;
+
+   			if (req.body.checkAss=="on") {
+   				assesseurDemande = true;
+   			}
+   			if (req.body.checkScrut=="on") {
+   				scrutateurDemande = true;
+   			}
+
+   			console.log(idBureau);
 
     		var obj = JSON.parse(data); //now it an object
 
@@ -345,7 +359,7 @@ app.post("/citizen_press/form", function (req, res) {
 
    			for (var i = 0; i < obj.bureaux.length-1;i++) {
   				if (obj.bureaux[i].id == idBureau) {
-  					obj.bureaux[i].assesseurs.push({"id" : idAsse,"valide_assesseur" : assesseurDemande, "valide_scrutateur": scrutateurDemande});
+  					obj.bureaux[i].assesseurs.push({"id" : idAsse,"valide_assesseur" : false, "valide_scrutateur": false});
   				};
 			}
 			fs.writeFile(URL_DATA, JSON.stringify(obj), 'utf8', -1); // write it back
