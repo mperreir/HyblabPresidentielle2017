@@ -4,7 +4,6 @@
 // Load usefull expressjs and nodejs objects / modules
 var express = require('express');
 var path = require('path');
-
 var app = express();
 
 // Module d'ouverture de fichier et de lecture
@@ -12,7 +11,7 @@ var fs = require('fs');
 
 var d3 = require('d3');
 
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 
 /*app.get("/", (req, res) => {
 	console.log("Page principale");
@@ -126,11 +125,6 @@ app.get("/bureaux/:id", (req, res) => {
 	});
 });
 
-// La page du formulaire d'inscription
-app.get("/bureaux/:id/inscription" , (req, res) => {
-
-});
-
 // Ajout assesseurs
 app.post("/assesseurs/:id", (req, res) => {
 	console.log("Ajout d'un assesseurs...");
@@ -171,12 +165,19 @@ app.use(bodyParser.urlencoded({
  */
 app.use(bodyParser.json());
 
-app.post("/citizen_press/form", function (req, res) {
-	/*var id = req.params.id;
-	var assesseur = req.params.assesseur;
-	var scrutateur = req.params.scrutateur;*/
+app.get("/inscription", function (req, res) {
+	fs.readFile('citizen_press/public/html/formulaire/formulaire.html','utf8', function(err,data){	// Lecture d'un fichier
+		if (err) throw err;
+		res.write(data);	// Ecriture dans la réponse
+		res.end();
+	});
+});
+
+/*app.post("/citizen_press/form", function (req, res) {
+	//var assesseur = req.params.assesseur;
+	//var scrutateur = req.params.scrutateur;
 	
-	fs.readFile('citizen_press/public/data/data.json', 'utf8', function readFileCallback(err, data){
+	fs.readFile(URL_DATA, 'utf8', function readFileCallback(err, data){
     	if (err){
        		console.log(err);
    		} else {
@@ -208,14 +209,14 @@ app.post("/citizen_press/form", function (req, res) {
 
     		obj.assesseurs.push({"id": idAsse,"nom": nom,"prenom": prenom,"age": getAge(naissance),"mail": email,"tel": mobile,"sexe": "male","potentiel_assesseur": false,"potentiel_scrutateur": true});//add some data
    			var json = JSON.stringify(obj); //convert it back to json
-   			fs.writeFile('citizen_press/public/data/data.json', json, 'utf8', -1); // write it back 
+   			fs.writeFile(URL_DATA, json, 'utf8', -1); // write it back 
 	}});
 	fs.readFile('citizen_press/public/html/merci/merci.html','utf8', function(err,data){	// Lecture d'un fichier
 		if (err) throw err;
 		res.write(data);	// Ecriture dans la réponse
 		res.end();
 	});
-});
+});*/
 
 function getAge(dateString) {
     var today = new Date();

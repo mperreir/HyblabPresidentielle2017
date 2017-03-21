@@ -228,7 +228,7 @@ form div [type="checkbox"]:checked + label:after {
     right: 10%;
 }
 
-.button input {
+.button button {
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 50px;
