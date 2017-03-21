@@ -584,7 +584,7 @@ footer div {
     display:inline;
 }
 
-.graphContenuAssesseur {
+.divGraphContenuAssesseur {
     margin-top: 3%;
     margin-left: 5%;
     display:inline-block;
@@ -592,7 +592,7 @@ footer div {
     width: 45%;
 }
 
-.graphContenuScrutateur {
+.divGraphContenuScrutateur {
     margin-top: 3%;
     margin-left: 2%;
     display:inline-block;
