@@ -350,7 +350,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 
 		var $marker_POI = {
 	        url: url_marker,
-	     	size: new google.maps.Size(60, 60)
+	     	size: new google.maps.Size(40, 40)
     	}
 
 		markers.set(numBureauPOI, new google.maps.Marker({
@@ -504,8 +504,12 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	}
 
 	function createSVG(adresse, numPOI) {
-		var width = window.screen.width*(window.devicePixelRatio-0.5);
-		var height = window.screen.height*(window.devicePixelRatio-0.5);
+		var valPlus = window.devicePixelRatio;
+		if (window.devicePixelRatio > 1.5) {
+			valPlus = 1.25;
+		}
+		var width = window.screen.width*valPlus;
+		var height = window.screen.height*valPlus;
 		$.ajax({
 			url:"bureaux/"+adresse+"/"+numPOI+"/"+width+"/"+height,
 			type: "GET",
