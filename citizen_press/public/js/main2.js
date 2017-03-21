@@ -369,7 +369,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 
 		markers.get(numBureauPOI).addListener('click', function() {
 			for (var i = 1; i <= nbPOI; i++) {
-	   			console.log(".POI"+i);
+	   			//console.log(".POI"+i);
 	    		$(".POI"+i).css("display", "none");
 		    }
 	    	// Affiche la page du PI
