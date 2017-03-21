@@ -11,6 +11,12 @@ $(document).ready(function(){
 	var NB_ASSESSEURS_MAX = 8;
 	var NB_SCRUTATEURS_MAX = 25;
 
+	var ORANGE = "#f1a72e";
+	var JAUNE = "#f4d05d";
+	var ROUGE = "#ee5a58";
+	var VERT = "#aed17c";
+	var BLEU = "#5D91EE";
+
 	var nbPOI = 0;
 
 	var is_internetExplorer11= navigator.userAgent.toLowerCase().indexOf('trident') > -1;
@@ -263,20 +269,23 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 			   		// Reinit de la partie des graphiques (évite le doubelement de taille)
 			   		
 
-			   		$(".divGraphContenuAssesseur iframe").remove();
-					$(".divGraphContenuScrutateur iframe").remove();
+			   		$(".nbAssesseurs").text(nbAssesseurValide);
+			   		$(".nbScrutateurs").text(nbScrutateurValide);
 
-					//$(".divGraphContenuAssesseur").html('<canvas id="graphContenuAssesseur'+numBureauPOI+'"></canvas>');
-			  		//$(".divGraphContenuScrutateur").html('<canvas id="graphContenuScrutateur'+numBureauPOI+'"></canvas>');
+			   		var percentAss = nbAssesseurValide/NB_ASSESSEURS_MAX;
+			   		var percentScrut = nbScrutateurValide/NB_SCRUTATEURS_MAX;
 
-			  		//console.log($(".divGraphContenuAssesseur").text());
-
-			   		// On récupère le bon ID pour insérer le graphique
 			   		var ctxAss = document.getElementById("graphContenuAssesseur"+numBureauPOI);
 			   		var ctxScrut = document.getElementById("graphContenuScrutateur"+numBureauPOI);
 					
 					var myDoughnutAss;
 					var myDoughnutScrut;
+
+					var colorAss;
+					var colorScrut;
+
+					colorAss = getColor(percentAss);
+					colorScrut = getColor(percentScrut);
 
 					// La construction des graphiques
 			   		myDoughnutAss = new Chart(ctxAss, {
@@ -290,7 +299,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 						        {
 						            data: [nbAssesseurValide, NB_ASSESSEURS_MAX-nbAssesseurValide],
 						            backgroundColor: [
-						                "#FF6384",
+						                colorAss,
 						                "#F2F2F2"
 						            ]
 						        }]
@@ -308,7 +317,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 						        {
 						            data: [nbScrutateurValide, NB_SCRUTATEURS_MAX-nbScrutateurValide],
 						            backgroundColor: [
-						                "#FF6384",
+						                colorScrut,
 						                "#F2F2F2"
 						            ]
 						        }]
@@ -397,7 +406,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 			    type: "GET",
 			    dataType: "text",
 			    contentType: "application/json",
-			    //async: false, // Mode synchrone
+				async: false, // Mode synchrone
 			    cache: false,
 			    timeout: 5000,
 
@@ -421,11 +430,20 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 			   		$(".nbAssesseurs").text(nbAssesseurValide);
 			   		$(".nbScrutateurs").text(nbScrutateurValide);
 
+			   		var percentAss = nbAssesseurValide/NB_ASSESSEURS_MAX;
+			   		var percentScrut = nbScrutateurValide/NB_SCRUTATEURS_MAX;
+
 			   		var ctxAss = document.getElementById("graphContenuAssesseur"+numBureauPOI);
 			   		var ctxScrut = document.getElementById("graphContenuScrutateur"+numBureauPOI);
 					
 					var myDoughnutAss;
 					var myDoughnutScrut;
+
+					var colorAss;
+					var colorScrut;
+
+					colorAss = getColor(percentAss);
+					colorScrut = getColor(percentScrut);
 
 					// La construction des graphiques
 			   		myDoughnutAss = new Chart(ctxAss, {
@@ -439,8 +457,9 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 						        {
 						            data: [nbAssesseurValide, NB_ASSESSEURS_MAX-nbAssesseurValide],
 						            backgroundColor: [
-						                "#5D91EE",
-						                "#C0D9D9"
+
+						                colorAss,
+						                "#F2F2F2"
 						            ]
 						        }]
 						}
@@ -457,8 +476,10 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 						        {
 						            data: [nbScrutateurValide, NB_SCRUTATEURS_MAX-nbScrutateurValide],
 						            backgroundColor: [
-						                "#5D91EE",
-						                "#C0D9D9"
+
+						                colorScrut,
+						                "#F2F2F2"
+
 						            ]
 						        }]
 						}
@@ -550,4 +571,19 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		// On la referme
 		infoWindows.get(numBureauPOI).close(map, markers.get(numBureauPOI));
 	}
+
+	function getColor(percent) {
+		if (percent< 0.4) {
+			return ROUGE;
+		}
+		else if ((percent >= 0.4)&&(percent < 0.7)) {
+			return ORANGE;
+		}
+		else if ((percent >= 0.7)&&(percent < 1)) {
+			return JAUNE;
+		}
+		else {
+			return VERT;
+		}
+}
 });
