@@ -475,6 +475,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 						        {
 						            data: [nbAssesseurValide, resteAss],
 						            backgroundColor: [
+
 						                colorAss,
 						                "#F2F2F2"
 						            ]
@@ -493,8 +494,10 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 						        {
 						            data: [nbScrutateurValide, resteScrut],
 						            backgroundColor: [
+
 						                colorScrut,
 						                "#F2F2F2"
+
 						            ]
 						        }]
 						}
