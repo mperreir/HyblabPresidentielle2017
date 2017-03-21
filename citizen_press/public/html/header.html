@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Anaheim" rel="stylesheet">
 
 </head>
-
+<body>
 <!--------------LEGENDE------------>
     
     <div class="legende">
@@ -56,21 +56,19 @@
 
  <div class="other">
     <h1>CE BUREAU A BESOIN DE VOUS !</h1>
-    <form method="POST" action="/citizen_press/inscription">
-        <p>
-            <input type="checkbox" id="checkAsse" />
-            <label for="checkAsse">Je veux être assesseur :</label>
-        </p>
-        
-        <p>
-            <input type="checkbox" id="checkScrut" />
-            <label for="checkScrut">Je veux être scrutateur :</label>
-        </p>
-
-</div> 
-        <input id="inscription" type="submit" value="Je m'engage">
-    </form>
+        <form method="POST" action="/citizen_press/inscription">
+            <p>
+                <input type="checkbox" name="checkAsse" id="checkAsse" />
+                <label for="checkAsse">Je veux être assesseur :</label>
+            </p>
+            
+            <p>
+                <input type="checkbox" name="checkScrut" id="checkScrut" />
+                <label for="checkScrut">Je veux être scrutateur :</label>
+            </p>
+            <input type="hidden" class="idBureau" name="idBureau" value=""/>
+            <input class="button" type="submit" value="Je m'engage"/>
+        </form>
     </div> 
-
 <!-- Champs de recherche -->
-    <input id="pac-input" class="controls" type="text" placeholder="Trouver votre adresse">
+<input id="pac-input" class="controls" type="text" placeholder="Trouver votre adresse">

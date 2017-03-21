@@ -348,16 +348,16 @@ section {
     z-index: 2;
     height: 100vh;
     background-color: #FFF;
-    width: 35%;
+    width: 38%;
     right: 0;
 }
 
 .fermer {
-    width: 50px;
+    width: 42px;
     position: absolute;
-    left: -25px;
-    top : 380px;
-    height: 50px;
+    left: -22px;
+    top : 48%;
+    height: 42px;
 }
 
 #google-container {
@@ -382,16 +382,20 @@ section {
 }
 
 .data-container {
-    height: 60vh;
+    height: 59vh;
+    border-bottom: 2px solid;
+    border-color: #C2CECD;  
 }
 
 .other {
+    height:18%;
+    /*margin-top: -20%;*/
     display: none;
-    text-align: center;
+    /*text-align: center;*/
     position: fixed;
     right: 0;
     z-index: 5;
-    width: 35%;
+    width: 38%;
     bottom: 100px;
     animation: key01 0.5s ease-in-out 0.4s both;
 }
@@ -399,24 +403,26 @@ section {
 .other h1{
     font-weight: 600;
     color: #787878;
-    text-align: left;
-    margin-left: 50px;
+    text-align: center; 
 }
 
 .other p {
     float: left;
-    width: 300px;
-    margin-top: 50px;
+    width: 50%;
+    margin-top: 7%;
     text-align: left;
-    margin-left: 50px;
+    margin-left: 3%;
 }
 
 .other p input {
     float: right;
-    margin: 0;
+    margin-top: 0;
     cursor: pointer;
 }
 
+#checkAsse {
+    margin-top:5%;
+}
 
 /************************************************************************/
 [type="checkbox"]:not(:checked),
@@ -427,7 +433,7 @@ section {
 [type="checkbox"]:not(:checked) + label,
 [type="checkbox"]:checked + label {
   position: relative;
-  padding-left: 1.95em;
+  padding-left: 1.75em;
   cursor: pointer;
 }
 
@@ -435,7 +441,7 @@ section {
 [type="checkbox"]:checked + label:before {
   content: '';
   position: absolute;
-  left: 250px; top: 0;
+  left: 230px; top: 0;
   width: 1.25em; height: 1.25em;
   border: 2px solid #ccc;
   background: #fff;
@@ -447,7 +453,7 @@ section {
 [type="checkbox"]:checked + label:after {
   content: '✔';
   position: absolute;
-  top: .1em; left: 255px;
+  top: .1em; left: 230px;
   font-size: 1.3em;
   line-height: 0.8;
   color: #478CF4;
@@ -483,9 +489,10 @@ section {
 /************************************************************************/
 
 
-.other button {
+.other .button {
     float: right;
-    margin-right: 100px;
+    margin-right: 12%;
+    margin-top: -1.5%;
     padding: 15px;
     padding-left: 25px;
     padding-right: 25px;
@@ -574,25 +581,30 @@ footer div {
 /* Pour les données a droite de la carte */
 #TitrRemplissage {
   font-size: 26px;
-  margin-top: 25px;
+  margin-top: 5%;
   text-align: center;
   color: #5D91EE;
 }
 
 #txts {
-    margin-top: 40px;
+    margin-top: 3%;
     display : block;
 }
 
 .txtRemplissage {
     width: 137px;
-    margin-left: 15%;
+    margin-left: 12%;
     display : inline-block;
 }
 
 .txtRemplissage h3 {
+    
     text-decoration: underline;
     text-align: center;
+}
+
+#txtScrutateurs {
+    margin-left: 19%;
 }
 
 .graphsContenu {
@@ -601,19 +613,32 @@ footer div {
 
 .divGraphContenuAssesseur {
     margin-top: 3%;
-    margin-left: 5%;
+    margin-left: 7%;
     display:inline-block;
-    height: 40%;
-    width: 45%;
+    height: 35%;
+    width: 40%;
 }
 
 .divGraphContenuScrutateur {
     margin-top: 3%;
-    margin-left: 2%;
+    margin-left: 4%;
     display:inline-block;
-    height: 40%;
-    width: 45%;
+    height: 35%;
+    width: 40%;
 }
+
+#txtsBasiquesNombres {
+    display:block;
+}
+
+.assesseursChiffre {
+    margin-top: 18%;
+    margin-left:13%;
+    text-align: center;
+    display:inline-block;
+    width:30%;
+}
+
 /* Concerne le champs de recherche */
 .controls {
   margin-top: 10px;
@@ -658,4 +683,23 @@ footer div {
   font-family: Roboto;
   font-size: 13px;
   font-weight: 300;
+
+.scrutateursChiffre {
+    margin-top: 20%;
+    margin-left:14%;
+    text-align: center;
+    width:30%;
+    display:inline-block;
+}
+
+.percentAss{
+    position:absolute;
+    margin-left:11%;
+    margin-top:-22%;
+}
+
+.percentScrut {
+    position:absolute;
+    margin-left:11%;
+    margin-top:-22%;
 }

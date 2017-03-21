@@ -161,13 +161,13 @@ app.get("/select", (req, res) => {
 		    					</div> \
 		    					<div id="txtsBasiquesNombres">\
 		    						<div class="assesseursChiffre">\
+		    							<h4 class="percentAss"></h4>\
 			    						<h4 class="inscrit nbAssesseurs"><h4>\
-			    						<h4 class="percentAss"></h4>\
 			    						<h4 class="placeMax 8P"> 8 PERSONNES </h4> \
 			    					</div>\
 			    					<div class="scrutateursChiffre">\
-			    						<h4 class="inscrit nbScrutateurs"><h4>\
 			    						<h4 class="percentScrut"></h4>\
+			    						<h4 class="inscrit nbScrutateurs"><h4>\
 			    						<h4 class="placeMax 25P"> 25 PERSONNES </h4> \
 			    					</div>\
 		    					</div>\
@@ -222,7 +222,7 @@ app.get("/merci", (req,res) => {
 // AJAX
 // GET bureaux (pour la map)
 app.get("/bureaux", (req, res) => {
-	console.log("Chargement des bureaux...");
+	//console.log("Chargement des bureaux...");
 	fs.readFile(URL_DATA, 'utf8', function (err, data) {
 	    if (err) throw err; // à voir 
 	    var obj = JSON.parse(data);
@@ -308,7 +308,8 @@ app.post("/citizen_press/form", function (req, res) {
 	fs.readFile(URL_DATA, 'utf8', function readFileCallback(err, data){
     	if (err){
        		console.log(err);
-   		} else {
+   		}
+   		else {
    			//On récupère chaque variables
    			var nom = req.body.nom;
    			var prenom = req.body.prenom;
@@ -348,7 +349,8 @@ app.post("/citizen_press/form", function (req, res) {
   				};
 			}
 			fs.writeFile(URL_DATA, JSON.stringify(obj), 'utf8', -1); // write it back
-	}});
+		}
+	});
 	fs.readFile('citizen_press/public/html/merci/merci.html','utf8', function(err,data){	// Lecture d'un fichier
 		if (err) throw err;
 		res.write(data);	// Ecriture dans la réponse
