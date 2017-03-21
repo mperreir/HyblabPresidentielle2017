@@ -176,7 +176,6 @@ app.get("/bureaux/:id/assesseurs", (req, res) => {
 						}
 						//Juste scrutateur
 						else if (asseseurTemp.potentiel_assesseur){
-							console.log(assesseurs[index3][1]);
 							if (assesseurs[index3][1]){//Asseseurs valides
 								res.write("class=\"assesseur_valide\" ");
 							}else{ 
@@ -197,13 +196,13 @@ app.get("/bureaux/:id/assesseurs", (req, res) => {
 					res.write("<td>"+asseseurTemp.mail+"</td>");
 					res.write("<td>"+asseseurTemp.tel+"</td>");
 					//Choix par défaut, au démarrage de la page : Assesseurs en cours
-					res.write('<td class="decision"><input type="button" class="boutonValider" id="'+ assesseurs[index3][0] +'" name="ValiderAss" value="Valider"><input type="button" value="Refuser"></td></tr>');
-					res.write('<input type="hidden" class="idBureau" id="'+idBureau+'">');
+					res.write('<td class="decision"><input type="button" class="boutonValider" id="'+ assesseurs[index3][0] +'" name="ValiderAss" value="Valider"></td></tr>');
 					res.write("</tr>");
 				}
 			}
 		}
 		res.write("</tbody></table>");
+		res.write('<input type="hidden" class="idBureau" id="'+idBureau+'">');
 
 		// Récupération du footer
 		fs.readFile('citizen_press/public/html/liste_president/footer.html','utf8', function(err,data){	// Lecture d'un fichier
@@ -232,24 +231,27 @@ app.get("/valider/:idBureau/:idAssesseur/:type_benevole", function (req, res) {
    			var idBureau = req.params.idBureau;
    			var idAssesseur = req.params.idAssesseur;
    			var benevole = req.params.type_benevole;
+
 			
     		var obj = JSON.parse(data); //now it an object
 	    
 	    	for(var index in obj.bureaux){
 	    		if (obj.bureaux[index].id == idBureau){
-	    			for(var index2 in obj.bureaux[index].assesseurs){
-		    			if(benevole =  "ValiderAss"){
-		        			obj.bureaux[index].assesseurs[index2].valide_assesseur = true;
-		        		}else if(benevole =  "ValiderScrut"){
-		        			obj.bureaux[index].assesseurs[index2].valide_scrutateur = true;
-		        		}
+	    			for (var index2 in obj.bureaux[index].assesseurs) {
+						if(obj.bureaux[index].assesseurs[index2].id == idAssesseur) {
+			    			if(benevole ==  "ValiderAss"){
+			        			obj.bureaux[index].assesseurs[index2].valide_assesseur = true;
+			        		}
+			        		else if(benevole ===  "ValiderScrut"){
+			        			obj.bureaux[index].assesseurs[index2].valide_scrutateur = true;
+			        		}
+			        	}
 		        	}
         		}
 	    	}
-
+	    	console.log("mdr");
    			var json = JSON.stringify(obj); //convert it back to json
-   			
-   			//fs.writeFile('citizen_press/public/data/data2.json', json, 'utf8', -1); // write it back 
+   			fs.writeFile('citizen_press/public/data/data2.json', json, 'utf8', -1); // write it back 
 		}
 	});
 	//Rediriger vers la page, avec les bons checkbox de cochés dans les radio

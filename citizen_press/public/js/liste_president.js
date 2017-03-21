@@ -1,14 +1,17 @@
 $(document).ready(function() {
 
-
     //Clic sur les boutons valider    
-    var idBureau = $('.idBureau').attr('id');
+    
+    attribuerClics();
 
-    $('.boutonValider').click(function(event){
-        valider(event.target.id,idBureau,event.target.name);
-    });
+    function attribuerClics(){
+        var idBureau = $('.idBureau').attr('id');
+        console.log
 
-
+        $('.boutonValider').click(function(event){
+            valider(event.target.id,idBureau,event.target.name);
+        });
+    }
 
     function valider(idAssesseur,idBureau,typeBenevole){
 
@@ -19,13 +22,25 @@ $(document).ready(function() {
             timeout: 5000,
 
             success: function(data) {
-                console.log(idAssesseur);
             },
              error: function(xhr, status, error) {
                 console.log(error);
 
              },
         });
+
+        if (typeBenevole=="ValiderAss"){
+            var tableRowToChange = $('#'+idAssesseur).closest('tr');
+            tableRowToChange.removeClass('assesseur_non_valide');
+            tableRowToChange.addClass('assesseur_valide');
+            affichageLigne(true,false,true,false);                        
+        }
+        if (typeBenevole=="ValiderScrut"){
+            var tableRowToChange = $('#'+idAssesseur).closest('tr');
+            tableRowToChange.removeClass('scrutateur_non_valide');
+            tableRowToChange.addClass('scrutateur_valide');
+            affichageLigne(false,true,true,false);
+        }
     }
 
 
@@ -60,16 +75,33 @@ $(document).ready(function() {
             $(".scrutateur_valide").hide();
             $(".scrutateur_non_valide").hide();
             $(".assesseur_non_valide").toggle(true);
+
             //cf.Tableau
-            $(".assesseur_non_valide .decision").replaceWith('<td class="decision"><input type="button" id="ValiderAss" value="Valider"><input type="button" id="RefuserAss" value="Refuser"></td>');
-            
+            var classname = $(".assesseur_non_valide .decision .boutonValider");
+            var classname2 = $(".assesseur_non_valide .decision");
+
+            for (var i = 0; i < classname.length; i++) {
+                idAsse = classname[i].id;
+                classname2[i].innerHTML = ('<td class=\"decision\"><input type="button" class="boutonValider" id="'+ idAsse +'" name="ValiderAss" value="Valider"></td>');
+            }
+            attribuerClics();
+
+
         }else if (isAssesseur && isValide){
             $(".scrutateur_valide").hide();
             $(".scrutateur_non_valide").hide();
             $(".assesseur_non_valide").hide();
             $(".assesseur_valide").toggle(true);
             //cf. Tableau
-            $(".assesseur_valide .decision").replaceWith("<td class=\"decision\">Validé</td>");
+
+            var classname = $(".assesseur_valide .decision .boutonValider");
+            var classname2 = $(".assesseur_valide .decision");
+
+            for (var i = 0; i < classname.length; i++) {
+                idAsse = classname[i].id;
+                classname2[i].innerHTML = ('<td class="decision"><input type="hidden" class="boutonValider" id="'+ idAsse +'">Validé</td>');
+            }
+            attribuerClics();
 
         }else if(isScrutateur && isEnCours){
             $(".scrutateur_valide").hide();
@@ -77,7 +109,15 @@ $(document).ready(function() {
             $(".assesseur_valide").hide();
             $(".scrutateur_non_valide").toggle(true);
             //cf. Tableau
-            $(".scrutateur_non_valide .decision").replaceWith('<td class="decision"><input type="button" id="ValiderScrut" value="Valider"><input type="button" id="RefuserScrut" value="Refuser"></td>');
+
+            var classname = $(".scrutateur_non_valide .decision .boutonValider");
+            var classname2 = $(".scrutateur_non_valide .decision");
+
+            for (var i = 0; i < classname.length; i++) {
+                idAsse = classname[i].id;
+                classname2[i].innerHTML = ('<td class=\"decision\"><input type="button" class="boutonValider" id="'+ idAsse +'" name="ValiderScrut" value="Valider"></td>');
+            }
+            attribuerClics();
 
         }else if (isScrutateur && isValide){
             $(".assesseur_non_valide").hide();
@@ -85,7 +125,15 @@ $(document).ready(function() {
             $(".scrutateur_non_valide").hide();
             $(".scrutateur_valide").toggle(true);
             //cf. Tableau
-            $(".scrutateur_valide .decision").replaceWith('<td class="decision">Validé</td>');
+
+            var classname = $(".scrutateur_valide .decision .boutonValider");
+            var classname2 = $(".scrutateur_valide .decision");
+
+            for (var i = 0; i < classname.length; i++) {
+                idAsse = classname[i].id;
+                classname2[i].innerHTML = ('<td class="decision"><input type="hidden" class="boutonValider" id="'+ idAsse +'">Validé</td>');
+            }
+            attribuerClics();
         }     
     }
 
