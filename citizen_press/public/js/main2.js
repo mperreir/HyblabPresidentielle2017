@@ -266,8 +266,8 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 			   		$(".divGraphContenuAssesseur iframe").remove();
 					$(".divGraphContenuScrutateur iframe").remove();
 
-					$(".divGraphContenuAssesseur").html('<canvas id="graphContenuAssesseur'+numBureauPOI+'" width="200" height="200"></canvas>');
-			   		$(".divGraphContenuScrutateur").html('<canvas id="graphContenuScrutateur'+numBureauPOI+'" width="200" height="200"></canvas>');
+				//	$(".divGraphContenuAssesseur").html('<canvas id="graphContenuAssesseur'+numBureauPOI+'"></canvas>');
+			  // 		$(".divGraphContenuScrutateur").html('<canvas id="graphContenuScrutateur'+numBureauPOI+'"></canvas>');
 
 			   		// On récupère le bon ID pour insérer le graphique
 			   		var ctxAss = document.getElementById("graphContenuAssesseur"+numBureauPOI);
