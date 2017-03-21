@@ -11,9 +11,6 @@ $(document).ready(function(){
 	var NB_ASSESSEURS_MAX = 8;
 	var NB_SCRUTATEURS_MAX = 25;
 
-	var widht =window.screen.width;
-	var height = window.screen.height;
-
 	var nbPOI = 0;
 
 	var is_internetExplorer11= navigator.userAgent.toLowerCase().indexOf('trident') > -1;
@@ -369,7 +366,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 
 		markers.get(numBureauPOI).addListener('click', function() {
 			for (var i = 1; i <= nbPOI; i++) {
-	   			console.log(".POI"+i);
+	   			//console.log(".POI"+i);
 	    		$(".POI"+i).css("display", "none");
 		    }
 	    	// Affiche la page du PI
@@ -507,8 +504,10 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	}
 
 	function createSVG(adresse, numPOI) {
+		var width = window.screen.width*(window.devicePixelRatio-0.5);
+		var height = window.screen.height*(window.devicePixelRatio-0.5);
 		$.ajax({
-			url:"bureaux/"+adresse+"/"+numPOI+"/"+window.screen.width+"/"+window.screen.height,
+			url:"bureaux/"+adresse+"/"+numPOI+"/"+width+"/"+height,
 			type: "GET",
 		    dataType: "text",
 		    cache: false,

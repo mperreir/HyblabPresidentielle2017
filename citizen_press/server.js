@@ -139,9 +139,15 @@ app.get("/", (req, res) => {
 		    							<canvas id="graphContenuScrutateur'+calc+'" width="'+taille+'" height="'+taille+'"></canvas>\
 									</div>\
 		    					</div> \
-		    					<div txtsBasiquesNombres>\
-		    						<h4 id="8P"> 8 PERSONNES </h4> \
-		    						<h4 id="25P"> 25 PERSONNES </h4> \
+		    					<div id="txtsBasiquesNombres">\
+		    						<div class="assesseursChiffre">\
+			    						<h4 class="inscrit nbAssesseurs"><h4>\
+			    						<h4 class="placeMax 8P"> 8 PERSONNES </h4> \
+			    					</div>\
+			    					<div class="scrutateursChiffre">\
+			    						<h4 class="inscrit nbScrutateurs"><h4>\
+			    						<h4 class="placeMax 25P"> 25 PERSONNES </h4> \
+			    					</div>\
 		    					</div>\
 		    				</div>\
         					<img class="fermer" src="./img/arrow.png"> \
@@ -280,6 +286,9 @@ function SVG(numPOI,width,height) {
 	this.url = "svg"+numPOI+".svg";
 	this.contentSVG_littleCircles = "";
 	this.nbBureau = 0;
+
+	console.log(width);
+	console.log(height);
 
 	// Init du SVG
 	this.contentSVG_init = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\
