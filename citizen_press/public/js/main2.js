@@ -439,8 +439,8 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 						        {
 						            data: [nbAssesseurValide, NB_ASSESSEURS_MAX-nbAssesseurValide],
 						            backgroundColor: [
-						                "#FF6384",
-						                "#F2F2F2"
+						                "#5D91EE",
+						                "#C0D9D9"
 						            ]
 						        }]
 						}
@@ -457,8 +457,8 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 						        {
 						            data: [nbScrutateurValide, NB_SCRUTATEURS_MAX-nbScrutateurValide],
 						            backgroundColor: [
-						                "#FF6384",
-						                "#F2F2F2"
+						                "#5D91EE",
+						                "#C0D9D9"
 						            ]
 						        }]
 						}
