@@ -59,10 +59,10 @@ $(document).ready(function() {
         // cf. Tableau "Liste président : Que afficher dans la case décision en fonction des différents cas et du filtrage demandé" sur le Google Drive des Dépouilleurs
         // 
         //Code optimisable via les paramètre de toggle et hide (pas le temps d'y réflechir)
-        isAssesseur = document.getElementById('assesseurs_filtre').checked;
-        isScrutateur = document.getElementById('scrutateurs_filtre').checked;
-        isEnCours = document.getElementById('en_cours_filtre').checked;
-        isValide = document.getElementById('valide_filtre').checked;
+        isAssesseur = document.getElementById('check01').checked;
+        isScrutateur = document.getElementById('check02').checked;
+        isEnCours = document.getElementById('check03').checked;
+        isValide = document.getElementById('check04').checked;
 
         affichageLigne(isAssesseur,isScrutateur,isEnCours,isValide);       
     });
@@ -140,7 +140,7 @@ $(document).ready(function() {
     //Mise en forme de la table et du tri
     function miseEnFormeTable(){
         $('#table_benevoles').DataTable( {
-            "scrollY":        "200px",
+            "scrollY":        "500px",
             "scrollCollapse": true,
             "paging":         false,
             "language": {
