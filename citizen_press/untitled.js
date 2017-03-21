@@ -8,6 +8,12 @@ $(document).ready(function(){
 	var infoWindows = new Map();
 	var markers = new Map();
 
+	var NB_ASSESSEURS_MAX = 8;
+	var NB_SCRUTATEURS_MAX = 25;
+
+	var widht =window.screen.width;
+	var height = window.screen.height;
+
 	var nbPOI = 0;
 
 	var is_internetExplorer11= navigator.userAgent.toLowerCase().indexOf('trident') > -1;
@@ -255,6 +261,37 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 			    },
 			   	complete: function() {
 			   		// Ecriture des résultats --> Vers des graphiques
+			   		var ctxAss = document.getElementsByClassName('POI'+numBureauPOI).getElementById("graphContenuAssesseur");
+			   		var ctxScrut = document.getElementsByClassName('POI'+numBureauPOI).getElementById("graphContenuScrutateur");
+
+			   		var myDoughnutAss = new Chart(ctxAss, {
+					    type: 'doughnut',
+					    data: {
+						    labels: [
+						        "Red",
+						        "Blue"
+						    ],
+						    datasets: [
+						        {
+						            data: [300, 50, 100],
+						            backgroundColor: [
+						                "#FF6384",
+						                "#36A2EB"
+						            ],
+						            hoverBackgroundColor: [
+						                "#FF6384",
+						                "#36A2EB"
+						            ]
+						        }]
+						}
+					});
+
+					/*var myDoughnutScrut = new Chart(ctxScrut, {
+					    type: 'doughnut',
+					    data: data,
+					    options: options
+					});*/
+
 			   		$('.POI'+numBureauPOI+' #graphContenuAssesseur').html("<p> Nombre d'assesseur validés : "+nbAssesseurValide+" </p>");
 			   		$('.POI'+numBureauPOI+' #graphContenuScrutateur').html("<p> Nombre de scrutateurs validés : "+nbScrutateurValide+" </p>");
 					nbAssesseurValide = 0;
@@ -297,16 +334,16 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		var nbAssesseurValide = 0;
 		var nbScrutateurValide = 0;
 
-		var marker_POI = {
+		var $marker_POI = {
 	        url: url_marker,
-	      	 //size: new google.maps.Size(31, 32)
+	     	size: new google.maps.Size(60, 60)
     	}
 
 		markers.set(numBureauPOI, new google.maps.Marker({
 		  	position: new google.maps.LatLng(latitude_POI, longitude_POI),
 		    map: map,
 		    visible: true,
-		 	icon: marker_POI,
+		 	icon: $marker_POI,
 
 		}));
 

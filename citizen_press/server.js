@@ -113,7 +113,9 @@ app.get("/", (req, res) => {
 	   	// Initialisation des variables
 	    var tab = [];
 	    var calc = 1;
-	      
+
+		var taille = 130;
+
 	    // Parcours des bureaux pour création de points d'intêrets
 	    for(var i=0; i<=obj.bureaux.length-1; i++){
 	    	if (tab.indexOf(obj.bureaux[i].adresse) == -1){
@@ -123,16 +125,32 @@ app.get("/", (req, res) => {
 		    					<h2 id="TitrRemplissage"> Remplissage </h2>\
 		    					<div id="txts">\
 		    						<div class="txtRemplissage" id="txtAssesseurs">\
-			    						<h3> Assesseurs inscrits </h3>\
+			    						<h3>Assesseurs inscrits</h3>\
 			    					</div>\
 			    					<div class="txtRemplissage" id="txtScrutateurs">\
-			    						<h3> Scrutateurs inscrits </h3>\
+			    						<h3> Scrutateurs inscrits</h3>\
 			    					</div>\
 			    				</div>\
 		    					<div class="graphsContenu"> \
-		    						<div id="graphContenuAssesseur" class="graphContenu"></div>\
-		    						<div id="graphContenuScrutateur" class="graphContenu"></div>\
+		    						<div class="divGraphContenuAssesseur">\
+		    							<canvas id="graphContenuAssesseur'+calc+'"></canvas>\
+		    						</div>\
+		    						<div class="divGraphContenuScrutateur">\
+		    							<canvas id="graphContenuScrutateur'+calc+'"></canvas>\
+									</div>\
 		    					</div> \
+		    					<div id="txtsBasiquesNombres">\
+		    						<div class="assesseursChiffre">\
+			    						<h4 class="inscrit nbAssesseurs"><h4>\
+			    						<h4 class="percentAss"></h4>\
+			    						<h4 class="placeMax 8P"> 8 PERSONNES </h4> \
+			    					</div>\
+			    					<div class="scrutateursChiffre">\
+			    						<h4 class="inscrit nbScrutateurs"><h4>\
+			    						<h4 class="percentScrut"></h4>\
+			    						<h4 class="placeMax 25P"> 25 PERSONNES </h4> \
+			    					</div>\
+		    					</div>\
 		    				</div>\
         					<img class="fermer" src="./img/arrow.png"> \
             			</section> \n');
