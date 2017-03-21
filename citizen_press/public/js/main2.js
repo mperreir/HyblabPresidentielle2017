@@ -410,7 +410,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 			    type: "GET",
 			    dataType: "text",
 			    contentType: "application/json",
-			    //async: false, // Mode synchrone
+				async: false, // Mode synchrone
 			    cache: false,
 			    timeout: 5000,
 
