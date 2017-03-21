@@ -76,14 +76,24 @@ app.get("/", (req,res) => {
 		res.end();
 	});	
 });
+app.post("/inscription", (req,res) => {
 
-app.get("/formulaire/:idBureau", (req,res) => {
+	var idBureau = req.body.idBureau;
+	var checkAss = req.body.checkAss;
+	var checkScrut = req.body.checkScrut;
 
-	// Penser a faire : var idBureau = req.params.idBureau;
-	fs.readFile('citizen_press/public/html/formulaire/formulaire.html','utf8', function(err,data){	// Lecture d'un fichier
+	fs.readFile('citizen_press/public/html/formulaire/header_formulaire.html','utf8', function(err,data){	// Lecture d'un fichier
 		if (err) throw err;
 		res.write(data);	// Ecriture dans la réponse
-		res.end();
+	});
+
+	res.write('<input type="hidden" name="idBureau"/> value='+idBureau +'/>');
+	res.write('<input type="hidden" name="checkAss"/> value='+checkAss +'/>');
+	res.write('<input type="hidden" name="checkScrut" value='+checkScrut +'/>');
+
+	fs.readFile('citizen_press/public/html/formulaire/footer_formulaire.html','utf8', function(err,data){	// Lecture d'un fichier
+		if (err) throw err;
+		res.write(data);	// Ecriture dans la réponse
 	});
 });
 
@@ -131,21 +141,6 @@ app.get("/bureaux/:id/inscription" , (req, res) => {
 
 });
 
-// Ajout assesseurs
-app.post("/assesseurs/:id", (req, res) => {
-	console.log("Ajout d'un assesseurs...");
-	fs.readFile('data.json', 'utf8', function (err, data) {
-	    if (err) throw err; // à voir 
-	    var obj = JSON.parse(data);
-	    var nbAssesseurs = obj.assesseurs.length;
-	    obj.assesseurs[nbAssesseurs+1].id = req.params.id;
-	    // ajout des autres caractéristiques de l'objet bureau
-
-	    // Écriture du nouveau fichier
-	    fs.writeFile('data.json', JSON.stringify(obj));
-	});
-});
-
 // La page de connexion  d'un président
 app.get("/connexion", (req, res) => {
  // TODO
@@ -153,11 +148,6 @@ app.get("/connexion", (req, res) => {
 
 // La page des assesseurs validé sur un bureau
 app.get("/bureaux/:id/assesseurs", (req, res) => {
- // TODO
-});
-
-// La page des statistique globales sur les assesseurs
-app.get("/	assesseurs", (req, res) => {
  // TODO
 });
 
@@ -176,7 +166,7 @@ app.post("/citizen_press/form", function (req, res) {
 	var assesseur = req.params.assesseur;
 	var scrutateur = req.params.scrutateur;*/
 	
-	fs.readFile('citizen_press/public/data/data.json', 'utf8', function readFileCallback(err, data){
+	fs.readFile(URL_DATA, 'utf8', function readFileCallback(err, data){
     	if (err){
        		console.log(err);
    		} else {
@@ -190,9 +180,15 @@ app.post("/citizen_press/form", function (req, res) {
    			var annee = req.body.annee;
    			var naissance = annee + "-" + mois + "-" + jour;
    			var civilite = req.body.civilite;
+   		
+   			// TODO A CHANGER AVEC REQ.BODY
+   			var idBureau = 113;
+   			var assesseurDemande = true;
+   			var scrutateurDemande = false;
 
     		var obj = JSON.parse(data); //now it an object
 
+    		console.log(idBureau);
     		//on récupère l'id dernière assesseur
     		var numberPattern = /\d+/g;
 
@@ -202,13 +198,17 @@ app.post("/citizen_press/form", function (req, res) {
     		num = lastAss.match(numberPattern);
     		num = parseInt(num,10);
     		num += 1;
-    		console.log(num);
     		var idAsse = "idAsse" + num.toString();
-    		console.log(idAsse);
 
-    		obj.assesseurs.push({"id": idAsse,"nom": nom,"prenom": prenom,"age": getAge(naissance),"mail": email,"tel": mobile,"sexe": "male","potentiel_assesseur": false,"potentiel_scrutateur": true});//add some data
-   			var json = JSON.stringify(obj); //convert it back to json
-   			fs.writeFile('citizen_press/public/data/data.json', json, 'utf8', -1); // write it back 
+    		obj.assesseurs.push({"id": idAsse,"nom": nom,"prenom": prenom,"age": getAge(naissance),"mail": email,"tel": mobile,"sexe": "male","potentiel_assesseur": assesseurDemande,"potentiel_scrutateur": scrutateurDemande});//add some data
+
+
+   			for (var i = 0; i < obj.bureaux.length-1;i++) {
+  				if (obj.bureaux[i].id == idBureau) {
+  					obj.bureaux[i].assesseurs.push({"id" : idAsse,"valide_assesseur" : assesseurDemande, "valide_scrutateur": scrutateurDemande});
+  				};
+			}
+			fs.writeFile(URL_DATA, JSON.stringify(obj), 'utf8', -1); // write it back
 	}});
 	fs.readFile('citizen_press/public/html/merci/merci.html','utf8', function(err,data){	// Lecture d'un fichier
 		if (err) throw err;
