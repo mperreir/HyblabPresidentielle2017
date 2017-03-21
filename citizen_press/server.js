@@ -10,7 +10,7 @@ var app = express();
 // Module d'ouverture de fichier et de lecture
 var fs = require('fs');
 
-var d3 = require('d3');
+//var d3 = require('d3');
 
 var bodyParser = require('body-parser')
 
