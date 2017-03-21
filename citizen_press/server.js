@@ -199,6 +199,7 @@ app.get("/bureaux/:id/assesseurs", (req, res) => {
 		res.write("</tbody></table>");
 		res.write('<input type="hidden" class="idBureau" id="'+idBureau+'">');
 
+
 		// Récupération du footer
 		fs.readFile('citizen_press/public/html/liste_president/footer.html','utf8', function(err,data){	// Lecture d'un fichier
 			res.write(data);	// Ecriture dans la réponse
