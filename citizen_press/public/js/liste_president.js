@@ -147,6 +147,9 @@ $(document).ready(function() {
               "info":           "",//On affiche rien au lieu de "_TOTAL_ bénévoles affichés au total"
               "search":         "Rechercher:"
           }
+          //A modifier
+          //No data available in table
+          //Showing 0 to 0 of 0 entrie
         } );
     }
 
