@@ -496,7 +496,7 @@ section {
     background-color: #478CF4;
 }
 
-#inscription {
+#inscription input{
     float: right;
     margin-right: 100px;
     padding: 15px;
@@ -515,7 +515,7 @@ footer {
     height: 10vh;
     bottom: 0;
     z-index: 3;
-    background-color: #4456A0;
+    background-color: #478CF4;
     text-align: center;
 }
 
