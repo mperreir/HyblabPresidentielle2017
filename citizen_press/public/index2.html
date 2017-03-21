@@ -7,88 +7,132 @@
     <meta name="keyword" content="">
     <meta name="description" content= "">
     <title>| HybLab |</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="./css/form.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0othcEZUsFnDRiRQM2rZlNH1jBliT--o&callback=initialisation"></script>
-    <link href="https://fonts.googleapis.com/css?family=Anaheim" rel="stylesheet">
 </head>
 <body>
-<!--------------POI01------------>
-    <section class="POI01">
-        <div class="fermer"></div>
-        <div class="header">
-            <div class="adress">
-                <h5>5E CANTON (9)</h5>
-                <h6>Ecole primaire</h6>
-                <h6>12 Rue des Réformes</h6>
-                <h6>44000 Nantes</h6>
-            </div>
-            <div class="office">
-                <h3>BUREAU DE VOTE</h3>
-                <button>N°601<img src=""></button>
-            </div>
-        </div>
-        <div class="data-container">
-            
-        </div>
-        
-        <div class="other">
-            <h1>CE BUREAU A BESOIN DE VOUS !</h1>
-            <button>Je m'inscris</button>
-        </div>
-    </section>
+    <!--<div class="logo">
+        <img src="./img/logo.svg">
+    </div>-->
+    <h1>Formulaire.</h1>
+    <h2>Rentrez les informations nécessaires à votre participation.<span> Les astérisques * sont obligatoires.</span></h2>
+    <form id="principal" method="POST" action="/citizen_press">
+    <div class="form01">
+        <h4><span>*</span>CIVILITE :</h4>
+        <br>
+        <select name="civilite" id="civilite">
+            <option></option>
+            <option value="male">Monsieur</option>
+            <option value="female">Madame</option>
+        </select>
+    </div>
     
-<!--------------POI02------------>
-    <section class="POI02">
-        <div class="fermer"></div>
-        <div class="header">
-            <div class="adress">
-                <h5>4E CANTON (8)</h5>
-                <h6>Salle des fêtes</h6>
-                <h6>04 Rue Fédeau</h6>
-                <h6>44000 Nantes</h6>
-            </div>
-            <div class="office">
-                <h3>BUREAU DE VOTE</h3>
-                <button>N°520<img src=""></button>
-            </div>
-        </div>
-        <div class="data-container">
-            
-        </div>
+    <div>
+        <h4><span>*</span>NOM</h4>
+        <br>
+        <input type="text" name="nom" id="nom" value="">
+    </div>
+    
+    <div>
+        <h4><span>*</span>PRENOM</h4>
+        <br>
+        <input type="text" name="prenom" id="prenom" value="">
+    </div>
+    
+    <div class="birth">
+        <h4><span></span>DATE DE NAISSANCE</h4>
+        <br>
+        <select name="jour" id="jour">
+        </select>
+        <select name="mois" id="mois">
+            <option></option>
+            <option value="01">Janvier</option>
+            <option value="02">Février</option>
+            <option value="03">Mars</option>
+            <option value="04">Avril</option>
+            <option value="05">Mai</option>
+            <option value="06">Juin</option>
+            <option value="07">Juillet</option>
+            <option value="08">Août</option>
+            <option value="09">Septembre</option>
+            <option value="10">Octobre</option>
+            <option value="11">Novembre</option>
+            <option value="12">Decemebre</option>
+        </select>
+        <select name="annee" id="annee">
+        </select>
+    </div>
+    
+    <div class="form01">
+        <h4><span>*</span>EMAIL</h4>
+        <br>
+        <input type="text" name="email" id="email" value="">
+    </div>
+    
+    <div>
+        <h4><span>*</span>TELEPHONE</h4>
+        <br>
+        <input type="text" name="mobile" id="mobile" value="">
+    </div>
+    
+    <div>
+        <h4><span>*</span>PROFESSION</h4>
+        <br>
+        <input type="text" name="" value="">
+    </div>
+        <br>
+    <!--<div class="form01">
+        <h4>AUTRE</h4>
+        <br>
+        <input type="text" name="" value="">
+    </div>
         
-        <div class="other">
-            <h1>CE BUREAU A BESOIN DE VOUS !</h1>
-            <button>Je m'inscris</button>
-        </div>
-    </section>
+    <div>
+        <h4>AUTRE</h4>
+        <br>
+        <input type="text" name="" value="">
+    </div>-->
+        
+    
+    <div class="check-box">
+     <div class="check">
+        <h4><span>*</span>EST-CE LA PREMIERE FOIS QUE VOUS PARTICIPEZ ?</h4>
+        <p>
+            <input type="checkbox" id="check" />
+            <label for="check">NON</label>
+        </p>
+    </div>
+        
+    <div>   
+        <p>
+            <input type="checkbox" id="check-bis" />
+            <label for="check-bis">OUI</label>
+        </p>
+    </div>
+    </div>
+    
+    
+    <div class="button">
+        <input type="submit" value="Je valide">
+    </div>
+    </form>
+    <div class="info">
+        <p>
+            <input type="checkbox" id="check-2bis" />
+            <label for="check-2bis">J'autorise lejourduvote.fr à me recontacter lors de prochains scrutins.<br></br>Mes données ne feront l'objet d'aucune exploitation commerciale.</label>
+        </p>
+    </div>
+    <!--------------FOOTER------------>
     
     <footer class="POI01-F">
         <div class="done"></div>
         <div class="done"></div>
         <div class="done"></div>
         <div></div>
-        <div></div>
     </footer>
-
-	       <div id="google-container"></div>
-	       <div id="cd-zoom-in"></div>
-	       <div id="cd-zoom-out"></div>
-      
-    
-    
     
         
- <!------------------MAPS-----------------   
-    <section id="cd-google-map">
-        <div id="google-container"></div>
-        <div id="cd-zoom-in"></div>
-        <div id="cd-zoom-out"></div>
-    </section>
-
--->
-    
-<script src="js/main2.js"></script>
+<script src="./js/form.js"></script>
 
         
     </body>

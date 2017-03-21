@@ -2,20 +2,18 @@
 <html>
 <head>
   <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     <meta name=”author” content="">
     <meta name="keyword" content="">
     <meta name="description" content= "">
     <title>| HybLab |</title>
   <link rel="stylesheet" type="text/css" href="./css/style.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0othcEZUsFnDRiRQM2rZlNH1jBliT--o"></script>
-    <link href="https://fonts.googleapis.com/css?family=Anaheim" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-     <!-- Datatables -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.css"/>
-  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js"></script>
+    <!-- Récupération de la map ainsi que des locations -->
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0othcEZUsFnDRiRQM2rZlNH1jBliT--o&libraries=places"></script>
+    <link href="https://fonts.googleapis.com/css?family=Anaheim" rel="stylesheet">
 
 </head>
 
@@ -57,7 +55,8 @@
     </div>
 
  <div class="other">
-        <h1>CE BUREAU A BESOIN DE VOUS !</h1>
+    <h1>CE BUREAU A BESOIN DE VOUS !</h1>
+    <form method="POST" action="/citizen_press/inscription">
         <p>
             <input type="checkbox" id="checkAsse" />
             <label for="checkAsse">Je veux être assesseur :</label>
@@ -67,5 +66,11 @@
             <input type="checkbox" id="checkScrut" />
             <label for="checkScrut">Je veux être scrutateur :</label>
         </p>
-        <button>Je m'engage</button>
+
+</div> 
+        <input id="inscription" type="submit" value="Je m'engage">
+    </form>
     </div> 
+
+<!-- Champs de recherche -->
+    <input id="pac-input" class="controls" type="text" placeholder="Trouver votre adresse">

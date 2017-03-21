@@ -10,6 +10,17 @@ var app = express();
 // Module d'ouverture de fichier et de lecture
 var fs = require('fs');
 
+//var d3 = require('d3');
+
+var bodyParser = require('body-parser')
+
+/*app.get("/", (req, res) => {
+	console.log("Page principale");
+	res.set({"Content-Type" : "text/html"});	// Typage du texte
+	fs.readFile('citizen_press/public/html/formulaire.html','utf8', function(err,data){	// Lecture d'un fichier
+		res.write(data);
+		res.end();
+	});	// Ecriture dans la réponse*/
 var URL_DATA = 'citizen_press/public/data/data2.json';
 var NB_MAX_ASSESSEURS_SCRUTATEUR = 8;
 
@@ -95,8 +106,17 @@ function writeSvg(bureaux, numPOI,width,height) {
 	fs.writeFile("./citizen_press/public/img/"+svg.url, svg.getContent());
 }
 
+app.get("/", (req,res) => {
+
+	fs.readFile('citizen_press/public/html/accueil/accueil.html','utf8', function(err,data){	// Lecture d'un fichier
+		if (err) throw err;
+		res.write(data);	// Ecriture dans la réponse
+		res.end();
+	});	
+});
+
 // Route d'accès client
-app.get("/", (req, res) => {
+app.get("/select", (req, res) => {
 
 	res.set({"Content-Type" : "text/html"});
 	
@@ -168,10 +188,38 @@ app.get("/", (req, res) => {
 	});
 });
 
-app.get("/test", (req, res) => {
-	res.sendFile(path.join(__dirname, '../citizen_press/public', 'html/test.html'));
-});	
+app.post("/inscription", (req,res) => {
 
+	var idBureau = req.body.idBureau;
+	var checkAss = req.body.checkAss;
+	var checkScrut = req.body.checkScrut;
+
+	fs.readFile('citizen_press/public/html/formulaire/header_formulaire.html','utf8', function(err,data){	// Lecture d'un fichier
+		if (err) throw err;
+		res.write(data);	// Ecriture dans la réponse
+	});
+
+	res.write('<input type="hidden" name="idBureau"/> value='+idBureau +'/>');
+	res.write('<input type="hidden" name="checkAss"/> value='+checkAss +'/>');
+	res.write('<input type="hidden" name="checkScrut" value='+checkScrut +'/>');
+
+	fs.readFile('citizen_press/public/html/formulaire/footer_formulaire.html','utf8', function(err,data){	// Lecture d'un fichier
+		if (err) throw err;
+		res.write(data);	// Ecriture dans la réponse
+	});
+});
+
+
+app.get("/merci", (req,res) => {
+
+	fs.readFile('citizen_press/public/html/merci/merci.html','utf8', function(err,data){	// Lecture d'un fichier
+		if (err) throw err;
+		res.write(data);	// Ecriture dans la réponse
+		res.end();
+	});
+});
+
+// AJAX
 // GET bureaux (pour la map)
 app.get("/bureaux", (req, res) => {
 	console.log("Chargement des bureaux...");
@@ -183,6 +231,7 @@ app.get("/bureaux", (req, res) => {
 	});
 });
 
+// AJAX
 // GET informations sur un bureau (pour récupérer les informations lors de l'inscription)
 app.get("/bureaux/:id", (req, res) => {
 	var idBureau = req.params.id;
@@ -200,6 +249,7 @@ app.get("/bureaux/:id", (req, res) => {
 	});
 });
 
+// AJAX
 // Récupère les données des bureaux à l'adresse :adresse pour poouvoir renvoyer le bon SVG
 app.get("/bureaux/:adresse/:numPOI/:width/:height", (req, res) => {
 	var nbAssesseursInscrit = 0;
@@ -241,39 +291,69 @@ app.get("/bureaux/:adresse/:numPOI/:width/:height", (req, res) => {
 	});
 });
 
-// La page du formulaire d'inscription
-app.get("/bureaux/:id/inscription" , (req, res) => {
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
-});
+/**bodyParser.json(options)
+ * Parses the text as JSON and exposes the resulting object on req.body.
+ */
+app.use(bodyParser.json());
 
-// Ajout assesseurs
-app.post("/assesseurs/:id", (req, res) => {
-	console.log("Ajout d'un assesseurs...");
-	fs.readFile('data.json', 'utf8', function (err, data) {
-	    if (err) throw err; // à voir 
-	    var obj = JSON.parse(data);
-	    var nbAssesseurs = obj.assesseurs.length;
-	    obj.assesseurs[nbAssesseurs+1].id = req.params.id;
-	    // ajout des autres caractéristiques de l'objet bureau
+app.post("/citizen_press/form", function (req, res) {
+	/*var id = req.params.id;
+	var assesseur = req.params.assesseur;
+	var scrutateur = req.params.scrutateur;*/
+	
+	fs.readFile(URL_DATA, 'utf8', function readFileCallback(err, data){
+    	if (err){
+       		console.log(err);
+   		} else {
+   			//On récupère chaque variables
+   			var nom = req.body.nom;
+   			var prenom = req.body.prenom;
+   			var email = req.body.email;
+   			var mobile = req.body.mobile;
+   			var jour = req.body.jour;
+   			var mois = req.body.mois;
+   			var annee = req.body.annee;
+   			var naissance = annee + "-" + mois + "-" + jour;
+   			var civilite = req.body.civilite;
+   		
+   			// TODO A CHANGER AVEC REQ.BODY
+   			var idBureau = 113;
+   			var assesseurDemande = true;
+   			var scrutateurDemande = false;
 
-	    // Écriture du nouveau fichier
-	    fs.writeFile('data.json', JSON.stringify(obj));
+    		var obj = JSON.parse(data); //now it an object
+
+    		console.log(idBureau);
+    		//on récupère l'id dernière assesseur
+    		var numberPattern = /\d+/g;
+
+    		var lastAss = obj.assesseurs[obj.assesseurs.length-1].id;
+    		lastAss.toString();
+    		var num = new Number();
+    		num = lastAss.match(numberPattern);
+    		num = parseInt(num,10);
+    		num += 1;
+    		var idAsse = "idAsse" + num.toString();
+
+    		obj.assesseurs.push({"id": idAsse,"nom": nom,"prenom": prenom,"age": getAge(naissance),"mail": email,"tel": mobile,"sexe": "male","potentiel_assesseur": assesseurDemande,"potentiel_scrutateur": scrutateurDemande});//add some data
+
+
+   			for (var i = 0; i < obj.bureaux.length-1;i++) {
+  				if (obj.bureaux[i].id == idBureau) {
+  					obj.bureaux[i].assesseurs.push({"id" : idAsse,"valide_assesseur" : assesseurDemande, "valide_scrutateur": scrutateurDemande});
+  				};
+			}
+			fs.writeFile(URL_DATA, JSON.stringify(obj), 'utf8', -1); // write it back
+	}});
+	fs.readFile('citizen_press/public/html/merci/merci.html','utf8', function(err,data){	// Lecture d'un fichier
+		if (err) throw err;
+		res.write(data);	// Ecriture dans la réponse
+		res.end();
 	});
-});
-
-// La page de connexion  d'un président
-app.get("/connexion", (req, res) => {
- // TODO
-});
-
-// La page des assesseurs validé sur un bureau
-app.get("/bureaux/:id/assesseurs", (req, res) => {
-
-});
-
-// La page des statistique globales sur les assesseurs
-app.get("/assesseurs", (req, res) => {
- // TODO
 });
 
 /*
@@ -343,9 +423,23 @@ function SVG(numPOI,width,height) {
 	this.getContent = function() {
 		return this.contentSVG_init+this.contentSVG_bigCircle+this.contentSVG_littleCircles+this.contentSVG_text+"</svg>";
 	}
-
 }
 
+function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+
+function cleanInt(x) {
+    x = Number(x);
+    return x >= 0 ? Math.floor(x) : Math.ceil(x);
+}
 // Minimum routing: serve static content from the html directory
 //app.use(express.static(path.join(__dirname, 'public')));
 
@@ -356,22 +450,3 @@ function SVG(numPOI,width,height) {
 // server and visiting http(s)://127.0.0.1:8080/name_of_you_project/ (if on a local server)
 // or more generally: http(s)://server_name:port/name_of_you_project/
 module.exports = app;
-
-
-
-// Définition des variables à donner au template
-	    //var taille_liste_bureaux = obj.bureaux.length;
-	    //res.render('test.ejs', {objPrincipal: obj});
-	    /*for (var bureau in obj.bureaux) {
-	    	res.write(JSON.stringify(obj.bureaux[bureau]));
-	    }
-	    res.send();
-	});
-	//res.send();
-
-	/*var l_s = "Ecole primaire";
-	var l_a = "18 rue des blabla";
-	var le_num_b = 1;
-	var tab = [1,2,3,4];
-	res.render('test.ejs', {lieu_site: l_s, lieu_adresse: l_a, taille_liste: tab.length, liste_bureau: tab,
-	le_num_bureau: le_num_b});*/
