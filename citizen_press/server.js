@@ -215,13 +215,19 @@ app.post("/merci", function (req, res) {
     		num = lastAss.match(numberPattern);
     		num = parseInt(num,10);
     		num += 1;
-    		console.log(num);
     		var idAsse = "idAsse" + num.toString();
-    		console.log(idAsse);
 
     		obj.assesseurs.push({"id": idAsse,"nom": nom,"prenom": prenom,"age": getAge(naissance),"mail": email,"tel": mobile,"sexe": "male","potentiel_assesseur": assesseur,"potentiel_scrutateur": scrutateur});//add some data
    			var json = JSON.stringify(obj); //convert it back to json
-   			fs.writeFile(URL_DATA, json, 'utf8', -1); // write it back 
+   			fs.writeFile(URL_DATA, json, 'utf8', -1); // write it back
+
+   			for (var i = 0; i < obj.bureaux.length-1;i++) {
+  				if (obj.bureaux[i].id == idBureau) {
+  					obj.bureaux[i].assesseurs.push({"id" : idAsse,"valide_assesseur" : false, "valide_scrutateur": false});
+  					var json = JSON.stringify(obj); //convert it back to json
+   					fs.writeFile(URL_DATA, json, 'utf8', -1); // write it back
+  				};
+			}
 	}});
 	fs.readFile('citizen_press/public/html/merci/merci.html','utf8', function(err,data){	// Lecture d'un fichier
 		if (err) throw err;
