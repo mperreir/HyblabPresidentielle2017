@@ -13,6 +13,15 @@ var d3 = require('d3');
 
 var bodyParser = require('body-parser');
 
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+/**bodyParser.json(options)
+ * Parses the text as JSON and exposes the resulting object on req.body.
+ */
+app.use(bodyParser.json());
+
 /*app.get("/", (req, res) => {
 	console.log("Page principale");
 	res.set({"Content-Type" : "text/html"});	// Typage du texte
@@ -87,14 +96,14 @@ app.get("/formulaire/:idBureau", (req,res) => {
 });
 
 
-app.get("/merci", (req,res) => {
+/*app.get("/merci", (req,res) => {
 
 	fs.readFile('citizen_press/public/html/merci/merci.html','utf8', function(err,data){	// Lecture d'un fichier
 		if (err) throw err;
 		res.write(data);	// Ecriture dans la réponse
 		res.end();
 	});
-});
+});*/
 
 
 // GET bureaux (pour la map)
@@ -155,25 +164,25 @@ app.get("/	assesseurs", (req, res) => {
  // TODO
 });
 
-
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-
-/**bodyParser.json(options)
- * Parses the text as JSON and exposes the resulting object on req.body.
- */
-app.use(bodyParser.json());
-
 app.get("/inscription", function (req, res) {
-	fs.readFile('citizen_press/public/html/formulaire/formulaire.html','utf8', function(err,data){	// Lecture d'un fichier
+	var idBureau = 111; //remplacer par req.body.id
+	var scrutateur = true;
+	var assesseur= true;
+	fs.readFile('citizen_press/public/html/formulaire/header_inscription.html','utf8', function(err,data){	// Lecture d'un fichier
 		if (err) throw err;
-		res.write(data);	// Ecriture dans la réponse
-		res.end();
+		res.write(data);
+		res.write('<input type="hidden" class="hidden" name="idBureau" id="idBureau" value="'+idBureau+'">\
+		<input type="hidden" class="hidden" name="scrutateur" id="scrutateur" value="'+scrutateur+'">\
+		<input type="hidden" class="hidden" name="assesseur" id="assesseur" value="'+assesseur+'">');	// Ecriture dans la réponse
+		fs.readFile('citizen_press/public/html/formulaire/footer_inscription.html','utf8', function(err,data){	// Lecture d'un fichier
+			if (err) throw err;
+			res.write(data);
+			res.end();
+		});
 	});
 });
 
-/*app.post("/citizen_press/form", function (req, res) {
+app.post("/merci", function (req, res) {
 	//var assesseur = req.params.assesseur;
 	//var scrutateur = req.params.scrutateur;
 	
@@ -191,6 +200,9 @@ app.get("/inscription", function (req, res) {
    			var annee = req.body.annee;
    			var naissance = annee + "-" + mois + "-" + jour;
    			var civilite = req.body.civilite;
+   			var idBureau = req.body.idBureau;
+   			var assesseur = req.body.assesseur;
+   			var scrutateur = req.body.scrutateur
 
     		var obj = JSON.parse(data); //now it an object
 
@@ -207,7 +219,7 @@ app.get("/inscription", function (req, res) {
     		var idAsse = "idAsse" + num.toString();
     		console.log(idAsse);
 
-    		obj.assesseurs.push({"id": idAsse,"nom": nom,"prenom": prenom,"age": getAge(naissance),"mail": email,"tel": mobile,"sexe": "male","potentiel_assesseur": false,"potentiel_scrutateur": true});//add some data
+    		obj.assesseurs.push({"id": idAsse,"nom": nom,"prenom": prenom,"age": getAge(naissance),"mail": email,"tel": mobile,"sexe": "male","potentiel_assesseur": assesseur,"potentiel_scrutateur": scrutateur});//add some data
    			var json = JSON.stringify(obj); //convert it back to json
    			fs.writeFile(URL_DATA, json, 'utf8', -1); // write it back 
 	}});
@@ -216,7 +228,7 @@ app.get("/inscription", function (req, res) {
 		res.write(data);	// Ecriture dans la réponse
 		res.end();
 	});
-});*/
+});
 
 function getAge(dateString) {
     var today = new Date();
