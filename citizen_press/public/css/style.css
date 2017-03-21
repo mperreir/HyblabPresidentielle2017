@@ -561,7 +561,7 @@ footer div {
   font-size: 26px;
   margin-top: 25px;
   text-align: center;
-  color: #6FAAF6;
+  color: #5D91EE;
 }
 
 #txts {
@@ -571,7 +571,7 @@ footer div {
 
 .txtRemplissage {
     width: 137px;
-    margin-left: 20%;
+    margin-left: 15%;
     display : inline-block;
 }
 
@@ -581,9 +581,21 @@ footer div {
 }
 
 .graphsContenu {
-    display:block;
+    display:inline;
 }
 
-.graphContenu {
+.divGraphContenuAssesseur {
+    margin-top: 3%;
+    margin-left: 5%;
     display:inline-block;
+    height: 40%;
+    width: 45%;
+}
+
+.divGraphContenuScrutateur {
+    margin-top: 3%;
+    margin-left: 2%;
+    display:inline-block;
+    height: 40%;
+    width: 45%;
 }

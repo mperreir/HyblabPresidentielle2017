@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name=”author” content="">
+    <meta name="keyword" content="">
+    <meta name="description" content= "">
+    <title>| HybLab |</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div width="100" height="100">
+    <canvas id="test1" width="100" height="100"></canvas>
+</div>
+
+<div width="100" height="100">
+    <canvas id="test2" width="100" height="100"></canvas>
+</div>
+
+</body>
+
+<footer>
+    <script src="../js/Chart.bundle.min.js"></script>
+    <script type="text/javascript">
+        var ctxAss = document.getElementById("test1");
+        var ctxScrut = document.getElementById("test2");
+
+        console.log(ctxAss);
+        
+        var myDoughnutAss;
+        var myDoughnutScrut;
+
+        var taille = 100;
+
+        ctxAss.style.width = taille;
+        ctxAss.style.height = taille;
+
+        ctxScrut.style.width = taille;
+        ctxScrut.style.height = taille;
+
+        // La construction des graphiques
+        myDoughnutAss = new Chart(ctxAss, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    "Inscrits",
+                    "Places restantes"
+                ],
+                datasets: [
+                    {
+                        data: [100, 50],
+                        backgroundColor: [
+                            "#FF6384",
+                            "#F2F2F2"
+                        ]
+                    }]
+            },
+            maintainAspectRatio: false
+        });
+
+        myDoughnutScrut = new Chart(ctxScrut, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    "Inscrits",
+                    "Places restantes"
+                ],
+                datasets: [
+                    {
+                        data: [20, 90],
+                        backgroundColor: [
+                            "#FF6384",
+                            "#F2F2F2"
+                        ]
+                    }]
+            },
+            maintainAspectRatio: false
+        });
+    </script>
+</footer>
+</html>

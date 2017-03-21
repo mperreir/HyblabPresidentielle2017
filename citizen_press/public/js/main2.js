@@ -11,8 +11,11 @@ $(document).ready(function(){
 	var NB_ASSESSEURS_MAX = 8;
 	var NB_SCRUTATEURS_MAX = 25;
 
-	var widht =window.screen.width;
-	var height = window.screen.height;
+	var ORANGE = "#f1a72e";
+	var JAUNE = "#f4d05d";
+	var ROUGE = "#ee5a58";
+	var VERT = "#aed17c";
+	var BLEU = "#5D91EE";
 
 	var nbPOI = 0;
 
@@ -109,18 +112,19 @@ var infoWindow = new google.maps.InfoWindow({map: map});
            map.setCenter(pos);
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
+
+			var zoomControlDiv = document.createElement('div');
+			var zoomControl = new CustomZoomControl(zoomControlDiv, map);
+
+			map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
           });
         
         } else {
             
-          handleLocationError(false, infoWindow, map.getCenter());
+         // handleLocationError(false, infoWindow, map.getCenter());
         }
 
 
-		var zoomControlDiv = document.createElement('div');
-		var zoomControl = new CustomZoomControl(zoomControlDiv, map);
-
-		map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
       
 
 
@@ -263,15 +267,33 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 			   		// Ecriture des résultats --> Vers des graphiques
 
 			   		// Reinit de la partie des graphiques (évite le doubelement de taille)
-			   	//	$(".graphContenuAssesseur").html('<canvas id="graphContenuAssesseur'+numBureauPOI+'" width="200" height="200"></canvas>');
-			   		//$(".graphContenuScrutateur").html('<canvas id="graphContenuScrutateur'+numBureauPOI+'" width="200" height="200"></canvas>');
+			   		var percentAss = nbAssesseurValide/NB_ASSESSEURS_MAX;
+			   		var percentScrut = nbScrutateurValide/NB_SCRUTATEURS_MAX;
 
-			   		// On récupère le bon ID pour insérer le graphique
+			   		percentAss = adjust(percentAss);
+			   		percentScrut= adjust(percentScrut);
+
 			   		var ctxAss = document.getElementById("graphContenuAssesseur"+numBureauPOI);
 			   		var ctxScrut = document.getElementById("graphContenuScrutateur"+numBureauPOI);
 					
 					var myDoughnutAss;
 					var myDoughnutScrut;
+
+					var colorAss;
+					var colorScrut;
+
+					var resteAss = getReste(NB_ASSESSEURS_MAX, nbAssesseurValide);
+					var resteScrut = getReste(NB_SCRUTATEURS_MAX, nbScrutateurValide);
+
+					$(".percentAss").text((percentAss*100)+"%");
+			   		$(".percentScrut").text((percentScrut*100)+"%");
+
+			   		$(".nbAssesseurs").text(nbAssesseurValide);
+			   		$(".nbScrutateurs").text(nbScrutateurValide);
+
+
+					colorAss = getColor(percentAss);
+					colorScrut = getColor(percentScrut);
 
 					// La construction des graphiques
 			   		myDoughnutAss = new Chart(ctxAss, {
@@ -283,9 +305,9 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 						    ],
 						    datasets: [
 						        {
-						            data: [nbAssesseurValide, NB_ASSESSEURS_MAX-nbAssesseurValide],
+						            data: [nbAssesseurValide, resteAss],
 						            backgroundColor: [
-						                "#FF6384",
+						                colorAss,
 						                "#F2F2F2"
 						            ]
 						        }]
@@ -301,20 +323,14 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 						    ],
 						    datasets: [
 						        {
-						            data: [nbScrutateurValide, NB_SCRUTATEURS_MAX-nbScrutateurValide],
+						            data: [nbScrutateurValide, resteScrut],
 						            backgroundColor: [
-						                "#FF6384",
+						                colorScrut,
 						                "#F2F2F2"
 						            ]
 						        }]
 						}
 					});
-
-					ctxAss.style.width = 100;
-					ctxAss.style.height = 100;
-
-			   		ctxScrut.style.width = 100;
-			   		ctxScrut.style.height = 100;
 
 					nbAssesseurValide = 0;
 					nbScrutateurValide = 0;
@@ -358,7 +374,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 
 		var $marker_POI = {
 	        url: url_marker,
-	     	size: new google.maps.Size(60, 60)
+	     	size: new google.maps.Size(40, 40)
     	}
 
 		markers.set(numBureauPOI, new google.maps.Marker({
@@ -374,12 +390,12 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 
 		markers.get(numBureauPOI).addListener('click', function() {
 			for (var i = 1; i <= nbPOI; i++) {
-	   			console.log(".POI"+i);
+	   			//console.log(".POI"+i);
 	    		$(".POI"+i).css("display", "none");
 		    }
 	    	// Affiche la page du PI
 		    $(".POI"+numBureauPOI).css("display", "block");
-		    $("#google-container").css("width", "55%");
+		    $("#google-container").css("width", "65%");
 		    $("#google-container").css("height", "90vh");
 		    $("#google-container").css("transition-delay", "1s");
     		$(".other").css("display", "block");    
@@ -393,27 +409,12 @@ var infoWindow = new google.maps.InfoWindow({map: map});
     		// Ouverture de la bubulle
     		infoWindows.get(numBureauPOI).open(map, markers.get(numBureauPOI));
 
-    		// Récuperation des données sur la fenêtre de droite;
-    		//getDataBureau();
-		    // TODO à changer
-		  /* navigator.geolocation.getCurrentPosition(function(position) {
-		    
-		    var pos = {
-	              lat: position.coords.latitude_POI,
-	              lng: position.coords.longitude_POI
-	            };
-		    
-		    map.setCenter(pos);
-		        
-		    });*/
-		});
-		// Recherche des informations du premier bureau
-		$.ajax({
+    		$.ajax({
 			    url: '/citizen_press/bureaux/'+bureauId,
 			    type: "GET",
 			    dataType: "text",
 			    contentType: "application/json",
-			    async: false, // Mode synchrone
+				async: false, // Mode synchrone
 			    cache: false,
 			    timeout: 5000,
 
@@ -431,8 +432,80 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 
 			   	complete: function() {
 			   		// Toujours l'affichage des infos --> Vers des graphes
-			    	$('.POI'+numBureauPOI+' #graphContenuAssesseur').html("<p> Nombre d'assesseur validés : "+nbAssesseurValide+" </p>");
-			   		$('.POI'+numBureauPOI+' #graphContenuScrutateur').html("<p> Nombre de scrutateurs validés : "+nbScrutateurValide+" </p>");
+			    	//$('.POI'+numBureauPOI+' #graphContenuAssesseur').html("<p> Nombre d'assesseur validés : "+nbAssesseurValide+" </p>");
+			   		//$('.POI'+numBureauPOI+' #graphContenuScrutateur').html("<p> Nombre de scrutateurs validés : "+nbScrutateurValide+" </p>");
+
+			   		var percentAss = nbAssesseurValide/NB_ASSESSEURS_MAX;
+			   		var percentScrut = nbScrutateurValide/NB_SCRUTATEURS_MAX;
+
+			   		percentAss = adjust(percentAss);
+			   		percentScrut= adjust(percentScrut);
+
+			   		var ctxAss = document.getElementById("graphContenuAssesseur"+numBureauPOI);
+			   		var ctxScrut = document.getElementById("graphContenuScrutateur"+numBureauPOI);
+					
+					var myDoughnutAss;
+					var myDoughnutScrut;
+
+					var colorAss;
+					var colorScrut;
+
+					var resteAss = getReste(NB_ASSESSEURS_MAX, nbAssesseurValide);
+					var resteScrut = getReste(NB_SCRUTATEURS_MAX, nbScrutateurValide);
+
+					$(".percentAss").text((percentAss*100)+"%");
+			   		$(".percentScrut").text((percentScrut*100)+"%");
+
+			   		$(".nbAssesseurs").text(nbAssesseurValide);
+			   		$(".nbScrutateurs").text(nbScrutateurValide);
+
+
+					colorAss = getColor(percentAss);
+					colorScrut = getColor(percentScrut);
+
+					// La construction des graphiques
+			   		myDoughnutAss = new Chart(ctxAss, {
+					    type: 'doughnut',
+					    data: {
+						    labels: [
+						        "Inscrits",
+						        "Places restantes"
+						    ],
+						    datasets: [
+						        {
+						            data: [nbAssesseurValide, resteAss],
+						            backgroundColor: [
+
+						                colorAss,
+						                "#F2F2F2"
+						            ]
+						        }]
+						}
+					});
+
+					myDoughnutScrut = new Chart(ctxScrut, {
+					    type: 'doughnut',
+					    data: {
+						    labels: [
+						        "Inscrits",
+						        "Places restantes"
+						    ],
+						    datasets: [
+						        {
+						            data: [nbScrutateurValide, resteScrut],
+						            backgroundColor: [
+
+						                colorScrut,
+						                "#F2F2F2"
+
+						            ]
+						        }]
+						}
+					});
+
+					nbAssesseurValide = 0;
+					nbScrutateurValide = 0;
+			   		
 			   		
 			   		// Ajout de l'evenement du click sur la fenetre
 			   		markers.get(numBureauPOI).addListener('click', function() {
@@ -463,11 +536,34 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 					console.log(error);
 				},
 			});
+
+    		// Récuperation des données sur la fenêtre de droite;
+    		//getDataBureau();
+		    // TODO à changer
+		  /* navigator.geolocation.getCurrentPosition(function(position) {
+		    
+		    var pos = {
+	              lat: position.coords.latitude_POI,
+	              lng: position.coords.longitude_POI
+	            };
+		    
+		    map.setCenter(pos);
+		        
+		    });*/
+		});
+		// Recherche des informations du premier bureau
+		
 	}
 
 	function createSVG(adresse, numPOI) {
+		var valPlus = 0.75;
+		if (window.devicePixelRatio > 1.5) {
+			valPlus = 1.25;
+		}
+		var width = window.screen.width*valPlus;
+		var height = window.screen.height*valPlus;
 		$.ajax({
-			url:"bureaux/"+adresse+"/"+numPOI+"/"+window.screen.width+"/"+window.screen.height,
+			url:"bureaux/"+adresse+"/"+numPOI+"/"+width+"/"+height,
 			type: "GET",
 		    dataType: "text",
 		    cache: false,
@@ -493,5 +589,38 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 			addListenerChange(numBureauPOI);
 		// On la referme
 		infoWindows.get(numBureauPOI).close(map, markers.get(numBureauPOI));
+	}
+
+	function getColor(percent) {
+		if (percent< 0.4) {
+			return ROUGE;
+		}
+		else if ((percent >= 0.4)&&(percent < 0.7)) {
+			return ORANGE;
+		}
+		else if ((percent >= 0.7)&&(percent < 1)) {
+			return JAUNE;
+		}
+		else {
+			return VERT;
+		}
+	}
+
+	function adjust(percent) {
+		if (percent > 1) {
+			return 1;
+		}
+		else {
+			return percent;
+		}
+	}
+
+	function getReste(max, nb) {
+		if (nb > max) {
+			return 0;
+		}
+		else {
+			return max-nb;
+		}
 	}
 });
