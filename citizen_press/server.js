@@ -10,8 +10,17 @@ var app = express();
 // Module d'ouverture de fichier et de lecture
 var fs = require('fs');
 
+//var d3 = require('d3');
+
 var bodyParser = require('body-parser')
 
+/*app.get("/", (req, res) => {
+	console.log("Page principale");
+	res.set({"Content-Type" : "text/html"});	// Typage du texte
+	fs.readFile('citizen_press/public/html/formulaire.html','utf8', function(err,data){	// Lecture d'un fichier
+		res.write(data);
+		res.end();
+	});	// Ecriture dans la réponse*/
 var URL_DATA = 'citizen_press/public/data/data2.json';
 var NB_MAX_ASSESSEURS_SCRUTATEUR = 8;
 
@@ -249,7 +258,6 @@ app.get("/bureaux/:id", (req, res) => {
 	});
 });
 
-//<<<<<<< HEAD
 // AJAX
 // Récupère les données des bureaux à l'adresse :adresse pour poouvoir renvoyer le bon SVG
 app.get("/bureaux/:adresse/:numPOI/:width/:height", (req, res) => {
@@ -260,18 +268,6 @@ app.get("/bureaux/:adresse/:numPOI/:width/:height", (req, res) => {
 	var adresse = req.params.adresse;
 	var numPOI = req.params.numPOI;
 	fs.readFile(URL_DATA, 'utf8', function(err, data) {
-//=======
-// La page du formulaire d'inscription
-app.get("/bureaux/:id/inscription" , (req, res) => {
-
-
-});
-
-// Ajout assesseurs
-app.post("/assesseurs/:id", (req, res) => {
-	console.log("Ajout d'un assesseurs...");
-	fs.readFile('data.json', 'utf8', function (err, data) {
-//>>>>>>> 818d4c7e0fd4d9906b5c30895ec3805b1db103d2
 	    if (err) throw err; // à voir 
 	    var obj = JSON.parse(data);
 
@@ -304,10 +300,265 @@ app.post("/assesseurs/:id", (req, res) => {
 	});
 });
 
+/**bodyParser.json(options)
+ * Parses the text as JSON and exposes the resulting object on req.body.
+ */
+app.use(bodyParser.json());
+
+app.post("/citizen_press/form", function (req, res) {
+	/*var id = req.params.id;
+	var assesseur = req.params.assesseur;
+	var scrutateur = req.params.scrutateur;*/
+	
+	fs.readFile(URL_DATA, 'utf8', function readFileCallback(err, data){
+    	if (err){
+       		console.log(err);
+   		}
+   		else {
+   			//On récupère chaque variables
+   			var nom = req.body.nom;
+   			var prenom = req.body.prenom;
+   			var email = req.body.email;
+   			var mobile = req.body.mobile;
+   			var jour = req.body.jour;
+   			var mois = req.body.mois;
+   			var annee = req.body.annee;
+   			var naissance = annee + "-" + mois + "-" + jour;
+   			var civilite = req.body.civilite;
+   		
+   			var idBureau = req.body.idBureau;
+   			var assesseurDemande = false;
+   			var scrutateurDemande = false;
+
+   			if (req.body.checkAss=="on") {
+   				assesseurDemande = true;
+   			}
+   			if (req.body.checkScrut=="on") {
+   				scrutateurDemande = true;
+   			}
+
+    		var obj = JSON.parse(data); //now it an object
+
+    		//on récupère l'id dernière assesseur
+    		var numberPattern = /\d+/g;
+
+    		var lastAss = obj.assesseurs[obj.assesseurs.length-1].id;
+    		lastAss.toString();
+    		var num = new Number();
+    		num = lastAss.match(numberPattern);
+    		num = parseInt(num,10);
+    		num += 1;
+    		var idAsse = "idAsse" + num.toString();
+
+    		obj.assesseurs.push({"id": idAsse,"nom": nom,"prenom": prenom,"age": getAge(naissance),"mail": email,"tel": mobile,"sexe": "male","potentiel_assesseur": assesseurDemande,"potentiel_scrutateur": scrutateurDemande});//add some data
+
+
+   			for (var i = 0; i < obj.bureaux.length-1;i++) {
+  				if (obj.bureaux[i].id == idBureau) {
+  					obj.bureaux[i].assesseurs.push({"id" : idAsse,"valide_assesseur" : false, "valide_scrutateur": false});
+  				};
+			}
+			fs.writeFile(URL_DATA, JSON.stringify(obj), 'utf8', -1); // write it back
+		}
+	});
+	fs.readFile('citizen_press/public/html/merci/merci.html','utf8', function(err,data){	// Lecture d'un fichier
+		if (err) throw err;
+		res.write(data);	// Ecriture dans la réponse
+		res.end();
+	});
+});
+
+/*
+ * Fichier pour l'accès à l'image SVG
+ * Permet ses modifications :
+ 	* L'ajout de point,
+ 	* La modification des couleurs
+ 	* La modification du chiffre
+*/
+
+function SVG(numPOI,width,height) {
+	this.url = "svg"+numPOI+".svg";
+	this.contentSVG_littleCircles = "";
+	this.nbBureau = 0;
+
+	// Init du SVG
+	this.contentSVG_init = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\
+		viewBox="0 0 '+width+' '+height+' " style="enable-background:new 0 0 0 0;" xml:space="preserve">\
+		<style type="text/css">\
+			.red{fill:#EE5A58;}\
+		    .orange {fill:#F1A72E;}\
+		    .green{fill:#AED17C;}\
+			.yellow{fill:#F4D05D;}\
+			.st2{fill:#FFFFFF;}\
+			.st3{font-family:Lato-Bold, Lato;font-weight:700;}\
+			.st4{font-size:46.3393px;}\
+		</style>';
+	
+
+	// Ajoute le cercle principale 
+	// classColor : la classe à ajouter
+	this.setBigCircle = function (classColor) {
+		this.contentSVG_bigCircle = '<circle class="'+classColor+'" cx="66.7" cy="95.9" r="63.4"/>';
+	}
+
+	this.addPoint = function(classColor) {
+		this.nbBureau++;
+		if (this.nbBureau == 1) {
+			this.contentSVG_littleCircles += '<circle class="'+classColor+'" cx="66.7" cy="12.9" r="12.4"/>';
+		}
+		else if (this.nbBureau == 2) {
+			this.contentSVG_littleCircles += '<circle class="'+classColor+'" cx="105.4" cy="21.1" r="12.4"/>';
+		}
+		else if (this.nbBureau == 3) {
+			this.contentSVG_littleCircles += '<circle class="'+classColor+'" cx="134.4" cy="44.3" r="12.4"/>';
+		}
+		else if (this.nbBureau == 4) {
+			this.contentSVG_littleCircles += '<circle class="'+classColor+'" cx="150.4" cy="78.1" r="12.4"/>';
+		}
+		else if (this.nbBureau == 5) {
+			this.contentSVG_littleCircles += '<circle class="'+classColor+'" cx="150.4" cy="118.2" r="12.4"/>';
+		}
+		else if (this.nbBureau == 6) {
+			this.contentSVG_littleCircles += '<circle class="'+classColor+'" cx="132.4" cy="152.1" r="12.4"/>';
+		}
+	}
+
+	this.setNumber = function(number) {
+		if (number < 10) {
+			this.contentSVG_text = '<text transform="matrix(1 0 0 1 53.9507 113.4561)" class="st2 st3 st4">'+number+'</text>';
+		}
+		else {
+			this.contentSVG_text = '<text transform="matrix(1 0 0 1 37.9507 113.4561)" class="st2 st3 st4">'+number+'</text>';
+		}
+	}
+
+	this.getContent = function() {
+		return this.contentSVG_init+this.contentSVG_bigCircle+this.contentSVG_littleCircles+this.contentSVG_text+"</svg>";
+	}
+}
+
+function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+
+function cleanInt(x) {
+    x = Number(x);
+    return x >= 0 ? Math.floor(x) : Math.ceil(x);
+}
+// Minimum routing: serve static content from the html directory
+//app.use(express.static(path.join(__dirname, 'public')));
+
+// You can then add whatever routing code you need
+
+// This module is exported and served by the main server.js located
+// at the root of this set of projects. You can access it by lanching the main
+// server and visiting http(s)://127.0.0.1:8080/name_of_you_project/ (if on a local server)
+// or more generally: http(s)://server_name:port/name_of_you_project/
+module.exports = app;
+
+
+
+
+
+
+
+
+
+
+
+
+
+//**********************************************************************************************************************************************
+
+
+/*
+app.get("/formulaire/:idBureau", (req,res) => {
+
+	// Penser a faire : var idBureau = req.params.idBureau;
+	fs.readFile('citizen_press/public/html/formulaire/formulaire.html','utf8', function(err,data){	// Lecture d'un fichier
+		if (err) throw err;
+		res.write(data);	// Ecriture dans la réponse
+		res.end();
+	});
+});
+
+
+app.get("/merci", (req,res) => {
+
+	fs.readFile('citizen_press/public/html/merci/merci.html','utf8', function(err,data){	// Lecture d'un fichier
+		if (err) throw err;
+		res.write(data);	// Ecriture dans la réponse
+		res.end();
+	});
+});
+
+
+// GET bureaux (pour la map)
+app.get("/bureaux", (req, res) => {
+	console.log("Chargement des bureaux...");
+	fs.readFile(URL_DATA, 'utf8', function (err, data) {
+	    if (err) throw err; // à voir 
+	    var obj = JSON.parse(data);
+	    res.contentType('json');
+	    res.send(JSON.stringify(obj.bureaux))
+	});
+});
+
+// GET informations sur un bureau (pour récupérer les informations lors de l'inscription)
+app.get("/bureaux/:id", (req, res) => {
+	var idBureau = req.params.id;
+	fs.readFile(URL_DATA, 'utf8', function (err, data) {
+	    if (err) throw err; // à voir 
+	    var obj = JSON.parse(data);
+	    res.contentType('json');
+	    for (var bureau in obj.bureaux) {
+	    	// le bon bureau
+	    	if (idBureau == obj.bureaux[bureau].id) {
+	    		res.write(obj.bureaux[bureau]);
+	    	}
+	    }
+	    res.send();
+	});
+});
+
+
+
+// La page du formulaire d'inscription
+app.get("/bureaux/:id/inscription" , (req, res) => {
+
+
+});
+
+*/
+
+// Ajout assesseurs
+app.post("/assesseurs/:id", (req, res) => {
+	console.log("Ajout d'un assesseurs...");
+	fs.readFile('data.json', 'utf8', function (err, data) {
+	    if (err) throw err; // à voir 
+	    var obj = JSON.parse(data);
+	    var nbAssesseurs = obj.assesseurs.length;
+	    obj.assesseurs[nbAssesseurs+1].id = req.params.id;
+	    // ajout des autres caractéristiques de l'objet bureau
+
+	    // Écriture du nouveau fichier
+	    fs.writeFile('data.json', JSON.stringify(obj));
+	});
+});
+
+/*
 // La page de connexion  d'un président
 app.get("/connexion", (req, res) => {
  // TODO
 });
+*/
 
 // La page des assesseurs validé sur un bureau
 app.get("/president/:id", (req, res) => {
@@ -435,70 +686,6 @@ app.use(bodyParser.urlencoded({
  * Parses the text as JSON and exposes the resulting object on req.body.
  */
 app.use(bodyParser.json());
-//<<<<<<< HEAD
-
-app.post("/citizen_press/form", function (req, res) {
-	/*var id = req.params.id;
-	var assesseur = req.params.assesseur;
-	var scrutateur = req.params.scrutateur;*/
-	
-	fs.readFile(URL_DATA, 'utf8', function readFileCallback(err, data){
-    	if (err){
-       		console.log(err);
-   		}
-   		else {
-   			//On récupère chaque variables
-   			var nom = req.body.nom;
-   			var prenom = req.body.prenom;
-   			var email = req.body.email;
-   			var mobile = req.body.mobile;
-   			var jour = req.body.jour;
-   			var mois = req.body.mois;
-   			var annee = req.body.annee;
-   			var naissance = annee + "-" + mois + "-" + jour;
-   			var civilite = req.body.civilite;
-   		
-   			var idBureau = req.body.idBureau;
-   			var assesseurDemande = false;
-   			var scrutateurDemande = false;
-
-   			if (req.body.checkAss=="on") {
-   				assesseurDemande = true;
-   			}
-   			if (req.body.checkScrut=="on") {
-   				scrutateurDemande = true;
-   			}
-
-    		var obj = JSON.parse(data); //now it an object
-
-    		//on récupère l'id dernière assesseur
-    		var numberPattern = /\d+/g;
-
-    		var lastAss = obj.assesseurs[obj.assesseurs.length-1].id;
-    		lastAss.toString();
-    		var num = new Number();
-    		num = lastAss.match(numberPattern);
-    		num = parseInt(num,10);
-    		num += 1;
-    		var idAsse = "idAsse" + num.toString();
-
-    		obj.assesseurs.push({"id": idAsse,"nom": nom,"prenom": prenom,"age": getAge(naissance),"mail": email,"tel": mobile,"sexe": "male","potentiel_assesseur": assesseurDemande,"potentiel_scrutateur": scrutateurDemande});//add some data
-
-
-   			for (var i = 0; i < obj.bureaux.length-1;i++) {
-  				if (obj.bureaux[i].id == idBureau) {
-  					obj.bureaux[i].assesseurs.push({"id" : idAsse,"valide_assesseur" : false, "valide_scrutateur": false});
-  				};
-			}
-			fs.writeFile(URL_DATA, JSON.stringify(obj), 'utf8', -1); // write it back
-		}
-	});
-	fs.readFile('citizen_press/public/html/merci/merci.html','utf8', function(err,data){	// Lecture d'un fichier
-		if (err) throw err;
-		res.write(data);	// Ecriture dans la réponse
-		res.end();
-	});
-//=======
 
 app.get("/valider/:idBureau/:idAssesseur/:type_benevole", function (req, res) {
 	fs.readFile('citizen_press/public/data/data2.json', 'utf8', function readFileCallback(err, data){
@@ -537,97 +724,13 @@ app.get("/valider/:idBureau/:idAssesseur/:type_benevole", function (req, res) {
 
 });
 
-
+/*
 // La page des statistique globales sur les assesseurs
 app.get("/	assesseurs", (req, res) => {
  // TODO
-//>>>>>>> 818d4c7e0fd4d9906b5c30895ec3805b1db103d2
 });
-
-/*
- * Fichier pour l'accès à l'image SVG
- * Permet ses modifications :
- 	* L'ajout de point,
- 	* La modification des couleurs
- 	* La modification du chiffre
 */
 
-function SVG(numPOI,width,height) {
-	this.url = "svg"+numPOI+".svg";
-	this.contentSVG_littleCircles = "";
-	this.nbBureau = 0;
-
-	// Init du SVG
-	this.contentSVG_init = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\
-		viewBox="0 0 '+width+' '+height+' " style="enable-background:new 0 0 0 0;" xml:space="preserve">\
-		<style type="text/css">\
-			.red{fill:#EE5A58;}\
-		    .orange {fill:#F1A72E;}\
-		    .green{fill:#AED17C;}\
-			.yellow{fill:#F4D05D;}\
-			.st2{fill:#FFFFFF;}\
-			.st3{font-family:Lato-Bold, Lato;font-weight:700;}\
-			.st4{font-size:46.3393px;}\
-		</style>';
-	
-
-	// Ajoute le cercle principale 
-	// classColor : la classe à ajouter
-	this.setBigCircle = function (classColor) {
-		this.contentSVG_bigCircle = '<circle class="'+classColor+'" cx="66.7" cy="95.9" r="63.4"/>';
-	}
-
-	this.addPoint = function(classColor) {
-		this.nbBureau++;
-		if (this.nbBureau == 1) {
-			this.contentSVG_littleCircles += '<circle class="'+classColor+'" cx="66.7" cy="12.9" r="12.4"/>';
-		}
-		else if (this.nbBureau == 2) {
-			this.contentSVG_littleCircles += '<circle class="'+classColor+'" cx="105.4" cy="21.1" r="12.4"/>';
-		}
-		else if (this.nbBureau == 3) {
-			this.contentSVG_littleCircles += '<circle class="'+classColor+'" cx="134.4" cy="44.3" r="12.4"/>';
-		}
-		else if (this.nbBureau == 4) {
-			this.contentSVG_littleCircles += '<circle class="'+classColor+'" cx="150.4" cy="78.1" r="12.4"/>';
-		}
-		else if (this.nbBureau == 5) {
-			this.contentSVG_littleCircles += '<circle class="'+classColor+'" cx="150.4" cy="118.2" r="12.4"/>';
-		}
-		else if (this.nbBureau == 6) {
-			this.contentSVG_littleCircles += '<circle class="'+classColor+'" cx="132.4" cy="152.1" r="12.4"/>';
-		}
-	}
-
-	this.setNumber = function(number) {
-		if (number < 10) {
-			this.contentSVG_text = '<text transform="matrix(1 0 0 1 53.9507 113.4561)" class="st2 st3 st4">'+number+'</text>';
-		}
-		else {
-			this.contentSVG_text = '<text transform="matrix(1 0 0 1 37.9507 113.4561)" class="st2 st3 st4">'+number+'</text>';
-		}
-	}
-
-	this.getContent = function() {
-		return this.contentSVG_init+this.contentSVG_bigCircle+this.contentSVG_littleCircles+this.contentSVG_text+"</svg>";
-	}
-}
-
-function getAge(dateString) {
-    var today = new Date();
-    var birthDate = new Date(dateString);
-    var age = today.getFullYear() - birthDate.getFullYear();
-    var m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-    }
-    return age;
-}
-
-function cleanInt(x) {
-    x = Number(x);
-    return x >= 0 ? Math.floor(x) : Math.ceil(x);
-}
 // Minimum routing: serve static content from the html directory
 //app.use(express.static(path.join(__dirname, 'public')));
 
@@ -638,3 +741,22 @@ function cleanInt(x) {
 // server and visiting http(s)://127.0.0.1:8080/name_of_you_project/ (if on a local server)
 // or more generally: http(s)://server_name:port/name_of_you_project/
 module.exports = app;
+
+
+
+// Définition des variables à donner au template
+	    //var taille_liste_bureaux = obj.bureaux.length;
+	    //res.render('test.ejs', {objPrincipal: obj});
+	    /*for (var bureau in obj.bureaux) {
+	    	res.write(JSON.stringify(obj.bureaux[bureau]));
+	    }
+	    res.send();
+	});
+	//res.send();
+
+	/*var l_s = "Ecole primaire";
+	var l_a = "18 rue des blabla";
+	var le_num_b = 1;
+	var tab = [1,2,3,4];
+	res.render('test.ejs', {lieu_site: l_s, lieu_adresse: l_a, taille_liste: tab.length, liste_bureau: tab,
+	le_num_bureau: le_num_b});*/
