@@ -482,7 +482,7 @@ section {
 /************************************************************************/
 
 
-.other button {
+.other .button {
     float: right;
     margin-right: 100px;
     padding: 15px;

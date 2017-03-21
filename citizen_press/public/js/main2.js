@@ -334,6 +334,8 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 
 					nbAssesseurValide = 0;
 					nbScrutateurValide = 0;
+
+					$(".idBureau").attr("value", newBureauPOI);
 			   		
 			   	},
 				error: function(xhr, status, error) {
@@ -505,6 +507,8 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 
 					nbAssesseurValide = 0;
 					nbScrutateurValide = 0;
+			   		
+					$(".idBureau").attr("value", bureauId);
 			   		
 			   		
 			   		// Ajout de l'evenement du click sur la fenetre
