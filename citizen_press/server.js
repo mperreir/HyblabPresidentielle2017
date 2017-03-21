@@ -326,7 +326,6 @@ app.post("/citizen_press/form", function (req, res) {
    			var naissance = annee + "-" + mois + "-" + jour;
    			var civilite = req.body.civilite;
    		
-   			// TODO A CHANGER AVEC REQ.BODY
    			var idBureau = req.body.idBureau;
    			var assesseurDemande = false;
    			var scrutateurDemande = false;
@@ -338,11 +337,8 @@ app.post("/citizen_press/form", function (req, res) {
    				scrutateurDemande = true;
    			}
 
-   			console.log(idBureau);
-
     		var obj = JSON.parse(data); //now it an object
 
-    		console.log(idBureau);
     		//on récupère l'id dernière assesseur
     		var numberPattern = /\d+/g;
 
