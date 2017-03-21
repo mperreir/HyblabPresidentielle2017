@@ -504,7 +504,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	}
 
 	function createSVG(adresse, numPOI) {
-		var valPlus = window.devicePixelRatio;
+		var valPlus = 0.75;
 		if (window.devicePixelRatio > 1.5) {
 			valPlus = 1.25;
 		}
