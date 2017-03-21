@@ -135,7 +135,6 @@ app.get("/", (req, res) => {
 		    					</div> \
 		    				</div>\
         					<img class="fermer" src="./img/arrow.png"> \
-        					<div class="data-container"></div> \
             			</section> \n');
             	calc++;
             	tab.push(obj.bureaux[i].adresse);
