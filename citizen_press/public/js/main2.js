@@ -266,8 +266,10 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 			   		$(".divGraphContenuAssesseur iframe").remove();
 					$(".divGraphContenuScrutateur iframe").remove();
 
-					$(".divGraphContenuAssesseur").html('<canvas id="graphContenuAssesseur'+numBureauPOI+'" width="200" height="200"></canvas>');
-			   		$(".divGraphContenuScrutateur").html('<canvas id="graphContenuScrutateur'+numBureauPOI+'" width="200" height="200"></canvas>');
+					//$(".divGraphContenuAssesseur").html('<canvas id="graphContenuAssesseur'+numBureauPOI+'"></canvas>');
+			  		//$(".divGraphContenuScrutateur").html('<canvas id="graphContenuScrutateur'+numBureauPOI+'"></canvas>');
+
+			  		//console.log($(".divGraphContenuAssesseur").text());
 
 			   		// On récupère le bon ID pour insérer le graphique
 			   		var ctxAss = document.getElementById("graphContenuAssesseur"+numBureauPOI);
@@ -376,7 +378,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		    }
 	    	// Affiche la page du PI
 		    $(".POI"+numBureauPOI).css("display", "block");
-		    $("#google-container").css("width", "55%");
+		    $("#google-container").css("width", "65%");
 		    $("#google-container").css("height", "90vh");
 		    $("#google-container").css("transition-delay", "1s");
     		$(".other").css("display", "block");    
@@ -390,22 +392,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
     		// Ouverture de la bubulle
     		infoWindows.get(numBureauPOI).open(map, markers.get(numBureauPOI));
 
-    		// Récuperation des données sur la fenêtre de droite;
-    		//getDataBureau();
-		    // TODO à changer
-		  /* navigator.geolocation.getCurrentPosition(function(position) {
-		    
-		    var pos = {
-	              lat: position.coords.latitude_POI,
-	              lng: position.coords.longitude_POI
-	            };
-		    
-		    map.setCenter(pos);
-		        
-		    });*/
-		});
-		// Recherche des informations du premier bureau
-		$.ajax({
+    		$.ajax({
 			    url: '/citizen_press/bureaux/'+bureauId,
 			    type: "GET",
 			    dataType: "text",
@@ -428,8 +415,11 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 
 			   	complete: function() {
 			   		// Toujours l'affichage des infos --> Vers des graphes
-			    	$('.POI'+numBureauPOI+' #graphContenuAssesseur').html("<p> Nombre d'assesseur validés : "+nbAssesseurValide+" </p>");
-			   		$('.POI'+numBureauPOI+' #graphContenuScrutateur').html("<p> Nombre de scrutateurs validés : "+nbScrutateurValide+" </p>");
+			    	//$('.POI'+numBureauPOI+' #graphContenuAssesseur').html("<p> Nombre d'assesseur validés : "+nbAssesseurValide+" </p>");
+			   		//$('.POI'+numBureauPOI+' #graphContenuScrutateur').html("<p> Nombre de scrutateurs validés : "+nbScrutateurValide+" </p>");
+
+			   		$(".nbAssesseurs").text(nbAssesseurValide);
+			   		$(".nbScrutateurs").text(nbScrutateurValide);
 
 			   		var ctxAss = document.getElementById("graphContenuAssesseur"+numBureauPOI);
 			   		var ctxScrut = document.getElementById("graphContenuScrutateur"+numBureauPOI);
@@ -506,6 +496,23 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 					console.log(error);
 				},
 			});
+
+    		// Récuperation des données sur la fenêtre de droite;
+    		//getDataBureau();
+		    // TODO à changer
+		  /* navigator.geolocation.getCurrentPosition(function(position) {
+		    
+		    var pos = {
+	              lat: position.coords.latitude_POI,
+	              lng: position.coords.longitude_POI
+	            };
+		    
+		    map.setCenter(pos);
+		        
+		    });*/
+		});
+		// Recherche des informations du premier bureau
+		
 	}
 
 	function createSVG(adresse, numPOI) {
