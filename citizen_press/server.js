@@ -141,13 +141,13 @@ app.get("/", (req, res) => {
 		    					</div> \
 		    					<div id="txtsBasiquesNombres">\
 		    						<div class="assesseursChiffre">\
+		    							<h4 class="percentAss"></h4>\
 			    						<h4 class="inscrit nbAssesseurs"><h4>\
-			    						<h4 class="percentAss"></h4>\
 			    						<h4 class="placeMax 8P"> 8 PERSONNES </h4> \
 			    					</div>\
 			    					<div class="scrutateursChiffre">\
-			    						<h4 class="inscrit nbScrutateurs"><h4>\
 			    						<h4 class="percentScrut"></h4>\
+			    						<h4 class="inscrit nbScrutateurs"><h4>\
 			    						<h4 class="placeMax 25P"> 25 PERSONNES </h4> \
 			    					</div>\
 		    					</div>\
@@ -174,7 +174,7 @@ app.get("/test", (req, res) => {
 
 // GET bureaux (pour la map)
 app.get("/bureaux", (req, res) => {
-	console.log("Chargement des bureaux...");
+	//console.log("Chargement des bureaux...");
 	fs.readFile(URL_DATA, 'utf8', function (err, data) {
 	    if (err) throw err; // à voir 
 	    var obj = JSON.parse(data);
@@ -248,7 +248,7 @@ app.get("/bureaux/:id/inscription" , (req, res) => {
 
 // Ajout assesseurs
 app.post("/assesseurs/:id", (req, res) => {
-	console.log("Ajout d'un assesseurs...");
+	//console.log("Ajout d'un assesseurs...");
 	fs.readFile('data.json', 'utf8', function (err, data) {
 	    if (err) throw err; // à voir 
 	    var obj = JSON.parse(data);

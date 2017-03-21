@@ -142,7 +142,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	    timeout: 5000,
 
 	    success: function(data) {
-	    	console.log("success");
+	    	//console.log("success");
 	    	var tabAdresseTaille = new Array(); 
 	    	var tabAdresse = new Array(); 
 	    	var numBureauPOI = 0;
@@ -183,7 +183,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		    	}
 			});
 
-	      	console.log("process sucess");
+	      	//console.log("process sucess");
 	   	},
 
 	   	complete: function() {
@@ -397,7 +397,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		    }
 	    	// Affiche la page du PI
 		    $(".POI"+numBureauPOI).css("display", "block");
-		    $("#google-container").css("width", "65%");
+		    $("#google-container").css("width", "62%");
 		    $("#google-container").css("height", "90vh");
 		    $("#google-container").css("transition-delay", "1s");
     		$(".other").css("display", "block");    
