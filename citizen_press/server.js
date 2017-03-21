@@ -10,12 +10,9 @@ var app = express();
 // Module d'ouverture de fichier et de lecture
 var fs = require('fs');
 
-<<<<<<< HEAD
-
 var bodyParser = require('body-parser')
-=======
+
 var URL_DATA = 'citizen_press/public/data/data2.json';
->>>>>>> 58cd0515f21c61766aff55d787932474d581ea6f
 
 // Recuperation des chemins relatifs
 app.use(express.static(path.join(__dirname, 'public')));  
@@ -23,9 +20,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Route d'accès client
 app.get("/select", (req, res) => {
 
-<<<<<<< HEAD
-
-=======
 	res.set({"Content-Type" : "text/html"});
 	
 	// Récupération du header de la page
@@ -72,7 +66,6 @@ app.get("/", (req,res) => {
 		res.write(data);	// Ecriture dans la réponse
 		res.end();
 	});
->>>>>>> 58cd0515f21c61766aff55d787932474d581ea6f
 });
 
 app.get("/formulaire/:idBureau", (req,res) => {
@@ -151,7 +144,7 @@ app.get("/connexion", (req, res) => {
 });
 
 // La page des assesseurs validé sur un bureau
-app.get("/bureaux/:id/assesseurs", (req, res) => {
+app.get("/president/:id", (req, res) => {
 
  	res.set({"Content-Type" : "text/html"});
 
