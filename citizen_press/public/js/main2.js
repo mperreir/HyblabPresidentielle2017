@@ -267,13 +267,11 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 			   		// Ecriture des résultats --> Vers des graphiques
 
 			   		// Reinit de la partie des graphiques (évite le doubelement de taille)
-			   		
-
-			   		$(".nbAssesseurs").text(nbAssesseurValide);
-			   		$(".nbScrutateurs").text(nbScrutateurValide);
-
 			   		var percentAss = nbAssesseurValide/NB_ASSESSEURS_MAX;
 			   		var percentScrut = nbScrutateurValide/NB_SCRUTATEURS_MAX;
+
+			   		percentAss = adjust(percentAss);
+			   		percentScrut= adjust(percentScrut);
 
 			   		var ctxAss = document.getElementById("graphContenuAssesseur"+numBureauPOI);
 			   		var ctxScrut = document.getElementById("graphContenuScrutateur"+numBureauPOI);
@@ -283,6 +281,16 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 
 					var colorAss;
 					var colorScrut;
+
+					var resteAss = getReste(NB_ASSESSEURS_MAX, nbAssesseurValide);
+					var resteScrut = getReste(NB_SCRUTATEURS_MAX, nbScrutateurValide);
+
+					$(".percentAss").text(percentAss);
+			   		$(".percentScrut").text(percentScrut);
+
+			   		$(".nbAssesseurs").text(nbAssesseurValide);
+			   		$(".nbScrutateurs").text(nbScrutateurValide);
+
 
 					colorAss = getColor(percentAss);
 					colorScrut = getColor(percentScrut);
@@ -297,7 +305,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 						    ],
 						    datasets: [
 						        {
-						            data: [nbAssesseurValide, NB_ASSESSEURS_MAX-nbAssesseurValide],
+						            data: [nbAssesseurValide, resteAss],
 						            backgroundColor: [
 						                colorAss,
 						                "#F2F2F2"
@@ -315,7 +323,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 						    ],
 						    datasets: [
 						        {
-						            data: [nbScrutateurValide, NB_SCRUTATEURS_MAX-nbScrutateurValide],
+						            data: [nbScrutateurValide, resteScrut],
 						            backgroundColor: [
 						                colorScrut,
 						                "#F2F2F2"
@@ -427,11 +435,11 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 			    	//$('.POI'+numBureauPOI+' #graphContenuAssesseur').html("<p> Nombre d'assesseur validés : "+nbAssesseurValide+" </p>");
 			   		//$('.POI'+numBureauPOI+' #graphContenuScrutateur').html("<p> Nombre de scrutateurs validés : "+nbScrutateurValide+" </p>");
 
-			   		$(".nbAssesseurs").text(nbAssesseurValide);
-			   		$(".nbScrutateurs").text(nbScrutateurValide);
-
 			   		var percentAss = nbAssesseurValide/NB_ASSESSEURS_MAX;
 			   		var percentScrut = nbScrutateurValide/NB_SCRUTATEURS_MAX;
+
+			   		percentAss = adjust(percentAss);
+			   		percentScrut= adjust(percentScrut);
 
 			   		var ctxAss = document.getElementById("graphContenuAssesseur"+numBureauPOI);
 			   		var ctxScrut = document.getElementById("graphContenuScrutateur"+numBureauPOI);
@@ -441,6 +449,16 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 
 					var colorAss;
 					var colorScrut;
+
+					var resteAss = getReste(NB_ASSESSEURS_MAX, nbAssesseurValide);
+					var resteScrut = getReste(NB_SCRUTATEURS_MAX, nbScrutateurValide);
+
+					$(".percentAss").text(percentAss);
+			   		$(".percentScrut").text(percentScrut);
+
+			   		$(".nbAssesseurs").text(nbAssesseurValide);
+			   		$(".nbScrutateurs").text(nbScrutateurValide);
+
 
 					colorAss = getColor(percentAss);
 					colorScrut = getColor(percentScrut);
@@ -455,7 +473,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 						    ],
 						    datasets: [
 						        {
-						            data: [nbAssesseurValide, NB_ASSESSEURS_MAX-nbAssesseurValide],
+						            data: [nbAssesseurValide, resteAss],
 						            backgroundColor: [
 						                colorAss,
 						                "#F2F2F2"
@@ -473,7 +491,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 						    ],
 						    datasets: [
 						        {
-						            data: [nbScrutateurValide, NB_SCRUTATEURS_MAX-nbScrutateurValide],
+						            data: [nbScrutateurValide, resteScrut],
 						            backgroundColor: [
 						                colorScrut,
 						                "#F2F2F2"
@@ -484,6 +502,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 
 					nbAssesseurValide = 0;
 					nbScrutateurValide = 0;
+			   		
 			   		
 			   		// Ajout de l'evenement du click sur la fenetre
 			   		markers.get(numBureauPOI).addListener('click', function() {
@@ -582,5 +601,23 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		else {
 			return VERT;
 		}
-}
+	}
+
+	function adjust(percent) {
+		if (percent > 1) {
+			return 1;
+		}
+		else {
+			return percent;
+		}
+	}
+
+	function getReste(max, nb) {
+		if (nb > max) {
+			return 0;
+		}
+		else {
+			return max-nb;
+		}
+	}
 });

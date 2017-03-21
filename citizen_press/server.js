@@ -142,10 +142,12 @@ app.get("/", (req, res) => {
 		    					<div id="txtsBasiquesNombres">\
 		    						<div class="assesseursChiffre">\
 			    						<h4 class="inscrit nbAssesseurs"><h4>\
+			    						<h4 class="percentAss"></h4>\
 			    						<h4 class="placeMax 8P"> 8 PERSONNES </h4> \
 			    					</div>\
 			    					<div class="scrutateursChiffre">\
 			    						<h4 class="inscrit nbScrutateurs"><h4>\
+			    						<h4 class="percentScrut"></h4>\
 			    						<h4 class="placeMax 25P"> 25 PERSONNES </h4> \
 			    					</div>\
 		    					</div>\
