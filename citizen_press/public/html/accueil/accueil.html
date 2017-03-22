@@ -8,7 +8,18 @@
     <meta name="description" content= "">
     <title>| HybLab |</title>
   <link rel="stylesheet" type="text/css" href="./css/accueil/home.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+        console.log($("#info").text());
+        $("#info").tooltip();
+    });
+
+  </script>
 </head>
 <body>
     <div class="logo">
@@ -21,7 +32,7 @@
     <h3>Nous vous rappelons que vous vous <span>engager</span> sur un journée et vous vous devez de respecter vos engagements.</h3>
     
     <div class="info">
-        <a>* Qu'est-ce que c'est ?</a>
+        <a id="info" title="LE TEXTE">* Qu'est-ce que c'est ?</a>
         <br></br>
         <a>Modifier/Annuler sa participation</a>
     </div>
