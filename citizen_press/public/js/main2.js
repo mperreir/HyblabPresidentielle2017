@@ -67,32 +67,36 @@ $(document).ready(function(){
 	 
 
  /******************************LEGENDE*******************************/   
-    
+ 
+ openLegend();
  // Ouverture de la légende
 $("#open").click(function() {
+    openLegend();
+});
+  
+// Fermeture de la légende  
+$("#close").click(function() {
+    closeLegend();
+});
     
-    $(".legende").css("padding-bottom", "450px");
+function openLegend() {
+ 	$(".legende").css("padding-bottom", "450px");
     $(".legende").css("padding-right", "250px");
     $(".legende h5").css("display", "block");
     $(".leg-block").css("display", "inline-block");
     $("#open").css("display", "none");
     $("#close").css("display", "block");
-
-});
-  
-// Fermeture de la légende  
-$("#close").click(function() {
+ }
     
-    $(".legende").css("padding-bottom", "0px");
+
+function closeLegend() {
+	$(".legende").css("padding-bottom", "0px");
     $(".legende").css("padding-right", "0px");
     $(".legende h5").css("display", "none");
     $(".leg-block").css("display", "none");
     $("#open").css("display", "block");
     $("#close").css("display", "none");
-
-});
-    
-    
+}
 /*****************************GEOLOC*******************************/
     
 var infoWindow = new google.maps.InfoWindow({map: map});
