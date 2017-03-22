@@ -125,14 +125,13 @@ app.get("/select", (req, res) => {
 	res.set({"Content-Type" : "text/html"});
 	
 	// Récupération du header de la page
-	fs.readFile('citizen_press/public/html/header.html','utf8', function(err,data){	// Lecture d'un fichier
-		res.write(data);	// Ecriture dans la réponse
-	});	 
+	var header = fs.readFileSync('citizen_press/public/html/header.html','utf8');
+	res.write(header);	// Ecriture dans la réponse 
 
 	// Préparation du parsage JSON pour la création des éléments
-	fs.readFile(URL_DATA, 'utf8', function (err, data) {
-	    if (err) throw err; // à voir 
-	    var obj = JSON.parse(data);
+	var body = fs.readFileSync(URL_DATA, 'utf8');
+	    //if (err) throw err; // à voir 
+	    var obj = JSON.parse(body);
 	   
 	   	// Initialisation des variables
 	    var tab = [];
@@ -181,15 +180,12 @@ app.get("/select", (req, res) => {
             	calc++;
             	tab.push(obj.bureaux[i].adresse);
 	    	};
+	    
 		};
-
-		// Récupération du footer
-		fs.readFile('citizen_press/public/html/footer.html','utf8', function(err,data){	// Lecture d'un fichier
-			res.write(data);	// Ecriture dans la réponse
-			res.end();
-
-		});
-	});
+	// Récupération du footer
+		var footer = fs.readFileSync('citizen_press/public/html/footer.html','utf8'); 
+		res.write(footer);	// Ecriture dans la réponse
+		res.end();
 });
 
 app.post("/inscription", (req,res) => {
@@ -383,7 +379,7 @@ function SVG(numPOI,width,height) {
 
 	// Init du SVG
 	this.contentSVG_init = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\
-		viewBox="0 0 '+width+' '+height+' " style="enable-background:new 0 0 0 0;" xml:space="preserve">\
+		viewBox="0 0 '+width+' '+height+'" style="enable-background:new 0 0 0 0;" xml:space="preserve">\
 		<style type="text/css">\
 			.red{fill:#EE5A58;}\
 		    .orange {fill:#F1A72E;}\
@@ -540,7 +536,7 @@ app.get("/bureaux/:id/inscription" , (req, res) => {
 
 // Ajout assesseurs
 app.post("/assesseurs/:id", (req, res) => {
-	console.log("Ajout d'un assesseurs...");
+	//console.log("Ajout d'un assesseurs...");
 	fs.readFile('data.json', 'utf8', function (err, data) {
 	    if (err) throw err; // à voir 
 	    var obj = JSON.parse(data);
@@ -566,116 +562,116 @@ app.get("/president/:id", (req, res) => {
  	res.set({"Content-Type" : "text/html"});
 
 	// Récupération du header de la page
-	fs.readFile('citizen_press/public/html/liste_president/header.html','utf8', function(err,data){	// Lecture d'un fichier
-		res.write(data);
-	// Ecriture dans la réponse
-	});
-
+	var header = fs.readFileSync('citizen_press/public/html/liste_president/header.html','utf8');
+	res.write(header);
 	 
 
 	// Préparation du parsage JSON pour la création des éléments
-	fs.readFile('citizen_press/public/data/data2.json', 'utf8', function (err, data) {
-	    if (err) throw err; // à voir 
-	    var obj = JSON.parse(data);
+	var body = fs.readFileSync('citizen_press/public/data/data2.json', 'utf8');
+
+	    //if (err) throw err; // à voir 
+	var obj = JSON.parse(body);
 	   
 	    //var id = req.params.id;
-	    var idBureau = req.params.id;
+	var idBureau = req.params.id;
 
-	   	// Initialisation des variables
-	    var assesseurs = [];
-	    var asseseurTemp;
-	    // Parcours des bureaux pour création de points d'intêrets
-	    for(var index in obj.bureaux){
-	    	if (obj.bureaux[index].id == idBureau){
-	    		res.write("<div class=\"resume_buro\"><p class = \"nom_lieu_adresse\">");
-	    		res.write(obj.bureaux[index].nom_lieu + "<br><span>" + obj.bureaux[index].adresse);
-        		res.write("</span><br><span class = \"codepo_ville\" >");
-	    		res.write(obj.bureaux[index].code_postal + " " + obj.bureaux[index].ville);
-        		res.write("</span></p><p>\n\n</p></div>");
-        		for(var index2 in obj.bureaux[index].assesseurs){
-        			asseseurTemp = obj.bureaux[index].assesseurs[index2];
-        			assesseurs.push([asseseurTemp.id,asseseurTemp.valide_assesseur,asseseurTemp.valide_scrutateur]);
-        		}
-	    	}
-		};
+	// Initialisation des variables
+	var assesseurs = [];
+	var asseseurTemp;
+	// Parcours des bureaux pour création de points d'intêrets
+	for(var index in obj.bureaux){
+	  	if (obj.bureaux[index].id == idBureau){
+	   		res.write("<div class=\"resume_buro\"><p class = \"nom_lieu_adresse\">");
+	   		res.write(obj.bureaux[index].nom_lieu + "<br><span>" + obj.bureaux[index].adresse);
+       		res.write("</span><br><span class = \"codepo_ville\" >");
+	   		res.write(obj.bureaux[index].code_postal + " " + obj.bureaux[index].ville);
+       		res.write("</span></p><p>\n\n</p></div>");
+       		for(var index2 in obj.bureaux[index].assesseurs){
+       			asseseurTemp = obj.bureaux[index].assesseurs[index2];
+       			assesseurs.push([asseseurTemp.id,asseseurTemp.valide_assesseur,asseseurTemp.valide_scrutateur]);
+       		}
+	   	}
+	};
 
-		res.write('<div class="Filtrage">');
-        res.write('<h2>FILTRAGE : </h2>');
-        res.write('<form class="input01" action="">');
-  		res.write('<div><label for="check01">Assesseurs</label><input type="radio" id="check01" name="type_benevole" value="Assesseurs" checked></div>');
-  		res.write('<div><label for="check02">Scrutateurs</label><input type="radio" id="check02" name="type_benevole" value="Scrutateurs"></div>');
-  		res.write('</form><form class="input02" action=""<div><label for="check03">Demandes en cours</label><input type="radio" id="check03" name="type_demande" value="en_cours" checked ></div>');
-  		res.write('<div><label for="check04">Demandes validées</label><input type="radio" id="check04" name="type_demande" value="valides"></div>');
-		res.write('</form>');
-		res.write('<table id="table_benevoles" class="display" cellspacing="0" width="100%">');
-		res.write('<thead>');
-	    res.write('<tr>');
-	    res.write('<th>NOM Prénom</th>');
-	    res.write('<th class="colonneAge">Age</th>');
-	    res.write('<th>Email</th>');
-      	res.write('<th>Téléphone</th>');
-      	res.write('<th>Décision</th>');
-    	res.write('</tr>');
-  		res.write('</thead>');
- 		res.write(' <tbody>');
+	res.write('<div class="Filtrage">');
+    res.write('<h2>FILTRAGE : </h2>');
+    res.write('<form class="input01" action="">');
+  	res.write('<div><label for="check01">Assesseurs</label><input type="radio" id="check01" name="type_benevole" value="Assesseurs" checked></div>');
+  	res.write('<div><label for="check02">Scrutateurs</label><input type="radio" id="check02" name="type_benevole" value="Scrutateurs"></div>');
+  	res.write('</form><form class="input02" action=""<div><label for="check03">Demandes en cours</label><input type="radio" id="check03" name="type_demande" value="en_cours" checked ></div>');
+  	res.write('<div><label for="check04">Demandes validées</label><input type="radio" id="check04" name="type_demande" value="valides"></div>');
+	res.write('</form>');
+	res.write('<table id="table_benevoles" class="display" cellspacing="0" width="100%">');
+	res.write('<thead>');
+	res.write('<tr>');
+	res.write('<th>NOM Prénom</th>');
+	res.write('<th class="colonneAge">Age</th>');
+	res.write('<th>Email</th>');
+    res.write('<th>Téléphone</th>');
+    res.write('<th>Décision</th>');
+    res.write('</tr>');
+  	res.write('</thead>');
+ 	res.write(' <tbody>');
 
 
-		for(var index3 in assesseurs){
-			for (var index4 in obj.assesseurs){
-				if (obj.assesseurs[index4].id == assesseurs[index3][0]){
-					//Assesseur en cours
-					asseseurTemp = obj.assesseurs[index4];
-					res.write("<tr ");
-						//Asseseur et scrutateur
-						if (asseseurTemp.potentiel_assesseur && asseseurTemp.potentiel_scrutateur){
-							if (assesseurs[index3][1]){//Assesseur valide
-								res.write("class=\"assesseur_valide");
-							}else{
-								res.write("class=\"assesseur_non_valide");
-							}
-							if (assesseurs[index3][2]){//Scrutateur valide
-								res.write(" scrutateur_valide\"");
-							}else{
-								res.write(" scrutateur_non_valide\"");
-							}
-						}
-						//Juste scrutateur
-						else if (asseseurTemp.potentiel_assesseur){
-							if (assesseurs[index3][1]){//Asseseurs valides
-								res.write("class=\"assesseur_valide\" ");
-							}else{ 
-								res.write("class=\"assesseur_non_valide\" ");
-							}
-						}
-						//Juste assesseur
-						else if (asseseurTemp.potentiel_scrutateur){
-							if (assesseurs[index3][2]){//Scrutateurs valides
-								res.write("class=\"scrutateur_valide\" ");
-							}else{
-								res.write("class=\"scrutateur_non_valide\" ");
-							}
-						}
-					res.write(">");
-					res.write("<td>"+asseseurTemp.nom.toUpperCase()+" "+asseseurTemp.prenom+"</td>");
-					res.write("<td>"+asseseurTemp.age+"</td>");
-					res.write("<td>"+asseseurTemp.mail+"</td>");
-					res.write("<td>"+asseseurTemp.tel+"</td>");
-					//Choix par défaut, au démarrage de la page : Assesseurs en cours
-					res.write('<td class="decision"><input type="button" class="boutonValider" id="'+ assesseurs[index3][0] +'" name="ValiderAss" value="Valider"></td></tr>');
-					res.write("</tr>");
+	for(var index3 in assesseurs){
+		for (var index4 in obj.assesseurs){
+			if (obj.assesseurs[index4].id == assesseurs[index3][0]){
+				//Assesseur en cours
+				asseseurTemp = obj.assesseurs[index4];
+				res.write("<tr ");
+				//Asseseur et scrutateur
+				if (asseseurTemp.potentiel_assesseur && asseseurTemp.potentiel_scrutateur){
+					if (assesseurs[index3][1]){//Assesseur valide
+						res.write("class=\"assesseur_valide");
+					}else{
+						res.write("class=\"assesseur_non_valide");
+					}
+					if (assesseurs[index3][2]){//Scrutateur valide
+						res.write(" scrutateur_valide\"");
+					}else{
+						res.write(" scrutateur_non_valide\"");
+					}
 				}
+				//Juste scrutateur
+				else if (asseseurTemp.potentiel_assesseur){
+					if (assesseurs[index3][1]){//Asseseurs valides
+						res.write("class=\"assesseur_valide\" ");
+					}else{ 
+						res.write("class=\"assesseur_non_valide\" ");
+					}
+				}
+				//Juste assesseur
+				else if (asseseurTemp.potentiel_scrutateur){
+					if (assesseurs[index3][2]){//Scrutateurs valides
+						res.write("class=\"scrutateur_valide\" ");
+					}else{
+						res.write("class=\"scrutateur_non_valide\" ");
+					}
+				}
+				res.write(">");
+				res.write("<td>"+asseseurTemp.nom.toUpperCase()+" "+asseseurTemp.prenom+"</td>");
+				res.write("<td>"+asseseurTemp.age+"</td>");
+				res.write("<td>"+asseseurTemp.mail+"</td>");
+				res.write("<td>"+asseseurTemp.tel+"</td>");
+				//Choix par défaut, au démarrage de la page : Assesseurs en cours
+				res.write('<td class="decision"><input type="button" class="boutonValider" id="'+ assesseurs[index3][0] +'" name="ValiderAss" value="Valider"></td></tr>');
+				res.write("</tr>");
 			}
 		}
-		res.write("</tbody></table>");
-		res.write('<input type="hidden" class="idBureau" id="'+idBureau+'">');
+	};
 
+	var footer = fs.readFileSync('citizen_press/public/html/liste_president/footer.html','utf8');
+	res.write(footer);
+	res.end();
+		/*
+	// Récupération du footer
+	fs.readFile('citizen_press/public/html/liste_president/footer.html','utf8', function(err,data){	// Lecture d'un fichier
+		res.write(data);	// Ecriture dans la réponse
+		
+	});*/
 
-		// Récupération du footer
-		fs.readFile('citizen_press/public/html/liste_president/footer.html','utf8', function(err,data){	// Lecture d'un fichier
-			res.write(data);	// Ecriture dans la réponse
-			res.end();
-		});
-	});
+	
 });
 
 app.use(bodyParser.urlencoded({
@@ -715,7 +711,7 @@ app.get("/valider/:idBureau/:idAssesseur/:type_benevole", function (req, res) {
 		        	}
         		}
 	    	}
-	    	console.log("mdr");
+	    	//console.log("mdr");
    			var json = JSON.stringify(obj); //convert it back to json
    			fs.writeFile('citizen_press/public/data/data2.json', json, 'utf8', -1); // write it back 
 		}
