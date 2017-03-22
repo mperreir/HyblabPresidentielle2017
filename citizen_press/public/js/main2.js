@@ -17,6 +17,9 @@ $(document).ready(function(){
 	var VERT = "#aed17c";
 	var BLEU = "#5D91EE";
 
+	var msgNeedYou = "CE BUREAU A BESOIN DE VOUS !";
+	var msgNotNeedYou = "CE BUREAU EST PLEIN!"
+
 	var nbPOI = 0;
 
 	var is_internetExplorer11= navigator.userAgent.toLowerCase().indexOf('trident') > -1;
@@ -343,6 +346,13 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 					nbAssesseurValide = 0;
 					nbScrutateurValide = 0;
 
+					if ((percentAss==1)&&(percentScrut==1)) {
+						$("#msgNeed").text(msgNotNeedYou);
+					}
+					else {
+						$("#msgNeed").text(msgNeedYou);
+					}
+
 					$(".idBureau").attr("value", newBureauPOI);
 			   		
 			   	},
@@ -512,6 +522,13 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 						        }]
 						}
 					});
+
+					if ((percentAss==1)&&(percentScrut==1)) {
+						$("#msgNeed").text(msgNotNeedYou);
+					}
+					else {
+						$("#msgNeed").text(msgNeedYou);
+					}
 
 					nbAssesseurValide = 0;
 					nbScrutateurValide = 0;
