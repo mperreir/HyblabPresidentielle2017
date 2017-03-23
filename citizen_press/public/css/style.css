@@ -685,6 +685,10 @@ footer div {
   font-weight: 300;
 }
 
+.bold {
+   font-weight: bold;
+}
+
 .scrutateursChiffre {
     margin-top: 20%;
     margin-left:14%;
