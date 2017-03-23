@@ -165,3 +165,19 @@ footer div {
     width: 14px;
     height: 14px;
 }
+
+.msgHover {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.contentHover {
+    line-height: 1;
+    font-family: lato;
+    color: #787878;
+
+}
+
+.bold {
+     font-weight: bold;
+}
