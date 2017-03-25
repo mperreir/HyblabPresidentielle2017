@@ -389,12 +389,21 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	// nbBureau : Le nombre de bureau
 	function placerMarqueur(latitude_POI, longitude_POI, contentString, numBureauPOI, nbPOI, bureauId, url_marker) {
 
+		var valPlus = 0.75;
+		if (window.devicePixelRatio > 1.5) {
+			valPlus = 1.25;
+		}
+		var width = window.screen.width*valPlus;
+		var height = window.screen.height*valPlus;
+
 		var nbAssesseurValide = 0;
 		var nbScrutateurValide = 0;
 
 		var $marker_POI = {
 	        url: url_marker,
-	     	size: new google.maps.Size(50,78),
+	        //size: new google.maps.Size(45,60)
+	     	size: new google.maps.Size((width/23),(height/10)),
+	     	//anchor: new google.maps.Point(0,20)
 	     	//scaledSize: new google.maps.Size(180,180)
     	}
 
