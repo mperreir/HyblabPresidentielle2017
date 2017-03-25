@@ -394,7 +394,8 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 
 		var $marker_POI = {
 	        url: url_marker,
-	     	size: new google.maps.Size(53,53)
+	     	//size: new google.maps.Size(30,30),
+	     	scaledSize: new google.maps.Size(180,180)
     	}
 
 		markers.set(numBureauPOI, new google.maps.Marker({
