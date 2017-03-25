@@ -296,8 +296,8 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 					var resteAss = getReste(NB_ASSESSEURS_MAX, nbAssesseurValide);
 					var resteScrut = getReste(NB_SCRUTATEURS_MAX, nbScrutateurValide);
 
-					$(".percentAss").text((percentAss*100)+"%");
-			   		$(".percentScrut").text((percentScrut*100)+"%");
+					$(".percentAss").text(auMillieme((percentAss*100))+"%");
+			   		$(".percentScrut").text(auMillieme((percentScrut*100))+"%");
 
 			   		$(".nbAssesseurs").text(nbAssesseurValide);
 			   		$(".nbScrutateurs").text(nbScrutateurValide);
@@ -483,8 +483,8 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 					var resteAss = getReste(NB_ASSESSEURS_MAX, nbAssesseurValide);
 					var resteScrut = getReste(NB_SCRUTATEURS_MAX, nbScrutateurValide);
 
-					$(".percentAss").text((percentAss*100)+"%");
-			   		$(".percentScrut").text((percentScrut*100)+"%");
+					$(".percentAss").text(auMillieme((percentAss*100))+"%");
+			   		$(".percentScrut").text(auMillieme((percentScrut*100))+"%");
 
 			   		$(".nbAssesseurs").text(nbAssesseurValide);
 			   		$(".nbScrutateurs").text(nbScrutateurValide);

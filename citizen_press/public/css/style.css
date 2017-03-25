@@ -698,13 +698,16 @@ footer div {
 }
 
 .percentAss{
-    position:absolute;
+    /*position:absolute;
     margin-left:11%;
+    margin-top:-22%; */
+    position:fixed;
     margin-top:-22%;
+    margin-left:11%;
 }
 
 .percentScrut {
-    position:absolute;
+    position:fixed;
     margin-left:11%;
     margin-top:-22%;
 }
