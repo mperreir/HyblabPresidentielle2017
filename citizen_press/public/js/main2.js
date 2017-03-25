@@ -394,8 +394,8 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 
 		var $marker_POI = {
 	        url: url_marker,
-	     	//size: new google.maps.Size(30,30),
-	     	scaledSize: new google.maps.Size(180,180)
+	     	size: new google.maps.Size(50,78),
+	     	//scaledSize: new google.maps.Size(180,180)
     	}
 
 		markers.set(numBureauPOI, new google.maps.Marker({
@@ -714,4 +714,8 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	  });
 	  // [END region_getplaces]
   	}
+
+  	function auMillieme(nombre){
+  		return Math.round(1000*nombre)/1000;
+	}
 });
