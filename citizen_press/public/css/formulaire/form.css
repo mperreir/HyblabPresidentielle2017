@@ -108,6 +108,11 @@ h2 span {
     margin-right: 5%;
 }
 
+#SPE{
+    display:block;
+    
+}
+
 
 form div {
     display: inline-block;
@@ -158,7 +163,7 @@ form input:active {
     width: 100px;
 }
 .check-box {
-    float: right;
+    float:right;
 }
 
 
