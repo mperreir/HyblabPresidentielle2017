@@ -104,7 +104,7 @@ function writeSvg(bureaux, numPOI,width,height) {
 		svg.setBigCircle("green");
 	}
 	// Nombre à l'intérieur
-	svg.setNumber(nbAssesseursScrutMin);
+	svg.setNumber(NB_MAX_ASSESSEURS_SCRUTATEUR - nbAssesseursScrutMin);
 
 	// Ecriture des fichiers
 	fs.writeFile("./citizen_press/public/img/"+svg.url, svg.getContent());
@@ -420,6 +420,9 @@ function SVG(numPOI,width,height) {
 	}
 
 	this.setNumber = function(number) {
+		if (number < 0) {
+			number = 0;
+		}
 		if (number < 10) {
 			this.contentSVG_text = '<text transform="matrix(1 0 0 1 53.9507 113.4561)" class="st2 st3 st4">'+number+'</text>';
 		}
