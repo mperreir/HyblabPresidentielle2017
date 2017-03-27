@@ -382,7 +382,7 @@ section {
 }
 
 .data-container {
-    height: 59vh;
+    height: 60%;
     border-bottom: 2px solid;
     border-color: #C2CECD;  
 }
@@ -592,7 +592,7 @@ footer div {
 }
 
 .txtRemplissage {
-    width: 137px;
+    width: 30%;
     margin-left: 12%;
     display : inline-block;
 }
@@ -698,13 +698,16 @@ footer div {
 }
 
 .percentAss{
-    position:absolute;
+    /*position:absolute;
     margin-left:11%;
-    margin-top:-22%;
+    margin-top:-22%; */
+    position:fixed;
+    margin-top:-24%;
+    margin-left:11%;
 }
 
 .percentScrut {
-    position:absolute;
+    position:fixed;
     margin-left:11%;
-    margin-top:-22%;
+    margin-top:-24%;
 }

@@ -104,7 +104,7 @@ function writeSvg(bureaux, numPOI,width,height) {
 		svg.setBigCircle("green");
 	}
 	// Nombre à l'intérieur
-	svg.setNumber(NB_MAX_ASSESSEURS_SCRUTATEUR - nbAssesseursScrutMin);
+	svg.setNumber(nbAssesseursScrutMin);
 
 	// Ecriture des fichiers
 	fs.writeFile("./citizen_press/public/img/"+svg.url, svg.getContent());
@@ -379,7 +379,7 @@ function SVG(numPOI,width,height) {
 
 	// Init du SVG
 	this.contentSVG_init = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\
-		width="'+width*0.25+'" height="'+height*0.45+'" viewBox="0 0 '+(width-(width*0.25))+' '+height+'" \
+		width="180" height="180" viewBox="0 0 '+(width-(width*0.35))+' '+height+'" \
 		style="enable-background:new 0 0 0 0;" xml:space="preserve">\
 		<style type="text/css">\
 			.red{fill:#EE5A58;}\
@@ -421,9 +421,6 @@ function SVG(numPOI,width,height) {
 	}
 
 	this.setNumber = function(number) {
-		if (number < 0) {
-			number = 0;
-		}
 		if (number < 10) {
 			this.contentSVG_text = '<text transform="matrix(1 0 0 1 53.9507 113.4561)" class="st2 st3 st4">'+number+'</text>';
 		}

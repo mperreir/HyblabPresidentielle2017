@@ -402,7 +402,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 		var $marker_POI = {
 	        url: url_marker,
 	        //size: new google.maps.Size(45,60)
-	     	size: new google.maps.Size((width/15),(height/7)),
+	     	size: new google.maps.Size((width/23),(height/10)),
 	     	//anchor: new google.maps.Point(0,20)
 	     	//scaledSize: new google.maps.Size(180,180)
     	}
