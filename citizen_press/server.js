@@ -597,10 +597,10 @@ app.get("/president/:id", (req, res) => {
 	res.write('<div class="Filtrage">');
     res.write('<h2>FILTRAGE : </h2>');
     res.write('<form class="input01" action="">');
-  	res.write('<div><label for="check01">Assesseurs</label><input type="radio" id="check01" name="type_benevole" value="Assesseurs" checked></div>');
-  	res.write('<div><label for="check02">Scrutateurs</label><input type="radio" id="check02" name="type_benevole" value="Scrutateurs"></div>');
-  	res.write('</form><form class="input02" action=""<div><label for="check03">Demandes en cours</label><input type="radio" id="check03" name="type_demande" value="en_cours" checked ></div>');
-  	res.write('<div><label for="check04">Demandes validées</label><input type="radio" id="check04" name="type_demande" value="valides"></div>');
+	res.write('<div><label for="check01">Assesseurs</label><input type="radio" id="check01" name="type_benevole" value="Assesseurs" checked></div>');
+	res.write('<div><label for="check02">Scrutateurs</label><input type="radio" id="check02" name="type_benevole" value="Scrutateurs"></div>');
+	res.write('</form><form class="input02" action=""<div><label for="check03">Demandes en cours</label><input type="radio" id="check03" name="type_demande" value="en_cours" checked >');
+	res.write('<label for="check04"> Demandes validées</label><input type="radio" id="check04" name="type_demande" value="valides"></div>');
 	res.write('</form>');
 	res.write('<table id="table_benevoles" class="display" cellspacing="0" width="100%">');
 	res.write('<thead>');
@@ -608,12 +608,13 @@ app.get("/president/:id", (req, res) => {
 	res.write('<th>NOM Prénom</th>');
 	res.write('<th class="colonneAge">Age</th>');
 	res.write('<th>Email</th>');
-    res.write('<th>Téléphone</th>');
-    res.write('<th>Décision</th>');
-    res.write('</tr>');
-  	res.write('</thead>');
- 	res.write(' <tbody>');
+	res.write('<th>Téléphone</th>');
+	res.write('<th>Décision</th>');
+	res.write('</tr>');
+	res.write('</thead>');
+	res.write(' <tbody>');
 
+	
 
 	for(var index3 in assesseurs){
 		for (var index4 in obj.assesseurs){

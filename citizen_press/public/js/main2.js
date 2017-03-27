@@ -389,7 +389,7 @@ var infoWindow = new google.maps.InfoWindow({map: map});
 	// nbBureau : Le nombre de bureau
 	function placerMarqueur(latitude_POI, longitude_POI, contentString, numBureauPOI, nbPOI, bureauId, url_marker) {
 
-		var valPlus = 0.75;
+		var valPlus = 0.8;
 		if (window.devicePixelRatio > 1.5) {
 			valPlus = 1.25;
 		}
