@@ -188,6 +188,14 @@ app.get("/select", (req, res) => {
 		res.end();
 });
 
+app.get("/credits", (req, res) => {
+	fs.readFile('citizen_press/public/html/bandeau.html','utf8', function(err,data){	// Lecture d'un fichier
+		if (err) throw err;
+		res.write(data);	// Ecriture dans la réponse
+		res.end();
+	});	
+});
+
 app.post("/inscription", (req,res) => {
 
 	res.set({"Content-Type" : "text/html"});
