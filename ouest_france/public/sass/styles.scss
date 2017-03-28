@@ -1,0 +1,210 @@
+// sass-lint:disable no-duplicate-properties no-vendor-prefixes
+
+$breakpoint: 737px;
+
+@import 'colors';
+@import 'modal';
+@import 'infos';
+@import 'candidate';
+@import 'action-bar';
+@import 'switch';
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', 'Arial', 'sans-serif';
+}
+
+html,
+body {
+    background: $black;
+    font-size: 12px;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+.canvas-container {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.canvas-container:hover {
+    cursor: move; // fallback if grab cursor is unsupported
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+.canvas-container:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+
+.canvas-container.mod-clic {
+    cursor: pointer;
+}
+
+    .canvas-container > canvas {
+        height: 100%;
+        width: 100%;
+    }
+
+button:focus {
+    outline: 0;
+}
+
+.btn-transparent {
+    background: 0;
+    border: 0;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+    .btn-transparent > * {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+// Grid
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.row.mod-center-vertical {
+	align-items: center;
+}
+
+.row.mod-center-horizontal {
+	justify-content: center;
+}
+
+.row.mod-nowrap {
+	flex-wrap: nowrap;
+}
+
+    .col4 {
+        flex: 4;
+        flex-basis: 100%;
+    }
+
+    .col-m-4 {
+        @media only screen and (max-width: $breakpoint) {
+            flex: 4;
+            flex-basis: 100%;
+        }
+    }
+
+    .col3 {
+        flex: 3;
+        flex-basis: 66%;
+    }
+
+    .col3.mod-max {
+        max-width: 66%;
+    }
+
+    .col2 {
+        flex: 2;
+        flex-basis: 50%;
+    }
+
+    .col2.mod-max {
+        max-width: 50%;
+    }
+
+    .col-m-2 {
+        @media only screen and (max-width: $breakpoint) {
+            flex: 4;
+            flex-basis: 100%;
+        }
+    }
+
+    .col1 {
+        flex: 1;
+        flex-basis: 25%;
+    }
+
+    .col1.mod-max {
+        max-width: 25%;
+    }
+
+.text-center {
+    text-align: center;
+}
+
+hr {
+    opacity: .6;
+}
+
+$gifs: [
+    'http://media.giphy.com/media/TZf4ZyXb0lXXi/giphy.gif',
+    'http://media.giphy.com/media/KDrjub26iceZ2/giphy.gif',
+    'http://24.media.tumblr.com/49f7caffa896829a55a261b6d0858246/tumblr_mnh375KPGH1rk1qp5o1_500.gif',
+    'https://media.giphy.com/media/vcB9QRaLUHYw8/giphy.gif',
+    'https://media.giphy.com/media/yQ7JbMwf6PqI8/giphy.gif',
+    'https://media.giphy.com/media/l41lTflsv8I1hVB16/giphy.gif',
+    'https://media.giphy.com/media/HhTXt43pk1I1W/giphy.gif',
+    'https://media.giphy.com/media/Ay6HrZVsDYuvS/giphy.gif',
+];
+
+$interval: 1 / length($gifs);
+
+.soucoupe-slideshow {
+    display: none;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+    .soucoupe-slideshow.mod-crazy {
+        display: block;
+    }
+
+        .soucoupe-slideshow-element {
+            animation: gifs 36s linear infinite;
+            background-position: center;
+            background-size: cover;
+            height: 100%;
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            transition: opacity 2s linear;
+            width: 100%;
+        }
+
+    @each $gif in $gifs {
+        $i: index($gifs, $gif) - 1;
+
+        .soucoupe-slideshow-element:nth-child(#{$i}) {
+            animation-delay: $i * 6s;
+            background-image: url($gif);
+        }
+    }
+
+@keyframes gifs {
+    0%,
+    14.999% {
+        opacity: 1;
+    }
+
+    15%,
+    100% {
+        opacity: 0;
+    }
+}
+

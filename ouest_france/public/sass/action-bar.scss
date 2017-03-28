@@ -1,0 +1,205 @@
+
+$width-bar: 6em;
+
+$sidebar-margin: 0;
+
+.action-bar {
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: opacity 1s ease, right 1s ease, left 1s ease;
+    z-index: 100;
+}
+
+.action-bar-arrow {
+    color: $white2;
+    cursor: pointer;
+    height: 10%;
+    opacity: .6;
+    padding: 0 .5em;
+    width: 6em;
+}
+
+    .action-bar-arrow .material-icons {
+        font-size: 3em;
+        line-height: 1.5em;
+    }
+
+.action-bar-arrow:hover {
+    opacity: 1;
+}
+
+.action-bar.mod-open {
+    opacity: 1;
+}
+
+.action-bar.mod-criteres {
+    right: -$sidebar-margin - 100em;
+
+    @media only screen and (max-width: $breakpoint) {
+        height: auto;
+        overflow-x: scroll;
+        right: 0;
+        top: -10em;
+        width: 100%;
+    }
+}
+
+.action-bar.mod-criteres.mod-open {
+    right: $sidebar-margin;
+
+    @media only screen and (max-width: $breakpoint) {
+        top: 0;
+    }
+}
+
+.action-bar.mod-planets {
+    left: -$sidebar-margin - 100em;
+}
+
+.action-bar.mod-planets.mod-open {
+    left: $sidebar-margin;
+}
+
+.action-bar-h100 {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.action-bar-container {
+    color: $white2;
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    vertical-align: middle;
+
+    @media only screen and (max-width: $breakpoint) {
+        text-align: left;
+        width: 1000%;
+    }
+}
+
+.action-bar-container.mod-planets {
+    height: 60%;
+    text-align: left;
+    width: 30em;
+}
+
+    .action-bar-planets-list {
+        height: 80%;
+        list-style: none;
+        margin: 0;
+        overflow-x: visible;
+        overflow-y: hidden;
+        padding: 0;
+    }
+
+    .action-bar-element {
+        background: $background-block;
+        border-radius: 9999px;
+        cursor: pointer;
+        height: 3em;
+        height: 6vh; // sass-lint:disable-line no-duplicate-properties
+        margin-bottom: .5em;
+        margin-left: 15em;
+        padding: .3em .5em;
+        position: relative;
+        text-align: right;
+        width: 3em;
+        width: 6vh; // sass-lint:disable-line no-duplicate-properties
+
+        @media only screen and (max-width: $breakpoint) {
+            border-radius: 4px;
+            display: inline-block;
+            margin-left: 1em;
+            min-width: 4em;
+        }
+    }
+
+    .action-bar-element::before {
+        border-radius: 4px;
+        display: none;
+        font-size: 1.2em;
+        font-weight: 600;
+        padding: .8em;
+        position: absolute;
+        text-align: left;
+        top: 4px;
+    }
+
+    .action-bar-element.mod-criteres::before {
+        background: $background-block;
+        content: attr(data-critere-name);
+        right: 110%;
+        width: 360%;
+    }
+
+    .action-bar-element.mod-planets {
+        background: none;
+        height: 5em;
+        height: 8vh; // sass-lint:disable-line no-duplicate-properties
+        margin-left: 0;
+        width: 5em;
+        width: 8vh; // sass-lint:disable-line no-duplicate-properties
+    }
+
+    .action-bar-element.mod-planets::before {
+        background: $background-block;
+        color: $white;
+        content: attr(data-planet-name);
+        left: 110%;
+        top: 1em;
+        width: 270%;
+    }
+
+    .action-bar-element.mod-active {
+        background-color: $color8;
+    }
+
+    .action-bar-element:hover::before {
+        @media only screen and (min-width: $breakpoint + 1px) {
+            display: block;
+        }
+    }
+
+    .action-bar-title {
+        background: $background-block;
+        border-bottom-left-radius: 6px;
+        border-top-left-radius: 6px;
+        display: inline-block;
+        font-size: 1.3em;
+        margin-bottom: .5em;
+        max-width: 15em;
+        padding: .6em;
+        text-align: left;
+
+        @media only screen and (max-width: $breakpoint) {
+            display: none;
+        }
+    }
+
+    .action-bar-title.mod-maires {
+        margin-top: 2em;
+    }
+
+.criteres-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    width: 100%;
+}
+
+.planets-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    width: 100%;
+}
+
+

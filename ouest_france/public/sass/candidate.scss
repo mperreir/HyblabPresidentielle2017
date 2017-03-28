@@ -1,0 +1,152 @@
+.candidate {
+    align-items: stretch;
+    bottom: -40%;
+    display: flex;
+    justify-content: flex-start;
+    left: 0;
+    position: fixed;
+    transition: bottom .3s ease;
+    width: 100vw;
+    z-index: 200;
+
+    @media only screen and (max-width: $breakpoint) {
+        font-size: .7em;
+    }
+}
+
+.candidate.mod-open {
+    bottom: 0;
+}
+
+    .candidate-container {
+        align-items: center;
+        background: $background-block;
+        color: $white;
+        display: none;
+        flex: 1;
+        max-height: 6em;
+        padding: 1em;
+    }
+
+    .candidate-container + .candidate-container {
+        margin-left: 4px;
+    }
+
+    .candidate-container.mod-open {
+        display: flex;
+    }
+
+        .candidate-element {
+            flex: 1;
+        }
+
+        .candidate-element-image {
+            flex: 1;
+            padding-right: 1em;
+        }
+
+        .candidate-element-infos {
+            flex: 10;
+        }
+
+        .candidate-element-close {
+            color: $grey-light;
+            cursor: pointer;
+            flex: 1;
+            text-align: right;
+        }
+
+        .candidate-element-close:hover {
+            color: $white;
+        }
+
+            .candidate-element-close > .material-icons {
+                font-size: 3em;
+            }
+
+
+        .candidate-image {
+            display: inline-block;
+            width: 100%;
+        }
+
+        .candidate-name,
+        .candidate-parti,
+        .candidate-maires,
+        .candidate-total {
+            color: $white2;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .candidate-name {
+            font-size: 1.7em;
+        }
+
+        .candidate-maires {
+            font-size: 1.3em;
+        }
+
+        .candidate-parti,
+        .candidate-total {
+            color: $white3;
+            font-size: 1.3em;
+            margin-top: .2em;
+        }
+
+
+        .candidate-container.mod-average .candidate-parti {
+            display: none;
+        }
+
+.add-candidate {
+    bottom: 9em;
+    left: -100%;
+    position: absolute;
+    transition: left .4s ease;
+    z-index: 300;
+
+    @media only screen and (max-width: $breakpoint) {
+        display: none;
+    }
+}
+
+.add-candidate.mod-open {
+    left: 1em;
+}
+
+    .add-candidate-button {
+        color: $white2;
+        cursor: pointer;
+        font-size: 1.3em;
+        opacity: .6;
+    }
+
+    .add-candidate-button:hover {
+        opacity: 1;
+    }
+
+.title-dataviz {
+    color: $white;
+    left: -100%;
+    position: absolute;
+    text-align: center;
+    top: 2.2em;
+    transition: left .4s ease;
+    width: 100%;
+}
+
+.title-dataviz.mod-open {
+    left: 0;
+}
+
+    .title-dataviz-content {
+        display: inline-block;
+        margin: 0 auto;
+        max-width: calc(100% - 2 * 15em);
+
+        @media only screen and (max-width: $breakpoint) {
+            max-width: 100%;
+        }
+    }
+
