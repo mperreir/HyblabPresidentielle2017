@@ -1,0 +1,211 @@
+
+.infos-link {
+    color: $white;
+    left: 0;
+    padding: .8em;
+    position: fixed;
+    top: 0;
+    z-index: 900;
+}
+
+    .infos-link .infos-link-icon {
+        font-size: 3em;
+    }
+
+    .infos-link:hover .infos-link-icon:first-child {
+        display: none;
+    }
+
+    .infos-link .infos-link-icon:last-child {
+        display: none;
+    }
+
+    .infos-link:hover .infos-link-icon:last-child {
+        display: inline-block;
+    }
+
+.infos-container {
+    background: darken($white, 1%);
+    height: 100%;
+    left: 0;
+    overflow-y: auto;
+    position: absolute;
+    top: 100%;
+    transition: top .6s ease-in-out;
+    width: 100%;
+    z-index: 1000;
+}
+
+.infos-container.mod-open {
+    top: 0;
+}
+
+    .infos-wrapper {
+        padding: 2em 4em;
+        position: relative;
+    }
+
+        .infos-close {
+            color: $grey;
+            padding: .8em;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 1000;
+
+            &:hover {
+                color: darken($grey, 30%);
+            }
+        }
+
+            .infos-close > .material-icons {
+                font-size: 3em;
+            }
+
+        .infos-content {
+            margin: 0 auto;
+            max-width: 1024px;
+        }
+
+            .infos-row {
+                margin-bottom: 3em;
+            }
+
+.list-item {
+    display: inline-block;
+    margin-bottom: .6em;
+    margin-right: 1em;
+    padding-left: 1.6em;
+    position: relative;
+    white-space: nowrap;
+
+    &:before {
+        border-radius: 9999px;
+        content: '';
+        height: 1em;
+        left: 0;
+        position: absolute;
+        top: .2em;
+        width: 1em;
+    }
+}
+
+    .list-item-exg:before {
+        background: $listeexg;
+    }
+
+    .list-item-pc:before {
+        background: $listepc;
+    }
+
+    .list-item-fg:before {
+        background: $listefg;
+    }
+
+    .list-item-pg:before {
+        background: $listepg;
+    }
+
+    .list-item-ps:before {
+        background: $listeps;
+    }
+
+    .list-item-ug:before {
+        background: $listeug;
+    }
+
+    .list-item-dvg:before {
+        background: $listedvg;
+    }
+
+    .list-item-eelv:before {
+        background: $listeeelv;
+    }
+
+    .list-item-modem:before {
+        background: $listemodem;
+    }
+
+    .list-item-uc:before {
+        background: $listeuc;
+    }
+
+    .list-item-udi:before {
+        background: $listeudi;
+    }
+
+    .list-item-dvd:before {
+        background: $listedvd;
+    }
+
+    .list-item-ud:before {
+        background: $listeud;
+    }
+
+    .list-item-ump:before {
+        background: $listeump;
+    }
+
+    .list-item-fn:before {
+        background: $listefn;
+    }
+
+    .list-item-exd:before {
+        background: $listeexd;
+    }
+
+    .list-item-div:before {
+        background: $listediv;
+    }
+
+    .list-item-se:before {
+        background: $listese;
+    }
+
+.logo-hyblab,
+.logo-polytech,
+.logo-design,
+.logo-of,
+.logo-oml,
+.logo-nantesmetropole,
+.logo-pdl,
+.logo-univ {
+    width: 60%;
+}
+
+.photo-element {
+    margin-bottom: .6em;
+    max-width: 14.2%; // 100/7
+}
+
+.photo-element.mod-title {
+    font-weight: 700;
+}
+
+    .photo-element-img,
+    .photo-element-title {
+        display: block;
+        margin: 0;
+        text-align: center;
+    }
+
+    .photo-element-img {
+        margin: 0 auto;
+        width: 8em;
+    }
+
+.code-list {
+    list-style: none;
+}
+
+    .code-img,
+    .code-text {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .code-img {
+        margin-bottom: .2em;
+        width: 3em;
+    }
+
