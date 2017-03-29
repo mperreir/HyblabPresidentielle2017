@@ -51,6 +51,8 @@ $( document ).ready(function() {
 		}
 	});
 
+  /* Fonctions outil */
+
   function addDays(selector){
     var i;
     selector.options[0] = new Option();

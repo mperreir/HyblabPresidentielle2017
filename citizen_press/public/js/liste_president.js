@@ -1,17 +1,17 @@
 $(document).ready(function() {
 
     //Clic sur les boutons valider    
-    
     attribuerClics();
 
+    // Enchainement de fonctions pour valider les 
     function attribuerClics(){
         var idBureau = $('.idBureau').attr('id');
-        console.log
 
         $('.boutonValider').click(function(event){
             valider(event.target.id,idBureau,event.target.name);
         });
     }
+
 
     function valider(idAssesseur,idBureau,typeBenevole){
 
@@ -139,7 +139,7 @@ $(document).ready(function() {
 
     //Mise en forme de la table et du tri
     function miseEnFormeTable(){
-        $('#table_benevoles').DataTable( {
+        $('#table_benevoles').DataTable({
             "scrollY":        "500px",
             "scrollCollapse": true,
             "paging":         false,
@@ -147,11 +147,8 @@ $(document).ready(function() {
               "info":           "",//On affiche rien au lieu de "_TOTAL_ bénévoles affichés au total"
               "search":         "Rechercher:"
           }
-          //A modifier
-          //No data available in table
-          //Showing 0 to 0 of 0 entrie
-        } );
+        });
     }
 
-} );
+});
 

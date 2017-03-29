@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name=”author” content="">
+    <meta name="keyword" content="">
+    <meta name="description" content= "">
+    <title>| HybLab |</title>
+  <link rel="stylesheet" type="text/css" href="./css/select/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Récupération de la map ainsi que des locations -->
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0othcEZUsFnDRiRQM2rZlNH1jBliT--o&libraries=places"></script>
+    <link href="https://fonts.googleapis.com/css?family=Anaheim" rel="stylesheet">
+
+</head>
+<body>
+<!--------------LEGENDE------------>
+    
+    <div class="legende">
+        <h2>Légende</h2>
+        <img id="open" src="img/select/open-leg.png">
+        <img id="close" src="img/select/close-leg.png">
+        
+        <h5>Places restantes</h5>
+
+        <div class="leg-block">
+            <div class="leg-col01"></div>
+            <h6>Critique (6 à 8)</h6>
+        </div>
+        
+        <div class="leg-block">
+            <div class="leg-col03"></div>
+            <h6>Semi critique (3 à 5)</h6>
+        </div>
+
+        <div class="leg-block">
+            <div class="leg-col02"></div>
+            <h6>Presque atteint (1 à 2)</h6>
+        </div>
+        
+        <div class="leg-block">
+            <div class="leg-col04"></div>
+            <h6>Atteint (0)</h6>
+        </div>
+        
+        <h5>Nombre de bureaux</h5>
+        
+        <div class="leg-block">
+            <img src="img/select/nrb-office.png">
+            <h6 class="txt-office">Bureaux présents à cette adresse</h6>
+        </div>
+    </div>
+
+ <!-- Type de participation en tant que bénévole -->   
+
+ <div class="other">
+    <h1 id="msgNeed"></h1>
+        <form method="POST" action="/citizen_press/inscription">
+            <p>
+                <input type="checkbox" name="checkAss" id="checkAsse" />
+                <label for="checkAsse">Je veux être assesseur :</label>
+            </p>
+            
+            <p>
+                <input type="checkbox" name="checkScrut" id="checkScrut" />
+                <label for="checkScrut">Je veux être scrutateur :</label>
+            </p>
+            <input type="hidden" class="idBureau" name="idBureau" value=""/>
+            <input class="button" type="submit" value="Je m'engage"/>
+        </form>
+    </div> 
+
+    
+<!-- Champs de recherche -->
+<input id="pac-input" class="controls" type="text" placeholder="Trouver votre adresse">
