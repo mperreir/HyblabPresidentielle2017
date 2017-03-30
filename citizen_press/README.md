@@ -21,5 +21,6 @@ EDNA : Camille, Kevin et Margaux
 Polytech : Aurélien, Jimmy, Tom et Quentin 
 
 # Installation
+Lancer `node server.js` et se connecter à http://localhost:8080/citizen_press/
 
 # Informations complémentaires
