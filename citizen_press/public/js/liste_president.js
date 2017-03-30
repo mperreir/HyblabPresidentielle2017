@@ -15,6 +15,10 @@ $(document).ready(function() {
 
     function valider(idAssesseur,idBureau,typeBenevole){
 
+        console.log("idAssesseur : "+idAssesseur);
+        console.log("idBureau : "+idBureau);
+        console.log("typeBenevole : "+typeBenevole);
+
         $.ajax({
             url: "/citizen_press/valider/"+idBureau+"/"+idAssesseur+"/"+typeBenevole,
             type: "GET",

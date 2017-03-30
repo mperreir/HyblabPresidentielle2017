@@ -582,12 +582,15 @@ $(document).ready(function(){
 
 	// Fonction de création de l'image svg
 	function createSVG(adresse, numPOI) {
-		var valPlus = 0.75;
+		// Ajustement suivant la résolution utilisateur
+		var valPlus = 0.8;
 		if (window.devicePixelRatio > 1.5) {
 			valPlus = 1.25;
 		}
+
 		var width = window.screen.width*valPlus;
 		var height = window.screen.height*valPlus;
+		
 		$.ajax({
 			url:"bureaux/"+adresse+"/"+numPOI+"/"+width+"/"+height,
 			type: "GET",

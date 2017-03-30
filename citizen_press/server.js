@@ -233,7 +233,7 @@ app.get("/bureaux/:adresse/:numPOI/:width/:height", (req, res) => {
 });
 
 // Route utilisé pour créer les données de la personne bénévole
-app.post("/citizen_press/form", function (req, res) {
+app.post("/merci", function (req, res) {
 	
 	// Ecriture dans le fichier de données
 	fs.readFile(URL_DATA, 'utf8', function readFileCallback(err, data){
@@ -319,13 +319,13 @@ app.post("/assesseurs/:id", (req, res) => {
 	});
 });
 
-// Route d'accès au bureau d'un président avec visibilité de tous les assesseurs ou scrutateurs validés ou non
+
+// La page des assesseurs validé sur un bureau
 app.get("/president/:id", (req, res) => {
 
-	// Formatage de la réponse au format JSON
  	res.set({"Content-Type" : "text/html"});
 
-	// Récupération du header de la page et écriture dans la réponse
+	// Récupération du header de la page
 	var header = fs.readFileSync('citizen_press/public/html/liste_president/header.html','utf8');
 	res.write(header);
 	 
@@ -333,24 +333,23 @@ app.get("/president/:id", (req, res) => {
 	// Préparation du parsage JSON pour la création des éléments
 	var body = fs.readFileSync('citizen_press/public/data/data.json', 'utf8');
 
+	    //if (err) throw err; // à voir 
 	var obj = JSON.parse(body);
 	   
+	    //var id = req.params.id;
 	var idBureau = req.params.id;
 
 	// Initialisation des variables
 	var assesseurs = [];
 	var asseseurTemp;
-
-	// Parcours des bureaux pour retrouver le bureau concerné et récupération des informations
+	// Parcours des bureaux pour création de points d'intêrets
 	for(var index in obj.bureaux){
-		// Quand c'est le bon bureau
 	  	if (obj.bureaux[index].id == idBureau){
 	   		res.write("<div class=\"resume_buro\"><p class = \"nom_lieu_adresse\">");
 	   		res.write(obj.bureaux[index].nom_lieu + "<br><span>" + obj.bureaux[index].adresse);
        		res.write("</span><br><span class = \"codepo_ville\" >");
 	   		res.write(obj.bureaux[index].code_postal + " " + obj.bureaux[index].ville);
        		res.write("</span></p><p>\n\n</p></div>");
-       		// Récupération des informations de l'assesseur
        		for(var index2 in obj.bureaux[index].assesseurs){
        			asseseurTemp = obj.bureaux[index].assesseurs[index2];
        			assesseurs.push([asseseurTemp.id,asseseurTemp.valide_assesseur,asseseurTemp.valide_scrutateur]);
@@ -359,8 +358,8 @@ app.get("/president/:id", (req, res) => {
 	};
 
 	res.write('<div class="Filtrage"> \
-   				<h2>FILTRAGE : </h2> \
-   				<form class="input01" action=""> \
+			    <h2>FILTRAGE : </h2> \
+			    <form class="input01" action=""> \
 				<div><label for="check01">Assesseurs</label><input type="radio" id="check01" name="type_benevole" value="Assesseurs" checked></div> \
 				<div><label for="check02">Scrutateurs</label><input type="radio" id="check02" name="type_benevole" value="Scrutateurs"></div> \
 				</form><form class="input02" action=""<div><label for="check03">Demandes en cours</label><input type="radio" id="check03" name="type_demande" value="en_cours" checked > \
@@ -379,7 +378,7 @@ app.get("/president/:id", (req, res) => {
 				<tbody>');
 
 	
-
+	// Parcours des assesseurs
 	for(var index3 in assesseurs){
 		for (var index4 in obj.assesseurs){
 			if (obj.assesseurs[index4].id == assesseurs[index3][0]){
@@ -426,52 +425,50 @@ app.get("/president/:id", (req, res) => {
 			}
 		}
 	};
+	res.write("</tbody></table>");
+	res.write('<input type="hidden" class="idBureau" id="'+idBureau+'">');
 
-	// Récupération et écriture du footer
 	var footer = fs.readFileSync('citizen_press/public/html/liste_president/footer.html','utf8');
 	res.write(footer);
 	res.end();
+	
 });
+
 
 // Route d'accès au validation d'un bénévole en assesseur ou scrutateur
 app.get("/valider/:idBureau/:idAssesseur/:type_benevole", function (req, res) {
 
 	// Récupération des données
-	fs.readFile('citizen_press/public/data/data.json', 'utf8', function readFileCallback(err, data){
-    	if (err){
-       		console.log(err);
-   		}
-   		else{
+	var data = fs.readFileSync('citizen_press/public/data/data.json', 'utf8');//, function readFileCallback(err, data){
  
- 		// Récupération des informations transmise dans la route
-		var idBureau = req.params.idBureau;
-		var idAssesseur = req.params.idAssesseur;
-		var benevole = req.params.type_benevole;
+	// Récupération des informations transmise dans la route
+	var idBureau = req.params.idBureau;
+	var idAssesseur = req.params.idAssesseur;
+	var benevole = req.params.type_benevole;
 
-		// Parsage du JSON en objet
-		var obj = JSON.parse(data); 
-    
-    	// Pour l'assesseur concerné
-    	for(var index in obj.bureaux){
-    		if (obj.bureaux[index].id == idBureau){
-    			for (var index2 in obj.bureaux[index].assesseurs) {
-					if(obj.bureaux[index].assesseurs[index2].id == idAssesseur) {
-						// Validation concerné
-		    			if(benevole ==  "ValiderAss"){
-		        			obj.bureaux[index].assesseurs[index2].valide_assesseur = true;
-		        		}
-		        		else if(benevole ===  "ValiderScrut"){
-		        			obj.bureaux[index].assesseurs[index2].valide_scrutateur = true;
-		        		}
-		        	}
+	// Parsage du JSON en objet
+	var obj = JSON.parse(data); 
+
+	// Pour l'assesseur concerné
+	for(var index in obj.bureaux){
+		if (obj.bureaux[index].id == idBureau){
+			for (var index2 in obj.bureaux[index].assesseurs) {
+				if(obj.bureaux[index].assesseurs[index2].id == idAssesseur) {
+					// Validation concerné
+	    			if(benevole ==  "ValiderAss"){
+	        			obj.bureaux[index].assesseurs[index2].valide_assesseur = true;
+	        		}
+	        		else if(benevole ===  "ValiderScrut"){
+	        			obj.bureaux[index].assesseurs[index2].valide_scrutateur = true;
+	        		}
 	        	}
-    		}
-    	}
-    	// Conversion de l'objet json et écriture
-		var json = JSON.stringify(obj); 
-		fs.writeFile('citizen_press/public/data/data.json', json, 'utf8', -1);  
+        	}
 		}
-	});
+	}
+	// Conversion de l'objet json et écriture
+	var json = JSON.stringify(obj); 
+	fs.writeFile('citizen_press/public/data/data.json', json, 'utf8', -1);  
+	
 });
 
 
@@ -568,7 +565,6 @@ function writeSvg(bureaux, numPOI,width,height) {
  	* La modification des couleurs
  	* La modification du chiffre
 */
-
 function SVG(numPOI,width,height) {
 	this.url = "svg"+numPOI+".svg";
 	this.contentSVG_littleCircles = "";

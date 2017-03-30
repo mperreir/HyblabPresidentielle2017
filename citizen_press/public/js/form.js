@@ -1,58 +1,23 @@
 $( document ).ready(function() {
+  //on cache les input pré rempli (informations des pages précédentes)
   $('#idBureau').hide();
   $('#scrutateur').hide();
   $('#assesseur').hide();
 
-  $("#valider").click(function() {
-    var nom = $("#nom").val();
-    var prenom = $("#prenom").val();
-    var civilite = $("#civilite").val();
-    var jour = $("#jour").val();
-    var mois = $("#mois").val();
-    var annee = $("#annee").val();
-    var email = $("#email").val();
-    var mobile = $("#mobile").val();
-
-    var idBureau = $("#idBureau").val();
-    var assesseur = $("#assesseur").val();
-    var scrutateur = $("#scrutateur").val();
-
-    var stringDate = annee + "-" + mois + '-' + jour;
-
-    var naissance = getAge(stringDate);
-
-    $.getJSON('/citizen_press/data/data2.json', function (data) {
-        var idAsse = data.assesseurs[data.assesseurs.length-1];
-        obj = {
-          "id": idBureau,
-          "nom": nom,
-          "prenom": prenom,
-          "age": naissance,
-          "mail": email,
-          "tel": mobile,
-          "sexe": civilite,
-          "potentiel_assesseur": assesseur,
-          "potentiel_scrutateur": scrutateur
-        }
-
-    });
-  });
-
   // Pour que les checkbox se comporte comme des radiobutton
   $("#check").change(function(){
-		if (this.checked) {
-			$("#check-bis").prop("checked", false);
-		}
-	});
+    if (this.checked) {
+      $("#check-bis").prop("checked", false);
+    }
+  });
 
-	$("#check-bis").change(function(){
-		if (this.checked) {
-			$("#check").prop("checked", false);
-		}
-	});
+  $("#check-bis").change(function(){
+    if (this.checked) {
+      $("#check").prop("checked", false);
+    }
+  });
 
-  /* Fonctions outil */
-
+  //On ajoute les jours du select dynamiquement
   function addDays(selector){
     var i;
     selector.options[0] = new Option();
@@ -60,6 +25,7 @@ $( document ).ready(function() {
       selector.options[i] = new Option(i,i);
     }
   }
+  //On ajoute les années du select dynamiquement
   function addYears(selector){
     var i;
     var j=2017;
@@ -68,17 +34,6 @@ $( document ).ready(function() {
       selector.options[i] = new Option(j,j);
       j--;
     }
-  }
-
-  function getAge(dateString) {
-    var today = new Date();
-    var birthDate = new Date(dateString);
-    var age = today.getFullYear() - birthDate.getFullYear();
-    var m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-    }
-    return age;
   }
   //usage:
   addDays(document.getElementById("jour"));
