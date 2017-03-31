@@ -19,21 +19,21 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 // Définition des variables globales
-var URL_DATA = 'citizen_press/public/data/data.json';
+var URL_DATA = path.join(__dirname, 'public/data/data.json');
 var NB_MAX_ASSESSEURS_SCRUTATEUR = 8;
 
 // Recuperation des chemins relatifs
-app.use(express.static(path.join(__dirname, 'public')));  
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Route d'accès à la page d'accueil
 app.get("/", (req,res) => {
 
 	// Lecture du fichier et écriture de celui-ci dans la réponse
-	fs.readFile('citizen_press/public/html/accueil/accueil.html','utf8', function(err,data){	// Lecture d'un fichier
+	fs.readFile(path.join(__dirname, 'public/html/accueil/accueil.html'),'utf8', function(err,data){	// Lecture d'un fichier
 		if (err) throw err;
 		res.write(data);	// Ecriture dans la réponse
 		res.end();
-	});	
+	});
 });
 
 
@@ -42,16 +42,16 @@ app.get("/select", (req, res) => {
 
 	// Formatage de la réponse au format html
 	res.set({"Content-Type" : "text/html"});
-	
+
 	// Récupération du header de la page
-	var header = fs.readFileSync('citizen_press/public/html/select/header.html','utf8');
-	res.write(header);	// Ecriture dans la réponse 
+	var header = fs.readFileSync(path.join(__dirname,'public/html/select/header.html'),'utf8');
+	res.write(header);	// Ecriture dans la réponse
 
 	// Préparation du parsage JSON pour la création des éléments
 	var body = fs.readFileSync(URL_DATA, 'utf8');
-    
+
     var obj = JSON.parse(body);
-   
+
    	// Initialisation des variables
     var tab = [];
     var calc = 1;
@@ -92,16 +92,16 @@ app.get("/select", (req, res) => {
 		    					</div>\
 	    					</div>\
 	    				</div>\
-    					<img class="fermer" src="./img/select/arrow.png"> \
+    					<img class="fermer" src="img/select/arrow.png"> \
         			</section> \n');
         	calc++;
         	tab.push(obj.bureaux[i].adresse);
     	};
-    
+
 	};
 
 // Récupération du footer
-	var footer = fs.readFileSync('citizen_press/public/html/select/footer.html','utf8'); 
+	var footer = fs.readFileSync(path.join(__dirname, 'public/html/select/footer.html'),'utf8');
 	res.write(footer);	// Ecriture dans la réponse
 	res.end();
 });
@@ -110,11 +110,11 @@ app.get("/select", (req, res) => {
 app.get("/credits", (req, res) => {
 
 	// Ecriture de la page
-	fs.readFile('citizen_press/public/html/accueil/bandeau.html','utf8', function(err,data){	// Lecture d'un fichier
+	fs.readFile(path.join(__dirname, 'public/html/accueil/bandeau.html'),'utf8', function(err,data){	// Lecture d'un fichier
 		if (err) throw err;
 		res.write(data);	// Ecriture dans la réponse
 		res.end();
-	});	
+	});
 });
 
 // Route d'accès au formulaire pour s'inscrire
@@ -129,7 +129,7 @@ app.post("/inscription", (req,res) => {
 	var checkScrut = req.body.checkScrut;
 
 	// Récupération du header de la page et ecriture
-	var content_header = fs.readFileSync('citizen_press/public/html/formulaire/header_formulaire.html','utf8');
+	var content_header = fs.readFileSync(path.join(__dirname,'public/html/formulaire/header_formulaire.html'),'utf8');
 	res.write(content_header);
 
 	// Ecriture des valeurs dans les champs cachés
@@ -138,7 +138,7 @@ app.post("/inscription", (req,res) => {
 	res.write('<input type="hidden" name="checkScrut" value="'+checkScrut +'"/>');
 
 	// Récupération et écriture du footer
-	var content_footer = fs.readFileSync('citizen_press/public/html/formulaire/footer_formulaire.html','utf8');
+	var content_footer = fs.readFileSync(path.join(__dirname,'public/html/formulaire/footer_formulaire.html'),'utf8');
 	res.write(content_footer);
 
 	// Envoi de la réponse
@@ -153,7 +153,7 @@ app.get("/merci", (req,res) => {
 	res.set({"Content-Type" : "text/html"});
 
 	// Ecriture de la page
-	fs.readFile('citizen_press/public/html/merci/merci.html','utf8', function(err,data){	// Lecture d'un fichier
+	fs.readFile(path.join(__dirname, 'public/html/merci/merci.html'),'utf8', function(err,data){	// Lecture d'un fichier
 		if (err) throw err;
 		res.write(data);	// Ecriture dans la réponse
 		res.end();
@@ -164,7 +164,7 @@ app.get("/merci", (req,res) => {
 // Route d'accès AJAX pour récupérer les bureaux
 app.get("/bureaux", (req, res) => {
 	fs.readFile(URL_DATA, 'utf8', function (err, data) {
-	    if (err) throw err; // à voir 
+	    if (err) throw err; // à voir
 	    var obj = JSON.parse(data);
 	    // Formatage de la réponse au format JSON
 	    res.contentType('json');
@@ -179,14 +179,14 @@ app.get("/bureaux/:id", (req, res) => {
 	var idBureau = req.params.id;
 
 	fs.readFile(URL_DATA, 'utf8', function (err, data) {
-	    if (err) throw err; // à voir 
+	    if (err) throw err; // à voir
 	    var obj = JSON.parse(data);
 	    // Formatage de la réponse au format JSON
 	    res.contentType('json');
 	    for (var bureau in obj.bureaux) {
 	    	// le bon bureau
 	    	if (idBureau == obj.bureaux[bureau].id) {
-	    		// Ecriture dans la réponse du bureau au format JSON 
+	    		// Ecriture dans la réponse du bureau au format JSON
 	    		res.write(JSON.stringify(obj.bureaux[bureau]));
 	    	}
 	    }
@@ -197,7 +197,7 @@ app.get("/bureaux/:id", (req, res) => {
 
 // Récupère les données des bureaux à l'adresse :adresse pour poouvoir renvoyer le bon SVG. Utilisé en AJAX
 app.get("/bureaux/:adresse/:numPOI/:width/:height", (req, res) => {
-	
+
 	var nbAssesseursInscrit = 0;
 	var bureaux = new Map();
 	var bureau;
@@ -206,7 +206,7 @@ app.get("/bureaux/:adresse/:numPOI/:width/:height", (req, res) => {
 	var numPOI = req.params.numPOI;
 
 	fs.readFile(URL_DATA, 'utf8', function(err, data) {
-	    if (err) throw err; // à voir 
+	    if (err) throw err; // à voir
 	    var obj = JSON.parse(data);
 
 	    // Parcours des bureaux
@@ -234,7 +234,7 @@ app.get("/bureaux/:adresse/:numPOI/:width/:height", (req, res) => {
 
 // Route utilisé pour créer les données de la personne bénévole
 app.post("/merci", function (req, res) {
-	
+
 	// Ecriture dans le fichier de données
 	fs.readFile(URL_DATA, 'utf8', function readFileCallback(err, data){
     	if (err){
@@ -251,7 +251,7 @@ app.post("/merci", function (req, res) {
    			var annee = req.body.annee;
    			var naissance = annee + "-" + mois + "-" + jour;
    			var civilite = req.body.civilite;
-   		
+
    			var idBureau = req.body.idBureau;
    			var assesseurDemande = false;
    			var scrutateurDemande = false;
@@ -297,7 +297,7 @@ app.post("/merci", function (req, res) {
 	});
 
 	// Ecriture de la page de remerciement
-	fs.readFile('citizen_press/public/html/merci/merci.html','utf8', function(err,data){	// Lecture d'un fichier
+	fs.readFile(path.join(__dirname, 'public/html/merci/merci.html'),'utf8', function(err,data){	// Lecture d'un fichier
 		if (err) throw err;
 		res.write(data);	// Ecriture dans la réponse
 		res.end();
@@ -309,7 +309,7 @@ app.post("/merci", function (req, res) {
 app.post("/assesseurs/:id", (req, res) => {
 	//console.log("Ajout d'un assesseurs...");
 	fs.readFile('data.json', 'utf8', function (err, data) {
-	    if (err) throw err; // à voir 
+	    if (err) throw err; // à voir
 	    var obj = JSON.parse(data);
 	    var nbAssesseurs = obj.assesseurs.length;
 	    obj.assesseurs[nbAssesseurs+1].id = req.params.id;
@@ -326,16 +326,16 @@ app.get("/president/:id", (req, res) => {
  	res.set({"Content-Type" : "text/html"});
 
 	// Récupération du header de la page
-	var header = fs.readFileSync('citizen_press/public/html/liste_president/header.html','utf8');
+	var header = fs.readFileSync(path.join(__dirname, 'public/html/liste_president/header.html'),'utf8');
 	res.write(header);
-	 
+
 
 	// Préparation du parsage JSON pour la création des éléments
-	var body = fs.readFileSync('citizen_press/public/data/data.json', 'utf8');
+	var body = fs.readFileSync(path.join(__dirname, 'public/data/data.json'), 'utf8');
 
-	    //if (err) throw err; // à voir 
+	    //if (err) throw err; // à voir
 	var obj = JSON.parse(body);
-	   
+
 	    //var id = req.params.id;
 	var idBureau = req.params.id;
 
@@ -377,7 +377,7 @@ app.get("/president/:id", (req, res) => {
 				</thead> \
 				<tbody>');
 
-	
+
 	// Parcours des assesseurs
 	for(var index3 in assesseurs){
 		for (var index4 in obj.assesseurs){
@@ -402,7 +402,7 @@ app.get("/president/:id", (req, res) => {
 				else if (asseseurTemp.potentiel_assesseur){
 					if (assesseurs[index3][1]){//Asseseurs valides
 						res.write("class=\"assesseur_valide\" ");
-					}else{ 
+					}else{
 						res.write("class=\"assesseur_non_valide\" ");
 					}
 				}
@@ -428,10 +428,10 @@ app.get("/president/:id", (req, res) => {
 	res.write("</tbody></table>");
 	res.write('<input type="hidden" class="idBureau" id="'+idBureau+'">');
 
-	var footer = fs.readFileSync('citizen_press/public/html/liste_president/footer.html','utf8');
+	var footer = fs.readFileSync(path.join(__dirname, 'public/html/liste_president/footer.html'),'utf8');
 	res.write(footer);
 	res.end();
-	
+
 });
 
 
@@ -439,15 +439,15 @@ app.get("/president/:id", (req, res) => {
 app.get("/valider/:idBureau/:idAssesseur/:type_benevole", function (req, res) {
 
 	// Récupération des données
-	var data = fs.readFileSync('citizen_press/public/data/data.json', 'utf8');//, function readFileCallback(err, data){
- 
+	var data = fs.readFileSync(path.join(__dirname, 'public/data/data.json'), 'utf8');//, function readFileCallback(err, data){
+
 	// Récupération des informations transmise dans la route
 	var idBureau = req.params.idBureau;
 	var idAssesseur = req.params.idAssesseur;
 	var benevole = req.params.type_benevole;
 
 	// Parsage du JSON en objet
-	var obj = JSON.parse(data); 
+	var obj = JSON.parse(data);
 
 	// Pour l'assesseur concerné
 	for(var index in obj.bureaux){
@@ -466,9 +466,9 @@ app.get("/valider/:idBureau/:idAssesseur/:type_benevole", function (req, res) {
 		}
 	}
 	// Conversion de l'objet json et écriture
-	var json = JSON.stringify(obj); 
-	fs.writeFile('citizen_press/public/data/data.json', json, 'utf8', -1);  
-	
+	var json = JSON.stringify(obj);
+	fs.writeFile(path.join(__dirname, 'public/data/data.json'), json, 'utf8', -1);
+
 });
 
 
@@ -479,9 +479,9 @@ app.get("/valider/:idBureau/:idAssesseur/:type_benevole", function (req, res) {
 
 // Écrit un SVG à partir des bureaux entré en entrée
 // Les bureaux sont à la même adresse (un seul POI)
-function writeSvg(bureaux, numPOI,width,height) {	
+function writeSvg(bureaux, numPOI,width,height) {
 	var colors = new Array();
-	var tauxRemplissage;	
+	var tauxRemplissage;
 	var nbAssesseursScrutMin = NB_MAX_ASSESSEURS_SCRUTATEUR;
 	var svg = new SVG(numPOI,width,height);
 	// Détermination de la couleur de chaque petit cercle
@@ -553,7 +553,7 @@ function writeSvg(bureaux, numPOI,width,height) {
 	svg.setNumber(NB_MAX_ASSESSEURS_SCRUTATEUR - nbAssesseursScrutMin);
 
 	// Ecriture des fichiers
-	fs.writeFile("./citizen_press/public/img/icones_SVG/"+svg.url, svg.getContent());
+	fs.writeFile(path.join(__dirname, "citizen_press/public/img/icones_SVG/"+svg.url), svg.getContent());
 }
 
 
@@ -583,9 +583,9 @@ function SVG(numPOI,width,height) {
 			.st3{font-family:Lato-Bold, Lato;font-weight:700;}\
 			.st4{font-size:46.3393px;}\
 		</style>';
-	
 
-	// Ajoute le cercle principale 
+
+	// Ajoute le cercle principale
 	// classColor : la classe à ajouter
 	this.setBigCircle = function (classColor) {
 		this.contentSVG_bigCircle = '<circle class="'+classColor+'" cx="66.7" cy="95.9" r="63.4"/>';
