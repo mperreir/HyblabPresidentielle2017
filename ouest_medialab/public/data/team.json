@@ -1,0 +1,53 @@
+[
+  {
+    "first": "Louise",
+    "name": "Chapalain",
+    "job": "graphic designer",
+    "pic": "img/team1.png",
+    "link": "http://www.louisechapalain.com/"
+  },
+  {
+    "first": "Adèle",
+    "name": "Darcet",
+    "job": "graphic designer",
+    "pic": "img/team2.png",
+    "link": "https://www.adeledarcet.com/"
+  },
+  {
+    "first": "Han",
+    "name": "Dinh",
+    "job": "developer",
+    "pic": "img/team3.png"
+  },
+  {
+    "first": "Félix",
+    "name": "Galliot",
+    "job": "developer",
+    "pic": "img/team4.png"
+  },
+  {
+    "first": "Gaëlle",
+    "name": "Jouis",
+    "job": "team leader",
+    "pic": "img/team5.png"
+  },
+  {
+    "first": "Ackapol",
+    "name": "Lamuang",
+    "job": "visual designer",
+    "pic": "img/team6.png"
+  },
+  {
+    "first": "Mathilde",
+    "name": "Prévost",
+    "job": "developer",
+    "pic": "img/team7.png",
+    "link": "https://www.linkedin.com/in/mathilde-pr%C3%A9vost-6294b2130/"
+  },
+  {
+    "first": "Vernard",
+    "name": "Wilson",
+    "job": "developer",
+    "pic": "img/team8.png"
+  }
+]

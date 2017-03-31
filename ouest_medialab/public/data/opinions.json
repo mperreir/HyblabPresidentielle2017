@@ -1,0 +1,147 @@
+{
+  "Environment": {
+    "M\u00e9lenchon": [
+      "Increase the production of green energy",
+      "Provide solutions for global warming",
+      "Reduce waste",
+      "Reduce the use of nuclear power plants",
+      "Fight against GMO and pesticides"
+    ],
+    "Hamon": [
+      "Increase the production of green energy",
+      "Reduce waste",
+      "Reduce the use of nuclear power plants"
+    ],
+    "Macron": [
+      "No plan to regulate shale gas",
+      "Increase the production of green energy",
+      "Provide solutions for global warming",
+      "Fight against GMO and pesticides"
+    ],
+    "Fillon": [
+      "Increase the production of green energy",
+      "Provide solutions for global warming",
+      "Reduce waste",
+      "No plan to reduce the nuclear power plants"
+    ],
+    "Le Pen": [
+      "Increase the production of green energy",
+      "No plan to reduce the nuclear power plants",
+      "Fight against GMO and pesticides"
+    ]
+  },
+  "Immigration": {
+    "M\u00e9lenchon": [
+      "No plan to reduce the procedure of asylum application",
+      "Improve the civil means for rescue"
+    ],
+    "Hamon": [
+      "Reduce the number of border checks",
+      "Improve the civil means for rescue",
+      "Reduce the procedure of asylum application",
+      "Increase the number of legal immigrants"
+    ],
+    "Macron": [
+      "Reduce the procedure of asylum application"
+    ],
+    "Fillon": [
+      "Reduce the number of legal immigrants",
+      "No plan to reduce the procedure of asylum application",
+      "Increase the number of border checks",
+      "No plan to improve the civil means for rescue"
+    ],
+    "Le Pen": [
+      "No plan to reduce the procedure of asylum application",
+      "Reduce the number of legal immigrants"
+    ]
+  },
+  "Public Benefits": {
+    "M\u00e9lenchon": [
+      "Eradicate the insecure work"
+    ],
+    "Hamon": [
+      "Increase the global healthcare funds",
+      "Increase the retirement benefits"
+    ],
+    "Macron": [
+      "Eradicate the insecure work",
+      "Increase the retirement benefits"
+    ],
+    "Fillon": [
+      "Increase the retirement benefits"
+    ],
+    "Le Pen": [
+      "Increase the global healthcare fund",
+      "Increase the retirement benefits"
+    ]
+  },
+  "Security": {
+    "M\u00e9lenchon": [
+      "Increasing the funds to military and defense"
+    ],
+    "Hamon": [
+      "Increasing the funds to military and defense"
+    ],
+    "Macron": [
+      "Increasing the funds to military and defense",
+      "Planning to take action against terrorism"
+    ],
+    "Fillon": [
+      "Increasing the funds to military and defense",
+      "Planning to take action against terrorism"
+    ],
+    "Le Pen": [
+      "Increasing the funds to military and defense",
+      "Planning to take action against terrorism"
+    ]
+  },
+  "Economy": {
+    "M\u00e9lenchon": [
+      "Increase minimum wage",
+      "Reduce unemployment",
+      "Increasing of the workers purchasing power"
+    ],
+    "Hamon": [
+      "Increase minimum wage",
+      "Reduce unemployment",
+      "No plan to reduce the cost of work",
+      "Adopting transnationality",
+      "Increasing of the workers purchasing power"
+    ],
+    "Macron": [
+      "Increase taxes on smoking",
+      "Reduce the cost of work",
+      "Adopting transnationality",
+      "Increasing of the workers purchasing power"
+    ],
+    "Fillon": [
+      "Reduce unemployment",
+      "Reduce the cost of work",
+      "Promote nativism",
+      "Increasing of the workers purchasing power"
+    ],
+    "Le Pen": [
+      "No Plan to Increase minimum wage",
+      "Promote nativism",
+      "Increasing of the workers purchasing power"
+    ]
+  },
+  "Social Movements": {
+    "M\u00e9lenchon": [
+      "Support LGBTQ"
+    ],
+    "Hamon": [
+      "Caring about women's rights"
+    ],
+    "Macron": [
+      "Caring about women's rights"
+    ],
+    "Fillon": [
+      "Caring about women's rights",
+      "Do not support LGBTQ"
+    ],
+    "Le Pen": [
+      "Caring about women's rights"
+    ]
+  }
+}

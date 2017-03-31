@@ -1,40 +1,172 @@
 <!DOCTYPE html>
-<html lang="fr"> <!-- Notre page est en français -->
+<html lang="en"> <!-- Notre page est en anglais -->
   <head>
     <!-- Il est obligatoire de préciser un encodage de caractères et un titre pour la page -->
     <meta charset="utf-8">
-    <title>Hyblab 2016</title>
-		<!-- Basic viewport setting for mobile friendly page -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="refresh" content="60"> -->
+    <title>Vote Encore!</title>
+    <!-- Basic viewport setting for mobile friendly page -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Déclaration de la feuille de style du document-->
-    <link rel="stylesheet" href="css/style.css">
-		<!-- Those polyfills are required so that old browsers support fetch mecanism -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.0.5/es6-promise.min.js" defer ></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.1/fetch.min.js" defer></script>
-		<!-- Simple sample script that loads data from a dummy json file -->
-		<script src="js/example.js" defer></script>
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- <link rel="stylesheet/less" href="css/style.less"> -->
+    <!-- <script src="js/less.js"></script> -->
+    <!-- Those polyfills are required so that old browsers support fetch mecanism -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.0.5/es6-promise.min.js" defer ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.1/fetch.min.js" defer></script>
   </head>
   <body>
     <!-- Ce conteneur est la seule balise div que l'on s'autorise pour effectuer la mise en page du site -->
     <!-- On pourrait bien sûr en ajouter d'autres pour se faciliter la mise en page -->
     <!-- Mais on va s'efforce de respecter et brouiller le moins possible la structure logique du contenu -->
-    <div id="container">
+    <!-- <div id="container"> -->
 
     <!-- l'entête de la page: titre, barre de recherche -->
+
     <header>
-			<img src="img/logo_hyblab.png" alt="logo hyblab"/>
-      <h1>Hyblab Datajournalism 2017</h1>
+        <nav>
+            <ul>
+                <li><a href="#welcome" class="scroll selected"></a></li>
+                <li><a href="#candidates" class="scroll"></a></li>
+                <li><a href="#topics" class="scroll"></a></li>
+                <li><a href="#survey" class="scroll"></a></li>
+                <li><a href="#sources" class="scroll"></a></li>
+                <li><a href="#about" class="scroll"></a></li>
+            </ul>
+        </nav>
     </header>
 
     <!-- Le contenu du site -->
-    <p>Replace this content by your web app !</p>
+    <section data-section-name="welcome" class="section-welcome">
+        <h1>Vote Encore!</h1>
+        <h2>Learn about the French Presidential candidates in less than 5 minutes</h2>
+        <a href="#candidates" class="scroll next">Scroll down for more</a>
+    </section>
+    <section data-section-name="candidates" class="section-candidates">
+        <h1>Discover the french candidates</h1>
+        <p>Let us introduce our French candidates to you!</p>
+        <p>Hover over the candidates to get to know them.</p>
+        <ul id="candidate_list">
+        </ul>
+        <script src="js/candidates.js"></script>
+        <a href="#topics" class="scroll next">Scroll down for more</a>
+    </section>
+    <section data-section-name="topics" class="section-topics">
+        <p id="topic_corner" class="topic-corner"></p>
+        <h1>Choose topics you care about</h1>
+        <h2>Curious to learn more? Explore some controversial topics.</h2>
+        <p>Choosing a topic will generate a visualization that scales the French candidates' interest on the topic.<br/>The height of the bar represents the corresponding candidate's level of interest during their campaign.</p>
+        <ul id="topic_list">
+        </ul>
+        <div class="svg"><svg id="topics_chart"></svg></div>
+        <script src="js/d3.min.js"></script>
+        <script src="js/topics.js"></script>
+        <a href="#survey" class="scroll next">Scroll down for more</a>
+    </section>
+    <section data-section-name="survey" class="section-survey">
+        <h1 class="ftop">Who should you vote for?</h1>
+        <h1 class="etop" style="display: none">Your best match</h1>
+        <h2 class="ftop">Still unsure of who to vote for? Take this survey.</h2>
+        <form action="" method="post">
+            <div id="survey-0" class="survey-form" style="left: 0">
+                <p>
+                    Complete this survey to find which French candidate best
+                    suits your interests in a president.
+                </p>
+            </div>
+            <div id="survey-x" class="survey-form survey-end" style="left: 100%">
+                <section>
+                    <article class="fr">
+                        <section class="img" title="Your best match amongst the French candidates"></section>
+                        <section class="txt"></section>
+                    </article>
+                    <article class="us">
+                        <section class="txt"><p><span>The equivalent in<br/>the U.S. would be:<br/></span><span class="content"></span></p></section>
+                        <section class="img" title="Your best match amongst the American candidates"></section>
+                    </article>
+                    <article class="share">
+                        <!-- Facebook share button code -->
+                        <span class="fb-share-button" data-href="http://apps.hyblab.fr/pres2017/ouest_medialab/" data-layout="button" data-size="large" data-mobile-iframe="true">
+                            <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fapps.hyblab.fr%2Fpres2017%2Fouest_medialab%2F&amp;src=sdkpreparse" title="Share via Facebook">
+                            <img src="img/share_facebook.png"/>
+                        </a>
+                        </span>
 
-		<p>Here is some data from a json file : <span id="data"></span><p>
+                        <!-- Twitter sharing button -->
+                        <a target="_blank" class="twitter-share-button"
+                          href="https://twitter.com/intent/tweet?text=I+just+discovered+who+is+my+best+french+candidate+for+2017+french+elections!+Find+yours!&hashtags=hyblab,Presidentelles2017&via=VoteEncore" title="Share on Twitter">
+                        <img src="img/share_twitter.png"/></a>
 
-    <!-- Notre pied de page -->
-    <footer>
-      <p>Copyright Hyblab team 2017</p>
-    </footer>
-    </div>
+                        <!-- Email sharing -->
+                        <a target="_blank" href="mailto:?subject=Let's try Vote Encore!&body= Hey! I just found my best candidate for the French election! Let's try it and find yours at http://apps.hyblab.fr/pres2017/ouest_medialab/ !" rel="nofollow" title="Share by e-mail">
+                            <img src="img/share_mail.png"/>
+                        </a>
+                    </article>
+                </section>
+            </div>
+        </form>
+        <div class="survey-button survey-footer" onclick="survey_next(0)" id="survey_button">Start</div>
+        <ul class="survey-indicator survey-footer" style="opacity: 0"></ul>
+        <script src="js/survey.js"></script>
+        <a href="#sources" class="scroll next">Scroll down for more</a>
+    </section>
+    <section data-section-name="sources" class="section-sources">
+        <h1>How did we choose your match?</h1>
+        <section>
+            <article>
+                <p>
+                    We based our algorithm on the correlation between your choices on the survey and a little database containing the different candidates point of view. <br/>
+                    To create our database, we choose a few topics, and for each , some items we find that are important and/or controversial in recent elections. <br/>
+                    We positioned our candidates on every item with: -1, 0 or +1. This way, we are able to compare points of view. Here, positive and negative have no meaning but positioning candidates on points of view.
+                </p>
+            </article>
+            <article>
+                <table id="source"></table>
+            </article>
+        </section>
+        <script src="js/sources.js"></script>
+        <p class="disclaimer">
+            <em>Click on any icon to open the source our data is based on.</em><br/>
+            Our data is collected from various online articles, videos, and<br/>
+            other web sources that are only based off of presidential campaigns.<br/>
+            We recommend further research on candidates before officially voting.
+        </p>
+        <a href="#about" class="scroll next">Scroll down for more</a>
+    </section>
+    <section data-section-name="about" class="section-about">
+        <h1>What about us?</h1>
+        <section>
+            <article>
+                <h3>Our team</h3>
+                <ul id="team_list"></ul>
+                <script src="js/team.js"></script>
+            </article>
+            <article class="links">
+                <h3>Our partners</h3>
+                <ul>
+                    <li><a href="http://www.hyblab.fr/" target="_blank"><img id="hyblab" src="img/logo_hyblab.png" alt="Hyblab DataSport"></a></li>
+                    <li><a href="http://web.polytech.univ-nantes.fr/" target="_blank"><img id="polytech" src="img/logo_polytech.png" alt="Polytech Nantes"></a></li>
+                    <li><a href="http://www.lecolededesign.com/" target="_blank"><img id="edna" src="img/logo_edna.png" alt="EDNA"></a></li>
+                    <li><a href="http://www.ouestmedialab.fr/" target="_blank"><img id="ouestmedialab" src="img/logo_oml.png" alt="Ouest Medialab"></a></li>
+                    <li><a href="http://www.paysdelaloire.fr/" target="_blank"><img id="paysdelaloire" src="img/logo_pdl.png" alt="Pays de la Loire"></a></li>
+                    <li><a href="http://www.nantes.fr/home.html" target="_blank"><img id="nantes" src="img/logo_nantesmetropole.png" alt="Ville de Nantes"></a></li>
+                    <li><a href="https://opensource.org/licenses/MIT" target="_blank"><img id="opensourceinitiative" src="img/logo_opensource.png" alt="Open Source Initiative"></a></li>
+                    <li><a href="https://creativecommons.org/licenses/by/3.0/fr/" target="_blank"><img id="creativecommons" src="img/logo_cc.png" alt="Creative Commons"></a></li>
+            </ul>
+            </article>
+        </section>
+        <!-- Notre pied de page -->
+        <footer>&copy; Hyblab Team 2017</footer>
+    </section>
+
+    <!-- </div> -->
+
+    <!-- jQuery 2 -->
+    <script src="js/jquery-2.js"></script>
+    <!-- Scrollify -->
+    <script src="js/jquery.scrollify.js"></script>
+    <script src="js/scroll.config.js"></script>
   </body>
 </html>

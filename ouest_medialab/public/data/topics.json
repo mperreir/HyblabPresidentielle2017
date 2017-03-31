@@ -1,0 +1,33 @@
+[
+  {
+    "title": "Environment",
+    "icon": "img/Topics-01.png",
+    "pos": {"title": "Protection of the environment", "desc": "In favor of renewable energy resources such as sunlight, wind, and waves."},
+    "neg": {"title": "Traditional industry development", "desc": "In favor of fossil fuels such as coil and oil for energy."}
+  }, {
+    "title": "Immigration",
+    "icon": "img/Topics-02.png",
+    "pos": {"title": "Pro-immigration", "desc": "One who believes in welcoming non-natives and non-citizens to reside in their society as permanent residents or work as migrant employees."},
+    "neg": {"title": "Nationalist", "desc": "One who supports policies to protect the interests of native inhabitants rather than immigrants."}
+  }, {
+    "title": "Public Benefits",
+    "icon": "img/Topics-06.png",
+    "pos": {"title": "Welfare State", "desc": "One who believes in protecting the health and well-being of all its citizens. They support offering low-cost or free health benefits, e.g., pensions and grants, to citizens in financial need."},
+    "neg": {"title": "Capitalist State", "desc": "one who believes health and well-being choices are a citizen's personal choice. Citizens should be accredited in healthcare and retirement benefits for how much they work or pay for."}
+  }, {
+    "title": "Security",
+    "icon": "img/Topics-05.png",
+    "pos": {"title": "Interventionist", "desc": "One who addresses foreign issues and works to implement a preferable state from an Interventionist standpoint."},
+    "neg": {"title": "Pacifist", "desc": "One who opposes war and does not support violent acts to solve foreign issues."}
+  }, {
+    "title": "Economy",
+    "icon": "img/Topics-03.png",
+    "pos": {"title": "Socialist economy", "desc": "An economy that is governed by the state and encourages government intervention in economic activities."},
+    "neg": {"title": "Capitalist economy", "desc": "An economy that encourages economic freedom and less government intervention in economic activities."}
+  }, {
+    "title": "Social Movements",
+    "icon": "img/Topics-04.png",
+    "pos": {"title": "Social liberalism", "desc": "The avocation for individual freedom and human rights, and ensures the development of human rights in all aspects; the government guarantees of individual rights and civil liberties."},
+    "neg": {"title": "Social conservatism", "desc": "One that generally supports traditional acts and opposes change and innovation."}
+  }
+]

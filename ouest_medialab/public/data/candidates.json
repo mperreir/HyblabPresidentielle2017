@@ -1,0 +1,402 @@
+[
+  {
+    "first": "Jean-Luc",
+    "name": "M\u00e9lenchon",
+    "age": 65,
+    "img": "img/hyblab-Melenchon.png",
+    "country": "FR",
+    "party": "Far-Left",
+    "topics": {
+      "Environment": {
+        "source": "https://tinyurl.com/jva4rsw",
+        "opinion": 0.8333333333,
+        "interest": 0.8333333333
+      },
+      "Immigration": {
+        "source": "http://www.revue-ballast.fr/jean-luc-melenchon-limmigration-entre-convictions/",
+        "opinion": 0.0,
+        "interest": 0.5
+      },
+      "Economy": {
+        "source": "http://www.liberation.fr/elections-presidentielle-legislatives-2017/2017/02/19/social-securite-culture-melenchon-chiffre-son-programme-sur-youtube_1549528",
+        "opinion": 0.5,
+        "interest": 0.5
+      },
+      "Public Benefits": {
+        "source": "",
+        "opinion": 0.3333333333,
+        "interest": 0.3333333333
+      },
+      "Security": {
+        "source": "http://www.liberation.fr/elections-presidentielle-legislatives-2017/2017/02/19/social-securite-culture-melenchon-chiffre-son-programme-sur-youtube_1549528",
+        "opinion": 0.6666666667,
+        "interest": 0.3333333333
+      },
+      "Social Movements": {
+        "source": "http://www.europe1.fr/politique/mariage-gay-qui-est-pour-ou-contre-903089",
+        "opinion": 0.3333333333,
+        "interest": 0.3333333333
+      }
+    }
+  },
+  {
+    "first": "Beno\u00eet",
+    "name": "Hamon",
+    "age": 50,
+    "img": "img/hyblab-Hamon.png",
+    "country": "FR",
+    "party": "Socialist",
+    "topics": {
+      "Environment": {
+        "source": "https://www.benoithamon2017.fr/thematique/pour-un-progres-social-et-ecologique/#ecologie",
+        "opinion": 0.5,
+        "interest": 0.5
+      },
+      "Immigration": {
+        "source": "https://www.benoithamon2017.fr/thematique/pour-un-progres-social-et-ecologique/#solidarite",
+        "opinion": 1.0,
+        "interest": 1
+      },
+      "Economy": {
+        "source": "https://www.benoithamon2017.fr/thematique/",
+        "opinion": 0.5,
+        "interest": 0.8333333333
+      },
+      "Public Benefits": {
+        "source": "https://www.benoithamon2017.fr/thematique/",
+        "opinion": 0.6666666667,
+        "interest": 0.6666666667
+      },
+      "Security": {
+        "source": "http://www.lemonde.fr/personnalite/benoit-hamon/programme/#economie",
+        "opinion": 0.6666666667,
+        "interest": 0.3333333333
+      },
+      "Social Movements": {
+        "source": "https://www.benoithamon2017.fr/thematique/pour-un-progres-social-et-ecologique/#entreprise",
+        "opinion": 0.6666666667,
+        "interest": 0.3333333333
+      }
+    }
+  },
+  {
+    "first": "Emmanuel",
+    "name": "Macron",
+    "age": 39,
+    "img": "img/hyblab-Macron.png",
+    "country": "FR",
+    "party": "Independent Centrist",
+    "topics": {
+      "Environment": {
+        "source": "https://storage.googleapis.com/en-marche-fr/COMMUNICATION/Programme-Emmanuel-Macron.pdf",
+        "opinion": 0.3333333333,
+        "interest": 0.6666666667
+      },
+      "Immigration": {
+        "source": "http://www.linternaute.com/actualite/politique/1343676-programme-macron-retraite-isf-emploi-immigration-liste-des-mesures/#programme-macron-agriculture",
+        "opinion": 0.25,
+        "interest": 0.25
+      },
+      "Economy": {
+        "source": "https://storage.googleapis.com/en-marche-fr/COMMUNICATION/Programme-Emmanuel-Macron.pdf",
+        "opinion": 0.6666666667,
+        "interest": 0.6666666667
+      },
+      "Public Benefits": {
+        "source": "",
+        "opinion": 0.6666666667,
+        "interest": 0.6666666667
+      },
+      "Security": {
+        "source": "https://en-marche.fr/emmanuel-macron/le-programme",
+        "opinion": 1.0,
+        "interest": 1.0
+      },
+      "Social Movements": {
+        "source": "https://en-marche.fr/emmanuel-macron/le-programme/%C3%A9galit%C3%A9-hommes-et-femmes",
+        "opinion": 0.3333333333,
+        "interest": 0.6666666667
+      }
+    }
+  },
+  {
+    "first": "Fran\u00e7ois",
+    "name": "Fillon",
+    "age": 63,
+    "img": "img/hyblab-Fillon.png",
+    "country": "FR",
+    "party": "Conservative",
+    "topics": {
+      "Environment": {
+        "source": "https://www.fillon2017.fr/wp-content/uploads/2016/10/ENVIRONNEMENT-ET-TRANSITION-ENERGETIQUE.pdf",
+        "opinion": 0.3333333333,
+        "interest": 0.6666666667
+      },
+      "Immigration": {
+        "source": "https://www.fillon2017.fr/projet/immigration/",
+        "opinion": -1.0,
+        "interest": 1
+      },
+      "Economy": {
+        "source": "http://www.fillon2017.fr/projet/",
+        "opinion": 0.3333333333,
+        "interest": 0.6666666667
+      },
+      "Public Benefits": {
+        "source": "http://www.lefigaro.fr/retraite/2017/01/29/05004-20170129ARTFIG00038-francois-fillon-veut-revaloriser-les-petites-retraites.php",
+        "opinion": 0.3333333333,
+        "interest": 0.3333333333
+      },
+      "Security": {
+        "source": "https://www.fillon2017.fr/projet/securite/",
+        "opinion": 0.6666666667,
+        "interest": 0.6666666667
+      },
+      "Social Movements": {
+        "source": "https://www.fillon2017.fr/projet/famille/",
+        "opinion": 0.3333333333,
+        "interest": 1
+      }
+    }
+  },
+  {
+    "first": "Marine",
+    "name": "Le Pen",
+    "age": 48,
+    "img": "img/hyblab-LePen.png",
+    "country": "FR",
+    "party": "Far-Right Populist",
+    "topics": {
+      "Environment": {
+        "source": "http://www.rtl.fr/actu/politique/presidentielle-2017-ce-que-propose-marine-le-pen-en-matiere-d-ecologie-7786154181",
+        "opinion": 0.1666666667,
+        "interest": 0.5
+      },
+      "Immigration": {
+        "source": "https://www.marine2017.fr/2017/02/04/projet-presidentiel-marine-le-pen/",
+        "opinion": -0.5,
+        "interest": 0.5
+      },
+      "Economy": {
+        "source": "https://www.lesechos.fr/elections/marine-le-pen/0211760775160-presidentielle-marine-le-pen-detaille-son-programme-economique-2062206.php",
+        "opinion": -0.1666666667,
+        "interest": 0.5
+      },
+      "Public Benefits": {
+        "source": "https://www.marine2017.fr/programme/",
+        "opinion": 0.6666666667,
+        "interest": 0.6666666667
+      },
+      "Security": {
+        "source": "https://www.marine2017.fr/programme/",
+        "opinion": 0.6666666667,
+        "interest": 0.6666666667
+      },
+      "Social Movements": {
+        "source": "https://www.marine2017.fr/programme/",
+        "opinion": 0.0,
+        "interest": 0.6666666667
+      }
+    }
+  },
+  {
+    "first": "Bernie",
+    "name": "Sanders",
+    "age": 75,
+    "img": "img/hyblab-Sanders.png",
+    "country": "USA",
+    "party": "Democrat",
+    "topics": {
+      "Environment": {
+        "source": "https://books.google.fr/books?hl=en&lr=&id=HKBpCgAAQBAJ&oi=fnd&pg=PT5&dq=bernie+sanders+campaign&ots=KNhFG153Xr&sig=f0415a98OX2McIp7-NroeOE4mM4#v=onepage&q=bernie%20sanders%20campaign&f=false",
+        "opinion": 0.3333333333,
+        "interest": 1
+      },
+      "Immigration": {
+        "source": "https://berniesanders.com/a-fair-and-humane-immigration-policy/",
+        "opinion": 0.75,
+        "interest": 0.75
+      },
+      "Economy": {
+        "source": "https://books.google.fr/books?hl=en&lr=&id=HKBpCgAAQBAJ&oi=fnd&pg=PT5&dq=bernie+sanders+campaign&ots=KNhFG153Xr&sig=f0415a98OX2McIp7-NroeOE4mM4#v=onepage&q=bernie%20sanders%20campaign&f=false",
+        "opinion": 0.8333333333,
+        "interest": 0.8333333333
+      },
+      "Public Benefits": {
+        "source": "https://berniesanders.com/issues/medicare-for-all/",
+        "opinion": 0.6666666667,
+        "interest": 0.6666666667
+      },
+      "Security": {
+        "source": "https://www.usnews.com/opinion/blogs/world-report/articles/2016-03-01/bernie-sanders-would-find-plenty-to-cut-in-the-defense-budget",
+        "opinion": 0.6666666667,
+        "interest": 0.6666666667
+      },
+      "Social Movements": {
+        "source": "http://www.ontheissues.org/Bernie_Sanders.htm",
+        "opinion": 1.0,
+        "interest": 1.0
+      }
+    }
+  },
+  {
+    "first": "Hillary",
+    "name": "Clinton",
+    "age": 69,
+    "img": "img/hyblab-Clinton.png",
+    "country": "USA",
+    "party": "Democrat",
+    "topics": {
+      "Environment": {
+        "source": "http://responsibletechnology.org/what-is-hillary-clintons-stance-on-gmos/",
+        "opinion": 0.1666666667,
+        "interest": 0.5
+      },
+      "Immigration": {
+        "source": "http://www.weeklystandard.com/hillary-i-voted-for-border-fence-to-keep-out-illegal-immigrants/article/1061753",
+        "opinion": 0.25,
+        "interest": 1
+      },
+      "Economy": {
+        "source": "http://www.attn.com/stories/11192/hillary-clintons-stance-on-minimum-wage",
+        "opinion": 0.5,
+        "interest": 0.6666666667
+      },
+      "Public Benefits": {
+        "source": "http://www.ontheissues.org/Hillary_Clinton.htm#Social_Security",
+        "opinion": 0.3333333333,
+        "interest": 0.3333333333
+      },
+      "Security": {
+        "source": "http://www.militarytimes.com/articles/weve-got-your-breakdown-of-trumps-and-clintons-military-policies",
+        "opinion": 0.3333333333,
+        "interest": 1.0
+      },
+      "Social Movements": {
+        "source": "http://www.ontheissues.org/Hillary_Clinton.htm#Civil_Rights",
+        "opinion": 1.0,
+        "interest": 1.0
+      }
+    }
+  },
+  {
+    "first": "Marco",
+    "name": "Rubio",
+    "age": 45,
+    "img": "img/hyblab-Rubio.png",
+    "country": "USA",
+    "party": "Republican",
+    "topics": {
+      "Environment": {
+        "source": "https://mauihawaiitheworld.wordpress.com/2015/04/13/so-how-do-the-presidential-candidates-stand-on-gmos/",
+        "opinion": 0.3333333333,
+        "interest": 1
+      },
+      "Immigration": {
+        "source": "https://www.nytimes.com/2015/12/17/us/politics/fact-checking-ted-cruz-and-marco-rubio-on-immigration.html",
+        "opinion": -0.5,
+        "interest": 0.5
+      },
+      "Economy": {
+        "source": "http://www.ontheissues.org/Senate/Marco_Rubio.htm#Jobs",
+        "opinion": 0.0,
+        "interest": 0.3333333333
+      },
+      "Public Benefits": {
+        "source": "http://www.ontheissues.org/Senate/Marco_Rubio.htm#Health_Care",
+        "opinion": -0.6666666667,
+        "interest": 0.6666666667
+      },
+      "Security": {
+        "source": "http://www.ontheissues.org/Senate/Marco_Rubio.htm#Homeland_Security",
+        "opinion": 0.6666666667,
+        "interest": 0.6666666667
+      },
+      "Social Movements": {
+        "source": "http://nytlive.nytimes.com/womenintheworld/2015/04/13/where-2016-candidate-marco-rubio-stands-on-4-key-womens-issues-2/",
+        "opinion": -0.3333333333,
+        "interest": 1
+      }
+    }
+  },
+  {
+    "first": "Ted",
+    "name": "Cruz",
+    "age": 46,
+    "img": "img/hyblab-Cruz.png",
+    "country": "USA",
+    "party": "Republican",
+    "topics": {
+      "Environment": {
+        "source": "https://thinkprogress.org/ted-cruz-is-trying-to-gut-the-clean-air-act-and-repeal-all-climate-regulation-162a5583643e#.8i0jvv7yw",
+        "opinion": -0.3333333333,
+        "interest": 1
+      },
+      "Immigration": {
+        "source": "https://www.nytimes.com/2015/12/17/us/politics/fact-checking-ted-cruz-and-marco-rubio-on-immigration.html",
+        "opinion": -0.75,
+        "interest": 0.75
+      },
+      "Economy": {
+        "source": "http://www.ontheissues.org/Senate/Ted_Cruz.htm#Jobs",
+        "opinion": 0.0,
+        "interest": 0.3333333333
+      },
+      "Public Benefits": {
+        "source": "http://www.ontheissues.org/Senate/Ted_Cruz.htm#Health_Care",
+        "opinion": -0.6666666667,
+        "interest": 0.6666666667
+      },
+      "Security": {
+        "source": "http://www.ontheissues.org/Senate/Ted_Cruz.htm#War_+_Peace",
+        "opinion": 0.6666666667,
+        "interest": 0.6666666667
+      },
+      "Social Movements": {
+        "source": "http://www.ontheissues.org/Senate/Ted_Cruz.htm#Civil_Rights",
+        "opinion": -0.6666666667,
+        "interest": 0.6666666667
+      }
+    }
+  },
+  {
+    "first": "Donald",
+    "name": "Trump",
+    "age": 70,
+    "img": "img/hyblab-Trump.png",
+    "country": "USA",
+    "party": "Republican",
+    "topics": {
+      "Environment": {
+        "source": "http://www.telegraph.co.uk/business/2016/11/10/what-does-donald-trumps-victory-mean-for-the-energy-industry/",
+        "opinion": -0.1666666667,
+        "interest": 0.8333333333
+      },
+      "Immigration": {
+        "source": "http://www.lemonde.fr/donald-trump/article/2017/01/28/donald-trump-durcit-la-politique-d-immigration-pour-stopper-les-terroristes-islamiques_5070438_4853715.html",
+        "opinion": -0.75,
+        "interest": 1
+      },
+      "Economy": {
+        "source": "https://www.youtube.com/watch?v=855Am6ovK7s",
+        "opinion": 0.1666666667,
+        "interest": 0.5
+      },
+      "Public Benefits": {
+        "source": "http://www.ontheissues.org/Donald_Trump.htm#Welfare_+_Poverty",
+        "opinion": -0.6666666667,
+        "interest": 0.6666666667
+      },
+      "Security": {
+        "source": "http://www.militarytimes.com/articles/weve-got-your-breakdown-of-trumps-and-clintons-military-policies",
+        "opinion": 0.6666666667,
+        "interest": 0.6666666667
+      },
+      "Social Movements": {
+        "source": "http://www.ontheissues.org/Donald_Trump.htm#Civil_Rights",
+        "opinion": -1.0,
+        "interest": 1.0
+      }
+    }
+  }
+]

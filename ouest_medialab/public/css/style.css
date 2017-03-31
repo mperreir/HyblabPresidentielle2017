@@ -1,15 +1,618 @@
-/* just a sample css rule to show that everything works */
-footer p
-{
-  font-size: small;
-  text-align: center;
+@font-face {
+  font-family: 'Futura';
+  src: url('../fonts/Futura-Medium.ttf');
+  font-weight: normal;
+  font-style: normal;
 }
-
-header{
-  text-align: center;
+@font-face {
+  font-family: 'Futura-light';
+  src: url('../fonts/Futura-Light.ttf');
+  font-weight: normal;
+  font-style: normal;
 }
-
-header img{
-  max-width: 100%;
-	height: auto;
+body {
+  font-family: Futura;
+  margin: 0;
+  color: #ffffff;
+}
+nav {
+  z-index: 2;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0.8vmax;
+}
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+nav ul li a {
+  display: block;
+  border: 0.2vmin solid #ffffff;
+  border-radius: 50%;
+  width: 1.6vmax;
+  height: 1.6vmax;
+  margin: 0.4vmax 0;
+  transition: background-color 0.8s;
+  background-color: transparent;
+}
+nav ul li a.selected {
+  background-color: #ffffff;
+  transition: background-color 0.4s;
+}
+.wallpaper {
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: contain;
+}
+body > section {
+  display: block;
+  height: 100%;
+  padding-top: 0px;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+}
+body > section:last-child {
+  padding-bottom: 0;
+}
+body > section:nth-last-of-type(n+2):after {
+  content: "";
+  display: block;
+  height: 8vh;
+  width: 100%;
+}
+body > section h1 {
+  padding-top: 8vh;
+  font-size: 7vmin;
+  text-transform: uppercase;
+  font-family: "Futura-light";
+}
+body > section h2 {
+  font-size: 4.5vmin;
+}
+body > section p {
+  font-size: 3vh;
+}
+body > section h1,
+body > section h2,
+body > section p {
+  margin: 0;
+}
+body > section a.next {
+  background: url(../img/arrow.png);
+  background-position: center;
+  color: transparent;
+  background-repeat: no-repeat;
+  height: 6vmin;
+  transform: translateX(-50%);
+  width: 12vmin;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  bottom: 2vmin;
+  display: block;
+  background-size: contain;
+}
+.section-welcome {
+  background: #1b1440;
+  background-image: url(../img/SkylineParisWashington.png);
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: contain;
+}
+.section-welcome h1 {
+  font-size: 10vmin;
+  padding-top: 20vh;
+  font-family: "Futura";
+}
+.section-welcome h2 {
+  font-size: 5vmin;
+  font-family: "Futura-light";
+}
+.section-candidates {
+  background: #f7a601;
+  background-image: url(../img/SkylineParisYellow.png);
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: contain;
+}
+.section-candidates ul {
+  list-style-type: none;
+  margin-top: 3vh;
+  padding-left: 0;
+}
+.section-candidates ul li {
+  display: inline-block;
+  margin: 0 2vw;
+}
+.section-candidates ul li div {
+  border-radius: 50%;
+  width: 24vh;
+  height: 24vh;
+  position: relative;
+  transition: top 1s;
+}
+.section-candidates ul li div.candidate-img {
+  top: 12vh;
+  z-index: 1;
+  border: 0.5vh solid #ffffff;
+  background-color: #ffffff;
+  background-size: cover;
+}
+.section-candidates ul li div.candidate-info {
+  top: -12vh;
+  border: 1px solid #FFC958;
+  background-color: #F8931F;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.section-candidates ul li div.candidate-info p {
+  font-size: 2.4vmin;
+}
+.section-candidates ul li div.candidate-info p .candidate-name {
+  text-transform: uppercase;
+}
+.section-candidates ul li:hover div {
+  transition: top 0.4s;
+}
+.section-candidates ul li:hover div.candidate-img {
+  top: 2.4vh;
+}
+.section-candidates ul li:hover div.candidate-info {
+  top: -2.4vh;
+}
+.section-topics {
+  background: #f7a601;
+  background-image: url(../img/SkylineWashingtonYellow.png);
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: contain;
+}
+.section-topics ul {
+  margin: 10vh auto 0 auto;
+  display: inline-block;
+  list-style-type: none;
+  text-align: left;
+  padding: 0;
+  transition: left 2s;
+  position: relative;
+  left: 0;
+}
+.section-topics ul img {
+  height: 7vh;
+  width: auto;
+  margin-bottom: 1vh;
+  margin-right: 2vh;
+  vertical-align: middle;
+}
+.section-topics ul li {
+  text-transform: uppercase;
+  transition: left 1s;
+  left: 0;
+  position: relative;
+  font-size: 4vh;
+}
+.section-topics ul li:hover {
+  left: 5%;
+}
+.section-topics ul li.selected {
+  left: 10%;
+}
+.section-topics div.svg {
+  margin-top: 6vh;
+  position: absolute;
+  display: inline-block;
+  right: 5vw;
+  pointer-events: none;
+  width: 40vw;
+  height: 50vh;
+}
+.section-topics svg {
+  opacity: 0;
+  transition: opacity 2s;
+  height: 100%;
+  border-bottom: 2px solid black;
+}
+.section-topics svg rect {
+  fill: #F15A25;
+}
+.section-topics svg g.bar {
+  transform: translateY(9000px);
+  transition: transform 2s;
+  pointer-events: all;
+  background-size: cover;
+}
+.section-topics svg g.bar circle.background {
+  fill: #ffffff;
+}
+.section-topics h1 {
+  z-index: 2;
+}
+.section-topics .topic-corner {
+  display: none;
+  padding-top: 1vh;
+  padding-left: 3vw;
+  right: 0;
+  position: absolute;
+  background: url(../img/topic-corner.png);
+  width: 25%;
+  height: 25%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  font-size: 2.2vh;
+  z-index: 1;
+  line-height: 3.5vh;
+}
+.section-survey {
+  background: #c71b19;
+  background-image: url(../img/SkylineWashingtonRed.png);
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: contain;
+}
+.section-survey div > p {
+  font-family: "Futura-light";
+  position: relative;
+  top: 15vh;
+  font-size: 4vmin;
+}
+.section-survey form {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.section-survey form .survey-form {
+  position: absolute;
+  width: 100%;
+  transition: left 2s;
+  left: 0%;
+  float: left;
+  display: inline-block;
+}
+.section-survey form .survey-form:first-child p {
+  margin: 3%;
+}
+.section-survey form .survey-form h2 {
+  margin: 3vh 0;
+}
+.section-survey form .survey-form h2 img {
+  height: 10vh;
+  margin-right: 1vw;
+  vertical-align: middle;
+}
+.section-survey form .survey-form ul {
+  display: inline-block;
+  list-style: none;
+  height: 45vh;
+  width: 80%;
+  padding: 0;
+  padding-top: 5vh;
+}
+.section-survey form .survey-form ul li {
+  height: 15vh;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  padding: auto;
+  transition: all 0.5s;
+  position: relative;
+  left: 0;
+}
+.section-survey form .survey-form ul li.disabled {
+  opacity: 0.5;
+}
+.section-survey form .survey-form ul li:hover:not(.disabled) {
+  left: 2vh;
+}
+.section-survey form .survey-form ul li input[type=radio] {
+  visibility: hidden;
+}
+.section-survey form .survey-form ul li .check {
+  transition: inherit;
+  margin-right: 10px;
+  width: 1.8vmin;
+  height: 1.8vmin;
+  border-radius: 50%;
+  background: transparent;
+  border: 0.25vmin solid #ffffff;
+  transition: background 0.25s linear;
+  transform: scaleY(1);
+}
+.section-survey form .survey-form ul li input[type=radio]:checked ~ .check {
+  background: #ffffff;
+  transition: all 0.25s linear;
+  transform: scaleY(-1);
+}
+.section-survey form .survey-form ul li label {
+  transition: inherit;
+  width: 100%;
+  margin: 0;
+  font-size: 3.2vmin;
+  line-height: 85%;
+  position: relative;
+  left: -5vw;
+  padding-left: 5vw;
+}
+.section-survey form .survey-form ul li label span {
+  font-family: "Futura-light";
+  font-size: 2.4vmin;
+}
+.section-survey form .survey-end > section {
+  display: flex;
+}
+.section-survey form .survey-end > section article {
+  display: flex;
+  min-height: 200px;
+}
+.section-survey form .survey-end > section article.fr {
+  margin-left: 10vw;
+  width: 45vw;
+  text-align: left;
+  padding-bottom: 20vh;
+}
+.section-survey form .survey-end > section article.us {
+  padding-top: 20vh;
+  width: 45vw;
+  text-align: right;
+  transform: scale(0.75);
+}
+.section-survey form .survey-end > section article.share {
+  display: flex;
+  flex-direction: column;
+  padding-top: 18.5vh;
+  margin-left: auto;
+}
+.section-survey form .survey-end > section article.share img {
+  height: 6vh;
+  margin-top: 1vh;
+  margin-right: 1vh;
+}
+.section-survey form .survey-end > section article section.img {
+  border-radius: 50%;
+  background-color: #ffffff;
+  background-size: cover;
+  border: 0.8vh solid #ffffff;
+  height: 25vh;
+  width: 25vh;
+  margin: 0 4%;
+}
+.section-survey form .survey-end > section article section.txt {
+  display: flex;
+  align-items: center;
+}
+.section-survey form .survey-end > section article.fr section.txt,
+.section-survey form .survey-end > section article.us section.txt span.content {
+  font-size: 6vmin;
+  font-family: Futura;
+  text-transform: uppercase;
+}
+.section-survey form .survey-end > section article.us section.txt span:not(.content) {
+  font-size: 3vmin;
+  font-family: "Futura-Light";
+}
+.section-survey .survey-button {
+  transition: width 1s;
+  width: auto;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  height: 4vmin;
+  border-radius: 2vmin;
+  text-transform: uppercase;
+  font-size: 2.4vmin;
+  line-height: 4.8vmin;
+  display: inline-block;
+  padding: 0 2vmin;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30vh;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 0.25s linear, bottom 1s ease-in;
+}
+.section-survey .survey-button.mid {
+  bottom: 20vh;
+}
+.section-survey .survey-button.lower {
+  bottom: 8vh;
+  transition: opacity 0.25s linear, bottom 1s ease-out;
+}
+.section-survey ul.survey-indicator {
+  position: absolute;
+  padding: 0;
+  bottom: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.section-survey ul.survey-indicator li {
+  display: inline-block;
+  width: 1.4vh;
+  height: 1.4vh;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  margin: 0 0.25vh;
+}
+.section-sources {
+  background-color: #352dc1;
+  background-image: url(../img/SkylineParisBlue.png);
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: contain;
+}
+.section-sources section {
+  display: flex;
+  font-family: "Futura-light";
+  height: 82%;
+  padding-top: 5vh;
+}
+.section-sources section article:first-child {
+  width: 40%;
+  padding-top: 15vh;
+  padding-left: 5%;
+  font-size: 1.5em;
+  text-align: justify;
+}
+.section-sources section article:first-child br {
+  display: block;
+  margin-bottom: 2vh;
+  content: " ";
+}
+.section-sources section article:last-child {
+  width: 60%;
+}
+.section-sources section article:last-child table {
+  margin: 0 auto;
+  font-size: 2vmin;
+}
+.section-sources section article:last-child table tr th,
+.section-sources section article:last-child table tr td {
+  text-align: center;
+  vertical-align: middle;
+  width: 6.5vw;
+  height: 2vh;
+}
+.section-sources section article:last-child table tr:first-child th:first-child div {
+  border-radius: 50%;
+  background-size: cover;
+  height: 7vh;
+  width: 7vh;
+  margin: 0 auto;
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+  transition: opacity 0.5s;
+  border: 0.3vh solid white;
+  cursor: pointer;
+}
+.section-sources section article:last-child table tr:first-child th:first-child div.flagFR {
+  background-image: url(../img/flag-france.png);
+  left: 5%;
+}
+.section-sources section article:last-child table tr:first-child th:first-child div.flagUSA {
+  background-image: url(../img/flag-usa.png);
+  left: -5%;
+}
+.section-sources section article:last-child table tr:first-child th:first-child div.top {
+  z-index: 4;
+}
+.section-sources section article:last-child table tr:first-child th:first-child div.bottom {
+  z-index: 3;
+  opacity: 0.5;
+}
+.section-sources section article:last-child table tr:first-child th:first-child div.bottom:hover {
+  opacity: 0.75;
+}
+.section-sources section article:last-child table tr:first-child th:nth-child(n+2) {
+  vertical-align: bottom;
+}
+.section-sources section article:last-child table tr:first-child th:nth-child(n+2) div {
+  height: 2.2em;
+  line-height: 2.2em;
+}
+.section-sources section article:last-child table tr:first-child th:nth-child(n+2) div span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+.section-sources section article:last-child table tr:first-child th:nth-child(n+2) img {
+  height: 10vh;
+}
+.section-sources section article:last-child table tr td:first-child {
+  text-align: right;
+  height: 5em;
+  line-height: 5em;
+  padding-right: 0.5vw;
+}
+.section-sources section article:last-child table tr td:first-child div.candidate-name {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+.section-sources section article:last-child table tr td:nth-child(2) div.candidate-background {
+  background-color: #ffffff;
+  border: 0.3vh solid #ffffff;
+  border-radius: 50%;
+  height: 8vh;
+  width: 8vh;
+  background-size: cover;
+}
+.section-sources section article:last-child table tr td:nth-child(n+3) img {
+  height: 7vh;
+}
+.section-sources p.disclaimer {
+  text-align: right;
+  position: absolute;
+  bottom: 1vh;
+  right: 1vw;
+  font-size: 2.5vmin;
+}
+.section-sources p.disclaimer em {
+  color: rgba(255, 255, 255, 0.5);
+}
+.section-about {
+  background-color: #1b1440;
+}
+.section-about section {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+}
+.section-about section article {
+  height: 100%;
+}
+.section-about section article h3 {
+  margin: 4vh 0;
+  font-size: 2vw;
+}
+.section-about section article ul {
+  list-style-type: none;
+  display: inline-flex;
+  height: 40%;
+  padding: 0;
+}
+.section-about section article ul li {
+  display: inline-block;
+  margin: 0 0.5vw;
+}
+.section-about section article ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.section-about section article ul li div.team-img {
+  width: 9vw;
+  height: 9vw;
+  border-radius: 50%;
+  border: 0.5vh solid #ffffff;
+  background-color: #ffffff;
+  background-size: contain;
+  background-position: bottom;
+  transition: border-radius 1s;
+  margin-bottom: 1vh;
+  box-sizing: border-box;
+}
+.section-about section article ul li:hover div.team-img {
+  transition: border-radius 4s;
+  border-radius: 30%;
+}
+.section-about section article ul li p {
+  font-size: 1.2vw;
+}
+.section-about section article ul li p .member-job {
+  text-transform: capitalize;
+  font-size: 0.9em;
+}
+.section-about section article ul li img {
+  width: 9vw;
+}
+.section-about footer {
+  font-size: 2vh;
+  position: absolute;
+  bottom: 1vh;
+  left: 50%;
+  transform: translateX(-50%);
 }

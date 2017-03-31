@@ -1,0 +1,722 @@
+@white: #FFFFFF;
+@base-dark-blue: #1B1440;
+@base-blue: #352DC1;
+@base-yellow: #F7A601;
+@base-red: #C71B19;
+
+@nav-color: white;
+@nav-size: 1.6vmax;
+
+@candidate-background: @white;
+@candidate-size: 24vh;
+
+@survey-button-size: 4vmin;
+@survey-check-size: 1.8vmin;
+
+@source-size:8vh;
+
+@team-background: @white;
+@team-size: 9vw;
+
+@font-face {
+    font-family: 'Futura';
+    src: url('../fonts/Futura-Medium.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura-light';
+    src: url('../fonts/Futura-Light.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family : Futura;
+    margin: 0;
+    color: @white;
+}
+
+nav {
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: @nav-size/2;
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        li a {
+            display: block;
+            border: 0.2vmin solid @nav-color;
+            border-radius: 50%;
+            width: @nav-size;
+            height: @nav-size;
+            margin: @nav-size/4 0;
+            transition: background-color 0.8s;
+            background-color: transparent;
+            &.selected {
+                background-color: @nav-color;
+                transition: background-color 0.4s;
+            }
+        }
+    }
+}
+
+.wallpaper {
+    background-position: bottom;
+    background-repeat: repeat-x;
+    background-size: contain;
+}
+
+body > section {
+    display: block;
+    height: 100%;
+    padding-top: 0px;
+    text-align: center;
+    margin: 0 auto;
+    // padding-bottom: 8vh;
+    position: relative;
+
+    &:last-child { padding-bottom: 0; }
+
+    &:nth-last-of-type(n+2):after {
+      content: "";
+      display: block;
+      height: 8vh;
+      width: 100%;
+    }
+
+
+    h1 {
+        padding-top: 8vh;
+        font-size: 7vmin;
+        text-transform: uppercase;
+        font-family: "Futura-light"
+    }
+
+    h2 {
+        font-size: 4.5vmin;
+    }
+
+    p {
+        font-size: 3vh;
+    }
+
+    h1, h2, p {
+        margin: 0;
+    }
+
+    a.next {
+        background: url(../img/arrow.png);
+        background-position: center;
+        color: transparent;
+        background-repeat: no-repeat;
+        height:6vmin;
+        transform: translateX(-50%);
+        width: 12vmin;
+        left: 50%;
+        position: absolute;
+        text-align: center;
+        bottom: 2vmin;
+        display: block;
+        background-size: contain;
+    }
+}
+
+.section-welcome {
+    background: @base-dark-blue;
+    background-image: url(../img/SkylineParisWashington.png);
+    .wallpaper;
+
+    h1 {
+        font-size: 10vmin;
+        padding-top: 20vh;
+        font-family: "Futura"
+    }
+
+    h2 {
+        font-size: 5vmin;
+        font-family: "Futura-light";
+    }
+}
+
+.section-candidates {
+    background: @base-yellow;
+    background-image: url(../img/SkylineParisYellow.png);
+    .wallpaper;
+
+    ul {
+        list-style-type: none;
+        margin-top: 3vh;
+        padding-left: 0;
+
+        li {
+            display: inline-block;
+            margin: 0 2vw;
+
+            div {
+                border-radius: 50%;
+                width: @candidate-size;
+                height: @candidate-size;
+                position: relative;
+                transition: top 1s;
+
+                &.candidate-img {
+                    top: @candidate-size/2;
+                    z-index: 1;
+                    border: 0.5vh solid @candidate-background;
+                    background-color: @candidate-background;
+                    background-size: cover;
+                }
+
+                &.candidate-info {
+                    top: -@candidate-size/2;
+                    border: 1px solid #FFC958;
+                    background-color: #F8931F;
+                    display: flex;
+                    align-content: center;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    p {
+                        font-size: 2.4vmin;
+
+                        .candidate-name {
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+
+            &:hover div {
+                transition: top 0.4s;
+                &.candidate-img { top: @candidate-size/10; }
+                &.candidate-info { top: -@candidate-size/10; }
+            }
+        }
+    }
+}
+
+.section-topics {
+    background: @base-yellow;
+    background-image: url(../img/SkylineWashingtonYellow.png);
+    .wallpaper;
+
+    ul {
+        margin: 10vh auto 0 auto;
+        display: inline-block;
+        list-style-type: none;
+        text-align: left;
+        padding: 0;
+        transition: left 2s;
+        position: relative;
+        left: 0;
+
+        img {
+            height: 7vh;
+            width: auto;
+            margin-bottom: 1vh;
+            margin-right: 2vh;
+            vertical-align: middle;
+        }
+
+        li {
+            text-transform: uppercase;
+            transition: left 1s;
+            left: 0;
+            position: relative;
+            font-size: 4vh;
+            &:hover { left: 5%; }
+            &.selected { left: 10%; }
+        }
+    }
+
+    div.svg {
+        margin-top: 6vh;
+        position: absolute;
+        display: inline-block;
+        right: 5vw;
+        pointer-events: none;
+        width: 40vw;
+        height: 50vh;
+    }
+
+    svg {
+        opacity: 0;
+        transition: opacity 2s;
+        height: 100%;
+        border-bottom: 2px solid black;
+
+        rect {
+            fill: #F15A25;
+        }
+
+        g.bar {
+            transform: translateY(9000px);
+            transition: transform 2s;
+            pointer-events: all;
+            circle.background { fill: @candidate-background }
+            background-size: cover;;
+        }
+    }
+
+    h1 {
+        z-index: 2;
+    }
+
+    .topic-corner {
+        display: none;
+        padding-top: 1vh;
+        padding-left: 3vw;
+        right: 0;
+        position: absolute;
+        background: url(../img/topic-corner.png);
+        width: 25%;
+        height: 25%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right;
+        font-size: 2.2vh;
+        z-index: 1;
+        line-height: 3.5vh;
+    }
+}
+
+.section-survey {
+    background: @base-red;
+    background-image: url(../img/SkylineWashingtonRed.png);
+    .wallpaper;
+
+    div>p {
+        font-family: "Futura-light";
+        position: relative;
+        top: 15vh;
+        font-size: 4vmin;
+    }
+
+    form {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        .survey-form {
+            position: absolute;
+            width: 100%;
+            transition: left 2s;
+            left: 0%;
+            float: left;
+            display: inline-block;
+
+            &:first-child p {
+                margin: 3%;
+            }
+
+            h2 {
+                margin: 3vh 0;
+
+                img {
+                    height: 10vh;
+                    margin-right: 1vw;
+                    vertical-align: middle;
+                }
+            }
+
+            ul {
+                display: inline-block;
+                list-style: none;
+                height: 45vh;
+                width: 80%;
+                // border: 1px solid black;
+                padding: 0;
+                padding-top: 5vh;
+
+                li {
+                    height: 15vh;
+                    text-align: left;
+                    // vertical-align: middle;
+                    // border: 1px solid white;
+                    display: flex;
+                    flex-direction: row;
+                    padding: auto;
+                    transition: all 0.5s;
+                    position: relative;
+                    left: 0;
+
+                    &.disabled {
+                        opacity: 0.5;
+                    }
+
+                    &:hover:not(.disabled) {
+                        left: 2vh;
+                    }
+
+                    input[type=radio] {
+                        visibility: hidden;
+                    }
+
+                    .check {
+                        transition: inherit;
+                        margin-right: 10px;
+                        width: @survey-check-size;
+                        height: @survey-check-size;
+                        border-radius: 50%;
+                        background: transparent;
+                        border: 0.25vmin solid @white;
+                        transition: background 0.25s linear;
+                        transform: scaleY(1);
+                    }
+
+                    input[type=radio]:checked ~ .check {
+                        background: @white;
+                        transition: all 0.25s linear;
+                        transform: scaleY(-1);
+                    }
+
+                    label {
+                        transition: inherit;
+                        // border: 1px dashed black;
+                        width: 100%;
+                        margin: 0;
+                        font-size: 3.2vmin;
+                        line-height: 85%;
+                        position: relative;
+                        left: -5vw;
+                        padding-left: 5vw;
+
+                        span {
+                            font-family: "Futura-light";
+                            font-size: 2.4vmin;
+                        }
+                    }
+                }
+            }
+        }
+
+        .survey-end {
+            &>section {
+                display: flex;
+
+                article {
+                    display: flex;
+                    min-height: 200px;
+
+                    &.fr {
+                        margin-left: 10vw;
+                        width: 45vw;
+                        text-align: left;
+                        padding-bottom: 20vh;
+                    }
+
+                    &.us {
+                        padding-top: 20vh;
+                        width: 45vw;
+                        text-align: right;
+                        transform: scale(0.75)
+                    }
+
+                    &.share {
+                        display: flex;
+                        flex-direction: column;
+                        padding-top: 18.5vh;
+                        margin-left: auto;
+
+                        img {
+                            height: 6vh;
+                            margin-top: 1vh;
+                            margin-right: 1vh;
+                        }
+                    }
+
+                    section.img {
+                        border-radius: 50%;
+                        background-color: @candidate-background;
+                        background-size: cover;
+                        border: 0.8vh solid @candidate-background;
+                        height: 25vh;
+                        width: 25vh;
+                        margin: 0 4%;
+                    }
+
+                    section.txt {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    &.fr section.txt, &.us section.txt span.content {
+                        font-size: 6vmin;
+                        font-family: Futura;
+                        text-transform: uppercase;
+                    }
+
+                    &.us section.txt span:not(.content) {
+                        font-size: 3vmin;
+                        font-family: "Futura-Light";
+                    }
+                }
+            }
+        }
+    }
+
+    .survey-button {
+        transition: width 1s;
+        width: auto;
+        border: 1px solid fade(@white, 50%);
+        height: @survey-button-size;
+        border-radius: @survey-button-size/2;
+        text-transform: uppercase;
+        font-size: @survey-button-size*0.6;
+        line-height: @survey-button-size*1.2;
+        display: inline-block;
+        padding: 0 @survey-button-size/2;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 30vh;
+        &.mid { bottom: 20vh; }
+        &.lower { bottom: 8vh; transition: opacity 0.25s linear, bottom 1s ease-out; }
+        cursor: pointer;
+        z-index: 2;
+        opacity: 1;
+        transition: opacity 0.25s linear, bottom 1s ease-in;
+    }
+
+    ul.survey-indicator {
+        position: absolute;
+        padding: 0;
+        bottom: 5vh;
+        left: 50%;
+        transform: translateX(-50%);
+
+        li {
+            display: inline-block;
+            width: 1.4vh;
+            height: 1.4vh;
+            border: 1px solid @white;
+            border-radius: 50%;
+            margin: 0 0.25vh;
+        }
+    }
+}
+
+.section-sources {
+    background-color: @base-blue;
+    background-image: url(../img/SkylineParisBlue.png);
+    .wallpaper;
+
+    section {
+        display: flex;
+        font-family: "Futura-light";
+        height: 82%;
+        padding-top: 5vh;
+
+        article {
+            &:first-child {
+                width: 40%;
+                padding-top: 15vh;
+                padding-left: 5%;
+                font-size: 1.5em;
+                text-align: justify;
+
+                br {
+                    display: block;
+                    margin-bottom: 2vh;
+                    content: " ";
+                }
+            }
+
+            &:last-child {
+                width: 60%;
+
+                table {
+                    margin: 0 auto;
+                    font-size: 2vmin;
+
+                    tr th, tr td {
+                        text-align: center;
+                        vertical-align: middle;
+                        width: 6.5vw;
+                        height: 2vh;
+                    }
+
+                    tr:first-child {
+                        th:first-child {
+                            div {
+                                border-radius: 50%;
+                                background-size: cover;
+                                height: 7vh;
+                                width: 7vh;
+                                margin: 0 auto;
+                                position: relative;
+                                display: inline-block;
+                                opacity: 1;
+                                transition: opacity 0.5s;
+                                border: 0.3vh solid white;
+                                cursor: pointer;
+
+                                &.flagFR {
+                                    background-image: url(../img/flag-france.png);
+                                    left: 5%;
+                                }
+
+                                &.flagUSA {
+                                    background-image: url(../img/flag-usa.png);
+                                    left: -5%;
+                                }
+
+                                &.top {
+                                    z-index: 4;
+                                }
+
+                                &.bottom {
+                                    z-index: 3;
+                                    opacity: 0.5;
+                                    &:hover { opacity: 0.75; }
+                                }
+                            }
+                        }
+
+                        th:nth-child(n+2) {
+                            vertical-align: bottom;
+
+                            div {
+                                // font-size: 90%;
+                                height: 2.2em;
+                                line-height: 2.2em;
+
+                                span {
+                                    display: inline-block;
+                                    vertical-align: middle;
+                                    line-height: normal;
+                                }
+                            }
+                            img {
+                                height: 10vh;
+                            }
+                        }
+                    }
+
+                    tr td {
+                        &:first-child {
+                            text-align: right;
+                            height: 5em;
+                            line-height: 5em;
+                            padding-right: 0.5vw;
+
+                            div.candidate-name {
+                                display: inline-block;
+                                vertical-align: middle;
+                                line-height: normal;
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            div.candidate-background {
+                                background-color: @candidate-background;
+                                border: 0.3vh solid @candidate-background;
+                                border-radius: 50%;
+                                height: @source-size;
+                                width: @source-size;
+                                background-size: cover;
+                            }
+                        }
+
+                        &:nth-child(n+3) img {
+                            height: 7vh;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    p.disclaimer {
+        text-align: right;
+        position: absolute;
+        bottom: 1vh;
+        right: 1vw;
+        font-size: 2.5vmin;
+
+        em {
+            color: fade(@white, 50%);
+        }
+    }
+}
+
+.section-about {
+    background-color: @base-dark-blue;
+
+    section {
+        display: flex;
+        flex-direction: column;
+        height: 70vh;
+
+        article {
+            height: 100%;
+
+            h3 {
+                margin: 4vh 0;
+                font-size: 2vw;
+            }
+
+            ul {
+                list-style-type: none;
+                display: inline-flex;
+                height: 40%;
+                padding: 0;
+
+                li {
+                    display: inline-block;
+                    margin: 0 0.5vw;
+
+                    a {
+                        color: @white;
+                        text-decoration: none;
+                    }
+
+                    div.team-img {
+                        width: @team-size;
+                        height: @team-size;
+                        border-radius: 50%;
+                        border: 0.5vh solid @team-background;
+                        background-color: @team-background;
+                        background-size: contain;
+                        background-position: bottom;
+                        transition: border-radius 1s;
+                        margin-bottom: 1vh;
+                        box-sizing: border-box;
+                    }
+
+                    &:hover div.team-img {
+                        transition: border-radius 4s;
+                        border-radius: 30%;
+                    }
+
+                    p {
+                        font-size: 1.2vw;
+
+                        .member-job {
+                            text-transform: capitalize;
+                            font-size: 0.9em;
+                        }
+                    }
+
+                    img {
+                        width: 9vw;
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        font-size: 2vh;
+        position: absolute;
+        bottom: 1vh;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
