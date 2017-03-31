@@ -1,0 +1,43 @@
+$label-color: rgba($white, .1);
+$label-color-active: rgba($white, .3);
+
+.onoffswitch {
+    position: absolute;
+    right: -100em;
+    text-align: right;
+    top: 2em;
+    transition: right .4s ease;
+}
+
+.onoffswitch.mod-open {
+    right: 0;
+}
+
+    .onoffswitch-checkbox {
+        visibility: hidden;
+    }
+
+        .onoffswitch-label {
+            background: $label-color;
+            border-bottom-left-radius: 1em;
+            border-top-left-radius: 1em;
+            color: $white;
+            cursor: pointer;
+            display: inline-block;
+            margin-bottom: 1em;
+            margin-right: -4em;
+            padding: 1em 5em 1em 1em;
+
+            transition: margin .4s ease, background .4s ease;
+
+            @media only screen and (max-width: $breakpoint) {
+               display: none;
+            }
+        }
+
+            .onoffswitch-label:hover,
+            .onoffswitch:not(.mod-active) .onoffswitch-label:first-child,
+            .onoffswitch.mod-active .onoffswitch-label:last-child {
+                background: $label-color-active;
+                margin-right: -1em;
+            }

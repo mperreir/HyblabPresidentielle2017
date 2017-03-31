@@ -27,11 +27,11 @@ $(document).ready(function(){
 	var nbPOI = 0;
 
 	var is_internetExplorer11= navigator.userAgent.toLowerCase().indexOf('trident') > -1;
-	
+
     var $marker_me = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
-  
-/******************************************************************/    
- 
+
+/******************************************************************/
+
  	// Variables associés à la carte
 	var map_options;
 	var map;
@@ -40,10 +40,10 @@ $(document).ready(function(){
 	$saturation= -20,
 	$brightness= 5;
 
-	var style= [ 
+	var style= [
     	{"featureType":"landscape","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"stylers":[{"hue":"#00aaff"},{"saturation":-100},{"gamma":2.15},{"lightness":12}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"lightness":24}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":57}]}
 	];
-		
+
 	// Options de la map
 	map_options = {
       	center: new google.maps.LatLng($latitude, $longitude),
@@ -57,14 +57,14 @@ $(document).ready(function(){
       	styles: style,
 	}
 	// Déclaration de la map
-	map = new google.maps.Map(document.getElementById('google-container'), map_options);      
-  
+	map = new google.maps.Map(document.getElementById('google-container'), map_options);
+
 	// Une fois que la map est créée on peut charger les éléments pour la recherche d'adresse
 	initAutocomplete();
-	 
 
- /******************************LEGENDE*******************************/   
- 
+
+ /******************************LEGENDE*******************************/
+
  // Ouverture de la légende au lancement de la page
  	openLegend();
 
@@ -72,12 +72,12 @@ $(document).ready(function(){
 	$("#open").click(function() {
 	    openLegend();
 	});
-	  
- // Fermeture de la légende  
+
+ // Fermeture de la légende
 	$("#close").click(function() {
 	    closeLegend();
 	});
-    
+
  // Modification CSS des éléments à l'ouverture de la légende
 	function openLegend() {
 	 	$(".legende").css("padding-bottom", "450px");
@@ -87,7 +87,7 @@ $(document).ready(function(){
 	    $("#open").css("display", "none");
 	    $("#close").css("display", "block");
 	}
-    
+
  // Modification CSS des éléments à la fermeture de la légende
 	function closeLegend() {
 		$(".legende").css("padding-bottom", "0px");
@@ -99,9 +99,9 @@ $(document).ready(function(){
 	}
 
 /*****************************GEOLOC*******************************/
-    
+
 	var infoWindow = new google.maps.InfoWindow({map: map});
-    
+
     // Récupération de la localisation de l'utilisateur et affichage sur la carte
     if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -112,7 +112,7 @@ $(document).ready(function(){
 
             infoWindow.setPosition(pos);
             infoWindow.setContent('Votre position');
-            
+
             var marker = new google.maps.Marker({
 			  	position: new google.maps.LatLng(pos),
 			    map: map,
@@ -128,19 +128,19 @@ $(document).ready(function(){
 
 			map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
           });
-        
+
         }
-      
+
 
 
 /*****************************PLACEMENT DES MARQUEURS*******************************/
 
 	// Initialisation de la variable de récupération des bureaux
 	var bureaux = new Map();
-	
+
 	// Récuperation de tous les points d'intérêts et ajout dans la map
 	$.ajax({
-	    url: "/citizen_press/bureaux",
+	    url: "bureaux",
 	    type: "GET",
 	    dataType: "json",
 	    contentType: "application/json",
@@ -148,10 +148,10 @@ $(document).ready(function(){
 	    timeout: 5000,
 
 	    success: function(data) {
-			
+
 			// Déclaration des variables temporaires
-	    	var tabAdresseTaille = new Array(); 
-	    	var tabAdresse = new Array(); 
+	    	var tabAdresseTaille = new Array();
+	    	var tabAdresse = new Array();
 	    	var numBureauPOI = 0;
 	    	var contentString;
 	    	var url_marker;
@@ -180,8 +180,8 @@ $(document).ready(function(){
 					'</div>'+
 					'</div>';
 		    		tabAdresse.push(bureau.adresse);
-		    		createSVG(bureau.adresse, numBureauPOI);
-		    		url_marker = "./img/icones_SVG/svg"+numBureauPOI+".svg";
+		    		//createSVG(bureau.adresse, numBureauPOI);
+		    		url_marker = "img/icones_SVG/svg"+numBureauPOI+".svg";
 					placerMarqueur(bureau.lat, bureau.long, contentString, numBureauPOI, nbPOI, bureau.id, url_marker);
 		    	}
 		    	// Le POI est déjà ajouté, donc on ajoute le bureau au POI
@@ -221,7 +221,7 @@ $(document).ready(function(){
 		    $("#google-container").css("height", "100vh");
 		    $("#google-container").css("transition-delay", "0s");
 			$(".other").css("display", "none");
-			
+
 			// Fermeture de la bubule associé
 	        infoWindows.forEach(function(element, key) {
 				element.close(map, markers.get(key));
@@ -243,13 +243,13 @@ $(document).ready(function(){
 
 		// Ajout de l'affectation de l'evenement change
 		$('#bureauxPOI'+numBureauPOI).change(function(){
-		
+
 			// Récupération de la valeur de la liste
 			newBureauPOI = $( this ).val();
 
 			// Récupération des informations sur le bureau
 			$.ajax({
-			    url: '/citizen_press/bureaux/'+newBureauPOI,
+			    url: 'bureaux/'+newBureauPOI,
 			    type: "GET",
 			    dataType: "text",
 			    contentType: "application/json",
@@ -286,7 +286,7 @@ $(document).ready(function(){
 			   		// Variables concernant les graphiques
 			   		var ctxAss = document.getElementById("graphContenuAssesseur"+numBureauPOI);
 			   		var ctxScrut = document.getElementById("graphContenuScrutateur"+numBureauPOI);
-					
+
 					var myDoughnutAss;
 					var myDoughnutScrut;
 
@@ -357,13 +357,13 @@ $(document).ready(function(){
 					}
 
 					$(".idBureau").attr("value", newBureauPOI);
-			   		
+
 			   	},
 				error: function(xhr, status, error) {
 					console.log(error);
 				},
-			});	
-		});		
+			});
+		});
 	}
 
 	/* Fonctions de la map */
@@ -373,13 +373,13 @@ $(document).ready(function(){
     }
 
 	function CustomZoomControl(controlDiv, map) {
-	    
+
 	  	var controlUIzoomIn= document.getElementById('cd-zoom-in'),
 	  		controlUIzoomOut= document.getElementById('cd-zoom-out');
 	  	controlDiv.appendChild(controlUIzoomIn);
 	  	controlDiv.appendChild(controlUIzoomOut);
 
-	    
+
 		google.maps.event.addDomListener(controlUIzoomIn, 'click', function() {
 		    map.setZoom(map.getZoom()+1)
 		});
@@ -388,7 +388,7 @@ $(document).ready(function(){
 		});
 	}
 
-	   
+
 	// Ajoute un marqueur à la carte à la latitdue_POI et à la longitude_POI
 	// numBureauPOI : le numéro du POI à ajouter
 	// nbBureau : Le nombre de bureau
@@ -433,8 +433,8 @@ $(document).ready(function(){
 		    $("#google-container").css("width", "62%");
 		    $("#google-container").css("height", "90vh");
 		    $("#google-container").css("transition-delay", "1s");
-    		$(".other").css("display", "block");    
-       
+    		$(".other").css("display", "block");
+
        		// Affichage de la bonne bubulles
     		infoWindows.forEach(function(element, key) {
     			element.close(map, markers.get(key));
@@ -445,7 +445,7 @@ $(document).ready(function(){
 
     		// Récupération des informations du bureau concerné suite au changement de bureau
     		$.ajax({
-			    url: '/citizen_press/bureaux/'+bureauId,
+			    url: 'bureaux/'+bureauId,
 			    type: "GET",
 			    dataType: "text",
 			    contentType: "application/json",
@@ -466,7 +466,7 @@ $(document).ready(function(){
 			    },
 
 			   	complete: function() {
-			   	
+
 			   		var percentAss = nbAssesseurValide/NB_ASSESSEURS_MAX;
 			   		var percentScrut = nbScrutateurValide/NB_SCRUTATEURS_MAX;
 
@@ -475,7 +475,7 @@ $(document).ready(function(){
 
 			   		var ctxAss = document.getElementById("graphContenuAssesseur"+numBureauPOI);
 			   		var ctxScrut = document.getElementById("graphContenuScrutateur"+numBureauPOI);
-					
+
 					var myDoughnutAss;
 					var myDoughnutScrut;
 
@@ -547,9 +547,9 @@ $(document).ready(function(){
 
 					nbAssesseurValide = 0;
 					nbScrutateurValide = 0;
-			   		
+
 					$(".idBureau").attr("value", bureauId);
-			   		
+
 			   		// Ajout de l'evenement du click sur la fenetre
 			   		markers.get(numBureauPOI).addListener('click', function() {
 
@@ -562,8 +562,8 @@ $(document).ready(function(){
 					    $("#google-container").css("width", "65%");
 					    $("#google-container").css("height", "90vh");
 					    $("#google-container").css("transition-delay", "1s");
-			    		$(".other").css("display", "block");    
-			       
+			    		$(".other").css("display", "block");
+
 			       		// Affichage de la bonne bubulle
 			    		infoWindows.forEach(function(element, key) {
 			    			element.close(map, markers.get(key));
@@ -590,7 +590,7 @@ $(document).ready(function(){
 
 		var width = window.screen.width*valPlus;
 		var height = window.screen.height*valPlus;
-		
+
 		$.ajax({
 			url:"bureaux/"+adresse+"/"+numPOI+"/"+width+"/"+height,
 			type: "GET",
@@ -623,7 +623,7 @@ $(document).ready(function(){
 		infoWindows.get(numBureauPOI).close(map, markers.get(numBureauPOI));
 	}
 
-	// Choix de la couleur suivant le pourcentage 
+	// Choix de la couleur suivant le pourcentage
 	function getColor(percent) {
 		if (percent< 0.4) {
 			return ROUGE;
@@ -678,7 +678,7 @@ $(document).ready(function(){
 	  });
 
 	  var markers = [];
-	  
+
 	  searchBox.addListener('places_changed', function() {
 	    var places = searchBox.getPlaces();
 
@@ -709,7 +709,7 @@ $(document).ready(function(){
 	      }));
 
 	      if (place.geometry.viewport) {
-	       
+
 	        bounds.union(place.geometry.viewport);
 	      } else {
 	        bounds.extend(place.geometry.location);

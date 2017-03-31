@@ -1,40 +1,832 @@
 <!DOCTYPE html>
-<html lang="fr"> <!-- Notre page est en français -->
-  <head>
-    <!-- Il est obligatoire de préciser un encodage de caractères et un titre pour la page -->
-    <meta charset="utf-8">
-    <title>Hyblab 2016</title>
-		<!-- Basic viewport setting for mobile friendly page -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Déclaration de la feuille de style du document-->
-    <link rel="stylesheet" href="css/style.css">
-		<!-- Those polyfills are required so that old browsers support fetch mecanism -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.0.5/es6-promise.min.js" defer ></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.1/fetch.min.js" defer></script>
-		<!-- Simple sample script that loads data from a dummy json file -->
-		<script src="js/example.js" defer></script>
-  </head>
-  <body>
-    <!-- Ce conteneur est la seule balise div que l'on s'autorise pour effectuer la mise en page du site -->
-    <!-- On pourrait bien sûr en ajouter d'autres pour se faciliter la mise en page -->
-    <!-- Mais on va s'efforce de respecter et brouiller le moins possible la structure logique du contenu -->
-    <div id="container">
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Parrains 2017 - Hyblab</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,600,700|Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="dist/styles.css">
+    </head>
+    <body class="app-container">
+        <button
+            class="btn-transparent infos-link js-open-infos"
+            title="Aide et informations"
+        >
+            <span class="material-icons infos-link-icon">info_outline</span>
+            <span class="material-icons infos-link-icon">info</span>
+        </button>
 
-    <!-- l'entête de la page: titre, barre de recherche -->
-    <header>
-			<img src="img/logo_hyblab.png" alt="logo hyblab"/>
-      <h1>Hyblab Datajournalism 2017</h1>
-    </header>
+        <div class="infos-container js-infos">
+            <div class="infos-wrapper">
+                <button class="btn-transparent infos-close js-close-infos">
+                    <span class="material-icons">close</span>
+                </button>
+                <div class="infos-content">
+                    <div class="row mod-center-vertical infos-row">
+                        <div class="col1 text-center">
+                            <img src="images/logo_parrains.png"
+                                class="logo-parrains" />
+                        </div>
+                        <div class="col3 col-m-4">
+                            <h1>Parrains 2017</h1>
+                            <h2>Ce que nous disent les parrainages à l'élection
+                                présidentielle.</h2>
+                        </div>
+                    </div>
 
-    <!-- Le contenu du site -->
-    <p>Replace this content by your web app !</p>
+                    <div class="row infos-row mod-center-horizontal">
+                        <div class="col3 mod-max">
+                            <p>
+                                Ils sont 14 296 élus à avoir accepté de parrainer un
+                                candidat à l'élection présidentielle. Parmi eux,
+                                9 756 maires ont apporté leurs signatures à
+                                l'un des 61 candidats en route pour l'Elysée.
+                            </p>
+                            <p>
+                                11 candidatures ont été validées par le Conseil
+                                Constitutionnel. Pour être validée, une
+                                candidature doit obtenir 500 parrainages et
+                                vérifier que :
+                                <ul>
+                                    <li>
+                                        pas plus d’un dixième des 500 parrainages
+                                        nécessaires, c’est-à-dire 50 au maximum,
+                                        émanent d’un même département ou
+                                        collectivité d’outre-mer
+                                    </li>
+                                    <li>
+                                        ces parrainages sont signés par des élus
+                                        d’au moins 30 départements ou
+                                        collectivités d’outre-mer.
+                                    </li>
+                                </ul>
 
-		<p>Here is some data from a json file : <span id="data"></span><p>
+                                Le site du Conseil Constitutionnel présente <a
+                                    href="https://presidentielle2017.conseil-constitutionnel.fr/les-parrainages/parrainages-par-candidat/">plus
+                                    de détails</a>.
+                            </p>
+                            <hr />
+                            <p>
+                                Pour la première fois, la liste des parrainages
+                                est rendue publique. Pour la première fois, il
+                                est possible d'explorer ces données.
+                            </p>
+                            <p>
+                                Quel candidat reçoit le plus de parrainages ?
+                                Quels types d'élus parrainent qui ? Qui est le
+                                candidat des villes ? Qui est le candidat des
+                                campagnes ? Qui est le candidat des femmes ?
+                            </p>
+                            <p>
+                                Vous pouvez par exemple regarder :
+                                <ul>
+                                    <li>
+                                        Quel sont les candidats qui obtiennent
+                                        le plus de soutients ?
+                                    </li>
+                                    <li>
+                                        Quel est le poids des parrainages des
+                                        maires ?
+                                    </li>
+                                    <li>
+                                        Entre François Fillon et Benoit Hamon,
+                                        qui est le candidat des femmes ?
+                                    </li>
+                                    <li>
+                                        Entre Benoit Hamon et Marine LePen, qui
+                                        est le candidat des zones urbaines ?
+                                    </li>
+                                    <li>
+                                        Entre Emmanuel Macron et Jean-Luc
+                                        Mélenchon, qui est le candidat des zones
+                                        de plus fort chômage ?
+                                    </li>
+                                    <li>Qui est le candidat des maires
+                                        agriculteurs ? Des maires enseigants ?
+                                    </li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
 
-    <!-- Notre pied de page -->
-    <footer>
-      <p>Copyright Hyblab team 2017</p>
-    </footer>
-    </div>
-  </body>
+                    <div class="row infos-row">
+                        <div class="col4">
+                            <h2>Légende - Couleurs des étiquettes politiques</h2>
+                        </div>
+                        <div class="col4">
+                            <p>
+                                <span class="list-item list-item-exg">
+                                    Extrème Gauche
+                                </span>
+                                <span class="list-item list-item-fg">
+                                    Front de Gauche
+                                </span>
+                                <span class="list-item list-item-pg">
+                                    Parti de Gauche
+                                </span>
+                                <span class="list-item list-item-pc">
+                                    Parti Communiste
+                                </span>
+                                <span class="list-item list-item-ps">
+                                    Parti Socialiste
+                                </span>
+                                <span class="list-item list-item-ug">
+                                    Union de la Gauche
+                                </span>
+                                <span class="list-item list-item-dvg">
+                                    Divers Gauche
+                                </span>
+                                <span class="list-item list-item-eelv">
+                                    Europe-Ecologie-Les Verts
+                                </span>
+                                <span class="list-item list-item-div">
+                                    Divers
+                                </span>
+                                <span class="list-item list-item-modem">
+                                    Modem
+                                </span>
+                                <span class="list-item list-item-uc">
+                                    Union du Centre
+                                </span>
+                                <span class="list-item list-item-udi">
+                                    Union Démocrates et Indépendants
+                                </span>
+                                <span class="list-item list-item-dvd">
+                                    Divers Droite
+                                </span>
+                                <span class="list-item list-item-ud">
+                                    Union de la droite
+                                </span>
+                                <span class="list-item list-item-fn">
+                                    Front National
+                                </span>
+                                <span class="list-item list-item-exd">
+                                    Extrème Droite
+                                </span>
+                                <span class="list-item list-item-se">
+                                    Sans étiquette
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row infos-row">
+                        <div class="col4">
+                            <h2>L'équipe</h2>
+                        </div>
+                        <div class="col4">
+                            <div class="row mod-center-vertical">
+                                <div class="photo-element mod-title col1">
+                                    <p>Ouest France</p>
+                                </div>
+                                <div class="photo-element col1">
+                                    <a href="http://www.twitter.com/f_gregoire">
+                                        <img class="photo-element-img"
+                                            src="images/francois.png">
+                                    </a>
+                                        <span class="photo-element-title">
+                                            François Grégoire
+                                        </span>
+                                </div>
+                                <div class="photo-element col1">
+                                    <a href="http://www.twitter.com/cmonnerie">
+                                        <img class="photo-element-img"
+                                            src="images/corine.png">
+                                    </a>
+                                        <span class="photo-element-title">
+                                            Corine Monnerie
+                                        </span>
+                                </div>
+
+                                <div class="photo-element mod-title col1">
+                                    <p>Designers<br />EDNA</p>
+                                </div>
+                                <div class="photo-element col1">
+                                    <a href="http://www.twitter.com/"></a>
+                                    <img class="photo-element-img"
+                                        src="images/antoine.png">
+                                        <p class="photo-element-title">
+                                            Antoine Floch
+                                        </p>
+                                </div>
+                                <div class="photo-element col1">
+                                    <a href="http://www.twitter.com/B3UBZ">
+                                        <img class="photo-element-img"
+                                            src="images/benoit.png">
+                                    </a>
+                                        <p class="photo-element-title">
+                                            Benoit Carduner
+                                        </p>
+                                </div>
+                                <div class="photo-element col1">
+                                    <a href="http://www.twitter.com/LeTernuecNolwen">
+                                        <img class="photo-element-img"
+                                            src="images/nolwen.png">
+                                    </a>
+                                        <p class="photo-element-title">
+                                            Nolwen Le Ternuec
+                                        </p>
+                                </div>
+
+                                <div class="photo-element mod-title col1">
+                                    <p>Ingénieurs<br />Polytech</p>
+                                </div>
+                                <div class="photo-element col1">
+                                    <a href="http://www.twitter.com/GuillaumeWuip">
+                                        <img class="photo-element-img"
+                                            src="images/guillaume.png">
+                                    </a>
+                                        <p class="photo-element-title">
+                                            Guillaume Clochard
+                                        </p>
+                                </div>
+                                <div class="photo-element col1">
+                                    <a href="http://www.twitter.com/jimmyleblanc_">
+                                        <img class="photo-element-img"
+                                            src="images/jimmy.png">
+                                    </a>
+                                        <p class="photo-element-title">
+                                            Jimmy Leblanc
+                                        </p>
+                                </div>
+                                <div class="photo-element col1">
+                                    <a href="http://www.twitter.com/Arnaud_Lange">
+                                        <img class="photo-element-img"
+                                        src="images/arnaud.png">
+                                    </a>
+                                        <p class="photo-element-title">
+                                            Arnaud Langelier
+                                        </p>
+                                </div>
+                                <div class="photo-element col1">
+                                    <a href="http://twitter.com/TCoquereau">
+                                        <img class="photo-element-img"
+                                            src="images/thomas.png">
+                                    </a>
+                                        <p class="photo-element-title">
+                                            Thomas Coquereau
+                                        </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mod-center-vertical infos-row">
+                        <div class="col4">
+                            <h2>Partenaires</h2>
+                        </div>
+                        <div class="col4">
+                            <p>Concours organisé par Ouest Medialab, réalisé par
+                                des étudiants de Polytech et de l'école de
+                                Design Nantes Atlantique en partenariat avec
+                                Ouest France.</p>
+                        </div>
+                        <div class="col4">
+                            <div class="row mod-center-vertical">
+                                <div class="col1">
+                                    <a href="http://www.ouestmedialab.fr/">
+                                        <img src="images/logo_hyblab.png"
+                                        class="logo-hyblab">
+                                    </a>
+                                </div>
+
+                                <div class="col1">
+                                    <a href="http://www.ouest-france.fr/">
+                                        <img src="images/logo_of.png" class="logo-of">
+                                    </a>
+                                </div>
+
+                                <div class="col1">
+                                    <a href="http://www.ouestmedialab.fr/">
+                                        <img src="images/logo_oml.png" class="logo-oml">
+                                    </a>
+                                </div>
+
+                                <div class="col1">
+                                    <a href="http://www.polytech.univ-nantes.fr/">
+                                        <img src="images/polytech.png"
+                                        class="logo-polytech">
+                                    </a>
+                                </div>
+
+                                <div class="col1">
+                                    <a href="http://www.lecolededesign.com">
+                                        <img src="images/edna.png" class="logo-design">
+                                    </a>
+                                </div>
+
+                                <div class="col1">
+                                    <a href="http://www.univ-nantes.fr/">
+                                        <img src="images/logo_universitenantes.jpg"
+                                        class="logo-univ">
+                                    </a>
+                                </div>
+
+                                <div class="col1">
+                                    <a href="http://www.paysdelaloire.fr/">
+                                        <img src="images/logo_pdl.png" class="logo-pdl">
+                                    </a>
+                                </div>
+
+                                <div class="col1">
+                                    <a href="http://www.nantesmetropole.fr/">
+                                        <img src="images/logo_nantesmetropole.png"
+                                        class="logo-nantesmetropole">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mod-center-vertical infos-row">
+                        <div class="col4">
+                            <h2>Code et Licence</h2>
+                        </div>
+                        <div class="col4">
+                            <p>
+                            Le code du projet est disponible en open-source <a
+                                href="http://github.com/parrains2k17">sur
+                                Github</a>.
+                            </p>
+
+                            <p>Deux licences s'appliquent :</p>
+                            <ul class="code-list">
+                                <li>
+                                    <img src="images/logo_opensource.png"
+                                        class="logo-opensource code-img" />
+                                    <span class="code-text">
+                                        <a href="https://opensource.org/licenses/MIT">
+                                            Licence MIT</a>
+                                        pour le code source informatique.
+                                    </span>
+                                </li>
+                                <li>
+                                    <img src="images/logo_cc.png"
+                                        class="logo-cc code-img" />
+                                    <span class="code-text">
+                                        Licence <a
+                                            href="https://creativecommons.org/licenses/by/3.0/fr/">
+                                            Creative Commons</a>
+                                        pour tous les contenus créés pendant
+                                        l’atelier.
+                                    </span>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="canvas-container js-canvas-container"></div>
+
+        <h2 class="title-dataviz js-title-dataviz">
+            <span class="title-dataviz-content js-title-dataviz-content"></span>
+        </h2>
+        <div class="add-candidate js-add-candidate-open">
+            <button class="btn-transparent add-candidate-button">
+                <span class="material-icons">add</span>
+                <span>Comparer avec un autre candidat</span>
+            </button>
+        </div>
+        <div class="add-candidate js-add-candidate-close">
+            <button class="btn-transparent add-candidate-button">
+                <span class="material-icons">close</span>
+            </button>
+        </div>
+
+        <div class="candidate mod-shadow js-candidate-panel">
+            <div class="candidate-container js-candidate-1">
+                <div class="candidate-element candidate-element-image">
+                    <img
+                    alt="Photo candidat"
+                    class="candidate-image js-candidate-image"
+                    />
+                </div>
+
+                <div class="candidate-element candidate-element-infos">
+                    <h1 class="candidate-name">
+                        <span class="js-candidate-name">Nom candidat</span>
+                    </h1>
+                    <h2 class="candidate-parti">
+                        <span class="js-candidate-age">20</span> ans
+                        - <span class="js-candidate-parti">Parti</span>
+                        - <span class="js-candidate-total">20</span> parrainages
+                    </h2>
+                </div>
+
+                <button class="btn-transparent candidate-element
+                    candidate-element-close js-close-candidate">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+
+            <div class="candidate-container js-candidate-2">
+                <div class="candidate-element candidate-element-image">
+                    <img
+                    alt="Photo candidat"
+                    class="candidate-image js-candidate-image"
+                    />
+                </div>
+
+                <div class="candidate-element candidate-element-infos">
+                    <h1 class="candidate-name">
+                        <span class="js-candidate-name">Nom candidat</span>
+                    </h1>
+                    <h2 class="candidate-parti">
+                        <span class="js-candidate-age">20</span> ans
+                        - <span class="js-candidate-parti">Parti</span>
+                        - <span class="js-candidate-total">20</span> parrainages
+                    </h2>
+                </div>
+
+                <button class="btn-transparent candidate-element
+                    candidate-element-close js-close-candidate">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="modal-background js-modal-background js-close-modal mode-open"></div>
+        <div class="modal-container js-modal-container-intro mode-open">
+
+            <div class="row mod-center-vertical flex-container">
+                <div class="logo-parrains-container col2">
+                    <img src="images/logo_parrains.png" class="logo-parrains">
+                </div>
+
+                <div class="titre-container col2">
+                    <h1 class="titre1">Parrains</h1>
+                    <h1 class="titre2017">2017</h1>
+                </div>
+
+                <div class="text-container col4 mode-open js-text-container">
+                    <p>
+                        Ils sont 14 296 élus à avoir accepté de parrainer un
+                        candidat à l'élection présidentielle.
+                    </p>
+                    <p>
+                        Parmi eux, 9 756 maires ont apporté leurs signatures à
+                        l'un des 61 candidats en route pour l'Elysée.
+                    </p>
+                    <p>Qui parraine qui ? Qui est le candidat des villes ? Qui
+                        est le candidat des femmes ? Qui est le candidat des
+                        zones de chômage ?</p>
+                    <p>
+                        Naviguez dans la galaxie pour en savoir plus.
+                    </p>
+                </div>
+
+                <div class="text-container-webgl col4
+                    js-text-container-webgl">
+                    <p class="mod-alert">
+                        Votre navigateur ne prend pas en charge la
+                        technologie WebGL nécessaire au fonctionnement de
+                        l'application.
+                    </p>
+                    <p>Nous vous recommandons le navigateur <a
+                            href="https://www.google.com/chrome/">Chrome</a>.</p>
+                </div>
+
+                <div class="button-container col4">
+                    <button class="go-button js-close-modal mode-open" disabled>
+                        <span class="go-button-content">
+                            <span class="material-icons go-button-icon">refresh</span>
+                            <span>Chargement</span>
+                        </span>
+                        <span class="go-button-content">
+                            Explorez l'univers des parrainages
+                        </span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="action-bar mod-criteres js-actions-criteres">
+            <div class="action-bar-h100"></div>
+            <ul class="action-bar-container mod-criteres">
+                <li class="action-bar-title">
+                    L'ensemble des parrains du candidat
+                </li>
+                <li
+                    class="action-bar-element mod-criteres js-action"
+                    data-id="SELECTOR_TYPE"
+                    data-critere-name="Type de mandat"
+                >
+                    <div class="criteres-image"
+                        style="background-image:url('images/partis_politique.svg')">
+                    </div>
+                </li>
+                <li
+                    class="action-bar-element mod-criteres js-action"
+                    data-id="SELECTOR_GENDER_ALL"
+                    data-critere-name="Sexe"
+                >
+                    <div class="criteres-image"
+                        style="background-image:url('images/gender_symbol.svg')">
+                    </div>
+                </li>
+
+                <li class="action-bar-title mod-maires">
+                    Seulement les maires
+                </li>
+
+                <li
+                    class="action-bar-element mod-criteres js-action"
+                    data-id="SELECTOR_LISTE"
+                    data-critere-name="Couleurs politiques"
+                >
+                    <div class="criteres-image"
+                        style="background-image:url('images/partis_politique.svg')">
+                    </div>
+                </li>
+                <li
+                    class="action-bar-element mod-criteres js-action"
+                    data-id="SELECTOR_GENDER"
+                    data-critere-name="Sexe"
+                >
+                    <div class="criteres-image"
+                        style="background-image:url('images/gender_symbol.svg')">
+                    </div>
+                </li>
+                <li
+                    class="action-bar-element mod-criteres js-action"
+                    data-id="SELECTOR_AGE"
+                    data-critere-name="Âge"
+                >
+                    <div class="criteres-image"
+                        style="background-image:url('images/Age.svg')"></div>
+                </li>
+                <li
+                    class="action-bar-element mod-criteres js-action"
+                    data-id="SELECTOR_CSP"
+                    data-critere-name="CSP"
+                >
+                    <div class="criteres-image"
+                        style="background-image:url('images/CSP.svg')"></div>
+                </li>
+                <li
+                    class="action-bar-element mod-criteres js-action"
+                    data-id="SELECTOR_POP"
+                    data-critere-name="Population"
+                >
+                    <div class="criteres-image"
+                        style="background-image:url('images/population.svg')"></div>
+                </li>
+                <li
+                    class="action-bar-element mod-criteres js-action"
+                    data-id="SELECTOR_URBANITE"
+                    data-critere-name="Ville ou campagne ?"
+                >
+                    <div class="criteres-image"
+                        style="background-image:url('images/urbain.svg')"></div>
+                </li>
+                <li
+                    class="action-bar-element mod-criteres js-action"
+                    data-id="SELECTOR_CHOMAGE"
+                    data-critere-name="Taux de chômage"
+                >
+                    <div class="criteres-image"
+                        style="background-image:url('images/chomage.svg')"></div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="action-bar mod-planets js-actions-choix">
+            <div class="action-bar-h100"></div>
+            <div class="action-bar-container mod-planets">
+                <button class="btn-transparent action-bar-arrow action-bar-arrow-up">
+                    <span class="material-icons">keyboard_arrow_up</span>
+                </button>
+                <ul class="action-bar-planets-list">
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="AVERAGE_CANDIDATE"
+                        data-planet-name="Moyenne des candidats"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/4_candidats.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="ALLIOT-MARIE Michèle"
+                        data-planet-name="Michèle Alliot-Marie"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/Alliot-Marie.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="ARTHAUD Nathalie"
+                        data-planet-name="Nathalie Arthaud"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/Arthaud.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="ASSELINEAU François"
+                        data-planet-name="François Asselineau"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/Asselineau.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="CHEMINADE Jacques"
+                        data-planet-name="Jacques Cheminade"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/Cheminade.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="DUPONT-AIGNAN Nicolas"
+                        data-planet-name="Nicolas Dupont-Aignan"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/Dupont-Aignan.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="FAUDOT Bastien"
+                        data-planet-name="Bastien Faudot"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/Faudot.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="FILLON François"
+                        data-planet-name="François Fillon"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/Fillon.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="GORGES Jean-Pierre"
+                        data-planet-name="Jean-Pierre Gorges"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/Gorges.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="GUAINO Henri"
+                        data-planet-name="Henri Guaino"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/Guaino.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="HAMON Benoit"
+                        data-planet-name="Benoit Hamon"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/Hamon.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="JARDIN Alexandre"
+                        data-planet-name="Alexandre Jardin"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/Jardin.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="LARROUTUROU Pierre"
+                        data-planet-name="Pierre Larrouturou"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/Larrouturou.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="LASSALLE Jean"
+                        data-planet-name="Jean Lassalle"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/Lassalle.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="LE PEN Marine"
+                        data-planet-name="Marine Le Pen"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/LePen.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="MACRON Emmanuel"
+                        data-planet-name="Emmanuel Macron"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/Macron.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="MARCHANDISE Charlotte"
+                        data-planet-name="Charlotte Marchandise"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/Marchandise.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="MELENCHON Jean-Luc"
+                        data-planet-name="Jean-Luc Mélenchon"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/Melenchon.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="POUTOU Philippe"
+                        data-planet-name="Philippe Poutou"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/Poutou.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="TAUZIN Didier"
+                        data-planet-name="Didier Tauzin"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/Tauzin.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="TEMARU Oscar"
+                        data-planet-name="Oscar Temaru"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/Temaru.png')">
+                        </div>
+                    </li>
+                    <li
+                        class="action-bar-element mod-planets js-action"
+                        data-id="YADE Rama"
+                        data-planet-name="Rama Yade"
+                    >
+                        <div class="planets-image"
+                            style="background-image:url('images/Yade.png')">
+                        </div>
+                    </li>
+                </ul>
+                <button class="btn-transparent action-bar-arrow action-bar-arrow-down">
+                    <span class="material-icons">keyboard_arrow_down</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="soucoupe-slideshow js-soucoupe-slideshow">
+            <div class="soucoupe-slideshow-element"></div>
+            <div class="soucoupe-slideshow-element"></div>
+            <div class="soucoupe-slideshow-element"></div>
+            <div class="soucoupe-slideshow-element"></div>
+            <div class="soucoupe-slideshow-element"></div>
+            <div class="soucoupe-slideshow-element"></div>
+            <div class="soucoupe-slideshow-element"></div>
+        </div>
+
+        <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+        <script type="text/javascript" src="dist/bundle.js"></script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-96117627-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </body>
 </html>
+

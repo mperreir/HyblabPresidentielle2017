@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // Use strict mode
 'use strict';
 

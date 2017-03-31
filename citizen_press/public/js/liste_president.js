@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
-    //Clic sur les boutons valider    
+    //Clic sur les boutons valider
     attribuerClics();
 
-    // Enchainement de fonctions pour valider les 
+    // Enchainement de fonctions pour valider les
     function attribuerClics(){
         var idBureau = $('.idBureau').attr('id');
 
@@ -20,7 +20,7 @@ $(document).ready(function() {
         console.log("typeBenevole : "+typeBenevole);
 
         $.ajax({
-            url: "/citizen_press/valider/"+idBureau+"/"+idAssesseur+"/"+typeBenevole,
+            url: "valider/"+idBureau+"/"+idAssesseur+"/"+typeBenevole,
             type: "GET",
             cache: false,
             timeout: 5000,
@@ -37,7 +37,7 @@ $(document).ready(function() {
             var tableRowToChange = $('#'+idAssesseur).closest('tr');
             tableRowToChange.removeClass('assesseur_non_valide');
             tableRowToChange.addClass('assesseur_valide');
-            affichageLigne(true,false,true,false);                        
+            affichageLigne(true,false,true,false);
         }
         if (typeBenevole=="ValiderScrut"){
             var tableRowToChange = $('#'+idAssesseur).closest('tr');
@@ -61,14 +61,14 @@ $(document).ready(function() {
         //En plus de cacher les lignes ou non en fonction de ce qui est demandé
         // Il faut modifier la case décision en fonction des diiférents cas, (2 demandes, 1 seule validée)
         // cf. Tableau "Liste président : Que afficher dans la case décision en fonction des différents cas et du filtrage demandé" sur le Google Drive des Dépouilleurs
-        // 
+        //
         //Code optimisable via les paramètre de toggle et hide (pas le temps d'y réflechir)
         isAssesseur = document.getElementById('check01').checked;
         isScrutateur = document.getElementById('check02').checked;
         isEnCours = document.getElementById('check03').checked;
         isValide = document.getElementById('check04').checked;
 
-        affichageLigne(isAssesseur,isScrutateur,isEnCours,isValide);       
+        affichageLigne(isAssesseur,isScrutateur,isEnCours,isValide);
     });
 
     miseEnFormeTable();
@@ -138,7 +138,7 @@ $(document).ready(function() {
                 classname2[i].innerHTML = ('<td class="decision"><input type="hidden" class="boutonValider" id="'+ idAsse +'">Validé</td>');
             }
             attribuerClics();
-        }     
+        }
     }
 
     //Mise en forme de la table et du tri
@@ -155,4 +155,3 @@ $(document).ready(function() {
     }
 
 });
-

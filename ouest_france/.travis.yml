@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+- 7.7.2
+env:
+- CI=true
+before_script:
+- npm install -g gulp
+before_install:
+- mkdir -p ~/.ssh
+- openssl aes-256-cbc -K $encrypted_d130d0425b95_key -iv $encrypted_d130d0425b95_iv
+  -in deploy_rsa.enc -out ~/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
+script:
+- gulp lint
+- webpack
+deploy:
+  provider: script
+  script: sh deploy.sh
+  on:
+    branch: master
+  skip_cleanup: true
+notifications:
+  slack:
+    secure: XG5/KhV7PwZ6uN3UihbkNg0GcF0DHEFPo1C1tbKaMy8LvGM75zk2NEvp5m5ef1GoAokLRCK0m6Pf2yxm+LARiQcA33vEUhGCAVSiOEKwZij137GmJRokP3cnpNnx+5Kuzsiz+QcGPRX0yI9gRJto1BJOxGGX8DKzgeO/MXAyiRQAaZXQVufcdvZWkvVSXVhlqbre7y4WAGdEajGKfjNMTfRtsrGmeVTcxNuYM/jSTbGCFIAZ1G46EAzJRR4OMjBhugLRQCNRHVXtwvN4lZsrC/f0RJMTncRzwrHX2QakP48JE3TbaU9YEUWvS5kefkY0uJ9GW+rO4esVSBeQjWMXgGF8Y74RXwWhXt3SdniLuCeYEq611y1hn1wD9BAoy5zikG9NWJlGE2kD7AYSzsBtaZe13OwpYJFGa3hYGfb+6zQGAVUCP3DeRur0kRc9xCjgCodnq9qcIrV6lUbzFIilioHnOvpXdDmpGoowfHV90V5KYi5jQvCtvkDFqJUU/OVbImdfT9UKqPlgOPR/ZSMx09OQIY/gtxJFJxDkti8rLq5yZkZrmPW9oWc3UbHLE5Wyfy4RksRH51GP8cgGOi+aIfx+H9uDHZFS0BDsMSLwud5EDJuaiu3ZkHqCdttUoMwAuWpiH7irKPxuZfDyYVmZZMZGwJFi2pb7PCuyxI+/HuQ=
