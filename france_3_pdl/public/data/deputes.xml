@@ -1,0 +1,1175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deputes>
+  <depute>
+    <id>523</id>
+    <nom>Yannick Moreau</nom>
+    <nom_de_famille>Moreau</nom_de_famille>
+    <prenom>Yannick</prenom>
+    <sexe>H</sexe>
+    <date_naissance>1975-08-04</date_naissance>
+    <lieu_naissance>Nantes (Loire-Atlantique)</lieu_naissance>
+    <num_deptmt>85</num_deptmt>
+    <nom_circo>Vendée</nom_circo>
+    <num_circo>3</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Les républicains - membre</groupe>
+    <groupe_sigle>LR</groupe_sigle>
+    <parti_ratt_financier>Les Républicains</parti_ratt_financier>
+    <responsabilites>Commission des affaires économiques - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études candidature de la france à l&apos;exposition universelle de - membre|Groupe d&apos;études protection et développement du littoral - membre|Groupe d&apos;études région du kurdistan irakien - membre|Groupe d&apos;études papier et imprimés - membre|Groupe d&apos;études tourisme - membre|Groupe d&apos;études chrétiens d&apos;orient - membre|Groupe d&apos;études arctique antarctique et terres australes et antarctiques françaises - membre|Groupe d&apos;études famille et adoption - membre|Groupe d&apos;études chasse et territoires - secrétaire|Groupe d&apos;études déchets ménagers - membre|Groupe d&apos;amitié france-yemen - secrétaire|Groupe d&apos;études changements climatiques - membre|Groupe d&apos;études prématurité et nouveau-nés vulnérables - membre|Groupe d&apos;études mer pêche et souveraineté maritime - membre|Groupe d&apos;amitié france-roumanie - secrétaire|Groupe d&apos;études commerce et artisanat - membre|Groupe d&apos;études politique portuaire - membre|</groupes_parlementaires>
+    <sites_web>http://www.yannickmoreau.fr|http://www.yannickmoreau.com|https://twitter.com/YannickMOREAU|</sites_web>
+    <anciens_mandats>20/06/2012 /  / |</anciens_mandats>
+    <autres_mandats>Olonnes / Communauté de communes / président|Olonne-sur-Mer (Vendée) / Conseil municipal / maire|</autres_mandats>
+    <profession>Sans profession declaree</profession>
+    <place_en_hemicycle>231</place_en_hemicycle>
+    <slug>yannick-moreau</slug>
+    <nb_mandats>3</nb_mandats>
+    <X35></X35>
+	<vote_1312>Contre</vote_1312>
+    <vote_1329>NA</vote_1329>
+    <vote_511>Contre</vote_511>
+    <vote_1346>Contre</vote_1346>
+    <vote_1352>Contre</vote_1352>
+    <Champ_Lexical>avortement/centres-villes/côte/délit/délit/d’entrave/grossesse/IVG/littoral/opinion/PIA/policier/trait/trait de côte/urbanisme/veil</Champ_Lexical>
+    <vote_1347>Contre</vote_1347>
+    <vote_1348>Contre</vote_1348>
+    <vote_1291>Pour</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>Fillon</Soutien_Presidentiel>
+	<index>150</index>
+	<pourcentPresence>61,5384615384615</pourcentPresence>
+  </depute>
+  <depute>
+    <id>426</id>
+    <nom>Alain Leboeuf</nom>
+    <nom_de_famille>Leboeuf</nom_de_famille>
+    <prenom>Alain</prenom>
+    <sexe>H</sexe>
+    <date_naissance>1964-02-02</date_naissance>
+    <lieu_naissance>Nantes (Loire-Atlantique)</lieu_naissance>
+    <num_deptmt>85</num_deptmt>
+    <nom_circo>Vendée</nom_circo>
+    <num_circo>1</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Les républicains - membre</groupe>
+    <groupe_sigle>LR</groupe_sigle>
+    <parti_ratt_financier>Les Républicains</parti_ratt_financier>
+    <responsabilites>Commission du développement durable et de l&apos;aménagement du territoire - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études candidature de la france à l&apos;exposition universelle de - membre|Groupe d&apos;études déchets ménagers - vice-président|Groupe d&apos;études industries agro-alimentaires et filière agricole - membre|Groupe d&apos;études fillière véhicules industriels - membre|Groupe d&apos;études automobile - membre|Groupe d&apos;études internet et société numérique - membre|Groupe d&apos;études chrétiens d&apos;orient - membre|Groupe d&apos;études cheval - membre|Groupe d&apos;études foncier - membre|Groupe d&apos;études jardins paysage et horticulture - membre|Groupe d&apos;études construction éco-construction et logement - membre|Groupe d&apos;études pme - membre|</groupes_parlementaires>
+    <sites_web>http://www.alainleboeuf.fr|https://twitter.com/a_leboeuf|</sites_web>
+    <anciens_mandats>20/06/2012 /  / |</anciens_mandats>
+    <autres_mandats>Canton de Rocheservière / Communauté de communes / vice-président|Rocheservière (Vendée) / Conseil municipal / maire|Vendée / Conseil départemental / vice-président|</autres_mandats>
+    <profession>Cadre supérieur du secteur privé</profession>
+    <place_en_hemicycle>59</place_en_hemicycle>
+    <slug>alain-leboeuf</slug>
+    <nb_mandats>4</nb_mandats>
+    <X35></X35>
+	<vote_1312>Contre</vote_1312>
+    <vote_1329>Contre</vote_1329>
+    <vote_511>Contre</vote_511>
+    <vote_1346>Contre</vote_1346>
+    <vote_1352>Contre</vote_1352>
+    <Champ_Lexical>PPE</Champ_Lexical>
+    <vote_1347>Contre</vote_1347>
+    <vote_1348>Contre</vote_1348>
+    <vote_1291>Pour</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>Fillon</Soutien_Presidentiel>
+	<index>206</index>
+	<pourcentPresence>57,6923076923077</pourcentPresence>
+  </depute>
+  <depute>
+    <id>548</id>
+    <nom>Hugues Fourage</nom>
+    <nom_de_famille>Fourage</nom_de_famille>
+    <prenom>Hugues</prenom>
+    <sexe>H</sexe>
+    <date_naissance>1965-06-04</date_naissance>
+    <lieu_naissance>Vertou (Loire-Atlantique)</lieu_naissance>
+    <num_deptmt>85</num_deptmt>
+    <nom_circo>Vendée</nom_circo>
+    <num_circo>5</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Socialiste, écologiste et républicain - membre</groupe>
+    <groupe_sigle>SER</groupe_sigle>
+    <parti_ratt_financier>Parti socialiste</parti_ratt_financier>
+    <responsabilites>Commission des lois constitutionnelles de la législation et de l&apos;administration générale de la république - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études parcs nationaux et régionaux - membre|Groupe d&apos;études politique de l&apos;eau - membre|Groupe d&apos;études protection et développement du littoral - membre|Groupe d&apos;études quartiers anciens dégradés - membre|Groupe d&apos;études industries agro-alimentaires et filière agricole - membre|Groupe d&apos;études fillière véhicules industriels - membre|Groupe d&apos;études artisanat et métiers d&apos;art - membre|Groupe d&apos;études mer pêche et souveraineté maritime - membre|Groupe d&apos;études chasse et territoires - membre|Groupe d&apos;études développement de la méthanisation - membre|Groupe d&apos;études abolition universelle de la peine de mort - membre|Groupe d&apos;études politiques de la ruralité - membre|Groupe d&apos;études commerce et artisanat - membre|Groupe d&apos;études santé et numérique - membre|Groupe d&apos;études viticulture - membre|</groupes_parlementaires>
+    <sites_web>http://www.huguesfourage.fr|https://twitter.com/HuguesFourage|</sites_web>
+    <anciens_mandats>20/06/2012 /  / |</anciens_mandats>
+    <autres_mandats>Pays de Fontenay-le-Comte / Communauté de communes / membre|Fontenay-le-Comte / Conseil municipal / membre|</autres_mandats>
+    <profession>En disponibilité</profession>
+    <place_en_hemicycle>457</place_en_hemicycle>
+    <slug>hugues-fourage</slug>
+    <nb_mandats>3</nb_mandats>
+    <X35></X35>
+	<vote_1312>Pour</vote_1312>
+    <vote_1329>Pour</vote_1329>
+    <vote_511>Pour</vote_511>
+    <vote_1346>Pour</vote_1346>
+    <vote_1352>Pour</vote_1352>
+    <Champ_Lexical>attribution/préfet</Champ_Lexical>
+    <vote_1347>Pour</vote_1347>
+    <vote_1348>Pour</vote_1348>
+    <vote_1291>Contre</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>NA</Soutien_Presidentiel>
+	<index>346</index>
+	<pourcentPresence>48,0769230769231</pourcentPresence>
+  </depute>
+  <depute>
+    <id>545</id>
+    <nom>Sylviane Bulteau</nom>
+    <nom_de_famille>Bulteau</nom_de_famille>
+    <prenom>Sylviane</prenom>
+    <sexe>F</sexe>
+    <date_naissance>1964-04-21</date_naissance>
+    <lieu_naissance>Poissy (Yvelines)</lieu_naissance>
+    <num_deptmt>85</num_deptmt>
+    <nom_circo>Vendée</nom_circo>
+    <num_circo>2</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Socialiste, écologiste et républicain - membre</groupe>
+    <groupe_sigle>SER</groupe_sigle>
+    <parti_ratt_financier>Parti socialiste</parti_ratt_financier>
+    <responsabilites>Commission des affaires sociales - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études langues régionales - membre|Groupe d&apos;études politique de l&apos;eau - membre|Groupe d&apos;études enjeux du vieillissement - membre|Groupe d&apos;études pénibilité du travail santé au travail et maladies professionnelles - membre|Groupe d&apos;études tourisme - membre|Groupe d&apos;amitié france-algérie - vice-présidente|Groupe d&apos;études Élevage - membre|Groupe d&apos;études santé à l&apos;école - membre|</groupes_parlementaires>
+    <sites_web>http://www.sylvianebulteau.fr|https://twitter.com/sylvianebulteau|</sites_web>
+    <anciens_mandats>20/06/2012 /  / |</anciens_mandats>
+    <autres_mandats>Vendée / Conseil départemental / membre|</autres_mandats>
+    <profession>Assistante sociale</profession>
+    <place_en_hemicycle>568</place_en_hemicycle>
+    <slug>sylviane-bulteau</slug>
+    <nb_mandats>2</nb_mandats>
+    <X35></X35>
+	<vote_1312>Pour</vote_1312>
+    <vote_1329>Pour</vote_1329>
+    <vote_511>Pour</vote_511>
+    <vote_1346>Pour</vote_1346>
+    <vote_1352>Pour</vote_1352>
+    <Champ_Lexical>ACOSS/adhérents/ALD/diagnostic/douleur/expertise/HAS/indépendant/installer/malade/médicament/pathologie/pension/pharmacien/PLFSS/recouvrement/RSI/syndrome/thermale/thérapeutique/urssaf</Champ_Lexical>
+    <vote_1347>Pour</vote_1347>
+    <vote_1348>Pour</vote_1348>
+    <vote_1291>Contre</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>Hamon</Soutien_Presidentiel>
+	<index>482</index>
+	<pourcentPresence>34,6153846153846</pourcentPresence>
+  </depute>
+  <depute>
+    <id>171</id>
+    <nom>Véronique Besse</nom>
+    <nom_de_famille>Besse</nom_de_famille>
+    <prenom>Véronique</prenom>
+    <sexe>F</sexe>
+    <date_naissance>1963-08-11</date_naissance>
+    <lieu_naissance>La Roche-sur-Yon (Vendée)</lieu_naissance>
+    <num_deptmt>85</num_deptmt>
+    <nom_circo>Vendée</nom_circo>
+    <num_circo>4</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Députés non inscrits - membre</groupe>
+    <groupe_sigle>NI</groupe_sigle>
+    <parti_ratt_financier>Debout la France (Debout la République)</parti_ratt_financier>
+    <responsabilites>Commission des affaires culturelles et de l&apos;éducation - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études action humanitaire - membre|Groupe d&apos;études candidature de la france à l&apos;exposition universelle de - membre|Groupe d&apos;études accidents domestiques - membre|Groupe d&apos;études cancer - membre|Groupe d&apos;études intégration des personnes handicapées - membre|Groupe d&apos;études formation alternée en milieu rural - vice-présidente|Groupe d&apos;études prématurité et nouveau-nés vulnérables - membre|Groupe d&apos;études enjeux du vieillissement - membre|Groupe d&apos;études prévention et lutte contre la toxicomanie - membre|Groupe d&apos;amitié france-roumanie - secrétaire|Groupe d&apos;études protection des animaux - membre|Groupe d&apos;études tourisme - membre|Groupe d&apos;études chrétiens d&apos;orient - co-présidente|Groupe d&apos;études filière brassicole - membre|Groupe d&apos;études famille et adoption - membre|Groupe d&apos;études politiques de la ruralité - membre|Groupe d&apos;études commerce et artisanat - membre|</groupes_parlementaires>
+    <sites_web>http://www.veroniquebesse.fr|</sites_web>
+    <anciens_mandats>20/06/2007 / 19/06/2012 / fin de législature|20/06/2012 /  / |24/01/2005 / 19/06/2007 / fin de législature|</anciens_mandats>
+    <autres_mandats>Vendée / Conseil général / Vice-présidente|</autres_mandats>
+    <profession>Journaliste</profession>
+    <place_en_hemicycle>325</place_en_hemicycle>
+    <slug>veronique-besse</slug>
+    <nb_mandats>2</nb_mandats>
+    <X35></X35>
+	<vote_1312>Contre</vote_1312>
+    <vote_1329>Abstention</vote_1329>
+    <vote_511>Contre</vote_511>
+    <vote_1346>Contre</vote_1346>
+    <vote_1352>Contre</vote_1352>
+    <Champ_Lexical>irak/syrie/syrien</Champ_Lexical>
+    <vote_1347>Contre</vote_1347>
+    <vote_1348>Contre</vote_1348>
+    <vote_1291>Pour</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>Dupont-Aignan</Soutien_Presidentiel>
+	<index>505</index>
+	<pourcentPresence>28,8461538461538</pourcentPresence>
+  </depute>
+  <depute>
+    <id>590</id>
+    <nom>Sylvie Tolmont</nom>
+    <nom_de_famille>Tolmont</nom_de_famille>
+    <prenom>Sylvie</prenom>
+    <sexe>F</sexe>
+    <date_naissance>1962-10-09</date_naissance>
+    <lieu_naissance>Mans (Sarthe)</lieu_naissance>
+    <num_deptmt>72</num_deptmt>
+    <nom_circo>Sarthe</nom_circo>
+    <num_circo>4</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Socialiste, écologiste et républicain - membre</groupe>
+    <groupe_sigle>SER</groupe_sigle>
+    <parti_ratt_financier>Parti socialiste</parti_ratt_financier>
+    <responsabilites>Commission des affaires culturelles et de l&apos;éducation - membre|Délégation de l&apos;assemblée nationale aux droits des femmes et à l&apos;égalité des chances entre les hommes et les femmes - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études antisémitisme - membre|Groupe d&apos;amitié france-croatie - secrétaire|Groupe d&apos;amitié france-grande-bretagne et irlande du nord - secrétaire|Groupe d&apos;études politiques de la ruralité - membre|Groupe d&apos;études automobile - membre|</groupes_parlementaires>
+    <sites_web>http://www.sylvietolmont.fr|https://twitter.com/SylvieTolmont|</sites_web>
+    <anciens_mandats>22/07/2012 /  / |</anciens_mandats>
+    <autres_mandats>Fay / Conseil municipal / membre|Bocage Cénomans / Communauté de communes / membre|</autres_mandats>
+    <profession>Responsable communication</profession>
+    <place_en_hemicycle>330</place_en_hemicycle>
+    <slug>sylvie-tolmont</slug>
+    <nb_mandats>3</nb_mandats>
+    <X35></X35>
+	<vote_1312>Pour</vote_1312>
+    <vote_1329>NA</vote_1329>
+    <vote_511>Pour</vote_511>
+    <vote_1346>Pour</vote_1346>
+    <vote_1352>Pour</vote_1352>
+    <Champ_Lexical></Champ_Lexical>
+    <vote_1347>Pour</vote_1347>
+    <vote_1348>Pour</vote_1348>
+    <vote_1291>Contre</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>NA</Soutien_Presidentiel>
+	<index>33</index>
+	<pourcentPresence>71,1538461538462</pourcentPresence>
+  </depute>
+  <depute>
+    <id>156</id>
+    <nom>Dominique Le Mèner</nom>
+    <nom_de_famille>Le Mèner</nom_de_famille>
+    <prenom>Dominique</prenom>
+    <sexe>H</sexe>
+    <date_naissance>1958-11-12</date_naissance>
+    <lieu_naissance>Mans (Sarthe)</lieu_naissance>
+    <num_deptmt>72</num_deptmt>
+    <nom_circo>Sarthe</nom_circo>
+    <num_circo>5</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Les républicains - membre</groupe>
+    <groupe_sigle>LR</groupe_sigle>
+    <parti_ratt_financier>Les Républicains</parti_ratt_financier>
+    <responsabilites>Commission des affaires culturelles et de l&apos;éducation - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;amitié france-papouasie nouvelle-guinée - président|Groupe d&apos;études illettrisme - membre|Groupe d&apos;études internet et société numérique - membre|Groupe d&apos;études préservation et reconquête de la biodiversité - vice-président|Groupe d&apos;études papier et imprimés - membre|Groupe d&apos;amitié france-estonie - vice-président|</groupes_parlementaires>
+    <sites_web>http://www.sarthe.fr|https://twitter.com/lemenerdom|http://dominique.le-mener.over-blog.com|</sites_web>
+    <anciens_mandats>20/06/2007 / 19/06/2012 / fin de législature|20/06/2012 /  / |19/06/2002 / 19/06/2007 / fin de législature|</anciens_mandats>
+    <autres_mandats>Sarthe / Conseil départemental / président|</autres_mandats>
+    <profession>Juriste</profession>
+    <place_en_hemicycle>8</place_en_hemicycle>
+    <slug>dominique-le-mener</slug>
+    <nb_mandats>2</nb_mandats>
+    <X35></X35>
+	<vote_1312>NA</vote_1312>
+    <vote_1329>Contre</vote_1329>
+    <vote_511>Contre</vote_511>
+    <vote_1346>Contre</vote_1346>
+    <vote_1352>Contre</vote_1352>
+    <Champ_Lexical></Champ_Lexical>
+    <vote_1347>Contre</vote_1347>
+    <vote_1348>Contre</vote_1348>
+    <vote_1291>Pour</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>Fillon</Soutien_Presidentiel>
+	<index>201</index>
+	<pourcentPresence>57,6923076923077</pourcentPresence>
+  </depute>
+  <depute>
+    <id>290</id>
+    <nom>Marietta Karamanli</nom>
+    <nom_de_famille>Karamanli</nom_de_famille>
+    <prenom>Marietta</prenom>
+    <sexe>F</sexe>
+    <date_naissance>1964-12-18</date_naissance>
+    <lieu_naissance>Athènes (Grèce)</lieu_naissance>
+    <num_deptmt>72</num_deptmt>
+    <nom_circo>Sarthe</nom_circo>
+    <num_circo>2</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Socialiste, écologiste et républicain - membre</groupe>
+    <groupe_sigle>SER</groupe_sigle>
+    <parti_ratt_financier>Parti socialiste</parti_ratt_financier>
+    <responsabilites>Commission des affaires européennes - vice-présidente|Comité d&apos;évaluation et de contrôle des politiques publiques - membre|Commission des lois constitutionnelles de la législation et de l&apos;administration générale de la république - membre|Mission d&apos;information sur l&apos;avenir institutionnel de la nouvelle-calédonie - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études politique de l&apos;eau - membre|Groupe d&apos;études coordination des droits européens - membre|Groupe d&apos;études droits de l&apos;enfant et de l&apos;adolescent et protection de la jeunesse - membre|Groupe d&apos;études plasturgie - membre|Groupe d&apos;études internet et société numérique - membre|Groupe d&apos;études villes et banlieues - membre|Groupe d&apos;études assurances - co-présidente|Groupe d&apos;études sahara occidental - membre|Groupe d&apos;études statut des travailleurs mobiles en europe - membre|Groupe d&apos;études industries agro-alimentaires et filière agricole - membre|Groupe d&apos;études enjeux du vieillissement - membre|Groupe d&apos;études cinéma et production audiovisuelle - membre|Groupe d&apos;études automobile - membre|Groupe d&apos;études prisons et conditions carcérales - membre|Groupe d&apos;études surendettement - membre|Groupe d&apos;amitié france-chypre - vice-présidente|Groupe d&apos;amitié france-grèce - présidente|</groupes_parlementaires>
+    <sites_web>http://mariettakaramanli.fr |http://mariettakaramanli.fr|https://twitter.com/karamanli72|</sites_web>
+    <anciens_mandats>20/06/2007 / 19/06/2012 / fin de législature|20/06/2012 /  / |</anciens_mandats>
+    <autres_mandats>Mans / Conseil municipal / membre|Mans Métropole /  / vice-présidente|</autres_mandats>
+    <profession>Professeur du secondaire</profession>
+    <place_en_hemicycle>334</place_en_hemicycle>
+    <slug>marietta-karamanli</slug>
+    <nb_mandats>3</nb_mandats>
+    <X35></X35>
+	<vote_1312>Pour</vote_1312>
+    <vote_1329>Pour</vote_1329>
+    <vote_511>Pour</vote_511>
+    <vote_1346>Pour</vote_1346>
+    <vote_1352>Pour</vote_1352>
+    <Champ_Lexical>arme/audiovisuel/automatique/CETA/cinéma/détention/europol/électeur/électorale/film/frais/frais d&apos;itinérance/frontex/grèce/itinérance/mer/migratoire/nationaux/producteur/réfugié/révision/salle/schengen/SIS/territorialité/transatlantique/transnationale/traçabilité/turquie/visibilité</Champ_Lexical>
+    <vote_1347>Pour</vote_1347>
+    <vote_1348>Pour</vote_1348>
+    <vote_1291>Contre</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>NA</Soutien_Presidentiel>
+	<index>269</index>
+	<pourcentPresence>53,8461538461538</pourcentPresence>
+  </depute>
+  <depute>
+    <id>504</id>
+    <nom>Françoise Dubois</nom>
+    <nom_de_famille>Dubois</nom_de_famille>
+    <prenom>Françoise</prenom>
+    <sexe>F</sexe>
+    <date_naissance>1947-12-06</date_naissance>
+    <lieu_naissance>Coulans sur Gée (Sarthe)</lieu_naissance>
+    <num_deptmt>72</num_deptmt>
+    <nom_circo>Sarthe</nom_circo>
+    <num_circo>1</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Socialiste, écologiste et républicain - membre</groupe>
+    <groupe_sigle>SER</groupe_sigle>
+    <parti_ratt_financier>Parti socialiste</parti_ratt_financier>
+    <responsabilites>Commission du développement durable et de l&apos;aménagement du territoire - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études aménagement du territoire - membre|Groupe d&apos;études développement de la méthanisation - membre|Groupe d&apos;études politique de l&apos;eau - membre|Groupe d&apos;études commerce et artisanat - vice-présidente|Groupe d&apos;études automobile - membre|Groupe d&apos;études politiques de la ruralité - membre|Groupe d&apos;amitié france-equateur - secrétaire|Groupe d&apos;études pme - membre|</groupes_parlementaires>
+    <sites_web>http://www.francoisedubois.fr|https://twitter.com/fdubois2012|</sites_web>
+    <anciens_mandats>20/06/2012 /  / |</anciens_mandats>
+    <autres_mandats>Mans / Conseil municipal / membre|Mans Métropole /  / membre|</autres_mandats>
+    <profession>Retraitée de l&apos;enseignement</profession>
+    <place_en_hemicycle>381</place_en_hemicycle>
+    <slug>francoise-dubois</slug>
+    <nb_mandats>3</nb_mandats>
+    <X35></X35>
+	<vote_1312>Pour</vote_1312>
+    <vote_1329>Pour</vote_1329>
+    <vote_511>Pour</vote_511>
+    <vote_1346>Pour</vote_1346>
+    <vote_1352>Pour</vote_1352>
+    <Champ_Lexical>abattage/abattoir/animal/animaux/aquatique/bien-être/bien-être/animal/continuité/ferme/image/moulin/propriétaire/prostituée/rituel/sacrificateur/souffrance/viande/vidéo</Champ_Lexical>
+    <vote_1347>Pour</vote_1347>
+    <vote_1348>Pour</vote_1348>
+    <vote_1291>Contre</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>Hamon</Soutien_Presidentiel>
+	<index>362</index>
+	<pourcentPresence>46,1538461538462</pourcentPresence>
+  </depute>
+  <depute>
+    <id>364</id>
+    <nom>Guy-Michel Chauveau</nom>
+    <nom_de_famille>Chauveau</nom_de_famille>
+    <prenom>Guy-Michel</prenom>
+    <sexe>H</sexe>
+    <date_naissance>1944-09-25</date_naissance>
+    <lieu_naissance>Irais (Deux-Sèvres)</lieu_naissance>
+    <num_deptmt>72</num_deptmt>
+    <nom_circo>Sarthe</nom_circo>
+    <num_circo>3</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Socialiste, écologiste et républicain - membre</groupe>
+    <groupe_sigle>SER</groupe_sigle>
+    <parti_ratt_financier>Parti socialiste</parti_ratt_financier>
+    <responsabilites>Commission des affaires étrangères - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études aménagement du territoire - membre|Groupe d&apos;études patrimoine - membre|Groupe d&apos;études politique de l&apos;eau - membre|Groupe d&apos;études industrie du drone - membre|Groupe d&apos;études tourisme - membre|Groupe d&apos;études espace - membre|Groupe d&apos;amitié france-géorgie - vice-président|Groupe d&apos;études industrie aéronautique - membre|Groupe d&apos;études coopération et aide au développement - membre|Groupe d&apos;études Élevage - membre|Groupe d&apos;études industrie de défense - membre|Groupe d&apos;études responsabilité sociale des entreprises - membre|Groupe d&apos;études viticulture - membre|Groupe d&apos;études sahara occidental - membre|Groupe d&apos;études automobile - membre|Groupe d&apos;amitié france-mali - vice-président|Groupe d&apos;études politiques de la ruralité - membre|Groupe d&apos;études presse - membre|</groupes_parlementaires>
+    <sites_web>http://gm-chauveau.fr|https://twitter.com/GMChauveau|</sites_web>
+    <anciens_mandats>20/06/2012 /  / |02/07/1981 / 01/04/1986 / fin de législature|01/06/1997 / 18/06/2002 / fin de législature|02/04/1986 / 14/05/1988 / fin de législature|13/06/1988 / 01/04/1993 / fin de législature|</anciens_mandats>
+    <autres_mandats>La Flèche (Sarthe) / Conseil municipal / maire|</autres_mandats>
+    <profession>Professeur</profession>
+    <place_en_hemicycle>560</place_en_hemicycle>
+    <slug>guy-michel-chauveau</slug>
+    <nb_mandats>2</nb_mandats>
+    <X35></X35>
+	<vote_1312>Pour</vote_1312>
+    <vote_1329>Pour</vote_1329>
+    <vote_511>Pour</vote_511>
+    <vote_1346>Pour</vote_1346>
+    <vote_1352>Pour</vote_1352>
+    <Champ_Lexical>afrique/ukraine</Champ_Lexical>
+    <vote_1347>Pour</vote_1347>
+    <vote_1348>Pour</vote_1348>
+    <vote_1291>Contre</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>Hamon</Soutien_Presidentiel>
+	<index>448</index>
+	<pourcentPresence>38,4615384615385</pourcentPresence>
+  </depute>
+  <depute>
+    <id>194</id>
+    <nom>Guillaume Garot</nom>
+    <nom_de_famille>Garot</nom_de_famille>
+    <prenom>Guillaume</prenom>
+    <sexe>H</sexe>
+    <date_naissance>1966-05-29</date_naissance>
+    <lieu_naissance>Laval (Mayenne)</lieu_naissance>
+    <num_deptmt>53</num_deptmt>
+    <nom_circo>Mayenne</nom_circo>
+    <num_circo>1</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Socialiste, écologiste et républicain - membre</groupe>
+    <groupe_sigle>SER</groupe_sigle>
+    <parti_ratt_financier>Parti socialiste</parti_ratt_financier>
+    <responsabilites>Commission des lois constitutionnelles de la législation et de l&apos;administration générale de la république - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études papier et imprimés - membre|Groupe d&apos;études industries agro-alimentaires et filière agricole - co-président|</groupes_parlementaires>
+    <sites_web>http://www.guillaume-garot.fr|</sites_web>
+    <anciens_mandats>20/06/2007 / 19/06/2012 / fin de législature|20/06/2012 / 21/07/2012 / nomination comme membre du gouvernement|03/05/2014 /  / |</anciens_mandats>
+    <autres_mandats>Mayenne / Conseil départemental / membre|</autres_mandats>
+    <profession>Cadre administratif</profession>
+    <place_en_hemicycle>345</place_en_hemicycle>
+    <slug>guillaume-garot</slug>
+    <nb_mandats>2</nb_mandats>
+    <X35></X35>
+	<vote_1312>Pour</vote_1312>
+    <vote_1329>Pour</vote_1329>
+    <vote_511>NA</vote_511>
+    <vote_1346>Pour</vote_1346>
+    <vote_1352>Pour</vote_1352>
+    <Champ_Lexical>commissaire/médecin</Champ_Lexical>
+    <vote_1347>Pour</vote_1347>
+    <vote_1348>Pour</vote_1348>
+    <vote_1291>NA</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>Hamon</Soutien_Presidentiel>
+	<index>313</index>
+	<pourcentPresence>50</pourcentPresence>
+  </depute>
+  <depute>
+    <id>222</id>
+    <nom>Yannick Favennec</nom>
+    <nom_de_famille>Favennec</nom_de_famille>
+    <prenom>Yannick</prenom>
+    <sexe>H</sexe>
+    <date_naissance>1958-08-12</date_naissance>
+    <lieu_naissance>Chaudron-en-Mauges (Maine-et-Loire)</lieu_naissance>
+    <num_deptmt>53</num_deptmt>
+    <nom_circo>Mayenne</nom_circo>
+    <num_circo>3</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Union des démocrates et indépendants - membre</groupe>
+    <groupe_sigle>UDI</groupe_sigle>
+    <parti_ratt_financier>Union des Radicaux, centristes, indépendants et démocrates</parti_ratt_financier>
+    <responsabilites>Commission chargée de l&apos;application de l&apos;article 26 de la constitution - membre titulaire|Commission du développement durable et de l&apos;aménagement du territoire - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études cancer - membre|Groupe d&apos;amitié france-somalie - vice-président|Groupe d&apos;études sidérurgie et fonderie - membre|Groupe d&apos;études plasturgie - membre|Groupe d&apos;études chrétiens d&apos;orient - membre|Groupe d&apos;études protection des animaux - membre|Groupe d&apos;études foncier - membre|Groupe d&apos;études pme - membre|Groupe d&apos;études intégration des personnes handicapées - membre|Groupe d&apos;études formation alternée en milieu rural - vice-président|Groupe d&apos;études industries agro-alimentaires et filière agricole - membre|Groupe d&apos;études automobile - membre|Groupe d&apos;études artisanat et métiers d&apos;art - membre|Groupe d&apos;études chasse et territoires - membre|Groupe d&apos;études alimentation et santé - membre|Groupe d&apos;études politiques de la ruralité - vice-président|Groupe d&apos;études Élevage - vice-président|Groupe d&apos;études développement de la méthanisation - membre|Groupe d&apos;études commerce et artisanat - membre|Groupe d&apos;études route et sécurité routière - membre|</groupes_parlementaires>
+    <sites_web>https://twitter.com/yfavennec|http://www.yannickfavennec.com|http://www.favennecactualite.com|http://favennecactualite.blogspot.fr|</sites_web>
+    <anciens_mandats>20/06/2007 / 19/06/2012 / fin de législature|20/06/2012 /  / |19/06/2002 / 19/06/2007 / fin de législature|</anciens_mandats>
+    <autres_mandats>Pays de la Loire / Conseil régional / vice-président|</autres_mandats>
+    <profession>Directeur de cabinet</profession>
+    <place_en_hemicycle>199</place_en_hemicycle>
+    <slug>yannick-favennec</slug>
+    <nb_mandats>2</nb_mandats>
+    <X35></X35>
+	<vote_1312>Abstention</vote_1312>
+    <vote_1329>Pour</vote_1329>
+    <vote_511>Contre</vote_511>
+    <vote_1346>Contre</vote_1346>
+    <vote_1352>Contre</vote_1352>
+    <Champ_Lexical></Champ_Lexical>
+    <vote_1347>NA</vote_1347>
+    <vote_1348>Abstention</vote_1348>
+    <vote_1291>Pour</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>NA</Soutien_Presidentiel>
+	<index>336</index>
+	<pourcentPresence>48,0769230769231</pourcentPresence>
+  </depute>
+  <depute>
+    <id>376</id>
+    <nom>Guillaume Chevrollier</nom>
+    <nom_de_famille>Chevrollier</nom_de_famille>
+    <prenom>Guillaume</prenom>
+    <sexe>H</sexe>
+    <date_naissance>1974-10-27</date_naissance>
+    <lieu_naissance>Chateau Gontier (Mayenne)</lieu_naissance>
+    <num_deptmt>53</num_deptmt>
+    <nom_circo>Mayenne</nom_circo>
+    <num_circo>2</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Les républicains - membre</groupe>
+    <groupe_sigle>LR</groupe_sigle>
+    <parti_ratt_financier>Les Républicains</parti_ratt_financier>
+    <responsabilites>Comité d&apos;évaluation et de contrôle des politiques publiques - membre|Commission du développement durable et de l&apos;aménagement du territoire - membre|Commission chargée de l&apos;application de l&apos;article 26 de la constitution - membre suppléant|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études Économie verte et économie circulaire - membre|Groupe d&apos;amitié france-togo - vice-président|Groupe d&apos;études tourisme - membre|Groupe d&apos;études internet et société numérique - membre|Groupe d&apos;études chrétiens d&apos;orient - membre|Groupe d&apos;études coopération et aide au développement - membre|Groupe d&apos;amitié france-guinée équatoriale - vice-président|Groupe d&apos;études chasse et territoires - secrétaire|Groupe d&apos;études Élevage - membre|Groupe d&apos;amitié france-côte d&apos;ivoire - secrétaire|Groupe d&apos;études pme - membre|Groupe d&apos;études déchets ménagers - membre|Groupe d&apos;études gaz de schiste - membre|Groupe d&apos;études artisanat et métiers d&apos;art - vice-président|Groupe d&apos;amitié france-niger - vice-président|Groupe d&apos;études industries agro-alimentaires et filière agricole - membre|Groupe d&apos;études enjeux du vieillissement - membre|Groupe d&apos;études cheval - secrétaire|Groupe d&apos;études politiques de la ruralité - membre|Groupe d&apos;amitié france-zimbabwe - président|Groupe d&apos;études construction éco-construction et logement - vice-président|Groupe d&apos;amitié france-sénégal - vice-président|Groupe d&apos;études développement de la méthanisation - vice-président|Groupe d&apos;études commerce et artisanat - membre|</groupes_parlementaires>
+    <sites_web>https://twitter.com/gchevrollier|http://www.guillaumechevrollier.fr|</sites_web>
+    <anciens_mandats>20/06/2012 /  / |</anciens_mandats>
+    <autres_mandats>Château-Gontier (Mayenne) / Conseil municipal / Membre|</autres_mandats>
+    <profession>Directeur de programme immobilier</profession>
+    <place_en_hemicycle>43</place_en_hemicycle>
+    <slug>guillaume-chevrollier</slug>
+    <nb_mandats>2</nb_mandats>
+    <X35></X35>
+	<vote_1312>Contre</vote_1312>
+    <vote_1329>Contre</vote_1329>
+    <vote_511>Contre</vote_511>
+    <vote_1346>Contre</vote_1346>
+    <vote_1352>Contre</vote_1352>
+    <Champ_Lexical></Champ_Lexical>
+    <vote_1347>Contre</vote_1347>
+    <vote_1348>Contre</vote_1348>
+    <vote_1291>Pour</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>Fillon</Soutien_Presidentiel>
+	<pourcentPresence>38,4615384615385</pourcentPresence>
+	<index>452</index>
+	<pourcentPresence>38,4615384615385</pourcentPresence>
+  </depute>
+  <depute>
+    <id>110</id>
+    <nom>Jean-Charles Taugourdeau</nom>
+    <nom_de_famille>Taugourdeau</nom_de_famille>
+    <prenom>Jean-Charles</prenom>
+    <sexe>H</sexe>
+    <date_naissance>1953-07-17</date_naissance>
+    <lieu_naissance>Dreux (Eure-et-Loir)</lieu_naissance>
+    <num_deptmt>49</num_deptmt>
+    <nom_circo>Maine-et-Loire</nom_circo>
+    <num_circo>3</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Les républicains - membre</groupe>
+    <groupe_sigle>LR</groupe_sigle>
+    <parti_ratt_financier>Les Républicains</parti_ratt_financier>
+    <responsabilites>Commission des affaires économiques - membre|Délégation aux outre-mer - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études pme - vice-président|Groupe d&apos;amitié france-somalie - président|Groupe d&apos;études tourisme - membre|Groupe d&apos;études cheval - membre|Groupe d&apos;amitié france-géorgie - vice-président|Groupe d&apos;études gaz de schiste - membre|Groupe d&apos;études industries agro-alimentaires et filière agricole - membre|Groupe d&apos;études fillière véhicules industriels - membre|Groupe d&apos;études automobile - membre|Groupe d&apos;études prisons et conditions carcérales - membre|Groupe d&apos;études artisanat et métiers d&apos;art - président|Groupe d&apos;études oenologie et territoires - membre|Groupe d&apos;études développement de la méthanisation - membre|Groupe d&apos;amitié france-afrique du sud - vice-président|Groupe d&apos;études jardins paysage et horticulture - vice-président|Groupe d&apos;études autisme - membre|Groupe d&apos;études politiques de la ruralité - membre|Groupe d&apos;études presse - membre|Groupe d&apos;amitié france-cap-vert - vice-président|Groupe d&apos;études commerce et artisanat - membre|Groupe d&apos;études route et sécurité routière - membre|</groupes_parlementaires>
+    <sites_web>http://www.jctaugourdeau.fr|https://twitter.com/JCTaugourdeau|</sites_web>
+    <anciens_mandats>20/06/2007 / 19/06/2012 / fin de législature|20/06/2012 /  / |19/06/2002 / 19/06/2007 / fin de législature|</anciens_mandats>
+    <autres_mandats>Beaufort-en-Anjou / Communauté de communes / membre|Beaufort-en-Vallée (Maine-et-Loire) / Conseil municipal / maire|</autres_mandats>
+    <profession>Chef d&apos;entreprise</profession>
+    <place_en_hemicycle>223</place_en_hemicycle>
+    <slug>jean-charles-taugourdeau</slug>
+    <nb_mandats>3</nb_mandats>
+    <X35></X35>
+	<vote_1312>Contre</vote_1312>
+    <vote_1329>Contre</vote_1329>
+    <vote_511>Contre</vote_511>
+    <vote_1346>Contre</vote_1346>
+    <vote_1352>Contre</vote_1352>
+    <Champ_Lexical>expert/médecin</Champ_Lexical>
+    <vote_1347>Contre</vote_1347>
+    <vote_1348>Contre</vote_1348>
+    <vote_1291>Pour</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>Fillon</Soutien_Presidentiel>
+	<index>59</index>
+	<pourcentPresence>69,2307692307692</pourcentPresence>
+  </depute>
+  <depute>
+    <id>183</id>
+    <nom>Michel Piron</nom>
+    <nom_de_famille>Piron</nom_de_famille>
+    <prenom>Michel</prenom>
+    <sexe>H</sexe>
+    <date_naissance>1943-03-15</date_naissance>
+    <lieu_naissance>Saumur (Maine-et-Loire)</lieu_naissance>
+    <num_deptmt>49</num_deptmt>
+    <nom_circo>Maine-et-Loire</nom_circo>
+    <num_circo>4</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Union des démocrates et indépendants - membre</groupe>
+    <groupe_sigle>UDI</groupe_sigle>
+    <parti_ratt_financier>Union des Radicaux, centristes, indépendants et démocrates</parti_ratt_financier>
+    <responsabilites>Commission des affaires culturelles et de l&apos;éducation - membre|Commission des affaires européennes - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études patrimoine - membre|Groupe d&apos;études parcs nationaux et régionaux - membre|Groupe d&apos;études pauvreté précarité et sans abri - membre|Groupe d&apos;études artisanat et métiers d&apos;art - membre|Groupe d&apos;études cheval - membre|Groupe d&apos;études oenologie et territoires - membre|Groupe d&apos;études construction éco-construction et logement - vice-président|Groupe d&apos;amitié france-italie - vice-président|Groupe d&apos;études abolition universelle de la peine de mort - membre|Groupe d&apos;études commerce et artisanat - membre|Groupe d&apos;études viticulture - membre|Groupe d&apos;études villes et banlieues - co-président|Groupe d&apos;études presse - membre|Groupe d&apos;études pme - membre|</groupes_parlementaires>
+    <sites_web>http://www.michelpiron.fr|https://twitter.com/MichelPiron|</sites_web>
+    <anciens_mandats>20/06/2007 / 19/06/2012 / fin de législature|20/06/2012 /  / |19/06/2002 / 19/06/2007 / fin de législature|</anciens_mandats>
+    <autres_mandats>Coteaux-du-Layon / Communauté de communes / président|Thouarcé / Conseil municipal / membre|</autres_mandats>
+    <profession>Enseignant, puis chef d&apos;entreprise</profession>
+    <place_en_hemicycle>244</place_en_hemicycle>
+    <slug>michel-piron</slug>
+    <nb_mandats>3</nb_mandats>
+    <X35></X35>
+	<vote_1312>Abstention</vote_1312>
+    <vote_1329>Pour</vote_1329>
+    <vote_511>Contre</vote_511>
+    <vote_1346>Contre</vote_1346>
+    <vote_1352>Contre</vote_1352>
+    <Champ_Lexical>accession/ancienne/APL/architecture/archéologie/art/attribution/bailleur/charte/citoyenneté/civique/contingent/CSA/culturel/DALO/DGF/discrimination/locataire/locatif/logement/loyer/mixité/modestes/monument/numérisation/PAC/PAS/plafond/propriété/préfet/préventive/PSLA/PTZ/SRU/transformation/transitoire</Champ_Lexical>
+    <vote_1347>Abstention</vote_1347>
+    <vote_1348>Abstention</vote_1348>
+    <vote_1291>Pour</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>Fillon</Soutien_Presidentiel>
+	<index>127</index>
+	<pourcentPresence>63,4615384615385</pourcentPresence>
+  </depute>
+  <depute>
+    <id>5</id>
+    <nom>Marc Laffineur</nom>
+    <nom_de_famille>Laffineur</nom_de_famille>
+    <prenom>Marc</prenom>
+    <sexe>H</sexe>
+    <date_naissance>1945-08-10</date_naissance>
+    <lieu_naissance>Maubeuge (Nord)</lieu_naissance>
+    <num_deptmt>49</num_deptmt>
+    <nom_circo>Maine-et-Loire</nom_circo>
+    <num_circo>7</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Les républicains - membre</groupe>
+    <groupe_sigle>LR</groupe_sigle>
+    <parti_ratt_financier>Les Républicains</parti_ratt_financier>
+    <responsabilites>Commission des affaires européennes - membre|Commission des finances de l&apos;économie générale et du contrôle budgétaire - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études aménagement du territoire - membre|Groupe d&apos;amitié france-tchèque  - président|Groupe d&apos;études politique de l&apos;eau - membre|Groupe d&apos;études industrie aéronautique - membre|Groupe d&apos;études chrétiens d&apos;orient - membre|Groupe d&apos;études industrie du drone - membre|Groupe d&apos;études coordination des droits européens - membre|Groupe d&apos;études economie sociale et solidaire - membre|Groupe d&apos;études cheval - membre|Groupe d&apos;études coopération et aide au développement - membre|Groupe d&apos;études Élevage - membre|Groupe d&apos;études formation alternée en milieu rural - membre|Groupe d&apos;études pme - membre|Groupe d&apos;études gaz de schiste - membre|Groupe d&apos;études maladies orphelines - membre|Groupe d&apos;études chasse et territoires - vice-président|Groupe d&apos;études enjeux du vieillissement - membre|Groupe d&apos;études automobile - membre|Groupe d&apos;études médicaments et produits de santé - membre|Groupe d&apos;études prisons et conditions carcérales - membre|Groupe d&apos;études politiques de la ruralité - membre|Groupe d&apos;études commerce et artisanat - membre|Groupe d&apos;études montagne - membre|</groupes_parlementaires>
+    <sites_web>http://www.marclaffineur.fr|https://twitter.com/Marclaffineur|</sites_web>
+    <anciens_mandats>20/06/2012 /  / |01/06/1997 / 18/06/2002 / fin de législature|02/04/1993 / 21/04/1997 / fin de législature|19/06/2002 / 19/06/2007 / fin de législature|17/06/2012 / 19/06/2012 / fin de législature|20/06/2007 / 29/07/2011 / nomination comme membre du gouvernement|13/06/1988 / 01/04/1993 / fin de législature|</anciens_mandats>
+    <autres_mandats>Angers Loire Métropole / Communauté d&apos;agglomération / vice-président|Avrillé (Maine-et-Loire) / Conseil municipal / maire|</autres_mandats>
+    <profession>Médecin anesthésiste-réanimateur</profession>
+    <place_en_hemicycle>183</place_en_hemicycle>
+    <slug>marc-laffineur</slug>
+    <nb_mandats>3</nb_mandats>
+    <X35></X35>
+	<vote_1312>NA</vote_1312>
+    <vote_1329>NA</vote_1329>
+    <vote_511>Contre</vote_511>
+    <vote_1346>NA</vote_1346>
+    <vote_1352>Contre</vote_1352>
+    <Champ_Lexical></Champ_Lexical>
+    <vote_1347>NA</vote_1347>
+    <vote_1348>Abstention</vote_1348>
+    <vote_1291>Pour</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>Fillon</Soutien_Presidentiel>
+	<index>236</index>
+	<pourcentPresence>55,7692307692308</pourcentPresence>
+  </depute>
+  <depute>
+    <id>166</id>
+    <nom>Marc Goua</nom>
+    <nom_de_famille>Goua</nom_de_famille>
+    <prenom>Marc</prenom>
+    <sexe>H</sexe>
+    <date_naissance>1940-03-03</date_naissance>
+    <lieu_naissance>Plessis Macé (Maine-et-Loire)</lieu_naissance>
+    <num_deptmt>49</num_deptmt>
+    <nom_circo>Maine-et-Loire</nom_circo>
+    <num_circo>2</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Socialiste, écologiste et républicain - membre</groupe>
+    <groupe_sigle>SER</groupe_sigle>
+    <parti_ratt_financier>Parti socialiste</parti_ratt_financier>
+    <responsabilites>Commission des finances de l&apos;économie générale et du contrôle budgétaire - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études cancer - membre|Groupe d&apos;études aménagement du territoire - membre|Groupe d&apos;études textile et industries de main d&apos;oeuvre - membre|Groupe d&apos;études industries mécaniques - membre|Groupe d&apos;études illettrisme - membre|Groupe d&apos;études intégration des personnes handicapées - membre|Groupe d&apos;études prévention et lutte contre la toxicomanie - membre|Groupe d&apos;études Élevage - membre|Groupe d&apos;études jardins paysage et horticulture - membre|Groupe d&apos;études villes et banlieues - secrétaire|Groupe d&apos;études langue des signes - membre|Groupe d&apos;études quartiers anciens dégradés - membre|Groupe d&apos;études antisémitisme - membre|Groupe d&apos;études fillière véhicules industriels - membre|Groupe d&apos;études prisons et conditions carcérales - membre|Groupe d&apos;études surendettement - membre|Groupe d&apos;études viticulture - secrétaire|Groupe d&apos;études biocarburants - membre|Groupe d&apos;études economie sociale et solidaire - membre|Groupe d&apos;études tourisme - membre|Groupe d&apos;études granit pierres naturelles carrières et matériaux de construction - membre|Groupe d&apos;études foncier - membre|Groupe d&apos;études pme - membre|Groupe d&apos;études changements climatiques - membre|Groupe d&apos;études gaz de schiste - membre|Groupe d&apos;études enjeux du vieillissement - membre|Groupe d&apos;études industries agro-alimentaires et filière agricole - membre|Groupe d&apos;études automobile - membre|Groupe d&apos;études industrie de défense - membre|Groupe d&apos;études pénibilité du travail santé au travail et maladies professionnelles - membre|Groupe d&apos;études oenologie et territoires - membre|Groupe d&apos;études développement de la méthanisation - membre|Groupe d&apos;études politiques de la ruralité - membre|Groupe d&apos;études commerce et artisanat - membre|Groupe d&apos;études construction éco-construction et logement - membre|</groupes_parlementaires>
+    <sites_web>http://www.marc-goua.net|</sites_web>
+    <anciens_mandats>20/06/2007 / 19/06/2012 / fin de législature|20/06/2012 /  / |</anciens_mandats>
+    <autres_mandats>Trélazé (Maine-et-Loire) / Conseil municipal / maire|Angers Loire Métropole / Communauté d&apos;agglomération / vice-président|</autres_mandats>
+    <profession>Retraité du secteur privé</profession>
+    <place_en_hemicycle>414</place_en_hemicycle>
+    <slug>marc-goua</slug>
+    <nb_mandats>3</nb_mandats>
+    <X35></X35>
+	<vote_1312>Pour</vote_1312>
+    <vote_1329>NA</vote_1329>
+    <vote_511>Pour</vote_511>
+    <vote_1346>Pour</vote_1346>
+    <vote_1352>Pour</vote_1352>
+    <Champ_Lexical>compensation/DGF/DSU/EDF/EPCI/logement/taxe</Champ_Lexical>
+    <vote_1347>NA</vote_1347>
+    <vote_1348>Pour</vote_1348>
+    <vote_1291>Contre</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>Macron</Soutien_Presidentiel>
+	<index>277</index>
+	<pourcentPresence>51,9230769230769</pourcentPresence>
+  </depute>
+  <depute>
+    <id>104</id>
+    <nom>Gilles Bourdouleix</nom>
+    <nom_de_famille>Bourdouleix</nom_de_famille>
+    <prenom>Gilles</prenom>
+    <sexe>H</sexe>
+    <date_naissance>1960-04-15</date_naissance>
+    <lieu_naissance>Angers (Maine-et-Loire)</lieu_naissance>
+    <num_deptmt>49</num_deptmt>
+    <nom_circo>Maine-et-Loire</nom_circo>
+    <num_circo>5</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Députés non inscrits - membre</groupe>
+    <groupe_sigle>NI</groupe_sigle>
+    <parti_ratt_financier>Association PSLE - Nouveau Centre</parti_ratt_financier>
+    <responsabilites>Commission des lois constitutionnelles de la législation et de l&apos;administration générale de la république - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études plasturgie - vice-président|Groupe d&apos;amitié france-roumanie - vice-président|Groupe d&apos;études textile et industries de main d&apos;oeuvre - secrétaire|</groupes_parlementaires>
+    <sites_web>http://www.gillesbourdouleix.fr|https://twitter.com/GBOURDOULEIX|</sites_web>
+    <anciens_mandats>20/06/2007 / 19/06/2012 / fin de législature|20/06/2012 /  / |19/06/2002 / 19/06/2007 / fin de législature|</anciens_mandats>
+    <autres_mandats>Cholet (Maine-et-Loire) / Conseil municipal / maire|Choletais / Communauté d&apos;agglomération / président|</autres_mandats>
+    <profession>Avocat</profession>
+    <place_en_hemicycle>322</place_en_hemicycle>
+    <slug>gilles-bourdouleix</slug>
+    <nb_mandats>3</nb_mandats>
+    <X35></X35>
+	<vote_1312>Contre</vote_1312>
+    <vote_1329>NA</vote_1329>
+    <vote_511>Contre</vote_511>
+    <vote_1346>NA</vote_1346>
+    <vote_1352>Contre</vote_1352>
+    <Champ_Lexical></Champ_Lexical>
+    <vote_1347>NA</vote_1347>
+    <vote_1348>Abstention</vote_1348>
+    <vote_1291>Pour</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>Fillon</Soutien_Presidentiel>
+	<index>487</index>
+	<pourcentPresence>32,6923076923077</pourcentPresence>
+  </depute>
+  <depute>
+    <id>560</id>
+    <nom>Luc Belot</nom>
+    <nom_de_famille>Belot</nom_de_famille>
+    <prenom>Luc</prenom>
+    <sexe>H</sexe>
+    <date_naissance>1974-09-06</date_naissance>
+    <lieu_naissance>Niort (Deux-Sèvres)</lieu_naissance>
+    <num_deptmt>49</num_deptmt>
+    <nom_circo>Maine-et-Loire</nom_circo>
+    <num_circo>1</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Socialiste, écologiste et républicain - membre</groupe>
+    <groupe_sigle>SER</groupe_sigle>
+    <parti_ratt_financier>Parti socialiste</parti_ratt_financier>
+    <responsabilites>Commission des lois constitutionnelles de la législation et de l&apos;administration générale de la république - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;amitié france-philippines - vice-président|Groupe d&apos;études industrie du drone - vice-président|Groupe d&apos;études internet et société numérique - membre|Groupe d&apos;amitié france-corée du sud - vice-président|</groupes_parlementaires>
+    <sites_web>http://lucbelot.net|https://twitter.com/LucBELOT|</sites_web>
+    <anciens_mandats>20/06/2012 /  / |</anciens_mandats>
+    <autres_mandats>Angers Loire Métropole / Communauté d&apos;agglomération / membre|Angers / Conseil municipal / membre|</autres_mandats>
+    <profession>Permanent politique</profession>
+    <place_en_hemicycle>251</place_en_hemicycle>
+    <slug>luc-belot</slug>
+    <nb_mandats>3</nb_mandats>
+    <X35></X35>
+	<vote_1312>Pour</vote_1312>
+    <vote_1329>Pour</vote_1329>
+    <vote_511>Pour</vote_511>
+    <vote_1346>NA</vote_1346>
+    <vote_1352>Pour</vote_1352>
+    <Champ_Lexical>biométrique/chauffeur/fichier/identité/informatique/LOTI/personnelle/taxe/taxi/VTC</Champ_Lexical>
+    <vote_1347>Pour</vote_1347>
+    <vote_1348>Pour</vote_1348>
+    <vote_1291>NA</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>NA</Soutien_Presidentiel>
+	<index>517</index>
+	<pourcentPresence>26,9230769230769</pourcentPresence>
+  </depute>
+  <depute>
+    <id>390</id>
+    <nom>Serge Bardy</nom>
+    <nom_de_famille>Bardy</nom_de_famille>
+    <prenom>Serge</prenom>
+    <sexe>H</sexe>
+    <date_naissance>1947-11-06</date_naissance>
+    <lieu_naissance>Mésanger (Loire-Atlantique)</lieu_naissance>
+    <num_deptmt>49</num_deptmt>
+    <nom_circo>Maine-et-Loire</nom_circo>
+    <num_circo>6</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Socialiste, écologiste et républicain - membre</groupe>
+    <groupe_sigle>SER</groupe_sigle>
+    <parti_ratt_financier>Parti socialiste</parti_ratt_financier>
+    <responsabilites>Commission du développement durable et de l&apos;aménagement du territoire - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études textile et industries de main d&apos;oeuvre - membre|Groupe d&apos;études aménagement du territoire - secrétaire|Groupe d&apos;études patrimoine - membre|Groupe d&apos;études cancer - membre|Groupe d&apos;études illettrisme - membre|Groupe d&apos;études pme - vice-président|Groupe d&apos;amitié france-hongrie - vice-président|Groupe d&apos;études professions de santé et coordination sanitaire - membre|Groupe d&apos;études internet et société numérique - membre|Groupe d&apos;études responsabilité sociale des entreprises - membre|Groupe d&apos;études intégration des personnes handicapées - membre|Groupe d&apos;études enseignement privé sous contrat et hors contrat - membre|Groupe d&apos;études pauvreté précarité et sans abri - membre|Groupe d&apos;études artisanat et métiers d&apos;art - membre|Groupe d&apos;études prisons et conditions carcérales - membre|Groupe d&apos;amitié france-québec - secrétaire|Groupe d&apos;études viticulture - secrétaire|Groupe d&apos;études politiques de la ruralité - vice-président|Groupe d&apos;études soutien à la candidature de paris aux jeux olympiques et paralympiques de - membre|Groupe d&apos;amitié france-cap-vert - vice-président|Groupe d&apos;études préservation et reconquête de la biodiversité - membre|Groupe d&apos;amitié france-australie - vice-président|Groupe d&apos;études candidature de la france à l&apos;exposition universelle de - membre|Groupe d&apos;études papier et imprimés - membre|Groupe d&apos;études energies - membre|Groupe d&apos;études economie sociale et solidaire - membre|Groupe d&apos;amitié france-allemagne - secrétaire|Groupe d&apos;études formation alternée en milieu rural - secrétaire|Groupe d&apos;amitié france-equateur - président|Groupe d&apos;études villes et banlieues - membre|Groupe d&apos;études industries agro-alimentaires et filière agricole - membre|Groupe d&apos;amitié france-roumanie - secrétaire|Groupe d&apos;études Économie verte et économie circulaire - vice-président|Groupe d&apos;études médicaments et produits de santé - membre|Groupe d&apos;études pénibilité du travail santé au travail et maladies professionnelles - membre|Groupe d&apos;études autisme - membre|Groupe d&apos;études commerce et artisanat - membre|</groupes_parlementaires>
+    <sites_web>http://www.sergebardy.fr|https://twitter.com/bardyserge|</sites_web>
+    <anciens_mandats>20/06/2012 /  / |</anciens_mandats>
+    <autres_mandats></autres_mandats>
+    <profession>Retraité du secteur privé</profession>
+    <place_en_hemicycle>525</place_en_hemicycle>
+    <slug>serge-bardy</slug>
+    <nb_mandats>1</nb_mandats>
+    <X35></X35>
+	<vote_1312>Pour</vote_1312>
+    <vote_1329>Pour</vote_1329>
+    <vote_511>Pour</vote_511>
+    <vote_1346>NA</vote_1346>
+    <vote_1352>Pour</vote_1352>
+    <Champ_Lexical>forfait/fusion/PPE/repos/vigilance</Champ_Lexical>
+    <vote_1347>Pour</vote_1347>
+    <vote_1348>Pour</vote_1348>
+    <vote_1291>Contre</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>Hamon</Soutien_Presidentiel>
+	<index>535</index>
+	<pourcentPresence>23,0769230769231</pourcentPresence>
+  </depute>
+  <depute>
+    <id>16</id>
+    <nom>François de Rugy</nom>
+    <nom_de_famille>Rugy (de)</nom_de_famille>
+    <prenom>François</prenom>
+    <sexe>H</sexe>
+    <date_naissance>1973-12-06</date_naissance>
+    <lieu_naissance>Nantes (Loire-Atlantique)</lieu_naissance>
+    <num_deptmt>44</num_deptmt>
+    <nom_circo>Loire-Atlantique</nom_circo>
+    <num_circo>1</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Socialiste, écologiste et républicain - membre</groupe>
+    <groupe_sigle>SER</groupe_sigle>
+    <parti_ratt_financier>Parti socialiste</parti_ratt_financier>
+    <responsabilites>Délégation chargée de la communication et de la presse - président|Bureau de l&apos;assemblée nationale - vice-président|Commission chargée de l&apos;application de l&apos;article 26 de la constitution - membre titulaire|Commission de la défense nationale et des forces armées - membre|Délégation chargée de l&apos;application du statut du député - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études Économie verte et économie circulaire - membre|Groupe d&apos;amitié france-etats-unis - vice-président|Groupe d&apos;études langues régionales - membre|Groupe d&apos;études à vocation internationale sur les questions liées à l&apos;expansion de l&apos;économie taïwanaise - secrétaire|Groupe d&apos;études politique aéroportuaire - membre|Groupe d&apos;études antisémitisme - membre|Groupe d&apos;amitié france-irlande - vice-président|Groupe d&apos;études industrie du drone - membre|Groupe d&apos;études industrie de défense - membre|Groupe d&apos;études automobile - membre|Groupe d&apos;amitié france-allemagne - vice-président|Groupe d&apos;études soutien à la candidature de paris aux jeux olympiques et paralympiques de - membre|Groupe d&apos;amitié france-algérie - vice-président|</groupes_parlementaires>
+    <sites_web>http://www.francoisderugy.fr|http://www.derugy2017.fr|https://twitter.com/FdeRugy|</sites_web>
+    <anciens_mandats>20/06/2007 / 19/06/2012 / fin de législature|20/06/2012 /  / |</anciens_mandats>
+    <autres_mandats>Orvault (Loire-Atlantique) / Conseil municipal / Membre|Nantes Métropole / Communauté urbaine / Membre|</autres_mandats>
+    <profession>Assistant parlementaire</profession>
+    <place_en_hemicycle>274</place_en_hemicycle>
+    <slug>francois-de-rugy</slug>
+    <nb_mandats>3</nb_mandats>
+    <X35></X35>
+	<vote_1312>Pour</vote_1312>
+    <vote_1329>Pour</vote_1329>
+    <vote_511>Pour</vote_511>
+    <vote_1346>Pour</vote_1346>
+    <vote_1352>Pour</vote_1352>
+    <Champ_Lexical>attentat/club/conforme/corse/guerre/huile/indemnité/interdiction/logement/
+l’huile de palme/manifestation/massif/militaire/mixité/nice/policier/prorogation/réglementation/rénovation/stade/supporter/taxation/taxe/terroriste/thermique/ukraine/vélo</Champ_Lexical>
+    <vote_1347>Pour</vote_1347>
+    <vote_1348>Pour</vote_1348>
+    <vote_1291>Contre</vote_1291>
+	<NDDL>Contre</NDDL>
+    <Soutien_Presidentiel>Macron</Soutien_Presidentiel>
+	<index>71</index>
+	<pourcentPresence>67,3076923076923</pourcentPresence>
+  </depute>
+  <depute>
+    <id>238</id>
+    <nom>Dominique Raimbourg</nom>
+    <nom_de_famille>Raimbourg</nom_de_famille>
+    <prenom>Dominique</prenom>
+    <sexe>H</sexe>
+    <date_naissance>1950-04-28</date_naissance>
+    <lieu_naissance>Boulogne (Hauts-de-Seine)</lieu_naissance>
+    <num_deptmt>44</num_deptmt>
+    <nom_circo>Loire-Atlantique</nom_circo>
+    <num_circo>4</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Socialiste, écologiste et républicain - membre</groupe>
+    <groupe_sigle>SER</groupe_sigle>
+    <parti_ratt_financier>Parti socialiste</parti_ratt_financier>
+    <responsabilites>Commission des lois constitutionnelles de la législation et de l&apos;administration générale de la république - président|Délégation parlementaire au renseignement - premier vice-président|Mission d&apos;information réforme de la procédure pénale - rapporteur|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études sahara occidental - membre|Groupe d&apos;amitié france-roumanie - vice-président|Groupe d&apos;études prisons et conditions carcérales - vice-président|</groupes_parlementaires>
+    <sites_web>http://raimbourg2012.fr|http://www.dominiqueraimbourg.fr|https://twitter.com/Raimbourg2012|</sites_web>
+    <anciens_mandats>20/06/2007 / 19/06/2012 / fin de législature|20/06/2012 /  / |04/10/2001 / 18/06/2002 / fin de législature|</anciens_mandats>
+    <autres_mandats></autres_mandats>
+    <profession>Avocat</profession>
+    <place_en_hemicycle>348</place_en_hemicycle>
+    <slug>dominique-raimbourg</slug>
+    <nb_mandats>1</nb_mandats>
+    <X35></X35>
+	<vote_1312>Pour</vote_1312>
+    <vote_1329>Pour</vote_1329>
+    <vote_511>Pour</vote_511>
+    <vote_1346>Pour</vote_1346>
+    <vote_1352>Pour</vote_1352>
+    <Champ_Lexical>AAI/administratif/amende/arrondissement/assignation/attentat/commissaire/conforme/congrès/don/douze/défenseur/défenseur/des/droits/dématérialisation/détenu/europol/fichier/gendarmerie/génétique/hexagone/identification/identité/infraction/interdiction/intervenir/laboratoire/libération/municipale/nice/outre-mer/parquet/perquisition/personnelles/policier/polémique/procureur/prorogation/préfet/présidentielle/pénitentiaire/pétition/rejet/récidive/résidence/sapeurs-pompiers/sapeurs-pompiers/volontaires/scellé/souhaitez/stade/supporter/supprimant/terroriste/tribunal/volontaire</Champ_Lexical>
+    <vote_1347>Pour</vote_1347>
+    <vote_1348>Pour</vote_1348>
+    <vote_1291>Contre</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>Hamon</Soutien_Presidentiel>
+	<index>97</index>
+	<pourcentPresence>65,3846153846154</pourcentPresence>
+  </depute>
+  <depute>
+    <id>288</id>
+    <nom>Christophe Priou</nom>
+    <nom_de_famille>Priou</nom_de_famille>
+    <prenom>Christophe</prenom>
+    <sexe>H</sexe>
+    <date_naissance>1958-05-02</date_naissance>
+    <lieu_naissance>Nantes (Loire-Atlantique)</lieu_naissance>
+    <num_deptmt>44</num_deptmt>
+    <nom_circo>Loire-Atlantique</nom_circo>
+    <num_circo>7</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Les républicains - membre</groupe>
+    <groupe_sigle>LR</groupe_sigle>
+    <parti_ratt_financier>Les Républicains</parti_ratt_financier>
+    <responsabilites>Commission du développement durable et de l&apos;aménagement du territoire - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études patrimoine - membre|Groupe d&apos;études parcs nationaux et régionaux - membre|Groupe d&apos;études protection et développement du littoral - membre|Groupe d&apos;études illettrisme - membre|Groupe d&apos;études forêt bois meuble et ameublement - membre|Groupe d&apos;études prévention et lutte contre la toxicomanie - membre|Groupe d&apos;études amiante - membre|Groupe d&apos;études foncier - membre|Groupe d&apos;études enseignement privé sous contrat et hors contrat - membre|Groupe d&apos;études viticulture - membre|Groupe d&apos;études intégration des personnes handicapées - membre|Groupe d&apos;études langues régionales - membre|Groupe d&apos;études gaz de schiste - membre|Groupe d&apos;études maladies orphelines - membre|Groupe d&apos;études aménagement du territoire - membre|Groupe d&apos;études industries agro-alimentaires et filière agricole - membre|Groupe d&apos;études artisanat et métiers d&apos;art - membre|Groupe d&apos;études chasse et territoires - membre|Groupe d&apos;études pénibilité du travail santé au travail et maladies professionnelles - membre|Groupe d&apos;études mer pêche et souveraineté maritime - membre|Groupe d&apos;études oenologie et territoires - membre|Groupe d&apos;études pêche de loisir et protection du milieu aquatique - membre|Groupe d&apos;études autisme - membre|Groupe d&apos;études construction éco-construction et logement - membre|Groupe d&apos;études politique portuaire - membre|Groupe d&apos;études route et sécurité routière - membre|</groupes_parlementaires>
+    <sites_web></sites_web>
+    <anciens_mandats>20/06/2007 / 19/06/2012 / fin de législature|20/06/2012 /  / |19/06/2002 / 19/06/2007 / fin de législature|</anciens_mandats>
+    <autres_mandats>Pays de la Loire / Conseil régional / membre|</autres_mandats>
+    <profession>Cadre de chambre de commerce et d&apos;industrie</profession>
+    <place_en_hemicycle>17</place_en_hemicycle>
+    <slug>christophe-priou</slug>
+    <nb_mandats>2</nb_mandats>
+    <X35></X35>
+	<vote_1312>NA</vote_1312>
+    <vote_1329>Contre</vote_1329>
+    <vote_511>Contre</vote_511>
+    <vote_1346>Contre</vote_1346>
+    <vote_1352>Contre</vote_1352>
+    <Champ_Lexical></Champ_Lexical>
+    <vote_1347>Contre</vote_1347>
+    <vote_1348>Contre</vote_1348>
+    <vote_1291>Pour</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>Fillon</Soutien_Presidentiel>
+	<index>90</index>
+	<pourcentPresence>65,3846153846154</pourcentPresence>
+  </depute>
+  <depute>
+    <id>554</id>
+    <nom>Monique Rabin</nom>
+    <nom_de_famille>Rabin</nom_de_famille>
+    <prenom>Monique</prenom>
+    <sexe>F</sexe>
+    <date_naissance>1954-07-02</date_naissance>
+    <lieu_naissance>Laval (Mayenne)</lieu_naissance>
+    <num_deptmt>44</num_deptmt>
+    <nom_circo>Loire-Atlantique</nom_circo>
+    <num_circo>9</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Socialiste, écologiste et républicain - membre</groupe>
+    <groupe_sigle>SER</groupe_sigle>
+    <parti_ratt_financier>Parti socialiste</parti_ratt_financier>
+    <responsabilites>Comité d&apos;évaluation et de contrôle des politiques publiques - vice-présidente|Commission des finances de l&apos;économie générale et du contrôle budgétaire - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études intégration des personnes handicapées - membre|Groupe d&apos;études langue des signes - membre|Groupe d&apos;amitié france-inde - vice-présidente|Groupe d&apos;études enjeux du vieillissement - membre|Groupe d&apos;études tourisme - membre|Groupe d&apos;études Élevage - membre|Groupe d&apos;études politiques de la ruralité - membre|Groupe d&apos;études question du tibet - membre|Groupe d&apos;études santé et numérique - membre|Groupe d&apos;études santé à l&apos;école - membre|Groupe d&apos;amitié france-burundi - vice-présidente|Groupe d&apos;études pme - membre|</groupes_parlementaires>
+    <sites_web>http://www.moniquerabin.fr|</sites_web>
+    <anciens_mandats>20/06/2012 /  / |</anciens_mandats>
+    <autres_mandats>Saint-Philbert-de-Grand-Lieu / Conseil municipal / membre|Grandlieu / Communauté de communes / membre|</autres_mandats>
+    <profession>Retraitée de la fonction publique</profession>
+    <place_en_hemicycle>627</place_en_hemicycle>
+    <slug>monique-rabin</slug>
+    <nb_mandats>3</nb_mandats>
+    <X35></X35>
+	<vote_1312>Pour</vote_1312>
+    <vote_1329>NA</vote_1329>
+    <vote_511>Pour</vote_511>
+    <vote_1346>Pour</vote_1346>
+    <vote_1352>Pour</vote_1352>
+    <Champ_Lexical>affectée/budgétisation/BUSINESS/CCI/CETA/export/genre/handicapées/PIA/taxe</Champ_Lexical>
+    <vote_1347>Pour</vote_1347>
+    <vote_1348>Pour</vote_1348>
+    <vote_1291>Abstention</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>Hamon</Soutien_Presidentiel>
+	<index>96</index>
+	<pourcentPresence>65,3846153846154</pourcentPresence>
+  </depute>
+  <depute>
+    <id>469</id>
+    <nom>Sophie Errante</nom>
+    <nom_de_famille>Errante</nom_de_famille>
+    <prenom>Sophie</prenom>
+    <sexe>F</sexe>
+    <date_naissance>1971-07-22</date_naissance>
+    <lieu_naissance>Nantes (Loire-Atlantique)</lieu_naissance>
+    <num_deptmt>44</num_deptmt>
+    <nom_circo>Loire-Atlantique</nom_circo>
+    <num_circo>10</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Socialiste, écologiste et républicain - membre</groupe>
+    <groupe_sigle>SER</groupe_sigle>
+    <parti_ratt_financier>Parti socialiste</parti_ratt_financier>
+    <responsabilites>Commission des affaires économiques - membre|Délégation aux outre-mer - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études aménagement du territoire - membre|Groupe d&apos;études politique de l&apos;eau - membre|Groupe d&apos;études santé environnementale - co-présidente|Groupe d&apos;études enjeux du vieillissement - membre|Groupe d&apos;études développement de la méthanisation - vice-présidente|Groupe d&apos;études alimentation et santé - membre|Groupe d&apos;études tourisme - membre|Groupe d&apos;études santé à l&apos;école - vice-présidente|Groupe d&apos;études viticulture - secrétaire|Groupe d&apos;études politiques de la ruralité - membre|</groupes_parlementaires>
+    <sites_web>http://sophie-errante.fr|https://twitter.com/SophieErrante|</sites_web>
+    <anciens_mandats>20/06/2012 /  / |</anciens_mandats>
+    <autres_mandats>Chapelle-Heulin / Conseil municipal / membre|</autres_mandats>
+    <profession>Industriel-Chef d&apos;entreprise</profession>
+    <place_en_hemicycle>422</place_en_hemicycle>
+    <slug>sophie-errante</slug>
+    <nb_mandats>2</nb_mandats>
+    <X35></X35>
+	<vote_1312>Pour</vote_1312>
+    <vote_1329>Pour</vote_1329>
+    <vote_511>Pour</vote_511>
+    <vote_1346>Pour</vote_1346>
+    <vote_1352>Pour</vote_1352>
+    <Champ_Lexical>artisan/commerciale/lait/producteur</Champ_Lexical>
+    <vote_1347>Pour</vote_1347>
+    <vote_1348>Pour</vote_1348>
+    <vote_1291>Contre</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>Hamon</Soutien_Presidentiel>
+	<index>378</index>
+	<pourcentPresence>46,1538461538462</pourcentPresence>
+  </depute>
+  <depute>
+    <id>641</id>
+    <nom>Karine Daniel</nom>
+    <nom_de_famille>Daniel</nom_de_famille>
+    <prenom>Karine</prenom>
+    <sexe>F</sexe>
+    <date_naissance>1974-06-22</date_naissance>
+    <lieu_naissance>Nantes (Loire-Atlantique)</lieu_naissance>
+    <num_deptmt>44</num_deptmt>
+    <nom_circo>Loire-Atlantique</nom_circo>
+    <num_circo>3</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Socialiste, écologiste et républicain - membre</groupe>
+    <groupe_sigle>SER</groupe_sigle>
+    <parti_ratt_financier></parti_ratt_financier>
+    <responsabilites>Commission des affaires économiques - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études cancer - membre|</groupes_parlementaires>
+    <sites_web></sites_web>
+    <anciens_mandats>25/04/2016 /  / |</anciens_mandats>
+    <autres_mandats></autres_mandats>
+    <profession>Économiste</profession>
+    <place_en_hemicycle>401</place_en_hemicycle>
+    <slug>karine-daniel</slug>
+    <nb_mandats>1</nb_mandats>
+    <X35></X35>
+	<vote_1312>Pour</vote_1312>
+    <vote_1329>Pour</vote_1329>
+    <vote_511>NA</vote_511>
+    <vote_1346>Pour</vote_1346>
+    <vote_1352>Pour</vote_1352>
+    <Champ_Lexical>abattage/abattoir/animaux/débroussaillement/forêt/incendie/institut/PAC/parcelle/propriétaire/vidéo</Champ_Lexical>
+    <vote_1347>Pour</vote_1347>
+    <vote_1348>Pour</vote_1348>
+    <vote_1291>Contre</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>Hamon</Soutien_Presidentiel>
+	<index>404</index>
+	<pourcentPresence>42,3076923076923</pourcentPresence>
+  </depute>
+  <depute>
+    <id>528</id>
+    <nom>Yves Daniel</nom>
+    <nom_de_famille>Daniel</nom_de_famille>
+    <prenom>Yves</prenom>
+    <sexe>H</sexe>
+    <date_naissance>1954-07-31</date_naissance>
+    <lieu_naissance>Mouais (Loire-Atlantique)</lieu_naissance>
+    <num_deptmt>44</num_deptmt>
+    <nom_circo>Loire-Atlantique</nom_circo>
+    <num_circo>6</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Socialiste, écologiste et républicain - membre</groupe>
+    <groupe_sigle>SER</groupe_sigle>
+    <parti_ratt_financier>Parti socialiste</parti_ratt_financier>
+    <responsabilites>Commission des affaires européennes - membre|Commission des affaires économiques - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études Économie verte et économie circulaire - membre|Groupe d&apos;études politique de l&apos;eau - membre|Groupe d&apos;études industries agro-alimentaires et filière agricole - membre|Groupe d&apos;études economie sociale et solidaire - membre|Groupe d&apos;études pénibilité du travail santé au travail et maladies professionnelles - membre|Groupe d&apos;études développement de la méthanisation - membre|Groupe d&apos;études Élevage - membre|Groupe d&apos;études politiques de la ruralité - membre|Groupe d&apos;études biocarburants - vice-président|Groupe d&apos;études assurances - membre|Groupe d&apos;études formation alternée en milieu rural - membre|Groupe d&apos;études politique aéroportuaire - vice-président|Groupe d&apos;études route et sécurité routière - membre|</groupes_parlementaires>
+    <sites_web>http://www.yves-daniel.org|</sites_web>
+    <anciens_mandats>20/06/2012 /  / |</anciens_mandats>
+    <autres_mandats>Mouais (Loire-Atlantique) / Conseil municipal / maire|Secteur de Derval / Communauté de communes / vice-président|</autres_mandats>
+    <profession>Agriculteur-propriétaire exploitant</profession>
+    <place_en_hemicycle>626</place_en_hemicycle>
+    <slug>yves-daniel</slug>
+    <nb_mandats>3</nb_mandats>
+    <X35></X35>
+	<vote_1312>Pour</vote_1312>
+    <vote_1329>Pour</vote_1329>
+    <vote_511>Pour</vote_511>
+    <vote_1346>Pour</vote_1346>
+    <vote_1352>Pour</vote_1352>
+    <Champ_Lexical>abattage/alimentaire/animal/animaux/cession/EDF/extérieur/éleveur/géographique/indication/indications/géographiques/lait/laitier/laitière/mort/PAC/quotas</Champ_Lexical>
+    <vote_1347>Pour</vote_1347>
+    <vote_1348>Pour</vote_1348>
+    <vote_1291>Abstention</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>NA</Soutien_Presidentiel>
+	<index>403</index>
+	<pourcentPresence>42,3076923076923</pourcentPresence>
+  </depute>
+  <depute>
+    <id>235</id>
+    <nom>Marie-Françoise Clergeau</nom>
+    <nom_de_famille>Clergeau</nom_de_famille>
+    <prenom>Marie-Françoise</prenom>
+    <sexe>F</sexe>
+    <date_naissance>1948-05-02</date_naissance>
+    <lieu_naissance>Nantes (Loire-Atlantique)</lieu_naissance>
+    <num_deptmt>44</num_deptmt>
+    <nom_circo>Loire-Atlantique</nom_circo>
+    <num_circo>2</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Socialiste, écologiste et républicain - membre</groupe>
+    <groupe_sigle>SER</groupe_sigle>
+    <parti_ratt_financier>Parti socialiste</parti_ratt_financier>
+    <responsabilites>Délégation chargée de la communication et de la presse - questeure membre|Délégation chargée des activités internationales - questeure membre|Délégation chargée des représentants d&apos;intérêt et des groupes d&apos;étude - questeure membre|Bureau de l&apos;assemblée nationale - questeure|Commission des affaires sociales - membre|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études famille et adoption - membre|Groupe d&apos;études surendettement - membre|Groupe d&apos;études politique aéroportuaire - membre|Groupe d&apos;études enjeux du vieillissement - membre|Groupe d&apos;amitié france-japon - vice-présidente|Groupe d&apos;études droits de l&apos;enfant et de l&apos;adolescent et protection de la jeunesse - membre|</groupes_parlementaires>
+    <sites_web>http://www.clergeau.net|https://twitter.com/clergeaumf|</sites_web>
+    <anciens_mandats>20/06/2007 / 19/06/2012 / fin de législature|20/06/2012 /  / |01/06/1997 / 18/06/2002 / fin de législature|19/06/2002 / 19/06/2007 / fin de législature|</anciens_mandats>
+    <autres_mandats>Nantes (Loire-Atlantique) / Conseil municipal / Membre|Nantes Métropole / Communauté urbaine / Membre|</autres_mandats>
+    <profession>Retraitée cadre bancaire</profession>
+    <place_en_hemicycle>416</place_en_hemicycle>
+    <slug>marie-francoise-clergeau</slug>
+    <nb_mandats>3</nb_mandats>
+    <X35></X35>
+	<vote_1312>Pour</vote_1312>
+    <vote_1329>Pour</vote_1329>
+    <vote_511>Pour</vote_511>
+    <vote_1346>Pour</vote_1346>
+    <vote_1352>Pour</vote_1352>
+    <Champ_Lexical>congé/discrimination/majoration/partiel/pension/rétablir/supprimé</Champ_Lexical>
+    <vote_1347>Pour</vote_1347>
+    <vote_1348>Pour</vote_1348>
+    <vote_1291>Contre</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>NA</Soutien_Presidentiel>
+	<index>417</index>
+	<pourcentPresence>40,3846153846154</pourcentPresence>
+  </depute>
+  <depute>
+    <id>67</id>
+    <nom>Marie-Odile Bouillé</nom>
+    <nom_de_famille>Bouillé</nom_de_famille>
+    <prenom>Marie-Odile</prenom>
+    <sexe>F</sexe>
+    <date_naissance>1950-10-13</date_naissance>
+    <lieu_naissance>Nantes (Loire-Atlantique)</lieu_naissance>
+    <num_deptmt>44</num_deptmt>
+    <nom_circo>Loire-Atlantique</nom_circo>
+    <num_circo>8</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Socialiste, écologiste et républicain - membre</groupe>
+    <groupe_sigle>SER</groupe_sigle>
+    <parti_ratt_financier>Parti socialiste</parti_ratt_financier>
+    <responsabilites>Commission des affaires culturelles et de l&apos;éducation - vice-présidente|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;études arctique antarctique et terres australes et antarctiques françaises - membre|Groupe d&apos;études candidature de la france à l&apos;exposition universelle de - membre|Groupe d&apos;études sida - membre|Groupe d&apos;amitié france-afrique du sud - secrétaire|Groupe d&apos;études professions de santé et coordination sanitaire - membre|Groupe d&apos;études politique portuaire - membre|</groupes_parlementaires>
+    <sites_web></sites_web>
+    <anciens_mandats>20/06/2007 / 19/06/2012 / fin de législature|20/06/2012 /  / |</anciens_mandats>
+    <autres_mandats>région nazairienne et l&apos;estuaire / Communauté d&apos;agglomération / Vice-présidente de la|Saint-Nazaire (Loire-Atlantique) / Conseil municipal / Membre|</autres_mandats>
+    <profession>Sage-femme</profession>
+    <place_en_hemicycle>332</place_en_hemicycle>
+    <slug>marie-odile-bouille</slug>
+    <nb_mandats>3</nb_mandats>
+    <X35></X35>
+	<vote_1312>NA</vote_1312>
+    <vote_1329>Pour</vote_1329>
+    <vote_511>Pour</vote_511>
+    <vote_1346>Pour</vote_1346>
+    <vote_1352>Pour</vote_1352>
+    <Champ_Lexical>artistique/culturel/fille/garçons/sexualité</Champ_Lexical>
+    <vote_1347>Pour</vote_1347>
+    <vote_1348>Pour</vote_1348>
+    <vote_1291>Contre</vote_1291>
+	<NDDL>Pour</NDDL>
+    <Soutien_Presidentiel>NA</Soutien_Presidentiel>
+	<index>500</index>
+	<pourcentPresence>30,7692307692308</pourcentPresence>
+  </depute>
+  <depute>
+    <id>256</id>
+    <nom>Michel Ménard</nom>
+    <nom_de_famille>Ménard</nom_de_famille>
+    <prenom>Michel</prenom>
+    <sexe>H</sexe>
+    <date_naissance>1961-05-20</date_naissance>
+    <lieu_naissance>Saint-Berthevin-la-Tannière (Mayenne)</lieu_naissance>
+    <num_deptmt>44</num_deptmt>
+    <nom_circo>Loire-Atlantique</nom_circo>
+    <num_circo>5</num_circo>
+    <ancien_depute>0</ancien_depute>
+    <groupe>Socialiste, écologiste et républicain - membre</groupe>
+    <groupe_sigle>SER</groupe_sigle>
+    <parti_ratt_financier>Parti socialiste</parti_ratt_financier>
+    <responsabilites>Commission des affaires culturelles et de l&apos;éducation - vice-président|</responsabilites>
+    <groupes_parlementaires>Groupe d&apos;amitié france-equateur - vice-président|Groupe d&apos;amitié france-tunisie - président|Groupe d&apos;études santé à l&apos;école - membre|Groupe d&apos;études droits de l&apos;enfant et de l&apos;adolescent et protection de la jeunesse - membre|Groupe d&apos;études responsabilité sociale des entreprises - membre|Groupe d&apos;études soutien à la candidature de paris aux jeux olympiques et paralympiques de - secrétaire|</groupes_parlementaires>
+    <sites_web>http://www.michelmenard.fr|https://twitter.com/Michel_MENARD|</sites_web>
+    <anciens_mandats>20/06/2007 / 19/06/2012 / fin de législature|20/06/2012 /  / |</anciens_mandats>
+    <autres_mandats>Loire-Atlantique / Conseil départemental / membre|</autres_mandats>
+    <profession>Professeur des écoles</profession>
+    <place_en_hemicycle>423</place_en_hemicycle>
+    <slug>michel-menard</slug>
+    <nb_mandats>2</nb_mandats>
+    <X35></X35>
+	<vote_1312>Pour</vote_1312>
+    <vote_1329>Pour</vote_1329>
+    <vote_511>Pour</vote_511>
+    <vote_1346>Pour</vote_1346>
+    <vote_1352>Pour</vote_1352>
+    <Champ_Lexical>continue/discrimination/ESPE/média/pauvreté/pluralisme/refondation/salle</Champ_Lexical>
+    <vote_1347>Pour</vote_1347>
+    <vote_1348>Pour</vote_1348>
+    <vote_1291>Contre</vote_1291>
+	<NDDL>Pour</NDDL>
+	<Soutien_Presidentiel>NA</Soutien_Presidentiel>
+	<index>141</index>
+	<pourcentPresence>61,5384615384615</pourcentPresence>
+  </depute>
+</deputes>

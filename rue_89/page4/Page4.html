@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet"  type="text/css" href ="Page4.css">
+<title>Page4</title>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script type="text/javascript" src="jquery.ui.combobox.js"></script>
+<script type="text/javascript" src="test13.js"></script>
+<script type="text/javascript"> 
+function nextpage() //????????
+{ 
+var parm1=document.getElementById("cb").value; 
+var parm2=document.getElementById("chosir_annee").value; 
+var myurl="communejumelle.html"+"?"+"parm1="+parm1+"&parm2="+parm2; 
+window.location.assign(myurl); 
+} 
+</script> 
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+</head>
+
+<body>
+
+	<div id = "top">
+		<h1 class="pos_right">QU'EST CE QU'UNE COMMUNE JUMELLE
+			<p>
+				une grand graph
+			</p>
+		</h1>
+		<img src="jumelle.png" alt="alttext" title="jumelle" style="position:relative;top:50px; right:-80px">
+		
+		<div id="represent">
+			
+		</div>
+	</div>
+	<div id = "bottom">
+		
+			<h2>
+				Selection ta commune pour voir si une commune jumelle existe.
+			</h2>
+			
+			<div  class="pos_inline">
+				<label for="state" color = "FFFFFF">Chosir ta commune </label>
+				<select class="select" id="cb"></select>
+				<script type="text/javascript" src="commune.js"></script>
+				<script type="text/javascript">
+				$().ready(
+				function(){
+					var name =0;
+					$.each(commune_names,function(name,value) {
+					var n = $("<option value = "+value+">"+value+"</option>");
+						$("#cb").append(n)	
+					});
+					$("#cb").combobox();
+				});
+
+				</script>
+			<label for="state" color = "FFFFFF">a l'annee </label>
+			<div class="select">
+			<select name="annee" class="select" id="chosir_annee">
+				<option class="option" value="2002" >2002</option>
+				<option class="option" value="2007" >2007</option>
+				<option class="option" value="2012" >2012</option>
+			</select>
+
+		<button type="button" class = "pos_bottom"style = "displat:block" value="to page5" onclick="nextpage()">
+			Recherche
+		</button>
+		
+</div>
+		
+		
+	
+   
+</body>
+</html>
+

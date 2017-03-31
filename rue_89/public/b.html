@@ -1,0 +1,34 @@
+<html> 
+<head> 
+<title>test1</title> 
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script type="text/javascript"> 
+
+function getparm1() 
+{ 
+var url=location.href; 
+var tmp1=url.split("?")[1]; 
+var tmp2=tmp1.split("&")[0]; 
+var tmp3=tmp2.split("=")[1]; 
+var parm1=tmp3; 
+alert(parm1); 
+} 
+function getparm2() 
+{ 
+var url=location.href; 
+var tmp1=url.split("?")[1]; 
+var tmp2=tmp1.split("&")[1]; 
+var tmp3=tmp2.split("=")[1]; 
+var parm2=tmp3; 
+alert(parm2); 
+} 
+</script> 
+</head> 
+<body> 
+<label id="label1" >page test4</label> 
+<br><br> 
+<input type="button" id="bt1" value="get parm1" onclick="getparm1()"> 
+<br><br> 
+<input type="button" id="bt2" value="get parm1" onclick="getparm2()"> 
+</body> 
+</html> 

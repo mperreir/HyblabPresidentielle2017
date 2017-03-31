@@ -1,0 +1,478 @@
+<questionflow>
+	<noeud id="1">
+		<question quest="Validez vous les choix budgétaires de la France pour 2017?">
+			<reponses>
+				<reponse rep="Oui">
+					<individus>
+						<individu>hugues-fourage</individu>
+						<individu>sylviane-bulteau</individu>
+						<individu>sylvie-tolmont</individu>
+						<individu>marietta-karamanli</individu>
+						<individu>francoise-dubois</individu>
+						<individu>guy-michel-chauveau</individu>
+						<individu>guillaume-garot</individu>
+						<individu>marc-goua</individu>
+						<individu>luc-belot</individu>
+						<individu>serge-bardy</individu>
+						<individu>francois-de-rugy</individu>
+						<individu>dominique-raimbourg</individu>
+						<individu>monique-rabin</individu>
+						<individu>sophie-errante</individu>
+						<individu>karine-daniel</individu>
+						<individu>yves-daniel</individu>
+						<individu>marie-francoise-clergeau</individu>
+						<individu>marie-odile-bouille</individu>
+						<individu>michel-menard</individu>
+					</individus>
+					<next-noeud id="2"/>
+				</reponse>
+				<reponse rep="Non">
+					<individus>
+						<individu>yannick-moreau</individu>
+						<individu>alain-leboeuf</individu>
+						<individu>veronique-besse</individu>
+						<individu>dominique-le-mener</individu>
+						<individu>yannick-favennec</individu>
+						<individu>guillaume-chevrollier</individu>
+						<individu>jean-charles-taugourdeau</individu>
+						<individu>michel-piron</individu>
+						<individu>marc-laffineur</individu>
+						<individu>gilles-bourdouleix</individu>
+						<individu>christophe-priou</individu>
+					</individus>
+					<next-noeud id="3"/>
+				</reponse>
+			</reponses>
+		</question>
+	</noeud>
+	<noeud id="2">
+		<question quest="Si vous étiez député, feriez vous plus de deux mandats?">
+			<reponses>
+				<reponse rep="Oui">
+					<individus>
+						<individu>hugues-fourage</individu>
+						<individu>sylvie-tolmont</individu>
+						<individu>marietta-karamanli</individu>
+						<individu>francoise-dubois</individu>
+						<individu>marc-goua</individu>
+						<individu>luc-belot</individu>
+						<individu>monique-rabin</individu>
+						<individu>marie-francoise-clergeau</individu>
+						<individu>marie-odile-bouille</individu>
+						<individu>yves-daniel</individu>
+						<individu>francois-de-rugy</individu>
+					</individus>
+					<next-noeud id="4"/>
+				</reponse>
+				<reponse rep="Non">
+					<individus>						
+						<individu>sylviane-bulteau</individu>
+						<individu>guy-michel-chauveau</individu>
+						<individu>serge-bardy</individu>
+						<individu>dominique-raimbourg</individu>
+						<individu>sophie-errante</individu>
+						<individu>karine-daniel</individu>
+						<individu>michel-menard</individu>
+						<individu>guillaume-garot</individu>
+					</individus>
+					<next-noeud id="5"/>
+				</reponse>
+			</reponses>
+		</question>
+	</noeud>
+	<!-- <noeud id="2">
+		<question quest="Etes-vous pour ou contre la construction de l'aéroport de Notre Dame des Landes?">
+			<reponses>
+				<reponse rep="Pour">
+					<individus>
+						<individu>hugues-fourage</individu>
+						<individu>sylviane-bulteau</individu>
+						<individu>sylvie-tolmont</individu>
+						<individu>marietta-karamanli</individu>
+						<individu>francoise-dubois</individu>
+						<individu>guy-michel-chauveau</individu>
+						<individu>guillaume-garot</individu>
+						<individu>marc-goua</individu>
+						<individu>luc-belot</individu>
+						<individu>serge-bardy</individu>
+						<individu>dominique-raimbourg</individu>
+						<individu>monique-rabin</individu>
+						<individu>sophie-errante</individu>
+						<individu>karine-daniel</individu>
+						<individu>yves-daniel</individu>
+						<individu>marie-francoise-clergeau</individu>
+						<individu>marie-odile-bouille</individu>
+						<individu>michel-menard</individu>
+					</individus>
+					<next-noeud id="4"/>
+				</reponse>
+				<reponse rep="Contre">
+					<individus>
+						<individu>francois-de-rugy</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+			</reponses>
+		</question>
+	</noeud>					 -->
+	
+	<noeud id="3">
+		<question quest="Etes-vous pour ou contre la loi sur la protection des lanceurs d'alerte?">
+			<reponses>
+				<reponse rep="Pour">
+					<individus>
+							<individu>yannick-favennec</individu>
+							<individu>michel-piron</individu>
+							<individu>marc-laffineur</individu>
+							<individu>gilles-bourdouleix</individu>
+					</individus>
+					<next-noeud id="6"/>
+				</reponse>
+				<reponse rep="Contre">
+					<individus>
+						<individu>yannick-moreau</individu>
+						<individu>alain-leboeuf</individu>
+						<individu>veronique-besse</individu>
+						<individu>dominique-le-mener</individu>
+						<individu>guillaume-chevrollier</individu>
+						<individu>jean-charles-taugourdeau</individu>
+						<individu>christophe-priou</individu>
+					</individus>
+					<next-noeud id="7"/>
+				</reponse>
+			</reponses>
+		</question>
+	</noeud>
+	<noeud id="4">
+		<question quest="Etes-vous pour ou contre le recours à une mère porteuse">
+			<reponses>
+				<reponse rep="Pour">
+					<individus>
+						<individu>luc-belot</individu>
+						<individu>monique-rabin</individu>
+						<individu>yves-daniel</individu>
+					</individus>
+					<next-noeud id="8"/>
+				</reponse>
+				<reponse rep="Contre">
+					<individus>
+						<individu>hugues-fourage</individu>
+						<individu>sylvie-tolmont</individu>
+						<individu>marietta-karamanli</individu>
+						<individu>francoise-dubois</individu>
+						<individu>marc-goua</individu>
+						<individu>marie-francoise-clergeau</individu>
+						<individu>marie-odile-bouille</individu>
+						<individu>francois-de-rugy</individu>
+					</individus>
+					<next-noeud id="9"/>
+				</reponse>
+			</reponses>
+		</question>
+	</noeud>
+	<noeud id="5">
+		<question quest="Et plutôt un mandat ou deux mandats?">
+			<reponses>
+				<reponse rep="1">
+					<individus>
+						<individu>serge-bardy</individu>
+						<individu>dominique-raimbourg</individu>
+						<individu>karine-daniel</individu>
+					</individus>
+					<next-noeud id="10"/>
+				</reponse>
+				<reponse rep="2">
+					<individus>
+						<individu>sylviane-bulteau</individu>
+						<individu>guy-michel-chauveau</individu>
+						<individu>guillaume-garot</individu>
+						<individu>sophie-errante</individu>
+						<individu>michel-menard</individu>
+					</individus>
+					<next-noeud id="11"/>
+				</reponse>
+			</reponses>
+		</question>
+	</noeud>
+	<noeud id="6">
+		<question quest="Etes-vous pour l'augmentation du nombre de consultations citoyennes?">
+			<reponses>
+				<reponse rep="Pour">
+					<individus>
+						<individu>yannick-favennec</individu>
+						<individu>michel-piron</individu>
+					</individus>
+					<next-noeud id="12"/>
+				</reponse>
+				<reponse rep="Contre">
+					<individus>
+						<individu>marc-laffineur</individu>
+						<individu>gilles-bourdouleix</individu>
+					</individus>
+					<next-noeud id="13"/>
+				</reponse>
+			</reponses>
+		</question>
+	</noeud>
+	<noeud id="7">
+		<question quest="Etes-vous d'accord pour investir dans le développement économique des terrritoires d'Outre-Mer?">
+			<reponses>
+				<reponse rep="Oui">
+					<individus>						
+						<individu>veronique-besse</individu>	
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="Non">
+					<individus>
+						<individu>yannick-moreau</individu>
+						<individu>alain-leboeuf</individu>
+						<individu>dominique-le-mener</individu>
+						<individu>guillaume-chevrollier</individu>
+						<individu>jean-charles-taugourdeau</individu>
+						<individu>christophe-priou</individu>
+					</individus>
+					<next-noeud id="15"/>
+				</reponse>
+			</reponses>
+		</question>
+	</noeud>
+	<noeud id="8">
+		<question quest="Si vous étiez député, quel part de votre de votre temps passeriez-vous à l'Assemblée Nationale par rapport à votre présence dans votre circonscription? (sur une échelle de 1 à 10)">
+			<reponses>
+				<reponse rep="5">
+					<individus>
+						<individu>luc-belot</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="10">
+					<individus>
+						<individu>monique-rabin</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="1">
+					<individus>
+						<individu>yves-daniel</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+			</reponses>
+		</question>
+	</noeud>
+	<noeud id="9">
+		<question quest="Etes-vous pour ou contre la construction de l'aéroport de Notre Dame des Landes?">
+			<reponses>
+				<reponse rep="Pour">
+					<individus>
+						<individu>hugues-fourage</individu>
+						<individu>sylvie-tolmont</individu>
+						<individu>marietta-karamanli</individu>
+						<individu>francoise-dubois</individu>
+						<individu>marc-goua</individu>
+						<individu>marie-francoise-clergeau</individu>
+						<individu>marie-odile-bouille</individu>
+					</individus>
+					<next-noeud id="18"/>
+				</reponse>
+				<reponse rep="Contre">
+					<individus>
+						<individu>francois-de-rugy</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+			</reponses>
+		</question>
+	</noeud>
+	<noeud id="10">
+		<question quest="Si vous étiez député, quel part de votre de votre temps passeriez-vous à l'Assemblée Nationale par rapport à votre présence dans votre circonscription? (sur une échelle de 1 à 10)">
+			<reponses>
+				<reponse rep="10">
+					<individus>
+						<individu>serge-bardy</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="1">
+					<individus>
+						<individu>dominique-raimbourg</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="5">
+					<individus>
+						<individu>karine-daniel</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+			</reponses>
+		</question>
+	</noeud>
+	<noeud id="11">
+		<question quest="Si vous étiez député, quel part de votre de votre temps passeriez-vous à l'Assemblée Nationale par rapport à votre présence dans votre circonscription? (sur une échelle de 1 à 10)">
+			<reponses>
+				<reponse rep="10">
+					<individus>
+						<individu>sylviane-bulteau</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="4">
+					<individus>
+						<individu>guy-michel-chauveau</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="1">
+					<individus>
+						<individu>guillaume-garot</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="8">
+					<individus>
+						<individu>sophie-errante</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="6">
+					<individus>
+						<individu>michel-menard</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+			</reponses>
+		</question>
+	</noeud>
+	<noeud id="12">
+		<question quest="Si vous étiez député, quel part de votre de votre temps passeriez-vous à l'Assemblée Nationale par rapport à votre présence dans votre circonscription? (sur une échelle de 1 à 10)">
+			<reponses>
+				<reponse rep="10">
+					<individus>
+						<individu>yannick-favennec</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="1">
+					<individus>
+						<individu>michel-piron</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+			</reponses>
+		</question>
+	</noeud>
+	<noeud id="13">
+		<question quest="Si vous étiez député, quel part de votre de votre temps passeriez-vous à l'Assemblée Nationale par rapport à votre présence dans votre circonscription? (sur une échelle de 1 à 10)">
+			<reponses>
+				<reponse rep="10">
+					<individus>
+						<individu>marc-laffineur</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="1">
+					<individus>
+						<individu>gilles-bourdouleix</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+			</reponses>
+		</question>
+	</noeud>
+	<noeud id="15">
+		<question quest="Si vous étiez député, quel part de votre de votre temps passeriez-vous à l'Assemblée Nationale par rapport à votre présence dans votre circonscription? (sur une échelle de 1 à 10)">
+			<reponses>
+				<reponse rep="9">
+					<individus>
+						<individu>yannick-moreau</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="8">
+					<individus>
+						<individu>alain-leboeuf</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="3">
+					<individus>
+						<individu>dominique-le-mener</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="6">
+					<individus>
+						<individu>guillaume-chevrollier</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="5">
+					<individus>
+						<individu>jean-charles-taugourdeau</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="10">
+					<individus>
+						<individu>christophe-priou</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+			</reponses>
+		</question>
+	</noeud>
+	<noeud id="18">
+		<question quest="Si vous étiez député, quel part de votre de votre temps passeriez-vous à l'Assemblée Nationale par rapport à votre présence dans votre circonscription? (sur une échelle de 1 à 10)">
+			<reponses>
+				<reponse rep="10">
+					<individus>
+						<individu>hugues-fourage</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="7">
+					<individus>
+						<individu>sylvie-tolmont</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="6">
+					<individus>
+						<individu>marietta-karamanli</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="3">
+					<individus>
+						<individu>francoise-dubois</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="1">
+					<individus>
+						<individu>marc-goua</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="9">
+					<individus>
+						<individu>marie-francoise-clergeau</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+				<reponse rep="8">
+					<individus>
+						<individu>marie-odile-bouille</individu>
+					</individus>
+					<next-noeud id="0"/>
+				</reponse>
+			</reponses>
+		</question>
+	</noeud>
+
+</questionflow>
+
+
+

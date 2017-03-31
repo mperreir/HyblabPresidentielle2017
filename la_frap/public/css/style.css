@@ -13,3 +13,737 @@ header img{
   max-width: 100%;
 	height: auto;
 }
+/*
+body {
+	font-family: 'Fira Sans';
+}
+*/
+
+.section{
+	position: relative;
+}
+
+.slide{
+	position: relative;
+}
+
+/*-------------------------------------------------Region-----------------------------------------------------*/
+.carre{
+	background-color: #FFF;
+	height: 6vw;
+	width: 100vw;
+}
+.img_sect{
+	position: relative;
+	left: 5vw;
+	width: 27vw;
+	top: 1vw;
+}
+#line{
+    width:0.1vw;
+    height:3vw;
+    background-color: black;
+   	position: relative;
+    top: -3.2vw;
+    left: 32vw;
+}
+.text_tete{
+	position: relative;
+	top: -6.5vw;
+	left: 33.5vw;
+	font-size: 1.1vw;
+	font-family: "Roboto";
+}
+.img_logo3{
+	position: relative;
+	top: -11.5vw;
+	left: 92vw;
+	width: 6.5vw;
+}
+.carre1{
+	background-color: #f2f2f2;
+	height: 18vw;
+	width: 100vw;
+	position: relative;
+	top: -2vw;
+}
+#text_centre{
+	font-size: 3vw;
+	text-align: center;
+	color: #787979;
+	font-family: "Roboto";
+	font-weight: lighter;
+	position: relative;
+	top: 4vw;
+}
+#text_centre2{
+	font-size: 1.3vw;
+	text-align: center;
+	color: #787979;
+	font-family: "Roboto";
+	position: relative;
+	top: 2.5vw;
+}
+#bluestyle{
+	color: #00a9ff;
+	font-weight: bold;
+}
+#Pres1{
+	position: relative;
+	top: 0vw;
+	font-size: 1.9vw;
+	text-align: center;
+	font-family: "Roboto";
+	font-weight: lighter;
+	color: #787979;
+}
+#liste1{
+	position: relative;
+	display: inline-block;
+	top: 5vw;
+	left: 3vw;
+	/*list-style-type:none;*/
+	/*width: 15vw;*/
+}
+.list_noder{
+	text-decoration: none;
+	color: #00a9ff;
+	font-size: 2vw;
+	margin-left: 4vw;
+	font-family: "Roboto";
+}
+
+/*---------------------------------------Carte département--------------------------------------*/
+
+/*Générale*/
+.carre2{
+	background-color: #f2f2f2;
+	height: 10vw;
+	width: 100vw;
+	position: relative;
+	top:-0.8vw;
+}
+.text_centre_all{
+	font-size: 1.8vw;
+	text-align: center;
+	font-family: "Roboto";
+	color: #787979;
+	position: relative;
+	top: 3vw;
+	font-weight: lighter;
+}
+.fil_dar_carte{
+	display: inline-block;
+	font-family: "Roboto";
+	color: #787979;
+	position: relative;
+	top: 0vw;
+	left: 3.5vw;
+    font-size: 1.1vw;
+    
+}
+.retour_reg{
+	text-decoration: none;
+	color: #2f2f2f;
+}
+.retour_dep{
+	text-decoration: none;
+	color: #2f2f2f;
+}
+.retour_cir{
+	color: #2f2f2f;
+	
+	text-decoration: none;
+	font-weight: bold;
+}
+.land{
+	fill: #f2f2f2;
+	stroke: #cccccc;
+	stroke-width: 1.5px; 
+	transition: fill 0.3s;
+}
+
+.land1{
+	fill: #f2f2f2;
+	stroke: #cccccc;
+	stroke-width: 1.5px; 
+	transition: fill 0.3s;
+}
+
+.land.is-active{
+	fill: #00a9ff;
+}
+.land1.is-active{
+	fill: #00a9ff;
+}
+
+/*Mayenne*/
+#map_mayenne{
+	width: 50vw;
+	margin-left: 26vw;
+	/*float: left;*/
+	position: relative;
+	top: -4vw;
+}
+.img_rec_may{
+	position: relative;
+	top: -30.5vw;
+	left: 15vw;
+}	
+.text_ville_may{
+	position: relative;
+	top: -34.5vw;
+	left: 19vw;
+	font-weight: bold;
+	font-size: 1.2vw;
+	width: 13vw;
+}
+
+/*Sarthe*/
+#map_sarthe{
+	width: 50vw;
+	margin-left: 26vw;
+	/*float: left;*/
+	position: relative;
+	top: -3vw;
+}
+.img_rec_sa{
+	position: relative;
+	top: -30.5vw;
+	left: 15vw;
+}	
+.text_ville_sa{
+	position: relative;
+	top: -34.5vw;
+	left: 19vw;
+	font-weight: bold;
+	font-size: 1.2vw;
+	width: 13vw;
+}
+
+/*Loire-Atlantique*/
+#map_la{
+	width: 50vw;
+	margin-left: 25vw;
+	/*float: left;*/
+	position: relative;
+	top: -4vw;
+}
+.img_rec_la{
+	position: relative;
+	top: -25.5vw;
+	left: -12vw;
+
+}
+
+.text_ville_la{
+	position: relative;
+	top: -29.5vw;
+	left: -8vw;
+	font-weight: bold;
+	font-size: 1.2vw;
+	width: 13vw;
+}
+
+/*Maine et Loire*/
+#map_mel{
+	width: 50vw;
+	margin-left: 26vw;
+	/*float: left;*/
+	position: relative;
+	top: -4vw;
+}
+.img_rec_mel{
+	position: relative;
+	top: -30.5vw;
+	left: 15vw;
+}	
+.text_ville_mel{
+	position: relative;
+	top: -34.5vw;
+	left: 19vw;
+	font-weight: bold;
+	font-size: 1.2vw;
+	width: 13vw;
+}
+
+/*Vendee*/
+#map_vendee{
+	width: 50vw;
+	margin-left: 26vw;
+	/*float: left;*/
+	position: relative;
+	top: -4vw;
+}
+.img_rec_ven{
+	position: relative;
+	top: -30.5vw;
+	left: 15vw;
+}	
+.text_ville_ven{
+	position: relative;
+	top: -34.5vw;
+	left: 19vw;
+	font-weight: bold;
+	font-size: 1.2vw;
+	width: 13vw;
+}
+
+/*-------------------------------------------------------Slide Corps------------------------------------------------*/
+.fil_dar{
+	display: inline-block;
+	font-family: "Roboto";
+	color: #787979;
+	position: relative;
+	top: -1.38vw;
+	left: 3.5vw;
+    font-size: 1.1vw;
+    
+}
+
+/*Gestion des annéess*/
+ .a1{
+  	border: 0.2vw black solid;
+  	opacity: 1.5;
+  	font-weight: bold;
+  }
+ .a2{
+  	border: 0.2vw black solid;
+  	opacity: 1.5;
+  	font-weight: bold;
+  }
+.a3{
+  	border: 0.2vw black solid;
+  	opacity: 1.5;
+  	font-weight: bold;
+  }
+ .a4{
+  	border: 0.2vw black solid;
+  	opacity: 1.5;
+  	font-weight: bold;
+  }
+ .a5{
+  	border: 0.2vw black solid;
+  	opacity: 1.5;
+  	font-weight: bold;
+  }
+ .a6{
+  	border: 0.2vw black solid;
+  	opacity: 1.5;
+  	font-weight: bold;
+  }
+ .a7{
+  	border: 0.2vw black solid;
+  	opacity: 1.5;
+  	font-weight: bold;
+  }
+
+.annee{
+	/*padding-top: 0.5vw;*/
+	color: white;
+	display: inline-block;
+	text-align: center;
+	line-height: 1.6vw;
+	font-size: 1.1vw;
+	font-family: "Roboto";
+	/*font-weight: bold;*/
+  	width: 7vw;
+  	height: 1.6vw;
+  	position: relative;
+  	top: 1vw;
+  	text-decoration: none;
+}
+
+.annee1{
+	margin-left: -3vw;
+}
+
+.centre{
+	background-color: #fec240;
+}
+
+.inconnu{
+	background-color: #bcbfbf;
+}
+
+.gauche{
+	background-color: #e90773;
+}
+
+.droite{
+	background-color: #007af1;
+}
+
+.vert{
+	background-color: #0fc125;
+}
+
+.extreme_gauche {
+	background-color: #e9143c;
+}
+
+.extreme_droite {
+	background-color: #0016e8;
+}
+
+/*Graphique*/
+.chartsection{
+	/*visibility: hidden;*/
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50vw !important;
+    height: 15vw !important;
+    position: relative;
+  	top: 1.5vw;
+  	z-index: 9;
+  	padding-bottom: 1.3vw;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    border-bottom: solid;
+    border-width: thin;
+    border-bottom-color: darkgray;
+}
+
+/*Candidats*/
+.rond{
+ 	
+ 	background-color: #cccccc;
+  	border-radius: 50vw;
+ 	height: 1vw;
+  	width: 1vw;
+  	line-height: 1vw;
+  	font-size: 0.3vw;
+  	position: relative;
+  	/*top: 10vw;*/
+  	margin-right: 1.5vw;  
+  	margin-left: 1.5vw;
+    
+  }
+
+#sect_cand{
+	border-top: solid;
+	border-width: 50%;
+
+}
+
+.cand{   
+  
+  text-align: center;
+  text-transform: capitalize; 
+  font-family: "Roboto";
+  font-size: 1vw;
+  padding-bottom: 0.7vw;
+  width: 11vw;
+  position: relative;
+  border-bottom: solid;
+  border-bottom-color: rgba(0,169,255,0);
+  border-width: 0.2vw;
+  top: 0.2vw;
+  
+  margin-top: 0.3vw;
+  margin-bottom: 0.3vw;
+}
+
+.cand:hover {
+	color :#00a9ff;
+	cursor: pointer;
+	border-bottom-color: rgba(0,169,255,1);
+}
+
+.son_cand{
+	width: 1.5vw;
+	position: relative;
+	
+	left: -2vw;
+}
+
+/* ------------------------------------------------------------ CV ------------------------------------- */
+.close{
+	position: relative;
+	float: right;
+    width: 1.2vw;
+    /*top: 1.5vw;
+    right: 1.5vw;*/
+    z-index: 2;
+    padding: 2vw;
+    -webkit-transition: 0.2s;
+}
+
+.close:hover{
+	cursor: pointer;
+	background-color: red;
+	-webkit-transition: 0.2s;
+}
+
+#carre_gris{
+	background-color: #f2f2f2;
+	height: 20vw;
+	width: 100vw;
+	position: relative;
+	top: -2vw;
+	z-index: 1;
+}
+#imgC {
+    position: relative;
+    width: 6vw;
+    left: 13vw;
+    top: -15.5vw;
+    border-radius: 50%;
+    z-index: 2;
+}
+#NomC{
+    position: relative;
+    font-weight: bold;
+    font-size: 1.5vw;
+    left: 21vw;
+    top: -23vw;
+    text-transform: capitalize;
+    max-width: 20vw;
+    z-index: 2;
+    font-family: "Roboto";
+    font-weight: 500;
+}
+#prenomC{
+    position: relative;
+    left: 21vw;
+    top: -24.3vw;
+    font-size: 1.5vw;
+    text-transform: capitalize;
+    font-weight: bold;
+    max-width: 20vw;
+    z-index: 2;
+    font-family: "Roboto";
+    font-weight: lighter;
+}
+#EtiquetteC{
+    position: relative;
+    text-transform: capitalize;
+    left: 21.2vw;
+    top: -25.5vw;
+    font-size: 1.2vw;
+    font-weight: bold;
+    font-family: "Roboto";
+    z-index: 2;
+}
+#AgeC{
+    position: relative;
+    left: 21.1vw;
+    top : -26.5vw;
+    min-height: 1.5vw;
+    font-size: 1.3vw;
+    max-width: 15vw;
+    font-family: "Roboto";
+    font-weight: lighter;
+    z-index: 2;
+}
+#nbrPrestCr{
+    text-align: center;
+    position: relative;
+    max-width: 25vw;
+    top: -1vw;
+    left: 28vw;
+    font-family: "Roboto";
+    font-size: 1.3vw;  
+    color: #787979;
+    font-weight: bold;
+}/*
+#nbrPrestCr::first-line{  
+    font-size:5vw;
+    font-weight: bolder;
+}*/
+#newsepC{
+	width:0.1vw;
+    height:6vw;
+    background-color: #787979;
+   	position: relative;
+    top: -3vw;
+    left: 51vw;
+}
+#nrbEluC{
+    text-align: center;
+    position: relative;
+    top: -11vw;
+    /*top: -8.6vw;*/
+    max-width: 25vw;
+    left: 48vw;
+    font-family: "Roboto";
+    font-size: 1.3vw;
+    color: #787979;
+    font-weight: bold;
+}/*
+#nrbEluC::first-line{
+    font-weight: bolder;
+    font-size: 5vw;
+}*/
+#list_presC{
+	position: relative;
+	top: -12.1vw;
+	left: 34vw;
+	font-family: "Roboto";
+	font-weight: 300;
+	color: #484848;
+	font-size: 1.1vw;
+	left: 32vw;
+}
+#list_eluC{
+	position: relative;
+	top: -18.5vw;
+	left: 56.5vw;
+	font-family: "Roboto";
+	font-weight: 300;
+	color: #484848;
+	font-size: 1.1vw;
+
+}
+#presentationC{
+    width: 40vw;
+    position: absolute;
+    top: 19vw;
+    right: 27vw;
+    /*text-align: left;*/
+    font-size: 1.3vw;
+    font-family: "Roboto";
+    color: #787979;
+    font-weight: 400;
+}
+#presentationParti{
+    position: absolute;
+    width: 40vw;
+    height: 10vw;
+    right: 27vw;
+    top: 28vw;
+    font-size: 1.3vw;
+    font-family: "Roboto";
+    color: #787979;
+    font-weight: 400;
+}
+#twitterC{
+    position: absolute;
+    top: 5.5vw;
+    right: 33.7vw;
+    z-index: 2;
+}
+#twitterC img{
+    width: 2.1vw;
+    z-index: 2;
+}
+#facebookC{
+    position: absolute;
+    top: 5.5vw;
+    right: 31vw; 
+    z-index: 2;
+}
+#facebookC img{
+    width: 2.1vw;
+    z-index: 2;
+}
+#urlC{
+    position: absolute;
+    top: 8vw;
+    left: 64.3vw;
+    z-index:2;
+    font-family: "Roboto";
+    font-size: 1.1vw;
+    color: #787979;
+    font-weight: lighter;
+
+}
+#podC{
+	position: absolute;
+    right: 24.8vw;
+    top: 14vw;
+	z-index: 2;
+	width: 50vw;
+}
+#legC{
+	position: absolute;
+    top: 11vw;
+    right: 56.5vw;
+	font-size: 1.2vw;
+	font-family: "Roboto";
+    color: #787979;
+    font-weight: 400;
+	z-index: 2;
+}
+
+/*----------------------- Credits -----------------------------------*/
+
+.liencredits{
+    position:absolute;
+    top: 3vw;
+    right: 10vw;
+    font-family: "Roboto";
+    text-decoration: none;
+    color: #787979;
+    font-size: 1vw;
+      
+}
+
+.retourfromcredit{
+    position: absolute;
+    top:1vw;
+    right:1vw;
+    font-family: "Roboto";
+    text-decoration: none;
+    color: #787979;
+    font-size: 2vw;
+}
+
+#listeTeam{
+    position: absolute;
+    top: 10vw;
+    left: 10vw;
+    list-style-type: none;
+}
+
+#textdebut{
+    position: absolute;
+    top:0.2vw;
+    left: 47vw;
+    font-family: "Roboto";
+    color: #787979;
+    font-size: 1vw;
+    
+}
+.img_Hyb{
+    width: 15vw;
+    position: absolute;
+    top: 2vw;
+    left: 44vw;
+}
+
+#Creative img{
+    width:1vw;
+}
+
+#organisateurs a img{
+    width: 2vw;
+}
+
+#Partenaire a img{
+    width: 2vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

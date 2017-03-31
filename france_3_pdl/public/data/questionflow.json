@@ -1,0 +1,514 @@
+{
+  "questionflow": {
+    "noeud": [
+      {
+        "-id": "1",
+        "question": {
+          "-quest": "Validez vous les choix budgétaires de la France pour 2017 ?",
+          "reponses": {
+            "reponse": [
+              {
+                "-rep": "Oui",
+                "individus": {
+                  "individu": [
+                    "hugues-fourage",
+                    "sylviane-bulteau",
+                    "sylvie-tolmont",
+                    "marietta-karamanli",
+                    "francoise-dubois",
+                    "guy-michel-chauveau",
+                    "guillaume-garot",
+                    "marc-goua",
+                    "luc-belot",
+                    "serge-bardy",
+                    "francois-de-rugy",
+                    "dominique-raimbourg",
+                    "monique-rabin",
+                    "sophie-errante",
+                    "karine-daniel",
+                    "yves-daniel",
+                    "marie-francoise-clergeau",
+                    "marie-odile-bouille",
+                    "michel-menard"
+                  ]
+                },
+                "next-noeud": { "-id": "2" }
+              },
+              {
+                "-rep": "Non",
+                "individus": {
+                  "individu": [
+                    "yannick-moreau",
+                    "alain-leboeuf",
+                    "veronique-besse",
+                    "dominique-le-mener",
+                    "yannick-favennec",
+                    "guillaume-chevrollier",
+                    "jean-charles-taugourdeau",
+                    "michel-piron",
+                    "marc-laffineur",
+                    "gilles-bourdouleix",
+                    "christophe-priou"
+                  ]
+                },
+                "next-noeud": { "-id": "3" }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-id": "2",
+        "question": {
+          "-quest": "Si vous étiez député, cumuleriez vous plus de deux mandats ?",
+          "reponses": {
+            "reponse": [
+              {
+                "-rep": "Oui",
+                "individus": {
+                  "individu": [
+                    "hugues-fourage",
+                    "sylvie-tolmont",
+                    "marietta-karamanli",
+                    "francoise-dubois",
+                    "marc-goua",
+                    "luc-belot",
+                    "monique-rabin",
+                    "marie-francoise-clergeau",
+                    "marie-odile-bouille",
+                    "yves-daniel",
+                    "francois-de-rugy"
+                  ]
+                },
+                "next-noeud": { "-id": "4" }
+              },
+              {
+                "-rep": "Non",
+                "individus": {
+                  "individu": [
+                    "sylviane-bulteau",
+                    "guy-michel-chauveau",
+                    "serge-bardy",
+                    "dominique-raimbourg",
+                    "sophie-errante",
+                    "karine-daniel",
+                    "michel-menard",
+                    "guillaume-garot"
+                  ]
+                },
+                "next-noeud": { "-id": "5" }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-id": "3",
+        "question": {
+          "-quest": "Etes-vous pour ou contre la loi sur la protection des lanceurs d'alerte ?",
+          "reponses": {
+            "reponse": [
+              {
+                "-rep": "Pour",
+                "individus": {
+                  "individu": [
+                    "yannick-favennec",
+                    "michel-piron",
+                    "marc-laffineur",
+                    "gilles-bourdouleix"
+                  ]
+                },
+                "next-noeud": { "-id": "6" }
+              },
+              {
+                "-rep": "Contre",
+                "individus": {
+                  "individu": [
+                    "yannick-moreau",
+                    "alain-leboeuf",
+                    "veronique-besse",
+                    "dominique-le-mener",
+                    "guillaume-chevrollier",
+                    "jean-charles-taugourdeau",
+                    "christophe-priou"
+                  ]
+                },
+                "next-noeud": { "-id": "7" }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-id": "4",
+        "question": {
+          "-quest": "Etes-vous pour ou contre le recours à une mère porteuse ?",
+          "reponses": {
+            "reponse": [
+              {
+                "-rep": "Pour",
+                "individus": {
+                  "individu": [
+                    "luc-belot",
+                    "monique-rabin",
+                    "yves-daniel"
+                  ]
+                },
+                "next-noeud": { "-id": "8" }
+              },
+              {
+                "-rep": "Contre",
+                "individus": {
+                  "individu": [
+                    "hugues-fourage",
+                    "sylvie-tolmont",
+                    "marietta-karamanli",
+                    "francoise-dubois",
+                    "marc-goua",
+                    "marie-francoise-clergeau",
+                    "marie-odile-bouille",
+                    "francois-de-rugy"
+                  ]
+                },
+                "next-noeud": { "-id": "9" }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-id": "5",
+        "question": {
+          "-quest": "Et plutôt un mandat ou deux mandats ?",
+          "reponses": {
+            "reponse": [
+              {
+                "-rep": "1",
+                "individus": {
+                  "individu": [
+                    "serge-bardy",
+                    "dominique-raimbourg",
+                    "karine-daniel"
+                  ]
+                },
+                "next-noeud": { "-id": "10" }
+              },
+              {
+                "-rep": "2",
+                "individus": {
+                  "individu": [
+                    "sylviane-bulteau",
+                    "guy-michel-chauveau",
+                    "guillaume-garot",
+                    "sophie-errante",
+                    "michel-menard"
+                  ]
+                },
+                "next-noeud": { "-id": "11" }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-id": "6",
+        "question": {
+          "-quest": "Etes-vous pour l'augmentation du nombre de consultations citoyennes ?",
+          "reponses": {
+            "reponse": [
+              {
+                "-rep": "Pour",
+                "individus": {
+                  "individu": [
+                    "yannick-favennec",
+                    "michel-piron"
+                  ]
+                },
+                "next-noeud": { "-id": "12" }
+              },
+              {
+                "-rep": "Contre",
+                "individus": {
+                  "individu": [
+                    "marc-laffineur",
+                    "gilles-bourdouleix"
+                  ]
+                },
+                "next-noeud": { "-id": "13" }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-id": "7",
+        "question": {
+          "-quest": "Etes-vous d'accord pour investir dans le développement économique des terrritoires d'Outre-Mer ?",
+          "reponses": {
+            "reponse": [
+              {
+                "-rep": "Oui",
+                "individus": { "individu": "veronique-besse" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "Non",
+                "individus": {
+                  "individu": [
+                    "yannick-moreau",
+                    "alain-leboeuf",
+                    "dominique-le-mener",
+                    "guillaume-chevrollier",
+                    "jean-charles-taugourdeau",
+                    "christophe-priou"
+                  ]
+                },
+                "next-noeud": { "-id": "15" }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-id": "8",
+        "question": {
+          "-quest": "Si vous étiez député, quelle part de votre de votre temps passeriez-vous à l'Assemblée Nationale par rapport à votre présence dans votre circonscription ? (sur une échelle de 1 à 10)",
+          "reponses": {
+            "reponse": [
+              {
+                "-rep": "3",
+                "individus": { "individu": "luc-belot" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "10",
+                "individus": { "individu": "monique-rabin" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "6",
+                "individus": { "individu": "yves-daniel" },
+                "next-noeud": { "-id": "0" }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-id": "9",
+        "question": {
+          "-quest": "Etes-vous pour ou contre la construction de l'aéroport de Notre Dame des Landes ?",
+          "reponses": {
+            "reponse": [
+              {
+                "-rep": "Pour",
+                "individus": {
+                  "individu": [
+                    "hugues-fourage",
+                    "sylvie-tolmont",
+                    "marietta-karamanli",
+                    "francoise-dubois",
+                    "marc-goua",
+                    "marie-francoise-clergeau",
+                    "marie-odile-bouille"
+                  ]
+                },
+                "next-noeud": { "-id": "18" }
+              },
+              {
+                "-rep": "Contre",
+                "individus": { "individu": "francois-de-rugy" },
+                "next-noeud": { "-id": "0" }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-id": "10",
+        "question": {
+          "-quest": "Si vous étiez député, quel part de votre de votre temps passeriez-vous à l'Assemblée Nationale par rapport à votre présence dans votre circonscription ? (sur une échelle de 1 à 10)",
+          "reponses": {
+            "reponse": [
+              {
+                "-rep": "3",
+                "individus": { "individu": "serge-bardy" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "10",
+                "individus": { "individu": "dominique-raimbourg" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "6",
+                "individus": { "individu": "karine-daniel" },
+                "next-noeud": { "-id": "0" }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-id": "11",
+        "question": {
+          "-quest": "Si vous étiez député, quel part de votre de votre temps passeriez-vous à l'Assemblée Nationale par rapport à votre présence dans votre circonscription ? (sur une échelle de 1 à 10)",
+          "reponses": {
+            "reponse": [
+              {
+                "-rep": "4",
+                "individus": { "individu": "sylviane-bulteau" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "5",
+                "individus": { "individu": "guy-michel-chauveau" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "8",
+                "individus": { "individu": "guillaume-garot" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "7",
+                "individus": { "individu": "sophie-errante" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "10",
+                "individus": { "individu": "michel-menard" },
+                "next-noeud": { "-id": "0" }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-id": "12",
+        "question": {
+          "-quest": "Si vous étiez député, quel part de votre de votre temps passeriez-vous à l'Assemblée Nationale par rapport à votre présence dans votre circonscription ? (sur une échelle de 1 à 10)",
+          "reponses": {
+            "reponse": [
+              {
+                "-rep": "1",
+                "individus": { "individu": "yannick-favennec" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "10",
+                "individus": { "individu": "michel-piron" },
+                "next-noeud": { "-id": "0" }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-id": "13",
+        "question": {
+          "-quest": "Si vous étiez député, quel part de votre de votre temps passeriez-vous à l'Assemblée Nationale par rapport à votre présence dans votre circonscription ? (sur une échelle de 1 à 10)",
+          "reponses": {
+            "reponse": [
+              {
+                "-rep": "10",
+                "individus": { "individu": "marc-laffineur" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "1",
+                "individus": { "individu": "gilles-bourdouleix" },
+                "next-noeud": { "-id": "0" }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-id": "15",
+        "question": {
+          "-quest": "Si vous étiez député, quel part de votre de votre temps passeriez-vous à l'Assemblée Nationale par rapport à votre présence dans votre circonscription ? (sur une échelle de 1 à 10)",
+          "reponses": {
+            "reponse": [
+              {
+                "-rep": "8",
+                "individus": { "individu": "yannick-moreau" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "6",
+                "individus": { "individu": "alain-leboeuf" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "7",
+                "individus": { "individu": "dominique-le-mener" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "3",
+                "individus": { "individu": "guillaume-chevrollier" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "10",
+                "individus": { "individu": "jean-charles-taugourdeau" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "9",
+                "individus": { "individu": "christophe-priou" },
+                "next-noeud": { "-id": "0" }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-id": "18",
+        "question": {
+          "-quest": "Si vous étiez député, quel part de votre de votre temps passeriez-vous à l'Assemblée Nationale par rapport à votre présence dans votre circonscription ? (sur une échelle de 1 à 10)",
+          "reponses": {
+            "reponse": [
+              {
+                "-rep": "6",
+                "individus": { "individu": "hugues-fourage" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "10",
+                "individus": { "individu": "sylvie-tolmont" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "8",
+                "individus": { "individu": "marietta-karamanli" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "5",
+                "individus": { "individu": "francoise-dubois" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "7",
+                "individus": { "individu": "marc-goua" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "4",
+                "individus": { "individu": "marie-francoise-clergeau" },
+                "next-noeud": { "-id": "0" }
+              },
+              {
+                "-rep": "2",
+                "individus": { "individu": "marie-odile-bouille" },
+                "next-noeud": { "-id": "0" }
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

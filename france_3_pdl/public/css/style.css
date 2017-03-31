@@ -6,10 +6,1051 @@ footer p
 }
 
 header{
+
   text-align: center;
 }
 
 header img{
   max-width: 100%;
 	height: auto;
+}
+
+.depute_img{
+    width: 100%;
+    border-radius: 50%;
+box-shadow: 0 1px 4px black;
+}
+
+html, body, #app, #accueil{
+	margin :0;
+	padding:0;
+	width : 100%;
+	height: 100%;
+	font-family: 'josefin Sans', sans-serif;
+	background-image:linear-gradient(#3E93C2,#ABBCCC);
+
+}
+
+
+#logo
+{
+	margin-left: 5px
+	width: 50px;
+	height: 50px;
+
+}
+
+/* ECRAN ACCUEIL */
+#accueil{
+	text-align: center;
+}
+
+#accueil img{
+	margin-top: 30px;
+    margin-bottom: 2rem;
+    margin-top:6rem;
+}
+
+
+#jouer {
+	margin-top: 30px;
+	font-family: 'josefin Sans', sans-serif;
+  -webkit-border-radius: 7;
+  -moz-border-radius: 7;
+  border-radius: 7px;
+  -webkit-box-shadow: 0px 4px 0px #336e90;
+  -moz-box-shadow: 0px 4px 0px #336e90;
+  box-shadow: 0px 2px 0px #336e90;
+  color: #87aec9;
+  font-size: 20px;
+  background: #ffffff;
+  padding: 5px 40px 5px 40px;
+  text-decoration: none;
+}
+
+#jouer:hover {
+font-family: 'josefin Sans', sans-serif;
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+#jeu{
+    margin-bottom: 3rem;
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+}
+
+#interface_jeu{
+    width: 100%;
+margin: 20px auto
+}
+
+
+
+.button {
+    font-family: 'josefin Sans', sans-serif;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+      margin: 0 0 5px;
+      padding: 4px 50px 4px 50px;
+      height: 28px;
+      line-height: 28px;
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      text-shadow: 0 1px white;
+      background-color: #ffffff;
+      border-width: 0px 0px 0;
+      border-style: solid;
+      border-color: #cecece #bababa #a8a8a8;
+      outline: 0;
+      display: inline-block;
+      vertical-align: baseline;
+      zoom: 1;
+      *display: inline;
+      *vertical-align: auto;
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box;
+      background-color: white;
+      -webkit-box-shadow: inset 0 0px #fdfdfd, inset 0 0 0 0px #eaeaea, 0 0px #a8a8a8, 0 3px #336e90, 0 4px #336e90, 0 5px 2px rgba(0, 0, 0, 0.25);
+      box-shadow: inset 0 0px #fdfdfd, inset 0 0 0 0px #eaeaea, 0 0px #a8a8a8, 0 3px #336e90, 0 4px #336e90, 0 5px 2px rgba(0, 0, 0, 0.25);
+}
+
+.question_square{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 0 0 #336e90;
+    font-size: 20px;
+    /*line-height: 1.5rem;
+    height: 3rem;*/
+}
+.question_reponse_button{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 0 0 rgb(83, 95, 154);
+    font-size: 20px;
+    line-height: 1.5rem;
+    height: 3.5rem;
+    border: 0;
+    margin: 0 0 10px 10px;
+    font-family: 'josefin Sans', sans-serif:400-700;
+    box-shadow: 0px 3px 0px #336e90;
+    color: black;
+    font-size: 20px;
+    background: #ffffff;
+    text-decoration: none;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.question_reponse_button:hover{
+      background: #3cb0fd;
+      color:white;
+      background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+      background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+      background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+      background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+      background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+      text-decoration: none;
+}
+
+.button:active{
+  vertical-align: -5px;
+  margin-bottom: 0;
+  border-width: 0;
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(0, 0, 0, 0.4), 0 1px white;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(0, 0, 0, 0.4), 0 1px white;
+}
+
+.budget_qestion a>div{
+  display: none;
+}
+
+.budget_qestion a:hover> div{
+  position : absolute;
+  opacity: 0.9;
+  top : -450px;
+  left : 0px;
+  padding : 5px;
+  display : block;
+  background-color : white;
+  color : #000;
+  text-decoration : none;
+  white-space : nowrap;
+  border-radius: 40px;
+  width: auto;
+  height: auto;
+}
+
+
+#aideJeu {
+  z-index : 2;
+  position : absolute;
+  opacity: 0.9;
+  padding : 5px;
+  display : block;
+  background-color : white;
+  color : #000;
+  text-decoration : none;
+  white-space : nowrap;
+  border-radius: 40px;
+  text-align: center;
+  padding-top: auto;
+  padding-bottom: auto; 
+  font-size: 20px;
+  width: 100%;
+  height: 50%
+
+
+}
+
+.black{
+  position: absolute;
+  display : block;
+  background-color : black;
+  opacity: 0.6;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  margin-top: 0px;
+
+
+}
+
+.aide {
+  z-index : 2;
+  position : absolute;
+  left : 100px;
+  padding : 5px;
+  display : block;
+  text-decoration : none;
+  margin-top: 15%;
+  height : 40%;
+  width: 80%;
+  text-align: center;
+  font-size: 20px;
+
+}
+
+
+.aide button{
+
+  position: absolute;
+  top : 70%;
+  left:90%;
+  z-index : 3;
+
+}
+
+.budget_qestion a:hover> div img{
+  height: 400px;
+}
+.affiche_range_input{
+	color : white;
+	font-size: 30px;
+	margin-left: 20px;
+	margin-right: 30px;
+}
+
+#button_ok{
+	margin-left: 20px;
+}
+
+
+
+/* LOADER */
+
+
+
+#load_div{
+
+	overflow: hidden;
+	border-radius: 50%;
+	height: 150px;
+	width: 150px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#chargement{
+	padding-top: 150px;
+	text-align: center;
+	font-family: 'josefin Sans', sans-serif;
+}
+
+#chargementTxt {
+	padding-top: 50px;
+
+	font-family: 'josefin Sans', sans-serif;
+	color : white;
+	font-size: 3em;
+
+
+}
+
+#load_gif{
+	width : 160px;
+	margin-left: -5px;
+	margin-top: -5px;
+	border-radius: 50000px;
+}
+
+
+/* JEU */
+
+#interface_jeu button {
+  /*margin-top: 30pxi
+	font-family: 'josefin Sans', sans-serif:400-700;
+  -webkit-border-radius: 7;
+  -moz-border-radius: 7;
+  border-radius: 7px;
+  -webkit-box-shadow: 0px 4px 0px #336e90;
+  -moz-box-shadow: 0px 4px 0px #336e90;
+  box-shadow: 0px 2px 0px #336e90;
+  color: #87aec9;
+  font-size: 20px;
+  background: #ffffff;
+  padding: 5px 40px 5px 40px;
+  text-decoration: none;*/
+
+}
+
+#interface_jeu button:hover{
+
+}
+
+
+.vertical_center_element{
+    position: absolute;
+    width: 100%;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+div.infobulle p {
+	 font-family: 'josefin Sans', sans-serif;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    position: absolute;
+    border: 1px solid black;
+    padding-top: 25%;
+    border-radius: 5000px;
+    text-align: center;
+    background: black;
+    opacity: 0.5;
+    color : white;
+
+}
+
+
+
+/*TABLEAU DEPUTE*/
+
+#titre_tableau{
+	padding-top: 20px;
+	font-size: 3rem;
+	color : white;
+	font-family: 'josefin Sans', sans-serif;
+	text-align: center;
+}
+
+#retour_accueil{
+	margin-top: 30px;
+	text-align: center;
+}
+/*COMPARAISON DEPUTE*/
+
+#comp{
+
+  margin-left: 100px;
+  margin-right: 100px;
+  border-collapse:separate;
+  border-spacing:5px;
+  border : 3px;
+  padding-top: 10px;
+  height: 75%;
+}
+
+#comparaison_left{
+
+  background: rgba(0,0,0,0.25);
+  border-bottom-left-radius: 40px;
+  border-top-left-radius: 40px;
+  height:100%;
+  width:48%;
+  float: left;
+}
+
+#comparaison_right{
+
+  background: rgba(0,0,0,0.25);
+  border-bottom-right-radius: 40px;
+  border-top-right-radius: 40px;
+  height:100%;
+  width:48%;
+  float: right;
+}
+
+#taux_de_presence{
+	color: white;
+	width: 100%;
+
+}
+
+.recherche_texte{
+	color: white;
+	font-family: 'josefin Sans', sans-serif;
+	font-size: 25px;
+
+}
+#inline {
+display: inline;
+width: 100%;
+position: relative;
+}
+
+#recherche_txt{
+  text-align: center;
+  top: 67%;
+  right : 20%;
+  position: absolute;
+}
+
+.nomCarte{
+    color: white;
+  font-family: 'josefin Sans', sans-serif;
+  font-size: 25px;
+
+}
+
+#container_comp_right{
+	margin-top: 30px;
+
+  padding-right: auto;
+  text-align: center;
+
+}
+
+.div_search_bar{
+	padding-left: 50px;
+}
+
+
+/*Carte*/
+.map_image{
+
+  width:40%;
+  height: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.map_image polygon{
+
+fill :#a4ced2;
+transition: fill 0.3s;
+stroke: #FFF;
+stroke-width: 1px;
+}
+
+.map_image polygon:hover{
+
+  fill :#3538d2;
+  stroke-linejoin: round;
+  cursor: pointer
+	padding-left: 50px;
+}
+
+.map_image span{
+display: none;
+
+}
+
+.map_image polygon:hover span{
+
+	display: block;
+}
+
+#comparaison_boutons{
+	margin-top: 30px;
+	width: 100%;
+	height : 5%;
+	text-align: center;
+}
+
+#comparaison_to_tableau_container{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+#map_image_Vendee{
+display:none;
+}
+
+#map_image_Mayenne{
+display:none;
+}
+
+#map_image_Loire-Atlantique{
+display:none;
+}
+
+#map_image_Maine-et-Loire{
+display:none;
+}
+
+#map_image_Sarthe{
+display:none;
+}
+
+
+#depute_right{
+  display:none;
+}
+
+.Nom_Dept{
+
+	  font-family: 'josefin Sans', sans-serif;
+	  position : relative;
+	  right: 60%;
+	  margin-top: -100%;
+	  padding : 5px;
+	  display : none;
+	  background-color : white;
+	  color : #000;
+	  text-decoration : none;
+	  white-space : nowrap;
+	  border-radius: 40px;
+	  z-index: 5;
+	  width: 120px;
+}
+
+
+
+
+/*FICHE DEPUTE*/
+
+#fiche_depute{
+
+	margin-left: 100px;
+	margin-right: 100px;
+
+	height: 60%
+  padding-top: 50px;
+  height: 90%
+  border-collapse:separate;
+  border-spacing:5px;
+  border : 3px;
+	padding-top: 50px;
+	height: 90%
+
+}
+
+#fiche_depute_left{
+
+	background: rgba(0,0,0,0.25);
+	border-bottom-left-radius: 40px;
+	border-top-left-radius: 40px;
+	height:100%;
+	width:48%;
+	float: left;
+
+}
+
+.internet {
+  color: white;
+}
+
+.internet:hover{
+	color: black;
+}
+
+#fiche_depute_right{
+	background: rgba(0,0,0,0.25);
+	border-bottom-right-radius: 40px;
+	border-top-right-radius: 40px;
+	height:100%;
+	width:48%;
+	float: right;
+}
+
+
+#depute_img_fiche_div{
+	width: 100%;
+	display: inline-flex;
+}
+
+#img_hemicycle{
+	width: 400px;
+}
+
+#place_hemicycle{
+	margin-top: 10px;
+	color: white;
+	text-align: center;
+	font-family: 'josefin Sans', sans-serif;
+}
+
+#infos_persos{
+	color: white;
+	font-family: 'josefin Sans', sans-serif;
+	float:left;
+	margin-left: 100px;
+}
+
+#prenom_nom_famille{
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 5%;
+}
+
+#prenom{
+	color : #1d3f52;
+	font-size: 2em;
+	font-family: 'josefin Sans', sans-serif;
+}
+
+#nom_famille{
+	font-size: 2em;
+	color: white;
+	font-family: 'josefin Sans', sans-serif;
+}
+
+#infos_photo{
+
+}
+
+.depute_img_fiche{
+	height: 100px;
+	width: 100px;
+	float: left;
+}
+
+#taux_de_presence{
+	margin-left: 30px;
+	color: white;
+
+}
+
+#pourcentage_presence{
+	font-size: 2em;
+	width: 50%;
+	float : left;
+}
+
+#retourCarte{
+	height:20px;
+	width: 10px;
+	border-radius: 40px;
+	margin: auto;
+}
+
+#retourCarteImg{
+	height:20px;
+	margin: auto;
+	position: relative;
+	left : -5px;
+	top : -2px;
+}
+
+#navigation_tableau_depute{
+	margin-top: 15px;
+	width: 100%;
+	padding-left: auto;
+	padding-right: auto;
+	text-align: center;
+}
+
+#nombres_mandats{
+	color: white;
+	margin-top: 100px;
+	margin-left: 30px;
+	position: relative;
+}
+
+
+.cercle4{
+  z-index: 4;
+  background-color: #4295c2;
+  border-radius: 500px;
+  width: 50px;
+  height: 50px;
+  top: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+
+}
+
+.cercle3{
+  z-index: 3;
+  background-color:#7aa9c7;
+  border-radius: 500px;
+  width: 80px;
+  height: 80px;
+  top: 13%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+
+}
+
+.cercle2{
+  z-index: 2;
+  background-color: #8fb1c9;
+  border-radius: 500px;
+  width: 110px;
+  height: 110px;
+  top: 11%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.cercle1{
+  background-color: #c4d4e2;
+  border-radius: 400px;
+  width: 140px;
+  height: 140px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+/*
+.info_bulle_mandat{
+	font-family: 'josefin Sans', sans-serif;
+    z-index: 1;
+    display: none;
+    width: 20%;
+    position: absolute;
+    border: 1px solid black;
+    padding-top: 25%;
+    border-radius: 5000px;
+    text-align: center;
+    background: black;
+    opacity: 0.5;
+    color : white;
+}
+*/
+
+.autour{
+	position : absolute;
+	top: 70%;
+	left:45%;
+}
+
+.mandat1{
+	font-family: 'josefin Sans', sans-serif;
+	  position : absolute;
+	  left : -150%;
+      top : -30%;
+	  padding : 5px;
+	  display : none;
+	  background-color : white;
+	  color : #000;
+	  text-decoration : none;
+	  white-space : nowrap;
+	  border-radius: 40px;
+	   z-index: 5;
+
+}
+
+.mandat2{
+		font-family: 'josefin Sans', sans-serif;
+	  position : absolute;
+	  left : -300%;
+    top : 30%;
+	  padding : 5px;
+	  display : none;
+	  background-color : white;
+	  color : #000;
+	  text-decoration : none;
+	  white-space : nowrap;
+	  border-radius: 40px;
+	   z-index: 5;
+}
+
+.mandat3{
+	  font-family: 'josefin Sans', sans-serif;
+	  position : absolute;
+	  left : -200%;
+      top : 60%;
+	  padding : 5px;
+	  display : none;
+	  background-color : white;
+	  color : #000;
+	  text-decoration : none;
+	  white-space : nowrap;
+	  border-radius: 40px;
+	   z-index: 5;
+}
+
+#ext{
+
+	left : -300%;
+
+}
+
+.mandat4{
+	  font-family: 'josefin Sans', sans-serif;
+	  position : absolute;
+	  left : -200%;
+      top : 80%;
+	  padding : 5px;
+	  display : none;
+	  background-color : white;
+	  color : #000;
+	  text-decoration : none;
+	  white-space : nowrap;
+	  border-radius: 40px;
+	  z-index: 5;
+}
+
+
+
+
+/* SLIDER */
+
+input[type=range] {
+			-webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+			width: 100%; /* Specific width is required for Firefox. */
+			background: transparent; /* Otherwise white in Chrome */
+		}
+		input[type=range]::-webkit-slider-thumb {
+			-webkit-appearance: none;
+		}
+		input[type=range]:focus {
+			outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+		}
+		input[type=range]::-ms-track {
+			width: 100%;
+			cursor: pointer;
+
+			/* Hides the slider so custom styles can be added */
+			background: transparent;
+			border-color: transparent;
+			color: transparent;
+		}
+		input[type=range]::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			border: 1px solid #000000;
+			height: 36px;
+			width: 16px;
+			border-radius: 3px;
+			background: #ffffff;
+			cursor: pointer;
+			margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+		}
+
+		/* All the same stuff for Firefox */
+		input[type=range]::-moz-range-thumb {
+			border: 1px solid #000000;
+			height: 36px;
+			width: 16px;
+			border-radius: 3px;
+			background: #ffffff;
+			cursor: pointer;
+		}
+
+		/* All the same stuff for IE */
+		input[type=range]::-ms-thumb {
+			border: 1px solid #000000;
+			height: 36px;
+			width: 16px;
+			border-radius: 3px;
+			background: #ffffff;
+			cursor: pointer;
+		}
+		input[type=range]::-webkit-slider-runnable-track {
+			width: 100%;
+			height: 8.4px;
+			cursor: pointer;
+			background: #3071a9;
+			border-radius: 1.3px;
+			border: 0.2px solid #010101;
+		}
+
+		input[type=range]:focus::-webkit-slider-runnable-track {
+			background: #367ebd;
+		}
+
+		input[type=range]::-moz-range-track {
+			width: 100%;
+			height: 8.4px;
+			cursor: pointer;
+			background: #3071a9;
+			border-radius: 1.3px;
+			border: 0.2px solid #010101;
+		}
+
+		input[type=range]::-ms-track {
+			width: 100%;
+			height: 8.4px;
+			cursor: pointer;
+			background: transparent;
+			border-color: transparent;
+			border-width: 16px 0;
+			color: transparent;
+		}
+		input[type=range]::-ms-fill-lower {
+			background: #2a6495;
+			border: 0.2px solid #010101;
+			border-radius: 2.6px;
+		}
+		input[type=range]:focus::-ms-fill-lower {
+			background: #3071a9;
+		}
+		input[type=range]::-ms-fill-upper {
+			background: #3071a9;
+			border: 0.2px solid #010101;
+			border-radius: 2.6px;
+		}
+		input[type=range]:focus::-ms-fill-upper {
+			background: #367ebd;
+		}
+#votes{
+	margin-top: 20px;
+
+}
+
+#vote_txt{
+	font-size: 20px;
+}
+
+.pour_contre{
+	font-style: bold;
+}
+
+.picto_vote_img{
+	width : 50px;
+}
+
+
+.picto_vote {
+  position : relative;
+}
+
+.picto_vote div{
+  display: none
+}
+
+.picto_vote:hover div{
+  position : absolute;
+  top : 20px;
+  left : 20px;
+  padding : 5px;
+  display : block;
+  background-color : white;
+  color : #000;
+  text-decoration : none;
+  white-space : nowrap;
+  border-radius: 40px;
+}
+
+
+
+/* VICTORY */
+
+.winner_container{
+	padding-top: 100px;
+	text-align: center;
+	color : white;
+
+}
+
+.medaille_depute_ideal{
+	/*background-image:url("../img/medaille.png");*/
+	background-repeat: no-repeat;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 210px;
+	max-height: 350px;
+}
+
+.medaille{
+	position:relative;
+	z-index:1;
+	width:258px;
+	height:370px;
+	top:-201px;
+	left:-27px;
+}
+
+.depute_ideal{
+	width:182px;
+	height:181px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	z-index: 2;
+	top:19px;
+}
+
+#suivant_victory{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* CREDITS */
+#credit_container{
+	text-align: center;
+	color: white;
+	margin-top: 30px;
+}
+
+#retour_credit{
+	margin-top: 30px;
+}
+
+#titre_credit{
+	font-size: 3em;
+	margin-bottom: 30px;
+}
+
+
+#credit_in{
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#infos_credit{
+	margin-top: 30px;
+	font-size: 20px;
+	margin-bottom: 30px;
+}
+
+#infos_credit a{
+	color: black;
+}
+
+#logo_credit{
+
+	display: inline;
+	height: 300px;
+}
+
+.img_logo{
+	height: 100px;
+}
+
+#logo_hyblab_img{
+	height: 70px;
+}
+
+#logo_hyblab{
+	margin-top: 20px;
 }

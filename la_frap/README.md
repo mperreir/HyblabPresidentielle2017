@@ -1,15 +1,16 @@
 # Descriptif du projet
 
-Média :
+Média : frap
 
-Sujet :
+Sujet : Les candidats aux elections legislatives
 
-Equipe :
+Equipe : Team des Frapés
 
 Patricipants :
 
-- EDNA :
-- Polytech :  
+- EDNA : Beauvallet Valentin
+- Polytech :  Garreau Corentin, Adélie Joüon Faÿ, Pruvost Hippolyte	Lisa Legourrierec, Garnier Mathieu,	Pierre Philouze
+
 
 # Installation
 

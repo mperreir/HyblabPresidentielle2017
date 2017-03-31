@@ -1,40 +1,461 @@
 <!DOCTYPE html>
-<html lang="fr"> <!-- Notre page est en français -->
-  <head>
-    <!-- Il est obligatoire de préciser un encodage de caractères et un titre pour la page -->
-    <meta charset="utf-8">
-    <title>Hyblab 2016</title>
-		<!-- Basic viewport setting for mobile friendly page -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Déclaration de la feuille de style du document-->
-    <link rel="stylesheet" href="css/style.css">
-		<!-- Those polyfills are required so that old browsers support fetch mecanism -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.0.5/es6-promise.min.js" defer ></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.1/fetch.min.js" defer></script>
-		<!-- Simple sample script that loads data from a dummy json file -->
-		<script src="js/example.js" defer></script>
-  </head>
-  <body>
-    <!-- Ce conteneur est la seule balise div que l'on s'autorise pour effectuer la mise en page du site -->
-    <!-- On pourrait bien sûr en ajouter d'autres pour se faciliter la mise en page -->
-    <!-- Mais on va s'efforce de respecter et brouiller le moins possible la structure logique du contenu -->
-    <div id="container">
+<html lang="fr">
 
-    <!-- l'entête de la page: titre, barre de recherche -->
-    <header>
-			<img src="img/logo_hyblab.png" alt="logo hyblab"/>
-      <h1>Hyblab Datajournalism 2017</h1>
-    </header>
+    <head>
+        <meta charset="utf-8">
+        <title>Communes Miroirs</title>
 
-    <!-- Le contenu du site -->
-    <p>Replace this content by your web app !</p>
+		<!-- CSS -->
+        <link rel="stylesheet" href="css/Ogledalo.css" >
+		<link rel="stylesheet"  type="text/css" href ="css/Page4.css">
 
-		<p>Here is some data from a json file : <span id="data"></span><p>
+		<!-- JS -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    		<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
+        <script src="https://rawgit.com/ironwallaby/delaunay/master/delaunay.js" ></script>
+        <script src="http://www.chartjs.org/assets/Chart.min.js"></script>
+		<script src="semantic/semantic.min.js"></script>
+        <script src="js/stars.js" defer></script>
+        <script src="js/gauge2.js" defer></script>
+		<script src="js/gauge7.js" defer></script>
+		<script src="js/gauge12.js" defer></script>
+        <script src="js/main.js" defer></script>
+		<script src="js/example.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<script type="text/javascript" src="js/test13.js"></script>
+		<script type="text/javascript">
+			/*function nextpage() //????????
+			{
+			var parm1=document.getElementById("cb").value;
+			var parm2=document.getElementById("chosir_annee").value;
+			var myurl="communejumelle.html"+"?"+"parm1="+parm1+"&parm2="+parm2;
+			window.location.assign(myurl);
+			} */
+		</script>
+		<script type="text/javascript">
 
-    <!-- Notre pied de page -->
-    <footer>
-      <p>Copyright Hyblab team 2017</p>
-    </footer>
-    </div>
-  </body>
+			function getparm1()
+			{
+			var url=location.href;
+			var tmp1=url.split("?")[1];
+			var tmp2=tmp1.split("&")[0];
+			var tmp3=tmp2.split("=")[1];
+			var parm1=tmp3;
+			//alert(parm1);
+			}
+			function getparm2()
+			{
+			var url=location.href;
+			var tmp1=url.split("?")[1];
+			var tmp2=tmp1.split("&")[1];
+			var tmp3=tmp2.split("=")[1];
+			var parm2=tmp3;
+			//alert(parm2);
+			}
+		</script>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+
+    </head>
+
+    <body>
+
+        <section id="fullpage">
+
+
+			<!-- SLIDE 1 -->
+            <article class="section" id="slide1">
+                <h1 class="text">Communes Miroirs</h1>
+                <h2 class="text">Miroirs de communes</h2>
+                <canvas id="stars" width="300" height="300"></canvas>
+                <div class="container">
+                  <div class="arrow">
+                  	<img src="http://marcelklacan.com/images/icon.png" alt="" />
+                  </div>
+                </div>
+            </article>
+
+			<!-- SLIDE 2 -->
+			<article class="section" id="slide2">
+				<div id="gauche">
+					<object data="commune-miroir-ok.swf" height=360 width=640 class="flash"></object>
+				</div>
+
+				<div id="droite">
+					<div class="whatiscm" >
+						<h2 class="titlewhatiscm">QU'EST-CE-QU'UNE COMMUNE MIROIR ?</h2>
+						<div class="bloc1">
+							<span>
+							<br></br>
+							Les communes « miroir » sont des communes spéciales et uniques.
+							<br>Elles sont le reflet de la population nationale. Elles peuvent prédire les résultats des votes des élections présidentielles car elles ont + ou - 2% de différence avec les résultats finaux.
+							<br></br>Un coup de chance ? Non !
+							<br></br>Sur les trois dernières présidentielles (2002, 2007, 2012), elles arrivent à obtenir les mêmes résultats et dans le bon ordre. Tiercé gagnant !</span>
+						</div>
+					</div>
+				</div>
+			</article>
+
+			<!-- SLIDE 3 -->
+            <article class="section" id="slide3">
+                <h2>RESULTATS NATIONAUX AUX PRESIDENTIELLES</h2>
+
+                <div class="container" >
+					<div class="chart" id="deux">
+						<canvas id="chart-area" width="300" height="300"></canvas>
+					</div>
+
+					<div class="chart" id="sept">
+						<canvas id="chart-area7" width="300" height="300"></canvas>
+					</div>
+
+                  	<div class="chart" id="douze">
+                    	<canvas id="chart-area12" width="300" height="300"></canvas>
+                	</div>
+                </div>
+
+                <div class="legende_color" id="partis">
+	                      <span class="label" id="PS">Parti Socialiste</span>
+	                      <span class="label" id="UMP">UMP</span>
+	                      <span class="label" id="FN">Front National</span>
+	                      <span class="label" id="Modem">Modem</span>
+	            </div>
+            </article>
+
+			<!-- SLIDE 4 -->
+			<article class="section" id="slide4">
+				<div id="partie_gauche">
+					<div id="titre_gauche">
+						<h2>QUI SONT LES COMMUNES MIROIRS ?</h2>
+					</div>
+
+					<div id="graph_gauche">
+						<div class="circle circle_1">
+							<div>Gruchet-la-Valasse (76)
+								<br>Normandie
+								<br>3 113 habitants
+							</div>
+						</div>
+						<div class="circle circle_1">
+							<div>Guichainville (27)
+								<br>Normandie
+								<br>2 557 habitants
+							</div>
+						</div>
+						<div class="circle circle_2">
+							<div>Louviers (27)
+								<br>Normandie
+								<br>48 592 habitants
+							</div>
+						</div>
+						<div class="circle circle_1">
+							<div>Gervey (21)
+								<br>Bourgogne Franche-Comté
+								<br>3 082 habitants
+							</div>
+						</div>
+						<div class="circle circle_1">
+							<div>Essey-les-Nancy (54)
+								<br>Grand Est
+								<br>8 688 habitants
+							</div>
+						</div>
+						<div class="circle circle_1">
+							<div>Lèves (28)
+								<br>Val-de-Loire
+								<br>5 671 habitants
+							</div>
+						</div>
+						<div class="circle circle_3">
+							<div>Roanne (42)
+								<br>Rhône-Alpes
+								<br>35 200 habitants
+							</div>
+						</div>
+						<div class="circle circle_2">
+							<div>Wattignies (59)
+								<br>Haut-de-France
+								<br>14 190 habitants
+							</div>
+						</div>
+						<div class="circle circle_2">
+							<div>La Chapelle-Saint-Mesmin (45)
+								<br>Val-de-Loire
+								<br>10 117 habitants
+							</div>
+						</div>
+						<div class="circle circle_3">
+							<div>Chaumont (52)
+								<br>Grand Est
+								<br>22 674 habitants
+							</div>
+						</div>
+
+						<div class="circle circle_2">
+							<div>Riorges (42)
+								<br>Rhône-Alpes
+								<br>10 741 habitants
+							</div>
+						</div>
+
+						<div class="circle circle_1">
+							<div>Perrigny (39)
+								<br>Bourgogne Franche-Comté
+								<br>1 529 habitants
+							</div>
+						</div>
+						<div class="circle circle_1">
+							<div>Maintenon (28)
+								<br>Val-de-Loire
+								<br>4 296 habitants
+							</div>
+						</div>
+						<div class="circle circle_4">
+							<div>Reims (51)
+								<br>Grand Est
+								<br>319 059 habitants
+							</div>
+						</div>
+						<div class="circle circle_1">
+							<div>Saint-Germain-Les-Arpajon (91)
+								<br>Ile-de-France
+								<br>9 956 habitants
+							</div>
+						</div>
+					</div>
+
+					<img src="img/FLECHE.png" alt="une fleche" id="img_fleche" >
+				</div>
+
+				<div id="partie_droite">
+					<div id="b_gauche">
+						<p id=bloc3>Voici les résultats des 15 communes <br>« miroirs » françaises. <br></br>Elles sont calculées par rapport aux trois dernières présidentielles à +/- 2 % d’exactitude, pour les premiers tours.</p>
+						<p id=bloc4>Faites vous partie de l’une d’entre elles ?</p>
+					</div>
+
+					<div id="legende"><img src="img/LEGENDE2.png" alt="une fleche" id="img_legende" ></div>
+
+				</div>
+
+			</article>
+
+			<!-- SLIDE 5 -->
+
+			<article class="section" id="slide5">
+				<div id="top">
+					<div id="gauche">
+						<img src="img/jumelle.png" id="image_jumelle" alt="alttext" title="jumelle">
+					</div>
+
+					<div id="droite">
+						<div class="whatiscm" >
+							<h2 class="titlewhatiscm">QU'EST-CE-QU'UNE COMMUNE JUMELLE ?</h2>
+							<div class="bloc1">
+								<span>
+									<br><br>
+									Les communes jumelles sont des communes ayant les mêmes résultats, dans le même ordre pour les résultats des élections présidentielles.
+									<br></br>
+									Vous pensiez être unique ?
+									<br></br>
+									Peut être qu’au fin fond de la France, dans une autre région, une commune pense comme vous et a obtenu les mêmes suffrages.
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id = "bottom">
+					<h2 id="titleSelection">SELECTIONNE TA COMMUNE POUR VOIR SI ELLE A UNE JUMELLE !</h2>
+					<div  class="pos_inline">
+						<label for="state" color = "FFFFFF">Choisis ta commune </label>
+						<select class="select" id="cb"></select>
+						<script type="text/javascript" src="js/commune.js"></script>
+						<script type="text/javascript">
+						$().ready(
+						function(){
+							var name =0;
+							$.each(commune_names,function(name,value) {
+							var n = $("<option value = "+value+">"+value+"</option>");
+								$("#cb").append(n)
+							});
+							$("#cb").combobox();
+						});
+
+						</script>
+						<label for="state" color = "FFFFFF">et l'année </label>
+						<div class="select">
+						<select name="annee" class="select" id="chosir_annee">
+							<option class="option" value="2002" >2002</option>
+							<option class="option" value="2007" >2007</option>
+							<option class="option" value="2012" >2012</option>
+						</select>
+						</div>
+					<!--
+					<button type="button" class = "pos_bottom"style = "displat:block" value="to page5" onclick="nextpage()">
+						Recherche
+					</button>
+					-->
+						<a href="#slide6">
+							<button type="button" class = "pos_bottom" style = "displat:block" value="to page6" onclick="nextpage()">
+								Recherche
+							</button>
+						</a>
+					</div>
+				</div>
+			</article>
+
+
+
+			<!-- SLIDE 6 -->
+			<article class="section" id="slide6">
+				<h2>VOICI VOS COMMUNES JUMELLES, ALLEZ LES VOIR !</h2>
+				<div id="partie_gauche2">
+
+						<div class="mesjumelles">
+							<div class="circle circle_11" id="c1">
+								<div id="info1">
+									<h3 id="communename1">
+											XXX
+									</h3>
+									<p id="region1">XXXXX</p>
+
+								</div>
+							</div>
+
+							<div class="circle circle_12" id="c2">
+								 <div id="info2">
+										<h3 id="communename2">
+											XXX
+										</h3>
+										<p id="region2">XXXXX</p>
+								</div>
+							</div>
+
+							<div class="circle circle_13" id="c3">
+								<div id="info3">
+									<h3 id="communename3">
+										XXX
+									</h3>
+									<p id="region3">XXXXX</p>
+								</div>
+							</div>
+
+							<div class="circle circle_14" id="c4">
+								<div id="info4">
+									<h3 id="communename4">
+										XXX
+									</h3>
+									<p id="region4">XXXXX</p>
+								</div>
+							</div>
+
+							<div class="circle circle_15" id="c5">
+								<div id="info5">
+									<h3 id="communename5">
+										XXX
+									</h3>
+									<p id="region5">XXXXX</p>
+								</div>
+							</div>
+
+							<div class="circle circle_16" id="c6">
+								<div id="info6">
+									<h3 id="communename6">
+										XXX
+									</h3>
+									<p id="region6">XXXXX</p>
+								</div>
+							</div>
+
+							<div class="circle circle_17" id="c7">
+								<div id="info7">
+									<h3 id="communename7">
+										XXX
+									</h3>
+									<p id="region7">XXXXX</p>
+								</div>
+							</div>
+						</div>
+
+
+				<div id="partie_droite2">
+					<div class="malegende">
+						<img src="img/LEGENDE2.png" alt="une fleche" id="img_legende" class="imglegende">
+					</div>
+				</div>
+
+
+			</article>
+
+
+
+			<!-- FOOTER -->
+            <article class="section" id="footer">
+				<span class="responsive_container">
+					<h1 id="remerciements">REMERCIEMENTS</h1>
+					<text id="remerciementsText">
+						Nous remercions toutes les personnes nous ayant permis de réaliser ce projet.
+						<br>En particulier le Hyblab, Ouest Medialab, ainsi que l'Ecole de Design et Polytech Nantes.
+					</text>
+
+					<h1 id="coeur">AU COEUR DE CE PROJET</h1>
+					<img class="photo" id="thomas" src="img/thomas.jpg"/>
+					<img class="photo" id="julie" src="img/julie.jpg"/>
+					<img class="photo" id="alizee" src="img/alizee.jpg"/>
+					<img class="photo" id="sandra" src="img/sandra.jpg"/>
+					<img class="photo" id="yumiao" src="img/yumiao.jpg"/>
+					<img class="photo" id="domitie" src="img/domitie.jpg"/>
+					<img class="photo" id="yinuo" src="img/yinuo.jpg"/>
+
+					<div id="nom">
+						<text class="photo-name" id="thomas-txt">Thomas Blin</text>
+						<text class="photo-name" id="julie-txt">Julie Colliou</text>
+						<text class="photo-name" id="alizee-txt">Alizée Parry</text>
+						<text class="photo-name" id="sandra-txt">Sandra Escolar</text>
+						<text class="photo-name" id="yumiao-txt">Yumiao Fu</text>
+						<text class="photo-name" id="domitie-txt">Domitie Lavice</text>
+						<text class="photo-name" id="yinuo-txt">Yinuo Li</text>
+					</div>
+
+					<div id="part">
+						<h1 id="partenaires">PARTENAIRES</h1>
+						<a href="http://www.hyblab.fr/"><img class="logo" id="hyblab" src="img/logo_hyblab.png" alt="Hyblab"></a>
+						<a href="http://www.ouestmedialab.fr/"><img class="logo" id="ouestmedia" src="img/ouestmedialab.png" alt="Ouest Médialab"></a>
+						<a href="http://www.lecolededesign.com/"><img class="logo" id="design" src="img/design.png" alt="design"></a>
+						<a href="http://www.univ-nantes.fr/"><img class="logo" id="univ-nantes" src="img/universite.png" alt="Université de Nantes"></a>
+						<a href="http://www.polytech.univ-nantes.fr/"><img class="logo" id="popo" src="img/polytech.png" alt="Polytech Nantes"></a>
+						<a href="http://www.rue89strasbourg.com/"><img class="logo" id="rue89" src="img/rue89.png" alt="rue89strasbourg"></a>
+					</div>
+                </span>
+        	</article>
+
+        </section >
+
+
+    </body>
+
+
+	<script type="application/javascript">
+
+					function nextpage(){
+					var parm1=encodeURIComponent(document.getElementById("cb").value);
+					var parm2=document.getElementById("chosir_annee").value;
+						$.get('communejumelle/'+parm2+'/'+parm1).then(function(res){
+							//var length =res.length;
+							for(var i=1;i<=7;i++)
+								{
+									$("#c".concat(i.toString())).css("visibility","visible");
+
+									$("#communename".concat(i.toString())).text(res[i-1].COMMUNE);
+									$("#region".concat(i.toString())).text(res[i-1].REGION);
+									/*$("#departement".concat(i.toString())).text(res[i-1].COMMUNE);
+									$("#habitangt".concat(i.toString())).text(res[i-1].ANNEE);*/
+								}
+							//$(".titrec").text(res[0].ANNEE);
+							//console.log(res);
+						})
+					}
+	</script>
+
 </html>

@@ -6,6 +6,7 @@
   "repository": "",
   "author": "",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "sqlite3": "^3.1.8"
   }
 }

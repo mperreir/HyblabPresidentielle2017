@@ -1,40 +1,892 @@
-<!DOCTYPE html>
-<html lang="fr"> <!-- Notre page est en français -->
+<!DOCTYPE HTML>
+<html>
   <head>
-    <!-- Il est obligatoire de préciser un encodage de caractères et un titre pour la page -->
-    <meta charset="utf-8">
-    <title>Hyblab 2016</title>
-		<!-- Basic viewport setting for mobile friendly page -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Déclaration de la feuille de style du document-->
-    <link rel="stylesheet" href="css/style.css">
-		<!-- Those polyfills are required so that old browsers support fetch mecanism -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.0.5/es6-promise.min.js" defer ></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.1/fetch.min.js" defer></script>
-		<!-- Simple sample script that loads data from a dummy json file -->
-		<script src="js/example.js" defer></script>
+    <title>TekiDepute</title>
+
+    <link rel='stylesheet' href='css/style.css' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.4/vue.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="js/lodash.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <script src="semantic/semantic.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="semantic/components/dimmer.min.css">
+    <script src="semantic/components/dimmer.min.js"></script>
+    <link rel="stylesheet" href="semantic/components/search.min.css">
+    <script src="semantic/components/search.min.js"></script>
   </head>
   <body>
-    <!-- Ce conteneur est la seule balise div que l'on s'autorise pour effectuer la mise en page du site -->
-    <!-- On pourrait bien sûr en ajouter d'autres pour se faciliter la mise en page -->
-    <!-- Mais on va s'efforce de respecter et brouiller le moins possible la structure logique du contenu -->
-    <div id="container">
+  	<div id="app">
 
-    <!-- l'entête de la page: titre, barre de recherche -->
-    <header>
-			<img src="img/logo_hyblab.png" alt="logo hyblab"/>
-      <h1>Hyblab Datajournalism 2017</h1>
-    </header>
+  		<template v-if="current_page_id=='accueil'">
+            <div id="accueil">
+            <div><img src="img/logo_acceuil.png" alt="LogoAcceuil" class="accueil_logo"/></div>
+              <a  @click="suivantLoader()" class="button">Jouer</a>
+            </div>
+  		</template>
 
-    <!-- Le contenu du site -->
-    <p>Replace this content by your web app !</p>
+  		<template v-if="current_page_id=='loader'">
+        <div id="chargement">
+            <div id="load_div">
+              <img id="load_gif" src="img/load.gif">
+            </div>
+          <p id="chargementTxt">Chargement</p>
 
-		<p>Here is some data from a json file : <span id="data"></span><p>
+        </div>
+  		</template>
 
-    <!-- Notre pied de page -->
-    <footer>
-      <p>Copyright Hyblab team 2017</p>
-    </footer>
-    </div>
+
+
+  		<template v-if="current_page_id=='jeu'">
+
+
+          <div v-if="dejaVu1==0" class="black" id="black1" @click="fermerAide(1)"></div>
+              <div v-if="dejaVu1==0" class= "aide" id ="aide1"> 
+                <div id="aideJeu">
+                  <p>Jouez :</p>
+                  <p>Dans la première partie de cette application, nous vous proposons de découvrir le député de Pays de la Loire qui vous correspond le plus !</p>
+                  <p>Répondez aux questions pour trouver votre député idéal.</p> 
+                </div>
+              <button class="two wide column question_reponse_button" id="fermer" @click="fermerAide(1)"> Ok ! </button>
+              </div>
+
+
+            <div id="jeu" class="ui grid">
+              <div id="tableau_deputes" class="ui container">
+                <div class="ui grid" id="depute">
+                   <div class="two wide column" v-for="depute in deputes_list" v-bind:id="depute.slug" @click="ouvrir_info(depute, $event)" >
+                       <!-- <div class="infobulle"> -->
+                       <!-- <p>{{depute.prenom}}</br>{{depute.nom_de_famille}}</p> -->
+
+                       <div class="ui circular image">
+                          <div class="ui dimmer">
+                            <div class="content">
+                              <div class="center">
+                                <div class="ui small primary">{{depute.nom_de_famille}}</div>
+                                <div class="ui small">{{depute.prenom}}</div>
+                              </div>
+                            </div>
+                          </div>
+                          <img  class="depute_img"  v-bind:src="'img/'+depute.slug+'.png'" >
+                        </div>
+
+                   </div>
+
+                </div>
+                <div id="interface_jeu" class="ui relaxed grid" v-if="!useSlider(idx_question)">
+
+
+                    <div class="eight wide column question_square budget_qestion" v-if="(idx_question==0)">Validez vous les <a>choix budgétaires de la France <div><img src="./img/budget_france_2.png"></div></a>pour 2017?</div>
+                    <div class="eight wide column question_square" v-else>{{question_list.length>0?question_list[idx_question].question['-quest']:null}}</div>
+                    <button class="two wide column question_reponse_button" id="button_vrai" @click="repondre(0)">{{question_list.length>0?question_list[idx_question].question.reponses.reponse[0]['-rep']:''}}</button>
+                    <button class="two wide column question_reponse_button" id="button_faux" @click="repondre(1)">{{question_list.length>0?question_list[idx_question].question.reponses.reponse[1]['-rep']:''}}</button>
+                    <button class="one wide column question_reponse_button" v-if="idx_question != 0" id='retour_qestion' @click="retour()"><img style="width:100%" src="img/back.png" alt=""></button>
+                </div>
+                <div id="interface_jeu" class="ui relaxed grid" v-else>
+                    <div class="eight wide column question_square">{{question_list.length>0?question_list[idx_question].question['-quest']:null}}</div>
+                    <div class="three wide column ">
+                        <div class="vertical_center_element">
+                            <input type="range" min="0"  max="10" value="0" step="0"  v-model ="number" class="vertical_center_element"/>
+                        </div>
+                    </div>
+                    <div class="one wide column">
+                        <div class="vertical_center_element">
+                            <span class="affiche_range_input">{{number}}</span>
+                        </div>
+                    </div>
+                    <button class="two wide column question_reponse_button" id="button_ok" @click="repondre_range(number)">OK</button>
+                    <button class="one wide column question_reponse_button" v-if="idx_question != 0" id='retour_qestion' @click="retour()"><img style="width:100%" src="img/back.png" alt=""></button>
+                </div>
+              </div>
+            </div>
+  		</template>
+
+
+
+  		<template v-if="current_page_id=='tableau_depute'">
+
+
+        <div v-if="dejaVu2==0" class="black" id="black2" @click="fermerAide(2)"></div>
+              <div v-if="dejaVu2==0" class= "aide" id ="aide2"> 
+                <div id="aideJeu">
+                  <p>Explorez :</p>
+                  <p>Vous pouvez maintenant obtenir les informations relatives aux 30 députés de Pays de la Loire.</p>
+                  <p>Cliquez sur le portrait d'un député pour acccédez à ses informations.</p> 
+                </div>
+              <button class="two wide column question_reponse_button" id="fermer" @click="fermerAide(2)"> Ok ! </button>
+              </div>
+
+
+        <h1 id="titre_tableau">Consultez les informations d'un député</h1>
+        <div id="tableau_deputes" class="ui container">
+                <div class="ui grid" id="depute">
+                   <div class="two wide column" v-for="depute in deputes_list" v-bind:id="depute.slug" >
+                       <!-- <div class="infobulle"> -->
+                       <!-- <p>{{depute.prenom}}</br>{{depute.nom_de_famille}}</p> -->
+
+                       <div class="ui circular image" @click="open_fiche_depute(depute.slug)">
+                          <div class="ui dimmer">
+                            <div class="content">
+                              <div class="center">
+                                <div class="ui small primary">{{depute.nom_de_famille}}</div>
+                                <div class="ui small">{{depute.prenom}}</div>
+                              </div>
+                            </div>
+                          </div>
+                          <img  class="depute_img"  v-bind:src="'img/'+depute.slug+'.png'" >
+                        </div>
+                       <!-- </div> -->
+                   </div>
+
+
+                   <div class="two wide column" @click="goto_page('credit')">
+                       <div class="ui circular image">
+                          <div class="ui dimmer">
+                            <div class="content">
+                              <div class="center">
+                                <div class="ui small primary">Crédits</div>
+                                <div class="ui small"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <img  class="depute_img"  src="img/team-max.png" >
+                        </div>
+                      </div>
+
+
+                </div>
+        <div id="retour_accueil">
+          <a @click="goto_page('accueil')" class="button">Accueil</a>
+        </div>
+  		</template>
+
+
+
+  		<template v-if="current_page_id=='comparaison'">
+
+
+
+        <div v-if="dejaVu3==0" class="black" id="black3" @click="fermerAide(3)"></div>
+              <div v-if="dejaVu3==0" class= "aide" id ="aide3"> 
+                <div id="aideJeu">
+                  <p>Comparez :</p>
+                  <p>{{depute_ideal.nom}} est le député de Pays de la Loire qui vous correspond le plus ! Mais comment se situe-t-il par rapport aux autres ?</p>
+                  <p>Utiliser la carte ou la recherche par nom pour comparer {{depute_ideal.nom}} à un autre député de la région.</p> 
+                </div>
+              <button class="two wide column question_reponse_button" id="fermer" @click="fermerAide(3)"> Ok ! </button>
+              </div>
+
+
+        <h1 id="titre_tableau">Comparez {{depute_ideal.nom}} avec ...</h1>
+          <div id = "comp">
+            <div id= "comparaison_left">
+              <div id="infos_photo">
+                <div id="depute_img_fiche_div">
+                  <img class="depute_img_fiche" v-bind:src="'img/'+depute_ideal.slug+'.png'">
+                  <div id="prenom_nom_famille">
+                    <span id="prenom">{{depute_ideal.prenom}} </span>
+                    <span id="nom_famille">{{depute_ideal.nom_de_famille}}</span>
+                  </div>
+                </div>
+
+                <div id="infos_persos">
+                  <p>
+                    {{depute_ideal.groupe}}</br>
+                    Née le {{depute_ideal.date_naissance}}</br>
+                    Député actuel de {{depute_ideal.nom_circo}} : Circonscription {{depute_ideal.num_circo}}</br>
+                    Profession : {{depute_ideal.profession}}</br>
+                    <span v-if="depute_ideal.sites_web!='NA'">
+                      Site Web : <a class="internet" target = "_blank"  v-bind:href="depute_ideal.sites_web">{{depute_ideal.sites_web}}</a></br>
+                    </span>
+                    <span v-if="depute_ideal.Soutien_Presidentiel!='NA'">
+                      Soutient {{depute_ideal.Soutien_Presidentiel}} pour la présidentielle de 2017</br>
+                    </span>
+                  </p>
+                  <div id="votes">
+                    <p id="vote_txt">Votes :</p>
+                    <div id="votes_pour">
+                      <p class="pour_contre">Pour :</p>
+                      <span class="picto_vote" v-if="depute_ideal.vote_511=='Pour'">
+                        <div class="a_cacher">Loi sur le mariage pour tous</div>
+                        <img class="picto_vote_img" src="img/picto/picto-511.png">
+                      </span>
+                      <span class="picto_vote" v-if="depute_ideal.NDDL=='Pour'">
+                        <div class="a_cacher">Aéroport de Notre Dame Des Landes</div>
+                        <img class="picto_vote_img" src="img/picto/picto-nddl.png">
+                      </span>
+                      <span class="picto_vote" v-if="depute_ideal.vote_1329=='Pour'">
+                        <div class="a_cacher">Loi du développement économique des Dom-Tom</div>
+                        <img class="picto_vote_img" src="img/picto/picto-egal-dom-tom.png">
+                      </span>
+                      <span class="picto_vote" v-if="depute_ideal.vote_1352=='Pour'">
+                        <div class="a_cacher">Evolution du budget 2017</div>
+                        <img class="picto_vote_img" src="img/picto/picto-budget2017.png">
+                      </span>
+                      <span class="picto_vote" v-if="depute_ideal.vote_1348=='Pour'">
+                        <div class="a_cacher">Protection des lanceurs d'alerte</div>
+                        <img class="picto_vote_img" src="img/picto/picto-lanceur-alerte.png">
+                      </span>
+                      <span class="picto_vote" v-if="depute_ideal.vote_1291=='Contre'">
+                        <div class="a_cacher">Recours à une mère porteuse</div>
+                        <img class="picto_vote_img" src="img/picto/picto-mere-porteuse.png">
+                      </span>
+                      <span class="picto_vote" v-if="depute_ideal.vote_1347=='Pour'">
+                        <div class="a_cacher">Transparence et corruption</div>
+                        <img class="picto_vote_img" src="img/picto/picto-1347.png">
+                      </span>
+                    </div>
+                    <div id="votes_contre">
+                      <p class="pour_contre">Contre :</p>
+                      <span class="picto_vote" v-if="depute_ideal.vote_511=='Contre'">
+                          <div class="a_cacher">Loi sur le mariage pour tous</div>
+                          <img class="picto_vote_img" src="img/picto/picto-511.png">
+                        </span>
+                        <span class="picto_vote" v-if="depute_ideal.NDDL=='Contre'">
+                          <div class="a_cacher">Aéroport de Notre Dame Des Landes</div>
+                          <img class="picto_vote_img" src="img/picto/picto-nddl.png">
+                        </span>
+                        <span class="picto_vote" v-if="depute_ideal.vote_1329=='Contre'">
+                          <div class="a_cacher">Loi du développement économique des Dom-Tom</div>
+                          <img class="picto_vote_img" src="img/picto/picto-egal-dom-tom.png">
+                        </span>
+                        <span class="picto_vote" v-if="depute_ideal.vote_1352=='Contre'">
+                          <div class="a_cacher">Evolution du budget 2017</div>
+                          <img class="picto_vote_img" src="img/picto/picto-budget2017.png">
+                        </span>
+                        <span class="picto_vote" v-if="depute_ideal.vote_1348=='Contre'">
+                          <div class="a_cacher">Protection des lanceurs d'alerte</div>
+                          <img class="picto_vote_img" src="img/picto/picto-lanceur-alerte.png">
+                        </span>
+                        <span class="picto_vote" v-if="depute_ideal.vote_1291=='Pour'">
+                          <div class="a_cacher">Recours à une mère porteuse</div>
+                          <img class="picto_vote_img" src="img/picto/picto-mere-porteuse.png">
+                        </span>
+                        <span class="picto_vote" v-if="depute_ideal.vote_1347=='Contre'">
+                          <div class="a_cacher">Transparence et corruption</div>
+                        <img class="picto_vote_img" src="img/picto/picto-1347.png">
+                      </span>
+                    </div>
+                  </div>
+
+                  </br>
+                  <div id="taux_de_presence_comp">
+                  <p>Taux de présence à l'assemblée de {{depute_ideal.nom}} :</p>
+                  <p id="pourcentage_presence">{{depute_ideal.pourcentPresence}}%</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id= "comparaison_right">
+              <div id="container_comp_right">
+                <div id ="recherche">
+                  <p class="recherche_texte">Recherche par lieu</p>
+
+                  <div class= "map_image" >
+
+                    <div class= "map_image_PDL" id= "map_image_PDL">
+
+                        <p class ="nomCarte">Carte des Pays de la Loire </p>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1090.77 1067.93">
+
+                          <g id="Calque_2" data-name="Calque 2">
+
+
+                            <polygon id ="Loire_Atlantique" class="cls-2" title ="PL-2" @mouseover="afficheNom('#Nom_LA')" @mouseout="hideNom('#Nom_LA')" @click="changerCarte('Loire-Atlantique')" points="502.8 503.79 453.05 497.7 446.96 473.33 486.55 476.38 491.63 462.16 453.05 454.04 425.49 391.2 363.99 361.98 199.46 441.94 188.69 488.07 71.83 544.96 136.41 608.01 169.06 586.24 187.16 574.18 240.97 588.02 187.87 591.6 163.6 608.75 153.95 647.96 222.96 688.79 343.4 756.6 355.58 747.46 341.72 696.96 365.38 698.59 368.78 727.15 396.19 714.97 395.3 700.65 394.16 682.48 419.54 672.33 458.11 688.44 461.31 675.54 429.7 656.08 448.99 630.7 440.87 597.2 430.71 606.33 399.24 576.89 443.6 556.24 458.13 549.48 495.69 554.55 516 541.35 502.8 503.79"/>
+
+                            <polygon id ="Vendée" class="cls-1" title ="Vendée" @click="changerCarte('Vendee')" @mouseover="afficheNom('#Nom_Vendee')" @mouseout="hideNom('#Nom_Vendee')" points="574.64 772.54 523.9 709.49 497.72 695.68 487.57 700.75 458.15 688.46 458.13 688.57 458.11 688.44 419.54 672.33 394.16 682.48 395.3 700.65 396.19 714.97 368.78 727.15 365.38 698.59 341.72 696.96 355.58 747.46 343.4 756.6 222.96 688.79 177.93 747.93 184.08 778.69 273.26 903.24 437.79 995.5 625.39 947.83 574.64 772.54"/>
+
+
+
+
+                            <polygon id ="PL-3" class="cls-1" title ="PL-3" points="458.13 688.57 458.15 688.46 458.11 688.44 458.13 688.57"/>
+                            <polygon id ="PL-4" class="cls-1" title ="PL-4" points="429.71 377.63 429.9 377.74 429.92 377.67 429.71 377.63"/>
+                            
+                            <polygon id ="Maine-et-Loire" class="cls-1" title ="Maine-et-Loire" @click="changerCarte('Maine-et-Loire')" @mouseover="afficheNom('#Nom_ML')" @mouseout="hideNom('#Nom_ML')" points="740.7 439.67 739.79 438.44 721.31 413.3 670.9 414.85 664.7 393.91 600.33 406.32 552.84 401.77 454.53 392.36 429.9 377.74 425.49 391.2 453.05 454.04 491.63 462.16 486.55 476.38 446.96 473.33 453.05 497.7 502.8 503.79 516 541.35 495.69 554.55 458.13 549.48 443.6 556.24 399.24 576.89 430.71 606.33 440.87 597.2 448.99 630.7 429.7 656.08 456.35 672.42 461.17 675.37 458.15 688.46 487.57 700.75 497.72 695.68 523.9 709.49 611.55 707.96 622.31 674.13 763.78 671.05 836.05 494.22 836.05 457.32 740.7 439.67"/>
+                            
+                            <polygon id ="Mayenne" class="cls-1" title ="Mayenne" @click="changerCarte('Mayenne')" @mouseover="afficheNom('#Nom_Mayenne')" @mouseout="hideNom('#Nom_Mayenne')" points="697.66 72.9 479.31 99.04 488.54 295.86 453.17 306.63 429.92 377.67 429.9 377.74 454.53 392.36 552.84 401.77 600.33 406.32 664.7 393.91 663.14 377.63 651.51 366.77 667.8 348.93 666.25 328.77 687.96 313.26 678.65 284.56 707.71 273.67 709.81 272.88 702.7 238.03 729.69 218.71 730.02 211.29 731.39 156.6 751.48 151.32 754.55 106.73 697.66 72.9"/>
+
+                            
+                            <polygon id ="Sarthe" class="cls-1" title ="Sarthe" @click="changerCarte('Sarthe')" @mouseover="afficheNom('#Nom_Sarthe')" @mouseout="hideNom('#Nom_Sarthe')" points="876.02 168.24 879.1 117.5 842.2 100.58 751.48 151.32 731.39 156.6 730.02 211.29 729.84 218.64 726.55 220.99 702.7 238.03 709.07 269.88 709.67 272.93 707.71 273.67 678.65 284.56 687.96 313.26 666.25 328.77 667.8 348.93 651.51 366.77 663.14 377.63 664.7 393.91 670.9 414.85 721.31 413.3 739.79 438.44 740.7 439.67 836.05 457.32 886.79 474.23 994.42 358.91 1020.56 240.51 876.02 168.24"/>
+
+                          <polygon id ="PL-3" class="cls-1" title ="PL-3" points="458.13 688.57 458.15 688.46 458.11 688.44 458.13 688.57"/>
+                          <polygon id ="PL-4" class="cls-1" title ="PL-4" points="429.71 377.63 429.9 377.74 429.92 377.67 429.71 377.63"/>
+
+                          </g>
+                        </svg>
+                    </div>
+                    <div class="Nom_Dept" id ="Nom_LA">Loire Atlantique</div>
+                    <div class="Nom_Dept" id ="Nom_Vendee">Vendée</div>
+                    <div class="Nom_Dept" id ="Nom_ML">Maine et Loire</div>
+                    <div class="Nom_Dept" id ="Nom_Sarthe">Sarthe</div>
+                    <div class="Nom_Dept" id ="Nom_Mayenne">Mayenne</div>
+
+
+                    <div class= "map_image_Vendee" id= "map_image_Vendee">
+
+                      <p class ="nomCarte">Carte de Vendée </p>
+
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 610.23 526.88">
+
+                        <g id="Vendee" data-name="Calque 2">
+                          <polygon id="Vendee3" class="cls-1" title="Vendée3" @click="choixCircon('Vendee3')" points="188.8 345.3 200.62 329.85 196.98 317.58 181.99 318.03 181.53 305.31 191.07 295.77 174.26 282.59 174.26 266.69 191.98 253.97 189.25 243.51 169.72 243.51 163.81 215.34 136.55 213.07 115.65 193.08 101.56 193.99 100.2 187.63 122.92 174 116.56 154.46 116.57 126.08 71.53 185.22 77.69 215.97 133.4 294.06 166.87 340.52 240 382.15 186.53 350.75 188.8 345.3"/>
+                          <polygon id="Vendee1" class="cls-1" title="Vendee1" @click="choixCircon('Vendee1')" points="122.92 174 100.2 187.63 101.56 193.99 115.65 193.08 136.55 213.07 163.81 215.34 169.72 243.51 189.25 243.51 191.98 253.97 204.25 258.51 216.97 249.42 223.33 256.69 239.69 285.32 260.59 272.14 308.76 253.51 336.47 262.14 348.74 251.24 353.29 257.6 368.28 253.97 357.37 237.61 357.37 220.34 355.56 208.53 334.65 212.62 309.21 217.62 294.22 212.16 277.86 185.35 287.86 163.09 281.57 155.91 262.38 164.44 258.98 135.87 235.32 134.25 249.19 184.74 237 193.88 116.57 126.08 116.56 154.46 122.92 174"/>
+                          <polygon id="id1" class="cls-1" points="476.69 238.99 476.7 238.98 468.25 209.82 476.7 239.02 476.69 238.99"/>
+                          <polygon id="Vendee2" class="cls-1" title="Vendee2" @click="choixCircon('Vendee2')" points="280.31 404.48 283.76 380.28 309.21 352.11 348.74 338.48 352.38 310.31 364.64 299.86 364.64 290.32 369.19 279.87 390.54 286.68 390.09 267.6 396.45 260.33 397.36 245.79 403.72 232.61 391.91 228.97 386 234.43 368.28 233.06 357.37 237.61 368.28 253.97 353.29 257.6 348.74 251.24 336.47 262.14 308.76 253.51 260.59 272.14 239.69 285.32 223.33 256.69 216.97 249.42 204.25 258.51 191.98 253.97 174.26 266.69 174.26 282.59 191.07 295.77 181.53 305.31 181.99 318.03 196.98 317.58 200.62 329.85 188.8 345.3 186.53 350.75 240 382.15 240.17 382.25 280.31 404.48"/>
+                          <polygon id="Vendee5" class="cls-1" title="Vendee5" @click="choixCircon('Vendee5')" points="498.33 314.34 476.7 239.02 468.25 209.82 450.07 227.61 452.34 251.69 443.7 259.87 429.62 255.78 423.71 261.69 396.45 260.33 390.09 267.6 390.54 286.68 369.19 279.87 364.64 290.32 364.64 299.86 352.38 310.31 348.74 338.48 309.21 352.11 283.76 380.28 280.31 404.48 331.4 432.78 518.99 385.11 498.33 314.34"/>
+                          <polygon id="Vendee4" class="cls-1" title="Vendee4" @click="choixCircon('Vendee4')" points="277.86 185.35 294.22 212.16 309.21 217.62 334.65 212.62 355.56 208.53 357.37 220.34 357.37 237.61 368.28 233.06 386 234.43 391.91 228.97 403.72 232.61 397.36 245.79 396.45 260.33 423.71 261.69 429.62 255.78 443.7 259.87 452.34 251.69 450.07 227.61 468.25 209.82 417.51 146.78 391.33 132.96 381.17 138.04 313.15 109.61 287.77 119.76 289.8 152.25 281.57 155.91 287.86 163.09 277.86 185.35"/>
+                        </g>
+                      </svg>
+                    </div>
+
+                    <div class= "map_image_Mayenne" id= "map_image_Mayenne">
+                      <p class ="nomCarte">Carte de la Mayenne </p>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 610.23 526.88">
+
+                        <g id="Mayenne" data-name="Mayenne">
+                          <polygon id="Mayenne2" title="Mayenne2" class="cls-1" @click="choixCircon('Mayenne2')" points="408.72 263.99 391.63 272.24 366.29 275.18 366.88 288.15 366.88 298.17 350.38 297.58 330.93 304.06 332.7 320.56 307.94 337.65 297.34 306.42 282.6 302.88 283.19 289.92 294.39 287.56 291.44 274 269.64 272.83 257.85 284.02 250.78 327.04 227.21 333.53 222.98 319.23 187.61 329.99 164.36 401.03 164.34 401.1 188.97 415.73 287.28 425.14 334.77 429.69 399.14 417.28 397.59 400.99 385.95 390.13 402.24 372.3 400.69 352.13 422.4 336.62 413.1 307.93 442.15 297.03 444.25 296.25 437.14 261.4 417.56 271.06 408.72 263.99"/>
+                          <polygon id="Mayenne3" title="Mayenne3" class="cls-1" @click="choixCircon('Mayenne3')" points="306.18 242.77 346.84 252.2 351.55 249.25 351.55 220.97 365.11 199.75 381.02 197.98 389.86 197.39 405.77 169.7 421.09 169.7 429.34 144.36 426.99 129.03 454.01 109.3 432.1 96.27 213.75 122.41 222.98 319.23 227.21 333.53 250.78 327.04 257.85 284.02 269.64 272.83 266.69 258.09 306.18 242.77"/>
+                          <polygon id="Mayenne1" title="Mayenne1" class="cls-1" @click="choixCircon('Mayenne1')" points="454.01 109.3 426.99 129.03 429.34 144.36 421.09 169.7 405.77 169.7 389.86 197.39 381.02 197.98 365.11 199.75 351.55 220.97 351.55 249.25 346.84 252.2 306.18 242.77 266.69 258.09 269.64 272.83 291.44 274 294.39 287.56 283.19 289.92 282.6 302.88 297.34 306.42 307.94 337.65 332.7 320.56 330.93 304.06 350.38 297.58 366.88 298.17 366.88 288.15 366.29 275.18 391.63 272.24 408.72 263.99 417.56 271.06 437.14 261.4 464.13 242.08 464.46 234.66 465.83 179.97 485.92 174.69 488.99 130.1 454.01 109.3"/></g>
+                        </svg>
+                    </div>
+
+                    <div class= "map_image_Loire-Atlantique" id= "map_image_Loire-Atlantique">
+                    <p class ="nomCarte">Carte de la Loire Atlantique </p>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 610.23 526.88">
+
+                          <g id="Loire-Atlantique" data-name="Loire-Atlantique">
+
+                            <polygon class="cls-1" points="146.44 307.5 197.19 273.68 179.09 285.74 146.44 307.5"/>
+
+                            <polygon class="cls-1" points="232.99 388.29 353.43 456.09 163.98 347.46 232.99 388.29"/>
+
+                            <polygon id ="Loire-Atlantique8" title = "Loire-Atlantique8" class="cls-1" @click="choixCircon('Loire-Atlantique8')" points="274.43 241.42 257 241.87 259.23 209.25 242.7 199.86 219.01 244.55 207.84 246.34 204.26 237.4 173.87 245.89 174.32 258.85 148.4 266.9 146.44 307.5 179.09 285.74 197.19 273.68 251 287.51 284.71 259.3 274.43 241.42"/>
+
+                            <polygon id ="Loire-Atlantique7" title = "Loire-Atlantique7" class="cls-1" @click="choixCircon('Loire-Atlantique7')" points="174.32 258.85 173.87 245.89 204.26 237.4 207.84 246.34 219.01 244.55 242.7 199.86 259.23 209.25 274.88 197.63 205.04 160.5 198.72 187.57 81.86 244.46 146.44 307.5 148.4 266.9 174.32 258.85"/>
+
+                            <polygon id ="Loire-Atlantique3" title = "Loire-Atlantique3" class="cls-1" @click="choixCircon('Loire-Atlantique3')" points="313.31 296.05 306.14 283.22 324.18 274.96 316.88 255.28 284.71 259.3 251 287.51 282.47 308.91 307.5 312.93 315.99 320.97 332.35 319.46 342.44 300.4 313.31 296.05"/>
+                            <polygon id ="Loire-Atlantique2" title = "Loire-Atlantique2" class="cls-1" @click="choixCircon('Loire-Atlantique2')" points="364.83 282.57 356.79 282.14 353.52 296.05 341.13 287.79 342.44 300.4 332.35 319.46 345.7 318.22 357.11 325.89 370.07 322.76 370.51 308.01 364.83 282.57"/>
+                            <polygon id ="Loire-Atlantique5" title = "Loire-Atlantique5" class="cls-1" @click="choixCircon('Loire-Atlantique5')" points="433.53 254.38 437.55 245.45 408.5 216.4 370.51 200.31 349.06 219.53 319.57 208.35 311.97 229.36 323.14 249.47 316.88 255.28 324.18 274.96 341.13 287.79 353.52 296.05 356.79 282.14 364.83 282.57 370.51 308.01 409.27 276.39 408.5 264.22 433.53 254.38"/>
+                            <line id ="Loire-Atlantique" title = "Loire-Atlantique" class="cls-1" x1="346.62" y1="361.59" x2="357.11" y2="325.89"/>
+                            <polygon id ="Loire-Atlantique10" title = "Loire-Atlantique10" class="cls-1" @click="choixCircon('Loire-Atlantique10')" points="439.73 355.58 459.02 330.2 450.89 296.69 440.74 305.83 409.27 276.39 370.51 308.01 370.07 322.76 357.11 325.89 346.62 361.59 350.4 367.45 345.49 372.81 351.75 396.46 375.41 398.09 378.81 426.65 406.22 414.46 405.33 400.14 404.19 381.98 429.57 371.82 468.14 387.94 471.34 375.04 439.73 355.58"/>
+                            <polygon id ="Loire-Atlantique6" title = "Loire-Atlantique6" class="cls-1" @click="choixCircon('Loire-Atlantique6')" points="468.15 248.97 505.72 254.05 526.02 240.85 512.83 203.28 463.08 197.19 456.99 172.83 496.58 175.87 501.66 161.66 463.08 153.54 435.52 90.69 374.01 61.48 209.49 141.44 205.04 160.5 274.88 197.63 259.23 209.25 257 241.87 274.43 241.42 284.71 259.3 316.88 255.28 323.14 249.47 311.97 229.36 319.57 208.35 349.06 219.53 370.51 200.31 408.5 216.4 437.55 245.45 433.53 254.38 408.5 264.22 409.27 276.39 453.63 255.73 468.15 248.97"/>
+                            <polygon id ="Loire-Atlantique9" title = "Loire-Atlantique9" class="cls-1" @click="choixCircon('Loire-Atlantique9')" points="350.4 367.45 341.46 353.6 298.12 338.4 289.62 323.21 315.99 320.97 307.5 312.93 282.47 308.91 251 287.51 197.9 291.1 173.63 308.25 163.98 347.46 353.43 456.09 365.61 446.95 351.75 396.46 345.49 372.81 350.4 367.45"/>
+
+                            <polygon class="cls-1" points="468.18 387.96 468.14 387.94 468.15 388.07 468.18 387.96"/>
+
+                            <polygon id ="Loire-Atlantique1" title = "Loire-Atlantique1" class="cls-1" @click="choixCircon('Loire-Atlantique1')" points="313.31 296.05 342.44 300.4 341.13 287.79 324.18 274.96 306.14 283.22 313.31 296.05"/>
+
+                            <polygon id ="Loire-Atlantique4" title = "Loire-Atlantique4" class="cls-1" @click="choixCircon('Loire-Atlantique4')" points="346.62 361.59 357.11 325.89 345.7 318.22 289.62 323.21 298.12 338.4 341.46 353.6 346.62 361.59"/>
+                          </g>
+                        </svg>
+                    </div>
+
+                    <div class= "map_image_Sarthe" id= "map_image_Sarthe">
+                      <p class ="nomCarte">Carte de la Sarthe </p>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 610.23 526.88">
+                          <g id="Calque_2" data-name="Calque 2">
+                            <polygon id = "Sarthe1" title = "Sarthe1" class="cls-1" @click="choixCircon('Sarthe1')" points="211.95 260.19 224.91 255.51 249.03 252.63 255.52 262.36 271 262 275.32 274.24 286.12 273.88 293.69 279.64 298.91 271.3 297.64 247.88 288.78 228.26 270.43 220.03 270.43 206.11 291.31 205.48 299.54 173.83 297.64 151.04 305.87 140.92 307.13 126.36 294.48 123.83 284.98 117.5 286.88 108 284.75 94.66 220.13 130.79 200.05 136.07 198.68 190.76 198.5 198.11 195.21 200.46 171.36 217.5 177.72 249.35 178.34 252.4 194.66 252.99 211.95 260.19"/>
+                            <polygon id = "Sarthe2" title = "Sarthe2"  class="cls-1" @click="choixCircon('Sarthe2')" points="286.48 286.48 287.92 297.28 290.75 313.27 303.93 302.53 315.65 303.99 342.5 311.8 354.71 329.38 368.38 313.75 381.56 309.36 385.95 323.03 404.01 323.03 407.43 307.9 412.8 294.71 418.66 292.76 420.61 281.05 434.99 273.2 409.67 273.83 405.87 265.61 386.25 257.38 365.36 239.02 371.69 218.13 358.4 216.24 346.38 232.69 317.89 236.49 316 249.78 309.67 256.74 316.63 272.57 308.4 279.53 298.91 271.3 293.69 279.64 286.48 286.48"/>
+                            <polygon id = "Sarthe3" title = "Sarthe3"  class="cls-1" @click="choixCircon('Sarthe3')" points="450.18 285.86 434.99 273.2 420.61 281.05 418.66 292.76 412.8 294.71 407.43 307.9 404.01 323.03 385.95 323.03 381.56 309.36 368.38 313.75 354.71 329.38 342.5 311.8 315.65 303.99 303.93 302.53 290.75 313.27 288.8 330.35 279.52 344.51 264.39 331.33 248.77 344.51 253.16 350.37 245.84 373.8 225.33 384.05 211.18 383.57 205.81 371.85 193.6 378.68 179.93 370.87 167.73 382.1 170.7 393.36 189.97 392.77 208.45 417.91 209.36 419.14 304.71 436.79 355.45 453.7 463.08 338.38 473.78 289.93 450.18 285.86"/>
+                            <polygon id = "Sarthe4" title = "Sarthe4"  class="cls-1" @click="choixCircon('Sarthe4')" points="179.93 370.87 193.6 378.68 205.81 371.85 211.18 383.57 225.33 384.05 245.84 373.8 253.16 350.37 248.77 344.51 264.39 331.33 279.52 344.51 288.8 330.35 290.75 313.27 287.92 297.28 286.48 286.48 293.69 279.64 286.12 273.88 275.32 274.24 271 262 255.52 262.36 249.03 252.63 224.91 255.51 211.95 260.19 194.66 252.99 178.34 252.4 176.37 253.14 147.31 264.03 156.62 292.73 134.91 308.24 136.46 328.4 120.17 346.24 131.8 357.1 133.35 373.38 139.56 394.32 170.7 393.36 167.73 382.1 179.93 370.87"/>
+                            <polygon id = "Sarthe5" title = "Sarthe5"  class="cls-1" @click="choixCircon('Sarthe5')" points="344.69 147.71 347.76 96.97 310.86 80.05 284.75 94.66 286.88 108 284.98 117.5 294.48 123.83 307.13 126.36 305.87 140.92 297.64 151.04 299.54 173.83 291.31 205.48 270.43 206.11 270.43 220.03 288.78 228.26 297.64 247.88 298.91 271.3 308.4 279.53 316.63 272.57 309.67 256.74 316 249.78 317.89 236.49 346.38 232.69 358.4 216.24 371.69 218.13 365.36 239.02 386.25 257.38 405.87 265.61 409.67 273.83 434.99 273.2 450.18 285.86 473.78 289.93 489.23 219.98 344.69 147.71"/>
+                          </g>
+                      </svg>
+                  </div>
+
+
+                    <div class= "map_image_Maine-et-Loire" id= "map_image_Maine-et-Loire">
+                      <p class ="nomCarte">Carte du Maine et Loire </p>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 610.23 526.88">
+                          <g id="Calque_2" data-name="Calque 2">
+                            <polygon id="Maine-et-Loire7" title="Maine-et-Loire7" class="cls-1" @click="choixCircon('Maine-et-Loire7')" points="223.02 247.88 243.97 253.11 241.35 238.45 264.91 242.12 277.48 226.41 299.99 241.59 311.51 222.74 302.09 201.28 292.14 207.03 279.05 191.85 279.05 176.14 265.43 176.67 275.96 131.06 238.18 127.44 139.88 118.03 115.25 103.4 110.84 116.86 138.4 179.71 176.98 187.83 171.9 202.04 132.31 199 138.4 223.36 188.15 229.46 197.59 256.33 202.6 246.3 223.02 247.88"/>
+                            <polygon id="Maine-et-Loire1" title="Maine-et-Loire1" class="cls-1" @click="choixCircon('Maine-et-Loire1')" points="279.05 176.14 279.05 191.85 292.14 207.03 302.09 201.28 311.51 222.74 299.99 241.59 317.27 241.07 341.36 231.12 343.97 220.65 348.69 199.18 355.49 193.42 343.45 171.95 350.78 160.96 337.17 159.91 327.74 163.58 324.08 150.49 334.02 144.2 350.04 119.58 285.68 131.99 275.96 131.06 265.43 176.67 279.05 176.14"/>
+                            <polygon id="Maine-et-Loire6" title="Maine-et-Loire6" class="cls-1" @click="choixCircon('Maine-et-Loire6')" points="191.61 373.54 198.94 384.01 219.88 384.53 230.35 367.25 231.4 351.55 227.21 343.17 232.97 327.99 218.83 322.75 220.41 308.09 236.11 313.85 242.92 304.95 230.35 294.48 230.35 274.06 256.53 282.96 279.05 278.77 299.99 241.59 277.48 226.41 264.91 242.12 241.35 238.45 243.97 253.11 223.02 247.88 202.6 246.3 197.59 256.33 201.34 267.02 181.04 280.22 143.47 275.14 128.95 281.9 84.59 302.56 116.06 332 126.21 322.86 134.34 356.37 131.45 360.16 163.33 373.01 191.61 373.54"/>
+                            <polygon id="Maine-et-Loire4" title="Maine-et-Loire4" class="cls-1" @click="choixCircon('Maine-et-Loire4')" points="417.8 303.38 378.53 279.29 352.87 278.24 325.65 287.14 305.23 301.28 284.81 296.05 270.15 318.56 273.81 335.84 282.71 348.4 280.1 373.01 268.58 378.25 279.57 393.96 276.43 422.75 296.9 433.62 307.66 399.79 449.13 396.72 472.09 340.52 439.27 328.51 417.8 303.38"/>
+                            <polygon id="Maine-et-Loire3" title="Maine-et-Loire3" class="cls-1" @click="choixCircon('Maine-et-Loire3')" points="521.39 182.98 426.05 165.34 425.14 164.11 406.66 138.97 356.25 140.52 350.04 119.58 334.02 144.2 324.08 150.49 327.74 163.58 337.17 159.91 350.78 160.96 343.45 171.95 355.49 193.42 348.69 199.18 343.97 220.65 356.54 221.7 358.11 246.3 385.86 259.92 378.53 279.29 417.8 303.38 439.27 328.51 472.09 340.52 521.39 219.89 521.39 182.98"/>
+                            <polygon id="Maine-et-Loire5" title="Maine-et-Loire5" class="cls-1" @click="choixCircon('Maine-et-Loire5')" points="279.57 393.96 268.58 378.25 249.73 378.25 230.35 367.25 219.88 384.53 198.94 384.01 191.61 373.54 163.33 373.01 131.45 360.16 115.05 381.75 141.7 398.08 146.52 401.04 143.5 414.13 172.92 426.42 183.07 421.34 209.25 435.16 296.9 433.62 276.43 422.75 279.57 393.96"/>
+                            <polygon id="Maine-et-Loire2" title="Maine-et-Loire2" class="cls-1" @click="choixCircon('Maine-et-Loire2')" points="317.27 241.07 299.99 241.59 279.05 278.77 256.53 282.96 230.35 274.06 230.35 294.48 242.92 304.95 236.11 313.85 220.41 308.09 218.83 322.75 232.97 327.99 227.21 343.17 231.4 351.55 230.35 367.25 249.73 378.25 268.58 378.25 280.1 373.01 282.71 348.4 273.81 335.84 270.15 318.56 284.81 296.05 305.23 301.28 325.65 287.14 352.87 278.24 378.53 279.29 385.86 259.92 358.11 246.3 356.54 221.7 343.97 220.65 341.36 231.12 317.27 241.07"/>
+                          </g>
+                        </svg>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="ui search" id="recherche_txt">
+                <p class="recherche_texte">Recherche par député</p>
+                  <div class="ui icon input">
+                    <input class="prompt" type="text" placeholder="Search countries...">
+                    <i class="search icon"></i>
+                  </div>
+                  <div class="results"></div>
+                </div>
+                <!-- <div id="recherche_txt">
+                  <p class="recherche_texte">Recherche par député</p>
+                  <div class="ui action input search_bar">
+                    <input placeholder="Rechercher..." type="text" class="ui search search_depute">
+                    <button class="ui button">Rechercher</button>
+                  </div>
+                </div> -->
+              </div>
+
+
+
+          <div id= "depute_right">
+              <div id="infos_photo">
+                <div id="depute_img_fiche_div">
+                  <img class="depute_img_fiche" v-bind:src="'img/'+depute_compa.slug+'.png'">
+                  <div id="prenom_nom_famille">
+                    <span id="prenom">{{depute_compa.prenom}} </span>
+                    <span id="nom_famille">{{depute_compa.nom_de_famille}}</span>
+                  </div>
+
+                  <a id="retourCarte" @click="retourCarte()" class="button"><img id="retourCarteImg" src="img/back.png"></a>  
+                </div>
+
+                <div id="infos_persos">
+                  <p>
+                    {{depute_compa.groupe}}</br>
+                    Née le {{depute_compa.date_naissance}}</br>
+                    Député actuel de {{depute_compa.nom_circo}} : Circonscription {{depute_compa.num_circo}}</br>
+                    Profession : {{depute_compa.profession}}</br>
+                    Site Web : <a class="internet" target = "_blank" v-if="depute_compa.sites_web != 'NA'" v-bind:href="depute_compa.sites_web">{{depute_compa.sites_web}}</a></br>
+                    <span v-if="depute_compa.Soutien_Presidentiel!='NA'">
+                      Soutient {{depute_compa.Soutien_Presidentiel}} pour la présidentielle de 2017</br>
+                    </span>
+                  </p>
+                  <div id="votes">
+                    <p id="vote_txt">Votes :</p>
+                    <div id="votes_pour">
+                      <p class="pour_contre">Pour :</p>
+                      <span class="picto_vote" v-if="depute_compa.vote_511=='Pour'">
+                        <div class="a_cacher">Loi sur le mariage pour tous</div>
+                        <img class="picto_vote_img" src="img/picto/picto-511.png">
+                      </span>
+                      <span class="picto_vote" v-if="depute_compa.NDDL=='Pour'">
+                        <div class="a_cacher">Aéroport de Notre Dame Des Landes</div>
+                        <img class="picto_vote_img" src="img/picto/picto-nddl.png">
+                      </span>
+                      <span class="picto_vote" v-if="depute_compa.vote_1329=='Pour'">
+                        <div class="a_cacher">Loi du développement économique des Dom-Tom</div>
+                        <img class="picto_vote_img" src="img/picto/picto-egal-dom-tom.png">
+                      </span>
+                      <span class="picto_vote" v-if="depute_compa.vote_1352=='Pour'">
+                        <div class="a_cacher">Evolution du budget 2017</div>
+                        <img class="picto_vote_img" src="img/picto/picto-budget2017.png">
+                      </span>
+                      <span class="picto_vote" v-if="depute_compa.vote_1348=='Pour'">
+                        <div class="a_cacher">Protection des lanceurs d'alerte</div>
+                        <img class="picto_vote_img" src="img/picto/picto-lanceur-alerte.png">
+                      </span>
+                      <span class="picto_vote" v-if="depute_compa.vote_1291=='Contre'">
+                        <div class="a_cacher">Recours à une mère porteuse</div>
+                        <img class="picto_vote_img" src="img/picto/picto-mere-porteuse.png">
+                      </span>
+                      <span class="picto_vote" v-if="depute_compa.vote_1347=='Pour'">
+                        <div class="a_cacher">Transparence et corruption</div>
+                        <img class="picto_vote_img" src="img/picto/picto-1347.png">
+                      </span>
+                    </div>
+                    <div id="votes_contre">
+                      <p class="pour_contre">Contre :</p>
+                      <span class="picto_vote" v-if="depute_compa.vote_511=='Contre'">
+                          <div class="a_cacher">Loi sur le mariage pour tous</div>
+                          <img class="picto_vote_img" src="img/picto/picto-511.png">
+                        </span>
+                        <span class="picto_vote" v-if="depute_compa.NDDL=='Contre'">
+                          <div class="a_cacher">Aéroport de Notre Dame Des Landes</div>
+                          <img class="picto_vote_img" src="img/picto/picto-nddl.png">
+                        </span>
+                        <span class="picto_vote" v-if="depute_compa.vote_1329=='Contre'">
+                          <div class="a_cacher">Loi du développement économique des Dom-Tom</div>
+                          <img class="picto_vote_img" src="img/picto/picto-egal-dom-tom.png">
+                        </span>
+                        <span class="picto_vote" v-if="depute_compa.vote_1352=='Contre'">
+                          <div class="a_cacher">Evolution du budget 2017</div>
+                          <img class="picto_vote_img" src="img/picto/picto-budget2017.png">
+                        </span>
+                        <span class="picto_vote" v-if="depute_compa.vote_1348=='Contre'">
+                          <div class="a_cacher">Protection des lanceurs d'alerte</div>
+                          <img class="picto_vote_img" src="img/picto/picto-lanceur-alerte.png">
+                        </span>
+                        <span class="picto_vote" v-if="depute_compa.vote_1291=='Pour'">
+                          <div class="a_cacher">Recours à une mère porteuse</div>
+                          <img class="picto_vote_img" src="img/picto/picto-mere-porteuse.png">
+                        </span>
+                        <span class="picto_vote" v-if="depute_compa.vote_1347=='Contre'">
+                          <div class="a_cacher">Transparence et corruption</div>
+                        <img class="picto_vote_img" src="img/picto/picto-1347.png">
+                      </span>
+                    </div>
+                  </div>
+
+                  </br>
+
+                  <div id="taux_de_presence_comp">
+                  <p>Taux de présence à l'assemblée de {{depute_compa.nom}} :</p>
+                  <div id="inline">
+                    <p id="pourcentage_presence">{{depute_compa.pourcentPresence}}% </p>             
+
+                  </div>
+
+                  </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
+          </div>
+
+
+
+
+
+
+        </div>
+        <div id="comparaison_boutons">
+        <div id="comparaison_to_tableau_container">
+          <a  id="comparaison_to_tableau" @click="goto_page('tableau_depute')" class="button">Tous les députés de Pays de la Loire</a>
+          <a id="rejouer" class="button" @click="rejouer()">Rejouer</a>
+        </div>
+        </div>
+
+  		</template>
+
+  		<template v-if="current_page_id=='credit'">
+        <div id="credit_container">
+            <h1 id="titre_credit">Crédits</h1>
+            <div id="tableau_credit" class="ui container">
+                <div class="ui grid" id="credit_in">
+
+                  <div class="two wide column" >
+                       <div class="ui circular image">
+                          <div class="ui dimmer">
+                            <div class="content">
+                              <div class="center">
+                                <div class="ui small primary">Ribot</div>
+                                <div class="ui small">Ewen</div>
+                              </div>
+                            </div>
+                          </div>
+                          <img  class="depute_img"  src="img/team-weko.png" >
+                        </div>
+                      </div>
+
+                   <div class="two wide column" >
+                       <div class="ui circular image">
+                          <div class="ui dimmer">
+                            <div class="content">
+                              <div class="center">
+                                <div class="ui small primary">Marecaille</div>
+                                <div class="ui small">Jules</div>
+                              </div>
+                            </div>
+                          </div>
+                          <img  class="depute_img"  src="img/team-jules.png" >
+                        </div>
+                      </div>
+
+                    <div class="two wide column" >
+                       <div class="ui circular image">
+                          <div class="ui dimmer">
+                            <div class="content">
+                              <div class="center">
+                                <div class="ui small primary">Ferrand</div>
+                                <div class="ui small">Guillaume</div>
+                              </div>
+                            </div>
+                          </div>
+                          <img  class="depute_img"  src="img/team-guillaume.png" >
+                        </div>
+                      </div>
+
+                      <div class="two wide column" >
+                       <div class="ui circular image">
+                          <div class="ui dimmer">
+                            <div class="content">
+                              <div class="center">
+                                <div class="ui small primary">Seiler</div>
+                                <div class="ui small">Guenole</div>
+                              </div>
+                            </div>
+                          </div>
+                          <img  class="depute_img"  src="img/team-guenole.png" >
+                        </div>
+                      </div>
+
+                      <div class="two wide column" >
+                       <div class="ui circular image">
+                          <div class="ui dimmer">
+                            <div class="content">
+                              <div class="center">
+                                <div class="ui small primary">Ma</div>
+                                <div class="ui small">Zhejiayu</div>
+                              </div>
+                            </div>
+                          </div>
+                          <img  class="depute_img"  src="img/team-ma.png" >
+                        </div>
+                      </div>
+
+                      <div class="two wide column" >
+                       <div class="ui circular image">
+                          <div class="ui dimmer">
+                            <div class="content">
+                              <div class="center">
+                                <div class="ui small primary">Liquard</div>
+                                <div class="ui small">Maxime</div>
+                              </div>
+                            </div>
+                          </div>
+                          <img  class="depute_img"  src="img/team-max.png" >
+                        </div>
+                      </div>
+
+                      <div class="two wide column" >
+                       <div class="ui circular image">
+                          <div class="ui dimmer">
+                            <div class="content">
+                              <div class="center">
+                                <div class="ui small primary">Cotineau</div>
+                                <div class="ui small">Vincent</div>
+                              </div>
+                            </div>
+                          </div>
+                          <img  class="depute_img"  src="img/team-vincent.png" >
+                        </div>
+                      </div>
+
+                    <div class="two wide column" >
+                       <div class="ui circular image">
+                          <div class="ui dimmer">
+                            <div class="content">
+                              <div class="center">
+                                <div class="ui small primary">Téki</div>
+                                <div class="ui small">Député</div>
+                              </div>
+                            </div>
+                          </div>
+                          <img  class="depute_img"  src="img/logo_acceuil.png" >
+                        </div>
+                      </div>
+
+
+
+                </div>
+              </div>
+
+              <div id="infos_credit">
+                <p>Les données exploitées proviennent de <a class="internet" target="_blank" href="https://www.nosdeputes.fr/">NosDéputés.fr</a> et du <a class="internet" target="_blank" href="http://www.assemblee-nationale.fr/">site de l'assemblée nationnale</a></p>
+                <p>Aucun animal n'a été blessé pendant ce projet</p>
+              </div>
+
+              <div id="logo_credit">
+
+                <a target="_blank" href="http://www.ouestmedialab.fr/"><img class="img_logo" src="img/logo-ouest-media.png"></a>
+                <a target="_blank" href="http://www.univ-nantes.fr/"><img class="img_logo" src="img/logo-polytech.jpg"></a>
+                <a target="_blank" href="http://www.lecolededesign.com/"><img class="img_logo" src="img/logo-design.png"></a>
+                <a target="_blank" href="http://france3-regions.francetvinfo.fr/pays-de-la-loire/"><img class="img_logo" src="img/logo-F3.jpg"></a>
+                <a target="_blank" href="http://www.nantes.fr/home.html"><img class="img_logo" src="img/logo-nantes.jpg"></a>
+                <a target="_blank" href="http://www.paysdelaloire.fr/"><img class="img_logo" src="img/logo-region-PDL.jpg"></a>
+              </div>
+
+              <div id="logo_hyblab">
+                <a target="_blank" href="http://www.hyblab.fr/"><img id="logo_hyblab_img" src="img/logo_hyblab.png"></a>
+              </div>
+
+
+  		    <a id="retour_credit" @click="goto_page('tableau_depute')" class="button">Retour</a>
+        </div>
+  		</template>
+
+  		<template v-if="current_page_id=='victory'">
+            <div class="winner_container">
+              <h1 id = "titre_depute_ideal"> Votre deputé idéal est : </h1>
+              <div class="medaille_depute_ideal">
+                <img class="depute_ideal" v-bind:src="'img/'+depute_ideal.slug+'.png'">
+                <img class="medaille" src="./img/medaille.png">
+              </div>
+              <h3 id ="nom_depute_ideal"> {{depute_ideal.nom}} </h3>
+              <a id="suivant_victory" @click="goto_page('comparaison')" class="button">Suivant</a>
+            </div>
+  		</template>
+
+        <template v-if="current_page_id=='fiche_depute'">
+          <div id="fiche_depute" class="container">
+            <div id="fiche_depute_left">
+              <div id="infos_photo">
+                <div id="depute_img_fiche_div">
+                  <img class="depute_img_fiche" v-bind:src="'img/'+current_depute.slug+'.png'">
+                  <div id="prenom_nom_famille">
+                    <span id="prenom">{{current_depute.prenom}} </span>
+                    <span id="nom_famille">{{current_depute.nom_de_famille}}</span>
+                  </div>
+                </div>
+
+                  <div id="infos_persos">
+                  <p>
+                    {{current_depute.groupe}}</br>
+                    Née le {{current_depute.date_naissance}}</br>
+                    Député actuel de {{current_depute.nom_circo}} : Circonscription {{current_depute.num_circo}}</br>
+                    Profession : {{current_depute.profession}}</br>
+                    Site Web : <a class="internet"  target = "_blank" v-if="current_depute.sites_web != 'NA'" v-bind:href="current_depute.sites_web">{{current_depute.sites_web}}</a></br>
+                    <span v-if="current_depute.Soutien_Presidentiel!='NA'">
+                      Soutient {{current_depute.Soutien_Presidentiel}} pour la présidentielle de 2017</br>
+                    </span>
+                  </p>
+                  <div id="votes">
+                    <p id="vote_txt">Votes :</p>
+                    <div id="votes_pour">
+                      <p class="pour_contre">Pour :</p>
+                        <span class="picto_vote" v-if="current_depute.vote_511=='Pour'">
+                          <div class="a_cacher">Loi sur le mariage pour tous</div>
+                          <img class="picto_vote_img" src="img/picto/picto-511.png">
+                        </span>
+                        <span class="picto_vote" v-if="current_depute.NDDL=='Pour'">
+                          <div class="a_cacher">Aéroport de Notre Dame Des Landes</div>
+                          <img class="picto_vote_img" src="img/picto/picto-nddl.png">
+                        </span>
+                        <span class="picto_vote" v-if="current_depute.vote_1329=='Pour'">
+                          <div class="a_cacher">Loi du développement économique des Dom-Tom</div>
+                          <img class="picto_vote_img" src="img/picto/picto-egal-dom-tom.png">
+                        </span>
+                        <span class="picto_vote" v-if="current_depute.vote_1352=='Pour'">
+                          <div class="a_cacher">Evolution du budget 2017</div>
+                          <img class="picto_vote_img" src="img/picto/picto-budget2017.png">
+                        </span>
+                        <span class="picto_vote" v-if="current_depute.vote_1348=='Pour'">
+                          <div class="a_cacher">Protection des lanceurs d'alerte</div>
+                          <img class="picto_vote_img" src="img/picto/picto-lanceur-alerte.png">
+                        </span>
+                        <span class="picto_vote" v-if="current_depute.vote_1291=='Contre'">
+                          <div class="a_cacher">Recours à une mère porteuse</div>
+                          <img class="picto_vote_img" src="img/picto/picto-mere-porteuse.png">
+                        </span>
+                        <span class="picto_vote" v-if="current_depute.vote_1347=='Pour'">
+                          <div class="a_cacher">Transparence et corruption</div>
+                          <img class="picto_vote_img" src="img/picto/picto-1347.png">
+                        </span>
+                    </div>
+                    <div id="votes_contre">
+                      <p class="pour_contre">Contre :</p>
+                        <span class="picto_vote" v-if="current_depute.vote_511=='Contre'">
+                          <div class="a_cacher">Loi sur le mariage pour tous</div>
+                            <img class="picto_vote_img" src="img/picto/picto-511.png">
+                          </span>
+                          <span class="picto_vote" v-if="current_depute.NDDL=='Contre'">
+                          <div class="a_cacher">Aéroport de Notre Dame Des Landes</div>
+                            <img class="picto_vote_img" src="img/picto/picto-nddl.png">
+                          </span>
+                          <span class="picto_vote" v-if="current_depute.vote_1329=='Contre'">
+                          <div class="a_cacher">Loi du développement économique des Dom-Tom</div>
+                            <img class="picto_vote_img" src="img/picto/picto-egal-dom-tom.png">
+                          </span>
+                          <span class="picto_vote" v-if="current_depute.vote_1352=='Contre'">
+                            <div class="a_cacher">Evolution du budget 2017</div>
+                            <img class="picto_vote_img" src="img/picto/picto-budget2017.png">
+                          </span>
+                          <span class="picto_vote" v-if="current_depute.vote_1348=='Contre'">
+                            <div class="a_cacher">Protection des lanceurs d'alerte</div>
+                            <img class="picto_vote_img" src="img/picto/picto-lanceur-alerte.png">
+                          </span>
+                          <span class="picto_vote" v-if="current_depute.vote_1291=='Pour'">
+                          <div class="a_cacher">Recours à une mère porteuse</div>
+                            <img class="picto_vote_img" src="img/picto/picto-mere-porteuse.png">
+                          </span>
+                          <span class="picto_vote" v-if="current_depute.vote_1347=='Contre'">
+                          <div class="a_cacher">Transparence et corruption</div>
+                          <img class="picto_vote_img" src="img/picto/picto-1347.png">
+                        </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="fiche_depute_right">
+                <div id="place_hemicycle">
+                  <p>Place {{current_depute.place_en_hemicycle}} dans l'hémicycle</p>
+                  <img id="img_hemicycle" v-bind:src="'img/'+current_depute.slug+'-hemicycle.png'">
+                </div>
+                <div id="taux_de_presence">
+                  <p>Taux de présence à l'assemblée de {{current_depute.nom}} :</p>
+                  <p id="pourcentage_presence">{{current_depute.pourcentPresence}}%</p>
+                </div>
+
+                <div id="nombres_mandats">
+                  <p>Mandats cumulés : {{current_depute.nb_mandats}}</p>
+
+                  <div v-if="current_depute.nb_mandats=='1'">
+                    <div class ="autour">
+                      <span class="info_bulle_mandat mandat1" id="mandat1">{{current_depute.autres_mandats[0]}}</span>
+                      <div class="cercle4 cercle_mandat" @mouseover="showMandat(1)" @mouseout="hideMandat()">
+                    </div>
+                    </div>
+                  </div>
+
+                  <div v-if="current_depute.nb_mandats=='2'">
+                      <div class ="autour">
+                        <span class="info_bulle_mandat mandat2">{{current_depute.autres_mandats[1]}}</span>
+                        <div class="cercle3 cercle_mandat" @mouseover="showMandat(2)" @mouseout="hideMandat()">
+                          <span class="info_bulle_mandat mandat1">{{current_depute.autres_mandats[0]}}</span>
+                          <div class="cercle4 cercle_mandat" @mouseover="showMandat(1)" @mouseout="hideMandat()">
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div v-if="current_depute.nb_mandats=='3'">
+                  <div class ="autour">
+                    <span id ="ext" class="info_bulle_mandat mandat3">{{current_depute.autres_mandats[2]}}</span>
+                    <div class="cercle2 cercle_mandat" @mouseover="showMandat(3)" @mouseout="hideMandat()">
+                        <span class="info_bulle_mandat mandat2">{{current_depute.autres_mandats[1]}}</span>
+                        <div class="cercle3 cercle_mandat" @mouseover="showMandat(2)" @mouseout="hideMandat()">
+                          <span class="info_bulle_mandat mandat1">{{current_depute.autres_mandats[0]}}</span>
+                          <div class="cercle4 cercle_mandat" @mouseover="showMandat(1)" @mouseout="hideMandat()">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div v-if="current_depute.nb_mandats=='4'">
+                  <div class ="autour">
+                    <span class="info_bulle_mandat mandat4">{{current_depute.autres_mandats[3]}}</span>
+                    <div class="cercle1 cercle_mandat" @mouseover="showMandat(4)" @mouseout="hideMandat()">
+                      <span class="info_bulle_mandat mandat3">{{current_depute.autres_mandats[2]}}</span>
+                      <div class="cercle2 cercle_mandat" @mouseover="showMandat(3)" @mouseout="hideMandat()">
+                        <span class="info_bulle_mandat mandat2">{{current_depute.autres_mandats[1]}}</span>
+                        <div class="cercle3 cercle_mandat" @mouseover="showMandat(2)" @mouseout="hideMandat()">
+                          <span class="info_bulle_mandat mandat1">{{current_depute.autres_mandats[0]}}</span>
+                          <div class="cercle4 cercle_mandat" @mouseover="showMandat(1)" @mouseout="hideMandat()">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  </div>
+                </div>
+
+
+            </div>
+          </div>
+          <div id="navigation_tableau_depute">
+          <a  id="previous_depute_button" @click="previous_depute(current_depute.slug)" class="button">Deputé précédent</a>
+          <a  id="retour_tableau" @click="goto_page('tableau_depute')" class="button">Retour à la liste</a>
+          <a  id="next_depute_button" @click="next_depute(current_depute.slug)" class="button">Deputé suivant</a>
+          </div>
+      </template>
+
+  	</div>
   </body>
+
+  <script src='js/index.js'></script>
 </html>

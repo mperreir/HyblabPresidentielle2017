@@ -1,0 +1,913 @@
+/*@media screen and (max-width: 640px)*/
+
+* {
+  font-family: 'HansKendrick';
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+/** ------------------------------------POLICE------------------------------------ **/
+@font-face {
+    font-family: 'HansKendrick';
+    src: url('../font/HANS_KENDRICK/HansKendrick-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+/*
+@font-face {
+    font-family: 'HansKendrick';
+    src: url('public/fonts/HansKendrick-Regular.otf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'HansKendrick';
+    src: url('public/fonts/HansKendrick-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HansKendrick';
+    src: url('public/fonts/HansKendrick-Regular.otf');
+    font-weight: normal;
+    font-style: italic;
+}*/
+
+/** ------------------------------------CONFIGURATION SLIDES------------------------------------ **/
+
+.section {
+    color: white;
+    /*text-align: center;*/
+    position: relative;
+}
+
+
+.section h1 { 
+  display: block;
+  font-size: 200%;
+}
+
+/** ------------------------------------ANIMATIONS------------------------------------ **/
+
+@keyframes apparition {
+   0%  {opacity:0;}
+   100% {opacity:1;}
+}
+
+#fullpage {
+    /*background-color: #9EA3A7 ;*/
+}
+
+
+
+/** ------------------------------------BODY------------------------------------ **/
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #404345; //#280B29
+    background: radial-gradient(ellipse at center, rgba(49,16,47,1) 0%, rgba(40,11,41,1) 100%);
+}
+
+/** ------------------------------------SLIDE 1------------------------------------ **/
+
+#slide1 {
+    text-align: center ;
+    box-sizing: auto;
+    margin: auto;
+    position: relative;
+    /*background-color: rgb(94, 98, 101);*/
+}
+#slide1 h1 {
+    text-align: center ;
+	width: 100%;
+    animation: apparition 1.5s linear forwards 0s;
+    text-transform : uppercase;
+    color : #FFFFFF;
+    position: absolute;
+    top:25%;
+    font-size : 5em;
+    /*margin-left: 28%*/
+}
+
+#slide1 h2 {
+    /*opacity:0;*/
+    text-align : center;
+	width: 100%;
+    color :#FFFFFF;
+    animation: apparition 1.5s linear forwards 1s;
+    text-transform : uppercase;
+    top:45%;
+    position: absolute;
+    font-size : 3em;
+}
+
+#stars {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 16rem;
+    height: 100vh;
+    border-left-width: 10px;
+    z-index: 1;
+}
+
+
+
+.arrow img {
+  position: absolute;
+  padding-bottom: 2%;
+  display: block;
+  top: 80%;
+  -webkit-animation: arrow 1s both infinite;
+  animation: arrow 1s both infinite;
+  margin-left: 45%;
+  margin-right: 45%;
+  width: 10%;
+}
+
+@-webkit-keyframes arrow {
+    0%, 20%, 50%, 80%, 100% {
+      -webkit-transform: translateY(0);
+    }
+    40% {
+      -webkit-transform: translateY(-30px);
+    }
+    60% {
+      -webkit-transform: translateY(-15px);
+    }
+}
+ 
+@keyframes arrow {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
+} 
+
+
+/** ------------------------------------SLIDE 2------------------------------------ **/
+
+#slide2{
+	/*position: absolute;*/
+	width: 100%;
+	height: 100%;
+    background-color: #A3A5A7;
+}
+
+#slide2 h1{
+  font-size: 150%;
+}
+
+/** ----------------Partie gauche---------------- **/
+
+#gauche{
+  display: inline-block;
+  position: relative;
+  width: 50%;
+  padding-left:5%;
+  padding-right:5%;
+  vertical-align: center;
+  /*margin-top: 30%;*/
+}
+
+.flash
+{
+    background-color: #A3A5A7;
+    /*position: absolute;*/
+	padding-top:10%;
+	padding-bottom: 10%;
+}
+
+
+/** ----------------Partie droite---------------- **/
+
+#droite{
+  display: inline-block;
+  position: relative;
+  width: 35%;
+  vertical-align: top;
+  padding-top: 0%;
+  font-size: 1.2em;
+ }
+.whatiscm
+{
+    position: relative;
+}
+.titlewhatiscm
+{
+    padding-top: 2%;
+}
+ .bloc1
+{
+    position: absolute;
+}
+
+
+/** ------------------------------------SLIDE 3------------------------------------ **/
+#slide3 {
+    background-color: #1B1E20;
+}
+
+#slide3 h2{
+    color:#FFFFFF;
+    font-size: 20px;
+    margin-top: 0%;
+	padding-top: 2%;
+}
+
+#slide3 hr{
+    position: relative;
+    top: -5%;
+    left: -37.5%;
+}
+
+.container{
+    width : auto;
+    height: 70%;
+    
+}
+
+
+#deux{
+    width:18%;
+	height:auto;
+	display:inline-block;
+	position : relative;
+    margin-top: 3%;
+    margin-left: 10%;
+}
+
+
+#chart-area{
+
+}
+
+#sept{
+	width:18%;
+	height:auto;
+	display:inline-block;
+    position : relative;
+    margin-left: 15%;
+
+}
+
+#douze{
+	width:18%;
+	height:auto;
+	display:inline-block;
+    position : relative;
+    margin-left: 15%;
+}
+
+
+.legende_color{
+	height:20%;
+    font-size: 1.1em;
+	margin-top:2%;
+	padding-bottom:2%;
+}
+
+.label{
+    display: inline;
+    margin-right: 10%;
+	font-size: 1.3em
+}
+
+ul {
+    list-style: none;
+    font-size : 1.1em;  
+    margin-left: -700%;
+    position: relative;
+    padding-top: 200%;
+}
+
+#PS {
+	padding-left: 20%;
+    color: #F24643;
+}
+#UMP {
+    color: #4EA1D3;
+}
+#FN{
+    color: #000000;
+}
+
+#Modem{
+    color: #CC6633;
+}
+
+
+
+
+/** ------------------------------------SLIDE 4------------------------------------ **/
+
+#slide4 {
+	/*position: absolute;*/
+	width: 100%;
+	height: 100%;
+    background-color: #404345;
+}
+
+#slide4 h1{
+  font-size: 150%;
+}
+
+/** ----------------Partie gauche---------------- **/
+
+#partie_gauche{
+  display: inline-block;
+  position: relative;
+  height: auto;
+  width: 65%;
+  padding-left:5%;
+  padding-right:5%;
+  vertical-align: top;
+  /*margin-top: 30%;*/
+  font-size: 1.1em;
+}
+
+#titre_gauche{
+	position: absolute; 
+	bottom: 80%; 
+	top: 5%; 
+	font-size: 2em;
+}
+
+#graph_gauche{
+	display: flex;
+	margin-top:45%;
+}
+
+.circle{
+	position: relative;
+}
+
+.circle div{
+	position: absolute;
+	top: -200px;
+	width:300px;
+	height:50px;
+}
+
+.circle_1 { 
+	position: relative;
+	margin: auto;
+	width: 25px; 
+	height: 25px;
+	/*background: #505355 ;*/
+	border: 1px solid white;
+	border-radius: 50px;
+}
+
+.circle_1:hover { 
+	background: #FFFFFF;
+}
+
+.circle_1:hover, #c1 { 
+	background: #FFFFFF;
+}
+
+.circle_2 { 
+	position: relative;
+	margin: auto;
+	width: 50px; 
+	height: 50px;
+	/*background: #505355 ;*/
+	border: 1px solid white;	
+	border-radius: 50px; 
+}
+
+.circle_2:hover { 
+	background: #595D60;
+}
+
+.circle_3 { 
+	position: relative;
+	margin: auto;
+	width: 75px; 
+	height: 75px;
+	/*background: #505355 ; */
+	border: 1px solid white;
+	border-radius: 50px; 
+}
+
+.circle_3:hover { 
+	background: #353A3D;
+}
+
+.circle_4 { 
+	position: relative;
+	margin: auto;
+	width: 100px; 
+	height: 100px;
+	/*background: #505355 ; */
+	border: 1px solid white;
+	border-radius: 50px; 
+}
+
+.circle_4:hover { 
+	background: #1B1E20;
+}
+
+
+#img_fleche{
+	position: relative;
+	min-width:100%;
+	height:auto;
+	padding-top: 5%;
+}
+
+/** ----------------Partie droite---------------- **/
+
+#partie_droite{
+  display: inline-block;
+  position: relative;
+  width: 20%;
+  vertical-align: top;
+  font-size: 1.1em;
+ }
+ 
+
+#bloc3{
+	padding-top: 20%;
+	padding-left: 5%;
+	padding-right:5%;
+	right: 10%;
+}
+
+#bloc4{
+	padding-top: 20%;
+	padding-left: 5%;
+	padding-right:5%;
+	right: 10%;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+#img_legende{
+	height:auto;
+	width:100%;
+	padding-top: 20%;	
+	/*padding-left: 10%;
+	padding-right: 5%; */
+}
+
+/** ------------------------------------SLIDE 6------------------------------------ **/
+
+#slide6{
+	/*position: absolute;*/
+	width: 100%;
+	height: 100%;
+	background-color: #A3A5A7;
+    /*background-color: #212427;*/
+}
+
+#slide6 h2{
+  font-size: 20px;
+  margin-top: 0%;
+  padding-top: 2%;
+}
+
+/** ----------------Partie gauche---------------- **/
+
+#partie_gauche2{
+  display: inline-block;
+  position: relative;
+  height: auto;
+  width: 65%;
+  padding-left:5%;
+  padding-right:5%;
+  vertical-align: top;
+  margin-top: 15%;
+  font-size: 1.1em;
+}
+
+#mesjumelles{
+	display: flex;
+	padding-top: 2%;
+    position: relative;
+}
+
+.circle{
+	position: relative;
+}
+
+.circle div{
+	position: absolute;
+	top: -200px;
+	width:300px;
+	height:50px;
+}
+
+.circle_11 { 
+	position: relative;
+	margin: auto;
+	width: 25px; 
+	height: 25px;
+	background: #505355 ; 
+	border-radius: 50px;
+    visibility: hidden;
+    
+}
+.circle_12 { 
+	position: relative;
+	margin: auto;
+	width: 25px; 
+	height: 25px;
+	background: #505355 ; 
+	border-radius: 50px;
+    top: 10px;
+    left: 100px;
+visibility: hidden;
+    
+}
+.circle_13 { 
+	position: relative;
+	margin: auto;
+	width: 25px; 
+	height: 25px;
+	background: #505355 ; 
+	border-radius: 50px;
+    top: 10px;
+    left: -100px;
+  visibility: hidden
+    
+}
+.circle_14 { 
+	position: relative;
+	margin: auto;
+	width: 50px; 
+	height: 50px;
+	background: #505355 ; 
+	border-radius: 50px;
+    top: 5px;
+    left: -210px;
+   visibility: hidden;
+    
+}
+.circle_15 { 
+	position: relative;
+	margin: auto;
+	width: 75px; 
+	height: 75px;
+	background: #505355 ; 
+	border-radius: 50px;
+    top:100px;
+    left: -210px;
+    visibility: hidden;
+    
+}
+.circle_16 { 
+	position: relative;
+	margin: auto;
+	width: 50px; 
+	height: 50px;
+	background: #505355 ; 
+	border-radius: 50px; 
+    top:100px;
+    left: 100px;
+    visibility: hidden;
+}
+
+.circle_17 { 
+	position: relative;
+	margin: auto;
+	width: 75px; 
+	height: 75px;
+	background: #505355 ; 
+	border-radius: 50px; 
+    top: 1px;
+    left: 200px;
+   visibility: hidden;
+    
+}
+.circle_11:hover { 
+	background:red;
+    display: block;
+}
+.circle_12:hover { 
+	background: red;
+    display: block;
+}
+.circle_13:hover { 
+	background: red;
+    display: block;
+}
+.circle_14:hover { 
+	background: red;
+    display: block;
+}
+.circle_15:hover { 
+	background: red;
+    display: block;
+}
+.circle_16:hover { 
+	background: red;
+    display: block;
+}
+.circle_17:hover { 
+	display: block;
+	background: red;
+}
+
+#info1
+{
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 30px;
+}
+#info2
+{
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 30px;
+}
+#info3
+{
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 30px;
+}
+#info4
+{
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 50px;
+}
+#info5
+{
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 80px;
+}
+#info6
+{
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 80px;
+}
+#info7
+{
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 80px;
+}
+
+/** ----------------Partie droite---------------- **/
+
+#partie_droite2{
+  display: inline-block;
+  position: relative;
+  width: 25%;
+  vertical-align: top;
+  font-size: 1.1em;
+    float: right;
+left: 200px;
+    bottom: 300px;
+ }
+ 
+#img_legende{
+	height:auto;
+	width:100%;
+	padding-top: 20%;	
+	/*padding-left: 10%;
+	padding-right: 5%; */
+}
+
+
+/** ------------------------------------FOOTER------------------------------------ **/
+
+ .responsive_container
+{
+    overflow: hidden;
+    width: 100vw; 
+    height: 56.25vw; /* height:width ratio = 9/16 = .5625  */
+    max-height: 100vh;
+    max-width: 177.78vh; /* 16/9 = 1.778 */
+    margin: auto;
+    position: relative;
+    top:0;bottom:0; /* vertical center */
+    left:0;right:0; /* horizontal center */
+    /*text-align: center;*/
+}
+
+
+#remerciementsText{
+	position: relative;
+	margin-top:1%;
+    text-align: center;
+    width: auto;
+    height: 100%;
+    top:10%;
+    left:30%;
+    font-size: 1.2em;
+}
+
+@media only screen and (max-width: 845px){
+	#remerciementsText{
+		font-size:1.4vmin;
+	}
+}
+
+#remerciements{
+	position: relative;
+	padding-top:2%;
+	text-align: center;
+}
+
+#coeur{
+	position: relative;
+	margin-top:5%;
+	text-align: center;
+}
+
+#partenaires{
+
+	position: relative;
+	padding-top:2%;
+	text-align: center;
+	color: #404345;
+}
+
+@media only screen and (max-width: 845px){
+	#remerciements, #coeur, #partenaires{
+		font-size:2vmin;
+	}
+}
+
+/** ----------------Photos---------------- **/
+
+.photo{
+	position: relative;
+	height: 11vmin;
+	width: 11vmin;
+	border-radius: 50%;
+	padding-top: 3%;
+}
+/*
+.photo-name{
+	position: absolute;
+	font-size: 2.5vmin;
+	width: 11vmin;
+	height: 5vmin;
+	text-align: center;
+	margin-top: 8%;
+}
+*/
+
+#nom{
+	height:7%;
+}
+
+@media only screen and (max-width: 1150px){
+	.photo{
+		height:8vmin;
+		width: 8vmin;
+	}
+
+	.photo-name{
+		font-size: 1.9vmin;
+		width: 8vmin;
+	}
+}
+
+@media only screen and (max-width: 900px){
+	.photo{
+		height:6vmin;
+		width: 6vmin;
+	}
+
+	.photo-name{
+		bottom:25%;
+		font-size: 1.6vmin;
+		width: 6vmin;
+	}
+}
+
+#thomas{
+	left: 7%;
+}
+
+#thomas-txt{
+	padding-left:7%;
+}
+
+#julie{
+	Left:14%;
+}
+
+#julie-txt{
+	padding-left:7%;
+}
+
+#alizee{
+	Left:21%;
+}
+
+#alizee-txt{
+	padding-left:7%;
+}
+
+#sandra{
+	Left:28%;
+}
+
+#sandra-txt{
+	padding-left:7%;
+}
+
+#yumiao{
+	Left:35%;
+}
+
+#yumiao-txt{
+	padding-left:7%;
+}
+
+#domitie{
+	Left:42%;
+}
+
+#domitie-txt{
+	padding-left:7%;
+}
+
+#yinuo{
+	Left:49%;
+}
+
+#yinuo-txt{
+	padding-left:7%;
+}
+
+/** ----------------Logos---------------- **/
+#part{
+	background-color: white;
+	height:20%;
+	padding-bottom:5%;
+}
+.logo{
+	position: relative;
+	height: auto;
+	width: 7%;
+	/*border: 1px #333 solid;*/
+	padding-top:3%;
+}
+
+@media only screen and (max-width: 1150px){
+	.logo{
+		height:3%;
+		width: auto;
+	}
+}
+
+@media only screen and (max-width: 900px){
+	.logo{
+		height:2%;
+		width: auto;
+	}
+}
+
+#hyblab{
+	left:10%;
+}
+
+#ouestmedia{
+	left:18%;
+}
+
+#design{
+	left:26%;
+}
+
+#univ-nantes{
+	Left:34%;
+}
+
+#popo{
+	Left:42%;
+}
+
+#rue89{
+	Left:50%;
+}

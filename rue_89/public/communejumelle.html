@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>what is cm</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		 <link rel="stylesheet" href="css/communejumelle.css" />
+		 <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/semantic.min.js"></script>
+ <script src="js/example.js"></script>
+ <script type="text/javascript"> 
+
+function getparm1() 
+{ 
+var url=location.href; 
+var tmp1=url.split("?")[1]; 
+var tmp2=tmp1.split("&")[0]; 
+var tmp3=tmp2.split("=")[1]; 
+var parm1=tmp3; 
+//alert(parm1); 
+} 
+function getparm2() 
+{ 
+var url=location.href; 
+var tmp1=url.split("?")[1]; 
+var tmp2=tmp1.split("&")[1]; 
+var tmp3=tmp2.split("=")[1]; 
+var parm2=tmp3; 
+//alert(parm2); 
+} 
+</script> 
+  </head>
+  <body class="bodyc">
+  <p class="titrec">Voici vos communes jumelles. Allez les voir !</p>
+  
+<div class="circle circle_11" id="c1">
+<div id="info1">
+	<h3 id="communename4">
+			XXX
+			</h3>
+			<p id="region1">XXXXX</p>
+			
+    </div>
+</div>
+
+ <div class="circle circle_12" id="c2">
+ <div id="info2">
+		<h3 id="communename2">
+			XXX
+			</h3>
+			<p id="region2">XXXXX</p>
+					</div>	
+</div>
+ <div class="circle circle_13" id="c3">
+ <div id="info3">
+		<h3 id="communename3">
+			XXX
+			</h3>
+			<p id="region3">XXXXX</p>
+						</div>	
+</div>
+ <div class="circle circle_14" id="c4">						
+ <div id="info4">
+			<h3 id="communename4">
+			XXX
+			</h3>
+			<p id="region4">XXXXX</p>
+					    
+ </div>
+</div>
+ <div class="circle circle_15" id="c5">
+ <div id="info5">
+		<h3 id="communename5">
+			XXX
+			</h3>
+			<p id="region5">XXXXX</p>
+					</div>	
+</div>
+<div class="circle circle_16" id="c6">
+<div id="info6">
+	<h3 id="communename6">
+			XXX
+			</h3>
+			<p id="region6">XXXXX</p>
+						</div>		
+</div>
+<div class="circle circle_17" id="c7">
+<div id="info7">
+	<h3 id="communename7">
+			XXX
+			</h3>
+			<p id="region7">XXXXX</p>
+						</div>		
+
+      </div>
+ <img src="img/LEGENDE2.png" alt="une fleche" id="img_legende" class="imglegende">
+  </body>
+  <script type="application/javascript">
+  
+	
+	 
+    $(function(){
+		
+        $.get('http://127.0.0.1:8081/communejumelle/parm2/parm1').then(function(res){
+            //var length =res.length;
+            for(var i=1;i<=res.length;i++)
+                {
+                    $("#c".concat(i.toString())).css("visibility","visible");
+                    /*if((res[0].ANNEE)<50)              $("#c".concat(i.toString())).css({"width":"30px","height":"30px"});
+                        else if(res[i-1].ANNEE<100)
+                        $("#c".concat(i.toString())).css({"width":"50px","height":"50px"});
+                        else if(res[i-1].ANNEE<200)
+                        $("#c".concat(i.toString())).css({"width":"75px","height":"75px"});
+                        else 
+                        $("#c".concat(i.toString())).css({"width":"75px","height":"75px"});*/
+                    $("#communename".concat(i.toString())).text(res[i-1].COMMUNE);
+                    $("#region".concat(i.toString())).text(res[i-1].REGION);
+                    /*$("#departement".concat(i.toString())).text(res[i-1].COMMUNE);
+                    $("#habitangt".concat(i.toString())).text(res[i-1].ANNEE);*/
+                }
+            $(".titrec").text(res[0].ANNEE);
+            console.log(res);
+        })
+    })
+</script>
+</html>
