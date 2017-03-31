@@ -180,7 +180,7 @@ $(document).ready(function(){
 					'</div>'+
 					'</div>';
 		    		tabAdresse.push(bureau.adresse);
-		    		//createSVG(bureau.adresse, numBureauPOI);
+		    		createSVG(bureau.adresse, numBureauPOI);
 		    		url_marker = "img/icones_SVG/svg"+numBureauPOI+".svg";
 					placerMarqueur(bureau.lat, bureau.long, contentString, numBureauPOI, nbPOI, bureau.id, url_marker);
 		    	}
