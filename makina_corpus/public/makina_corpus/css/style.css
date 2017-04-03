@@ -1,0 +1,771 @@
+/*------------------------------------*\
+		$IMPORT
+\*------------------------------------*/
+
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700);
+
+/*------------------------------------*\
+		$RESET
+\*------------------------------------*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a{
+	text-decoration: none;
+}
+
+
+/*------------------------------------*\
+		$BOX
+\*------------------------------------*/
+
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+
+/*------------------------------------*\
+		$HEADER
+\*------------------------------------*/
+
+body {
+	width: 100%;
+	height: 100%;
+	background: #2F3240;
+	color: #fff;
+	font-family: 'Fira Sans', sans-serif;
+	line-height: 1.5;
+	font-weight: 300;
+	font-size: 14px;
+}
+
+header {
+	padding: 50px 22%;
+	color: #fff;
+	text-align: center;
+	background-image: url(../img/cover.png);
+	background-position: center center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+header h1 {
+	margin: 0 0 26px 0;
+	font-weight: 700;
+	font-size: 38px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+header p  {
+	margin: 0 0 40px 0;
+}
+
+.button {
+	font-weight: 400;
+	display: inline-block;
+	border: 1px solid #738bd7;
+	padding: 5px 15px 4px 15px;
+	border-radius: 6px;
+	text-transform: uppercase;
+	color: #738bd7;
+	-webkit-transition: 0.2s ease-in-out;
+	-moz-transition: 0.2s ease-in-out;
+	-ms-transition: 0.2s ease-in-out;
+	-o-transition: 0.2s ease-in-out;
+	transition: 0.2s ease-in-out;
+}
+
+.button:hover{
+	color: #ffffff;
+	background-color: #738bd7;
+}
+
+.sources {
+	margin: 0 10px 0 0;
+}
+
+#logo-team {
+	width: 60%;
+    height: auto;
+}
+
+
+/*------------------------------------*\
+		$TOOLTIPS
+\*------------------------------------*/
+
+.tooltip {
+    pointer-events:none; /* Let mouse events pass through */
+    opacity:0;
+    transition: opacity 0.3s;
+    text-shadow:1px 1px 0px gray;
+}
+
+div.tooltip {
+    background: lightblue;
+    border:solid gray;
+    position: absolute;
+    max-width: 8em;
+    text-align:center;
+}
+div.fixed {
+    position:fixed;
+}
+g.tooltip:not(.css) {
+  fill:currentColor;
+}
+g.tooltip rect {
+    fill: lightblue;
+    stroke: gray;
+}
+
+
+/*------------------------------------*\
+		$EXPLICATION SUJET
+\*------------------------------------*/
+
+.explication {
+	height: 300px;
+}
+
+.explication p {
+	text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: auto 10%;
+	line-height: 2;
+    font-weight: bolder;
+    font-size: 32px;
+}
+
+/* http://www.cssportal.com/css-tooltip-generator */
+a.tooltips-explication {
+  	position: relative;
+  	display: inline;
+	color: white;
+	text-decoration: underline;
+}
+
+a:visited.tooltips-explication {
+	color: white;
+}
+
+a.tooltips-explication span {
+	font-size: 15px;
+	position: absolute;
+	color: #FFFFFF;
+	background: #1A1C22;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	visibility: hidden;
+	border-radius: 6px;
+}
+
+a#pres-candidat.tooltips-explication span {
+	width: 360px;
+}
+
+a#pres-interet.tooltips-explication span {
+	width: 360px;
+}
+
+a:hover#pres-interet.tooltips-explication span {
+	visibility: visible;
+	opacity: 0.8;
+	bottom: 50px;
+	left: 0%;
+	margin-left: -76px;
+	z-index: 999;
+}
+
+a:hover#pres-candidat.tooltips-explication span {
+	visibility: visible;
+	opacity: 0.8;
+	top: 50px;
+	left: 0%;
+	margin-left: -76px;
+	z-index: 999;
+}
+
+a#pres-candidat.tooltips-explication span:after {
+	content: '';
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	margin-left: -8px;
+	width: 0; height: 0;
+	border-bottom: 8px solid #1A1C22;
+	border-right: 8px solid transparent;
+	border-left: 8px solid transparent;
+}
+
+a#pres-interet.tooltips-explication span:after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -8px;
+	width: 0; height: 0;
+	border-top: 8px solid #1A1C22;
+	border-right: 8px solid transparent;
+	border-left: 8px solid transparent;
+}
+
+
+/*------------------------------------*\
+		$NAV
+\*------------------------------------*/
+
+.nav {
+	z-index: 10;
+	top: 0;
+	position: -webkit-sticky;
+	position: sticky;
+	background: #22252E;
+	text-align: center;
+	padding: 16px 0;
+	box-shadow: 0px 0px 6px rgba(0,0,0,0.6);
+}
+
+.nav ul {
+	overflow: auto;
+	display: inline-block;
+	margin: 0 auto;
+}
+
+.nav ul li {
+	float: left;
+	margin: 0 8px;
+	width: 50px;
+	height: 50px;
+	border-radius: 6px;
+	background-size:120%;
+	background-position:center;
+	background-repeat:no-repeat;
+	border:3px transparent solid;
+	-webkit-transition: 0.2s ease-in-out;
+	-moz-transition: 0.2s ease-in-out;
+	-ms-transition: 0.2s ease-in-out;
+	-o-transition: 0.2s ease-in-out;
+	transition: 0.2s ease-in-out;
+}
+
+.nav ul li:hover {
+	cursor: pointer;
+	border: 3px #fff solid;
+}
+
+.candidat.selected {
+	border:3px white solid;
+}
+
+.candidat.selecttwo {
+	border:3px #8bc34a solid;
+}
+
+
+#melenchon {
+	background-image:url(../img/melanchon.png);
+}
+
+#macron {
+	background-image:url(../img/macron.png);
+}
+
+#hamon {
+	background-image:url(../img/hamon.png);
+}
+
+#fillon {
+	background-image:url(../img/fillon.png);
+}
+
+#lepen {
+	background-image:url(../img/lepen.png);
+}
+
+#conseil {
+    float: left;
+    position: absolute;
+    margin-left: 10px;
+    margin-top: 15px;
+    display: none;
+}
+
+
+/*------------------------------------*\
+		$CANDIDATS
+\*------------------------------------*/
+
+.prescandidat {
+	padding: 80px 18%;
+	color: #fff;
+	overflow: auto;
+}
+
+.prescandidat .identity {
+	overflow: auto;
+	float: left;
+	display: inline-block;
+}
+
+.prescandidat .identity img{
+	width: 24%;
+	float: left;
+	margin: 0 40px 0 0;
+	border-radius: 10px;
+}
+
+.prescandidat h2 {
+	margin: 6px 0 0 0;
+	font-weight: 500;
+	font-size: 28px;
+}
+
+.prescandidat h3 {
+	margin: 0 0 20px 0;
+	font-weight: 400;
+	font-size: 18px;
+}
+
+
+/*------------------------------------*\
+		$MAP
+\*------------------------------------*/
+
+#Background {
+	fill: #fff;
+}
+
+.region {
+	-webkit-transition: 0.2s ease-out;
+	-moz-transition: 0.2s ease-out;
+	-ms-transition: 0.2s ease-out;
+	-o-transition: 0.2s ease-out;
+	transition: 0.2s ease-out;
+}
+
+
+.region.melanchon {
+	fill:#f20f05;
+}
+
+.region.melenchon {
+	/* Parce que on ne sait pas écrire son nom de la même façon... */
+	fill:#f20f05;
+}
+
+.region.macron {
+	fill:#52378C;
+}
+
+.region.hamon {
+	fill:#F24472;
+}
+
+.region.fillon {
+	fill:#15BFBF;
+}
+
+.region.lepen {
+	fill:#0806ff;
+}
+
+.maps {
+	float: left;
+	overflow: auto;
+	width: 90%;
+}
+
+.map {
+	padding: 80px 14%;
+	background: #1A1C22;
+	overflow: auto;
+}
+
+.map1, .map2 {
+	float: left;
+	width: 45%;
+	margin: 0 5% 0 0;
+	text-align: center;
+}
+
+.map h1 {
+	margin: 0 0 50px 0;
+	font-weight: 700;
+	font-size: 28px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	text-align: center;
+}
+
+.day {
+	display: inline-block;
+	overflow: auto;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.day img {
+	cursor: pointer;
+	float: left;
+	height: 40px;
+}
+
+.day span {
+	float: left;
+	margin: 10px 0 0 0;
+	font-weight: 500;
+}
+
+.legend {
+	overflow: auto;
+	float: left;
+	width: 10%;
+	padding: 16px 16px 10px 16px;
+	border-radius: 6px;
+	background: #fff;
+	color: #000;
+	font-weight: 400;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+}
+
+.legend h2 {
+	margin: 0 0 10px 0;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.number {
+	margin: 6px 0;
+}
+
+.legend .color {
+	display: inline-block;
+	border-radius: 2px;
+	width: 20px;
+	height: 20px;
+	margin: 0 10px 0 0;
+	background: #f20f05;
+}
+
+.legend p {
+	vertical-align: top;
+	display: inline-block;
+}
+
+#color100 {
+	opacity: 1;
+}
+
+#color80 {
+	opacity: 0.8;
+}
+
+#color60 {
+	opacity: 0.6;
+}
+
+#color40 {
+	opacity: 0.4;
+}
+
+#color20 {
+	opacity: 0.2;
+}
+
+#graphic nav {
+	margin-bottom: 20px;
+}
+
+#graphic h2 {
+	margin-top: -20px;
+}
+
+
+/*------------------------------------*\
+		$VELO
+\*------------------------------------*/
+
+.container.velo {
+	position: relative;
+	height:30vh;
+	background-image:url(../PNG/ville.png);
+	background-size:contain;
+	width:100%;
+	background-color:rgba(0,0,0,.2);
+	margin-top:5vh;
+}
+
+.container.velo img{
+	overflow:left;
+	position:absolute;
+	bottom:-5vh;
+}
+
+.container.velo img:first-child{
+	left:20%;
+}
+
+/* Graph */
+#titreGraph {
+	position: absolute;
+}
+
+
+.container.graph h2 {
+	margin-bottom:2vh;
+}
+
+.container.graph {
+	position:relative;
+	height:50vh;
+	padding: 80px 14%;
+}
+
+.insideGraph {
+	width: 800px;
+}
+
+#inside2 {
+    margin-left: 30px;
+}
+
+.container.graph .chart {
+    display: inline-flex;
+    flex-direction: row;
+    /* flex-basis: 637px; */
+    flex-grow: 0;
+    height: 400px;
+    width: 1600px;
+    height: 500px;
+    /* position: absolute; */
+	margin:2em;	
+    margin-left: -120px;
+}
+
+.container.graph .timeline-graph {
+	width:100%;
+	height:4vh;
+	position:absolute;
+	/*bottom:-2vh;*/
+	border-top:2px white solid;
+	border-bottom:2px white solid;
+    bottom: -3.2em;
+}
+
+.container.graph .timeline-graph div {
+	float:left;
+	height:100%;
+	width:calc(100%/6);
+	background-color:rgba(255,255,255,.2);
+	text-align:center;
+	color:rgba(255,255,255,.7);
+	padding:4px 0;
+	font-size:14px;
+	-webkit-transition: 0.2s ease-in-out;
+	-moz-transition: 0.2s ease-in-out;
+	-ms-transition: 0.2s ease-in-out;
+	-o-transition: 0.2s ease-in-out;
+	transition: 0.2s ease-in-out;
+}
+
+.container.graph .timeline-graph div:hover {
+	cursor:pointer;
+}
+
+.container.graph .timeline-graph div.selected{
+	color:rgba(0,0,0,.9);
+}
+
+.container.graph .timeline-graph div.selected {
+	background-color:rgba(255,255,255,.9);
+}
+
+.container.graph .explicationgraphe {
+	width:100%;
+	text-align:center;
+}
+
+.container.graph .explicationgraphe h1{
+	margin: 0 0 50px 0;
+    font-weight: 700;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.container.graph nav {
+	width:100%;
+	text-align: center;
+}
+
+.container.graph nav div {
+	display: inline-block;
+    margin: auto 4%;
+}
+
+.graphselected {
+	/* basic */ 
+	background-color: #2f3240;
+	/* border-radius */
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	/* box-shadow */
+	-webkit-box-shadow: rgba(0,0,0,0.8) 0px 0 10px;
+	-moz-box-shadow: rgba(0,0,0,0.8) 0 0 10px;
+	box-shadow: rgba(0,0,0,0.8) 0 0 10px;
+}
+
+.container.graph nav div.item-selected {
+	border:2px white solid;
+}
+
+.container.graph nav div:hover {
+	cursor:pointer;
+}
+
+
+/*------------------------------------*\
+		$POPUPS
+\*------------------------------------*/
+
+/* Outer */
+.popup {
+    width:100%;
+    height:100%;
+    display:none;
+    position:fixed;
+    top:0px;
+    left:0px;
+    background:rgba(0,0,0,0.75);
+	z-index: 1000;
+}
+
+/* Inner */
+.popup-inner {
+    max-width:700px;
+    width:90%;
+    padding:40px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform:translate(-50%, -50%);
+    transform:translate(-50%, -50%);
+    box-shadow:0px 2px 6px rgba(0,0,0,1);
+    border-radius:10px;
+    background:#464A5D;
+	z-index: 1000;
+}
+
+/* Close Button */
+.popup-close {
+    width:30px;
+    height:30px;
+    padding-top:4px;
+    display:inline-block;
+    position:absolute;
+    top:0px;
+    right:0px;
+    transition:ease 0.25s all;
+    -webkit-transform:translate(50%, -50%);
+    transform:translate(50%, -50%);
+    border-radius:1000px;
+    background:rgba(0,0,0,0.8);
+    font-family:Arial, Sans-Serif;
+    font-size:20px;
+    text-align:center;
+    line-height:100%;
+    color:#fff;
+}
+
+.popup-close:hover {
+    -webkit-transform:translate(50%, -50%) rotate(180deg);
+    transform:translate(50%, -50%) rotate(180deg);
+    background:rgba(0,0,0,1);
+    text-decoration:none;
+}
+
+/* Credits */
+.content-credits {
+    width:100%;
+}
+
+.c-credits {
+    width:33.33333333%;
+    float:left;
+}
+
+.content-credits img {
+    width:auto;
+    height:85px;
+    margin-bottom: 15px;
+}
+
+.content-credits-2 {
+	width:100%;
+}
+
+.content-credits-2 img {
+    width:auto;
+    height:35px;
+    margin-bottom: 30px;
+}
+
+.c2-credits {
+    width:25%;
+    float:left;
+}
+
+/* Sources */
+#img-sources {
+	width: 100%;
+}

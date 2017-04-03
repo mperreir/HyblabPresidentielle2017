@@ -1,0 +1,175 @@
+<div class="chart">
+	<h2 id="titreGraph">5 candidats cette semaine</h2>
+	<div class="insideGraph" id="inside">
+		<canvas id="myChart" width="1000" height="400"></canvas>
+	</div>
+	<div class="insideGraph" id="inside2">
+		<canvas id="myChart2" width="1000" height="400"></canvas>
+	</div>
+</div>
+
+
+<script src="./js/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script src="http://www.chartjs.org/assets/Chart.js"></script>
+<script type="text/javascript">
+	var activeChart
+	$(document).ready(function() {
+
+		var ctx = $("#myChart").get(0).getContext("2d");
+		var ctx2 = $("#myChart2").get(0).getContext("2d");
+
+		var gradientred = ctx.createLinearGradient(0, 0, 0, 400);
+		gradientred.addColorStop(0, 'rgba(242, 68, 114, 0.4)');
+		gradientred.addColorStop(1, 'rgba(245, 105, 142, 0.2)');
+
+		var gradientpurple = ctx.createLinearGradient(0, 0, 0, 400);
+		gradientpurple.addColorStop(0, 'rgba(82, 55, 140, 0.4)');
+		gradientpurple.addColorStop(1, 'rgba(117, 95, 163, 0.2)');
+
+		var gradientgreen = ctx.createLinearGradient(0, 0, 0, 400);
+		gradientgreen.addColorStop(0, 'rgba(21, 191, 191, 0.4)');
+		gradientgreen.addColorStop(1, 'rgba(68, 204, 204, 0.2)');
+
+		var gradientyellow = ctx.createLinearGradient(0, 0, 0, 400);
+		gradientyellow.addColorStop(0, 'rgba(242, 230, 53, 0.4)');
+		gradientyellow.addColorStop(1, 'rgba(245, 235, 93, 0.2)');
+
+		var gradientorange = ctx.createLinearGradient(0, 0, 0, 400);
+		gradientorange.addColorStop(0, 'rgba(242, 129, 29, 0.4)');
+		gradientorange.addColorStop(1, 'rgba(245, 154, 74, 0.2)');
+
+		var data = <%- datain %>;
+		var options = <%- optionin %>;
+		activeChart = new Chart(ctx).Line(data,options);
+		activeChart2 = new Chart(ctx2).Line(data,options);
+		var data2 = <%- data2 %>;
+
+	});
+
+	var data2 = <%- data2 %>;
+	var region = <%- region %>;
+	function changeDataGraph(newData, candidate, activeChart) {
+		var fillColor = [
+		'rgba(242, 15, 5, 0.4)',
+		'rgba(82, 55, 140, 0.4)',	
+		'rgba(242, 68, 114, 0.4)',
+		'rgba(21, 191, 191, 0.4)',
+		'rgba(8, 6, 255, 0.4)'	
+		]
+		var pointColor = [
+		"rgba(242, 15, 5, 1)",
+		"rgba(82, 55, 140, 1)",
+		"rgba(242, 68, 114, 1)",
+		"rgba(21, 191, 191, 1)",
+		"rgba(8, 6, 255, 1)"
+		]
+		var pointStrokeColor = [
+		"rgba(242, 25, 15, 0.8)",
+		"rgba(117, 95, 163, 1)",
+		"rgba(245, 105, 142, 1)",
+		"rgba(68, 204, 204, 1)",
+		"rgba(15, 12, 255, 1)"
+		]
+		var strokeColor = [
+		"rgba(242, 15, 5, 0.8)",
+		"rgba(82, 55, 140, 0.8)",
+		"rgba(242, 68, 114, 0.8)",
+		"rgba(21, 191, 191, 0.8)",
+		"rgba(8, 6, 255, 0.8)"	
+		]
+
+	// activeChart.datasets[candidate].points.length
+	activeChart.scale.xLabels.length
+	activeChart.datasets[candidate].fillColor = fillColor[candidate];
+	activeChart.datasets[candidate].pointColor = pointColor[candidate];
+	activeChart.datasets[candidate].strokeColor = strokeColor[candidate];
+	activeChart.datasets[candidate].pointStrokeColor = pointStrokeColor[candidate];
+
+	for (var i = activeChart.scale.xLabels.length - 1; i >= 0; i--) {
+		activeChart.datasets[candidate].points[i].value = newData[i]
+		activeChart.datasets[candidate].points[i].fillColor = fillColor[candidate];
+		activeChart.datasets[candidate].points[i].pointColor = pointColor[candidate];
+		activeChart.datasets[candidate].points[i].strokeColor = strokeColor[candidate];
+		activeChart.datasets[candidate].points[i].pointStrokeColor = pointStrokeColor[candidate];
+	}
+	activeChart.update()
+};
+
+function cleanDataGraph(candidate, activeChart) {
+	// activeChart.datasets[candidate].points.length
+	activeChart.scale.xLabels.length
+	activeChart.datasets[candidate].fillColor = "rgba(0,0,0,0)";
+	activeChart.datasets[candidate].pointColor = "rgba(0,0,0,0)";
+	activeChart.datasets[candidate].strokeColor = "rgba(0,0,0,0)";
+	activeChart.datasets[candidate].pointStrokeColor = "rgba(0,0,0,0)";
+	for (var i = activeChart.scale.xLabels.length - 1; i >= 0; i--) {
+		activeChart.datasets[candidate].points[i].value = 0;
+		activeChart.datasets[candidate].points[i].fillColor = "rgba(0,0,0,0)";
+		activeChart.datasets[candidate].points[i].pointColor = "rgba(0,0,0,0)";
+		activeChart.datasets[candidate].points[i].strokeColor = "rgba(0,0,0,0)";
+		activeChart.datasets[candidate].points[i].pointStrokeColor = "rgba(0,0,0,0)";
+	}
+	activeChart.update()
+};
+
+function getGtrendsRegion(name, candidat, day) {
+	return region[0][name]['gtrends'][candidat][day]/100
+}
+
+function updateOpacity(candidat, day) {
+	//region[0]['gtrends_alsace_per_day.json']['gtrends']['JLM'][1]
+	$(document).ready(() => {
+		$('#carteWeek').find('#Alsace').css('opacity', getGtrendsRegion('gtrends_alsace_per_day.json', candidat, day));
+		$('#carteWeek').find('#Loraine').css('opacity', getGtrendsRegion('gtrends_lorraine_per_day.json', candidat, day));
+		$('#carteWeek').find('#Nord').css('opacity', getGtrendsRegion('gtrends_nordpasdecalais_per_day.json', candidat, day));
+		$('#carteWeek').find('#Champagne').css('opacity', getGtrendsRegion('gtrends_champagneardenne_per_day.json', candidat, day));
+		$('#carteWeek').find('#Picardie').css('opacity', getGtrendsRegion('gtrends_picardy_per_day.json', candidat, day));
+		$('#carteWeek').find('#Bourgogne').css('opacity', getGtrendsRegion('gtrends_burgundy_per_day.json', candidat, day));
+		$('#carteWeek').find('#Franche').css('opacity', getGtrendsRegion('gtrends_franchecomte_per_day.json', candidat, day));
+		$('#carteWeek').find('#RhoneAlpes').css('opacity', getGtrendsRegion('gtrends_rhonealpes_per_day.json', candidat, day));
+		$('#carteWeek').find('#Auvergne').css('opacity', getGtrendsRegion('gtrends_auvergne_per_day.json', candidat, day));
+		$('#carteWeek').find('#Languedoc').css('opacity', getGtrendsRegion('gtrends_languedocroussillon_per_day.json', candidat, day));
+		$('#carteWeek').find('#PACA').css('opacity', getGtrendsRegion('gtrends_provence_per_day.json', candidat, day));
+		$('#carteWeek').find('#Haute_Normandie').css('opacity', getGtrendsRegion('gtrends_uppernormandy_per_day.json', candidat, day));
+		$('#carteWeek').find('#Basse_Normandie').css('opacity', getGtrendsRegion('gtrends_lowernormandy_per_day.json', candidat, day));
+		$('#carteWeek').find('#Centre').css('opacity', getGtrendsRegion('gtrends_centrevaldeloire_per_day.json', candidat, day));
+		$('#carteWeek').find('#PDL').css('opacity', getGtrendsRegion('gtrends_paysdelaloire_per_day.json', candidat, day));
+		$('#carteWeek').find('#IDF').css('opacity', getGtrendsRegion('gtrends_iledefrance_per_day.json', candidat, day));
+		$('#carteWeek').find('#Bretagne').css('opacity', getGtrendsRegion('gtrends_brittany_per_day.json', candidat, day));
+		$('#carteWeek').find('#Limousin').css('opacity', getGtrendsRegion('gtrends_limousin_per_day.json', candidat, day));
+		$('#carteWeek').find('#Corse').css('opacity', getGtrendsRegion('gtrends_corsica_per_day.json', candidat, day));
+		$('#carteWeek').find('#Poitou').css('opacity', getGtrendsRegion('gtrends_poitoucharentes_per_day.json', candidat, day));
+		$('#carteWeek').find('#Aquitaine').css('opacity', getGtrendsRegion('gtrends_aquitaine_per_day.json', candidat, day));
+		$('#carteWeek').find('#Midi').css('opacity', getGtrendsRegion('gtrends_midipyrenees_per_day.json', candidat, day));
+	});
+};
+
+function updateOpacityToday(candidat, day) {
+	//region[0]['gtrends_alsace_per_day.json']['gtrends']['JLM'][1]
+	$(document).ready(() => {
+		$('#carteToday').find('#Alsace').css('opacity', getGtrendsRegion('gtrends_alsace_per_day.json', candidat, day));
+		$('#carteToday').find('#Loraine').css('opacity', getGtrendsRegion('gtrends_lorraine_per_day.json', candidat, day));
+		$('#carteToday').find('#Nord').css('opacity', getGtrendsRegion('gtrends_nordpasdecalais_per_day.json', candidat, day));
+		$('#carteToday').find('#Champagne').css('opacity', getGtrendsRegion('gtrends_champagneardenne_per_day.json', candidat, day));
+		$('#carteToday').find('#Picardie').css('opacity', getGtrendsRegion('gtrends_picardy_per_day.json', candidat, day));
+		$('#carteToday').find('#Bourgogne').css('opacity', getGtrendsRegion('gtrends_burgundy_per_day.json', candidat, day));
+		$('#carteToday').find('#Franche').css('opacity', getGtrendsRegion('gtrends_franchecomte_per_day.json', candidat, day));
+		$('#carteToday').find('#RhoneAlpes').css('opacity', getGtrendsRegion('gtrends_rhonealpes_per_day.json', candidat, day));
+		$('#carteToday').find('#Auvergne').css('opacity', getGtrendsRegion('gtrends_auvergne_per_day.json', candidat, day));
+		$('#carteToday').find('#Languedoc').css('opacity', getGtrendsRegion('gtrends_languedocroussillon_per_day.json', candidat, day));
+		$('#carteToday').find('#PACA').css('opacity', getGtrendsRegion('gtrends_provence_per_day.json', candidat, day));
+		$('#carteToday').find('#Haute_Normandie').css('opacity', getGtrendsRegion('gtrends_uppernormandy_per_day.json', candidat, day));
+		$('#carteToday').find('#Basse_Normandie').css('opacity', getGtrendsRegion('gtrends_lowernormandy_per_day.json', candidat, day));
+		$('#carteToday').find('#Centre').css('opacity', getGtrendsRegion('gtrends_centrevaldeloire_per_day.json', candidat, day));
+		$('#carteToday').find('#PDL').css('opacity', getGtrendsRegion('gtrends_paysdelaloire_per_day.json', candidat, day));
+		$('#carteToday').find('#IDF').css('opacity', getGtrendsRegion('gtrends_iledefrance_per_day.json', candidat, day));
+		$('#carteToday').find('#Bretagne').css('opacity', getGtrendsRegion('gtrends_brittany_per_day.json', candidat, day));
+		$('#carteToday').find('#Limousin').css('opacity', getGtrendsRegion('gtrends_limousin_per_day.json', candidat, day));
+		$('#carteToday').find('#Corse').css('opacity', getGtrendsRegion('gtrends_corsica_per_day.json', candidat, day));
+		$('#carteToday').find('#Poitou').css('opacity', getGtrendsRegion('gtrends_poitoucharentes_per_day.json', candidat, day));
+		$('#carteToday').find('#Aquitaine').css('opacity', getGtrendsRegion('gtrends_aquitaine_per_day.json', candidat, day));
+		$('#carteToday').find('#Midi').css('opacity', getGtrendsRegion('gtrends_midipyrenees_per_day.json', candidat, day));
+	});
+};
+
+</script>
