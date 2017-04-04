@@ -42,11 +42,11 @@
 
 
           <div v-if="dejaVu1==0" class="black" id="black1" @click="fermerAide(1)"></div>
-              <div v-if="dejaVu1==0" class= "aide" id ="aide1"> 
+              <div v-if="dejaVu1==0" class= "aide" id ="aide1">
                 <div id="aideJeu">
                   <p>Jouez :</p>
                   <p>Dans la première partie de cette application, nous vous proposons de découvrir le député de Pays de la Loire qui vous correspond le plus !</p>
-                  <p>Répondez aux questions pour trouver votre député idéal.</p> 
+                  <p>Répondez aux questions pour trouver votre député idéal.</p>
                 </div>
               <button class="two wide column question_reponse_button" id="fermer" @click="fermerAide(1)"> Ok ! </button>
               </div>
@@ -108,11 +108,11 @@
 
 
         <div v-if="dejaVu2==0" class="black" id="black2" @click="fermerAide(2)"></div>
-              <div v-if="dejaVu2==0" class= "aide" id ="aide2"> 
+              <div v-if="dejaVu2==0" class= "aide" id ="aide2">
                 <div id="aideJeu">
                   <p>Explorez :</p>
                   <p>Vous pouvez maintenant obtenir les informations relatives aux 30 députés de Pays de la Loire.</p>
-                  <p>Cliquez sur le portrait d'un député pour acccédez à ses informations.</p> 
+                  <p>Cliquez sur le portrait d'un député pour accéder à ses informations.</p>
                 </div>
               <button class="two wide column question_reponse_button" id="fermer" @click="fermerAide(2)"> Ok ! </button>
               </div>
@@ -168,11 +168,11 @@
 
 
         <div v-if="dejaVu3==0" class="black" id="black3" @click="fermerAide(3)"></div>
-              <div v-if="dejaVu3==0" class= "aide" id ="aide3"> 
+              <div v-if="dejaVu3==0" class= "aide" id ="aide3">
                 <div id="aideJeu">
                   <p>Comparez :</p>
                   <p>{{depute_ideal.nom}} est le député de Pays de la Loire qui vous correspond le plus ! Mais comment se situe-t-il par rapport aux autres ?</p>
-                  <p>Utiliser la carte ou la recherche par nom pour comparer {{depute_ideal.nom}} à un autre député de la région.</p> 
+                  <p>Utiliser la carte ou la recherche par nom pour comparer {{depute_ideal.nom}} à un autre député de la région.</p>
                 </div>
               <button class="two wide column question_reponse_button" id="fermer" @click="fermerAide(3)"> Ok ! </button>
               </div>
@@ -303,12 +303,12 @@
 
                             <polygon id ="PL-3" class="cls-1" title ="PL-3" points="458.13 688.57 458.15 688.46 458.11 688.44 458.13 688.57"/>
                             <polygon id ="PL-4" class="cls-1" title ="PL-4" points="429.71 377.63 429.9 377.74 429.92 377.67 429.71 377.63"/>
-                            
+
                             <polygon id ="Maine-et-Loire" class="cls-1" title ="Maine-et-Loire" @click="changerCarte('Maine-et-Loire')" @mouseover="afficheNom('#Nom_ML')" @mouseout="hideNom('#Nom_ML')" points="740.7 439.67 739.79 438.44 721.31 413.3 670.9 414.85 664.7 393.91 600.33 406.32 552.84 401.77 454.53 392.36 429.9 377.74 425.49 391.2 453.05 454.04 491.63 462.16 486.55 476.38 446.96 473.33 453.05 497.7 502.8 503.79 516 541.35 495.69 554.55 458.13 549.48 443.6 556.24 399.24 576.89 430.71 606.33 440.87 597.2 448.99 630.7 429.7 656.08 456.35 672.42 461.17 675.37 458.15 688.46 487.57 700.75 497.72 695.68 523.9 709.49 611.55 707.96 622.31 674.13 763.78 671.05 836.05 494.22 836.05 457.32 740.7 439.67"/>
-                            
+
                             <polygon id ="Mayenne" class="cls-1" title ="Mayenne" @click="changerCarte('Mayenne')" @mouseover="afficheNom('#Nom_Mayenne')" @mouseout="hideNom('#Nom_Mayenne')" points="697.66 72.9 479.31 99.04 488.54 295.86 453.17 306.63 429.92 377.67 429.9 377.74 454.53 392.36 552.84 401.77 600.33 406.32 664.7 393.91 663.14 377.63 651.51 366.77 667.8 348.93 666.25 328.77 687.96 313.26 678.65 284.56 707.71 273.67 709.81 272.88 702.7 238.03 729.69 218.71 730.02 211.29 731.39 156.6 751.48 151.32 754.55 106.73 697.66 72.9"/>
 
-                            
+
                             <polygon id ="Sarthe" class="cls-1" title ="Sarthe" @click="changerCarte('Sarthe')" @mouseover="afficheNom('#Nom_Sarthe')" @mouseout="hideNom('#Nom_Sarthe')" points="876.02 168.24 879.1 117.5 842.2 100.58 751.48 151.32 731.39 156.6 730.02 211.29 729.84 218.64 726.55 220.99 702.7 238.03 709.07 269.88 709.67 272.93 707.71 273.67 678.65 284.56 687.96 313.26 666.25 328.77 667.8 348.93 651.51 366.77 663.14 377.63 664.7 393.91 670.9 414.85 721.31 413.3 739.79 438.44 740.7 439.67 836.05 457.32 886.79 474.23 994.42 358.91 1020.56 240.51 876.02 168.24"/>
 
                           <polygon id ="PL-3" class="cls-1" title ="PL-3" points="458.13 688.57 458.15 688.46 458.11 688.44 458.13 688.57"/>
@@ -444,7 +444,7 @@
                     <span id="nom_famille">{{depute_compa.nom_de_famille}}</span>
                   </div>
 
-                  <a id="retourCarte" @click="retourCarte()" class="button"><img id="retourCarteImg" src="img/back.png"></a>  
+                  <a id="retourCarte" @click="retourCarte()" class="button"><img id="retourCarteImg" src="img/back.png"></a>
                 </div>
 
                 <div id="infos_persos">
@@ -529,7 +529,7 @@
                   <div id="taux_de_presence_comp">
                   <p>Taux de présence à l'assemblée de {{depute_compa.nom}} :</p>
                   <div id="inline">
-                    <p id="pourcentage_presence">{{depute_compa.pourcentPresence}}% </p>             
+                    <p id="pourcentage_presence">{{depute_compa.pourcentPresence}}% </p>
 
                   </div>
 

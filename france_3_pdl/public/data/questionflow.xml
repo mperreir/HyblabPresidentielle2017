@@ -65,7 +65,7 @@
 					<next-noeud id="4"/>
 				</reponse>
 				<reponse rep="Non">
-					<individus>						
+					<individus>
 						<individu>sylviane-bulteau</individu>
 						<individu>guy-michel-chauveau</individu>
 						<individu>serge-bardy</individu>
@@ -115,7 +115,7 @@
 			</reponses>
 		</question>
 	</noeud>					 -->
-	
+
 	<noeud id="3">
 		<question quest="Etes-vous pour ou contre la loi sur la protection des lanceurs d'alerte?">
 			<reponses>
@@ -215,11 +215,11 @@
 		</question>
 	</noeud>
 	<noeud id="7">
-		<question quest="Etes-vous d'accord pour investir dans le développement économique des terrritoires d'Outre-Mer?">
+		<question quest="Etes-vous d'accord pour investir dans le développement économique des territoires d'Outre-Mer?">
 			<reponses>
 				<reponse rep="Oui">
-					<individus>						
-						<individu>veronique-besse</individu>	
+					<individus>
+						<individu>veronique-besse</individu>
 					</individus>
 					<next-noeud id="0"/>
 				</reponse>
@@ -473,6 +473,3 @@
 	</noeud>
 
 </questionflow>
-
-
-
